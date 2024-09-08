@@ -21,7 +21,7 @@ const { page, frontmatter } = useData()
           <span
             v-if="!frontmatter.index"
             class="hidden md:inline dark:text-white"
-            >The Vue Point</span
+            >Desperado Blog</span
           >
         </a>
         <div class="text-sm text-gray-500 dark:text-white leading-5">
