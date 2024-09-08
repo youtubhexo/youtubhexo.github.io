@@ -27,10 +27,10 @@ const { page, frontmatter } = useData()
         <div class="text-sm text-gray-500 dark:text-white leading-5">
           <a
             class="hover:text-gray-700 dark:hover:text-gray-200"
-            href="https://github.com/vuejs/blog"
+            href="/posts/vision-for-tech-and-growth"
             target="_blank"
             rel="noopener"
-            ><span class="hidden sm:inline">GitHub </span>Source</a
+            ><span class="hidden sm:inline">愿景 </span></a
           >
           <span class="mr-2 ml-2">·</span>
           <a
@@ -41,10 +41,10 @@ const { page, frontmatter } = useData()
           <span class="mr-2 ml-2">·</span>
           <a
             class="hover:text-gray-700 dark:hover:text-gray-200"
-            href="https://vuejs.org"
+            href="/posts/current-projects-and-actions"
             target="_blank"
             rel="noopener"
-            >Vuejs.org →</a
+            >目前在做的事情 →</a
           >
         </div>
       </nav>
