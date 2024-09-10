@@ -1,7 +1,14 @@
 import { defineConfig } from 'vitepress'
 import { genFeed } from './genFeed.js'
+// @ts-ignore
+import markdownItVideo from 'markdown-it-video'
 
 export default defineConfig({
+  markdown: {
+    config: (md) => {
+      md.use(markdownItVideo)
+    }
+  },
   title: 'Desperado Blog',
   description: 'Documenting my freelance journey and technical growth with insights and experiences',
   cleanUrls: true,
