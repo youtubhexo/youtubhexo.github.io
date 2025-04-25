@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>02-Linux文件及目录操作：我的 Linux 基础笔记 📂</title>
+    <url>/2025/04/25/02-Linux%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="Linux-目录结构：系统的骨架-🦴"><a href="#Linux-目录结构：系统的骨架-🦴" class="headerlink" title="Linux 目录结构：系统的骨架 🦴"></a>Linux 目录结构：系统的骨架 🦴</h2><p>在 Linux 系统中，目录的组织结构是理解文件操作的基础。以下是一些重要的目录及其作用：</p>
+<ul>
+<li><code>/usr</code>：<font color="#008080">系统软件默认安装位置</font>，通常包含用户安装的应用程序和库文件。（思考：为什么不直接安装在根目录下？）</li>
+<li><code>/opt</code>：<font color="#008080">可选软件包目录</font>，通常用于安装第三方或大型商业软件。（思考：将第三方软件放在这里有什么好处？）</li>
+<li><code>/etc</code>：<font color="#008080">系统配置文件目录</font>，几乎所有系统服务和应用程序的配置都在这里。（重要！修改配置文件需要谨慎。）</li>
+<li><code>/dev</code>：<font color="#008080">设备文件目录</font>，Linux 将所有硬件设备都抽象为文件。（思考：如何通过操作这些文件与硬件交互？）</li>
+<li><code>/tmp</code>：<font color="#008080">临时文件存储目录</font>，系统重启后该目录下的文件通常会被清空。（注意：不要在这里存放重要数据。）</li>
+<li><code>/home</code>：<font color="#008080">普通用户的家目录</font>，每个用户都有自己的独立空间。（我的个人文件通常在这里。）</li>
+<li><code>/root</code>：<font color="#008080">超级管理员（root）的家目录</font>，拥有系统的最高权限。（谨慎使用 root 权限！）</li>
+</ul>
+<h2 id="Linux-目录相关命令：我的导航工具-🧭"><a href="#Linux-目录相关命令：我的导航工具-🧭" class="headerlink" title="Linux 目录相关命令：我的导航工具 🧭"></a>Linux 目录相关命令：我的导航工具 🧭</h2><p>学习这些命令，就像学会了在 Linux 世界中导航：</p>
+<ul>
+<li><code>pwd</code>：<font color="#0000FF">显示当前工作目录</font>（Print Working Directory）。（我当前在哪儿？）</li>
+<li><code>ls</code>：<font color="#0000FF">列出目录内容</font>（List）。<ul>
+<li><code>ls -a</code>：<font color="#0000FF">显示所有目录和文件</font>，包括以 <code>.</code> 开头的隐藏文件。（隐藏文件有什么用？）</li>
+<li><code>ls -l</code>：<font color="#0000FF">以长列表格式显示</font>，包含详细的文件权限、所有者、大小和修改时间等信息。（这些信息的含义是什么？）</li>
+<li><code>ls -h</code>：<font color="#0000FF">以人类可读的格式显示文件大小</font>（Human-readable）。（比如 KB、MB、GB，更直观。）</li>
+</ul>
+</li>
+<li><code>mkdir &lt;目录名&gt;</code>：<font color="#0000FF">创建新目录</font>（Make Directory）。</li>
+<li><code>rmdir &lt;空目录名&gt;</code>：<font color="#0000FF">删除空目录</font>（Remove Directory）。（只能删除空目录，不常用。）</li>
+<li><code>cd &lt;目标目录&gt;</code>：<font color="#0000FF">切换工作目录</font>（Change Directory）。<ul>
+<li><code>cd ..</code>：返回上一级目录。</li>
+<li><code>cd ~</code> 或 <code>cd</code>：返回当前用户的家目录。</li>
+</ul>
+</li>
+<li><code>tree &lt;目录名&gt;</code>：<font color="#0000FF">以树状结构显示目录内容</font>。（清晰地展示目录层级关系，很直观。）</li>
+</ul>
+<h2 id="Linux-文件相关命令：我的操作利器-🔪"><a href="#Linux-文件相关命令：我的操作利器-🔪" class="headerlink" title="Linux 文件相关命令：我的操作利器 🔪"></a>Linux 文件相关命令：我的操作利器 🔪</h2><p>这些命令用于对文件进行各种操作：</p>
+<ul>
+<li><p><strong>创建文件</strong>：</p>
+<ul>
+<li><code>touch &lt;文件名&gt;</code>：<font color="#A0522D">创建一个空文件或更新文件的时间戳</font>。（很常用的创建空文件的方法。）</li>
+</ul>
+</li>
+<li><p><strong>复制文件</strong>：</p>
+<ul>
+<li><code>cp -r &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">复制文件或目录</font>（Copy，<code>-r</code> 用于复制目录，表示递归复制）。（复制目录时一定要加 <code>-r</code>！）</li>
+</ul>
+</li>
+<li><p><strong>移动文件</strong>：</p>
+<ul>
+<li><code>mv &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">移动文件或目录，也可以用于重命名</font>（Move）。（如果目标路径是已存在的目录，则移动到该目录下；如果是新的文件名，则重命名。）</li>
+</ul>
+</li>
+<li><p><strong>文件上传与下载</strong>：（思考：有哪些常用的文件上传和下载工具？例如 <code>scp</code>、<code>sftp</code>、<code>rz/sz</code> 等。）</p>
+</li>
+<li><p><strong>删除文件</strong>：</p>
+<ul>
+<li><code>rm -r &lt;文件/目录&gt;</code>：<font color="#A0522D">删除文件或目录</font>（Remove，<code>-r</code> 用于删除目录，请谨慎使用！）。（删除操作不可逆，一定要小心！）</li>
+</ul>
+</li>
+<li><p><strong>文本查找命令：在浩瀚的文件中寻找目标 🔍</strong></p>
+<ul>
+<li><p><code>find &lt;查找路径&gt; &lt;查找条件&gt;</code>：<font color="#228B22">强大的文件查找工具</font>。</p>
+<ul>
+<li><code>-name &lt;文件名&gt;</code>：<font color="#228B22">按文件名进行搜索</font>（支持通配符 <code>*</code>）。</li>
+<li><code>-type f</code>：<font color="#228B22">查找文件类型为普通文件</font>（<code>d</code> 表示目录，<code>l</code> 表示链接等）。</li>
+<li><code>-size &lt;+/-&gt;&lt;大小&gt;</code>：<font color="#228B22">按文件大小搜索</font>，<code>+</code> 大于，<code>-</code> 小于。（例如 <code>+100M</code> 表示大于 100MB。）</li>
+<li><code>-mtime &lt;+/-&gt;&lt;天数&gt;</code>：<font color="#228B22">按文件修改时间搜索</font>，<code>+n</code> 表示 n 天以前修改过，<code>-n</code> 表示 n 天以内修改过。</li>
+<li><code>-exec &lt;命令&gt; &#123;&#125; \;</code>：<font color="#228B22">对查找到的文件执行指定的命令</font>，<code>&#123;&#125;</code> 代表查找到的每个文件，<code>\;</code> 是命令结束符。（非常灵活的操作！）</li>
+</ul>
+</li>
+<li><p><strong>举例：</strong> <code>find /usr/lib -size +100M -type f -exec cp &#123;&#125; /archive/large_files \;</code></p>
+<p>  这条命令的含义是：在 <code>/usr/lib</code> 目录下查找所有大于 100MB 的普通文件 (<code>-type f -size +100M</code>)，并将找到的每个文件 (<code>&#123;&#125;</code>) 复制 (<code>cp</code>) 到 <code>/archive/large_files</code> 目录下，直到遇到 <code>\;</code> 结束。</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo, Linux, 文件管理, 笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>03-文件编辑、文本查看与解压缩：我的 Linux 工具箱 🧰</title>
+    <url>/2025/04/25/03-%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E3%80%81%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<h2 id="文件编辑：Vim-初体验-📝"><a href="#文件编辑：Vim-初体验-📝" class="headerlink" title="文件编辑：Vim 初体验 📝"></a>文件编辑：Vim 初体验 📝</h2><p>Vim 是 Linux 下强大的文本编辑器，虽然上手可能需要一些时间，但熟练后效率很高。</p>
+<ul>
+<li><p><strong>打开文件：</strong></p>
+<ul>
+<li><code>vim &lt;文件名&gt;</code>：<font color="#8B4513">打开指定文件</font>。如果文件不存在，则会创建一个新文件。</li>
+<li><code>vim +&lt;行号&gt; &lt;文件名&gt;</code>：<font color="#8B4513">打开文件并将光标定位到指定行号</font>。（例如 <code>vim +10 hello.txt</code> 会打开 <code>hello.txt</code> 并跳转到第 10 行。）</li>
+</ul>
+</li>
+<li><p><strong>三种模式：Vim 的灵魂 🎭</strong></p>
+<ul>
+<li><p><strong>命令模式 (Normal mode)</strong>：Vim 启动后的默认模式，用于执行各种编辑命令（移动光标、复制粘贴、删除等）。</p>
+<ul>
+<li><code>yy</code>：<font color="#2E8B57">复制当前行</font>（yank）。</li>
+<li><code>G</code>：<font color="#2E8B57">跳转到文件末尾</font>。</li>
+<li><code>o</code>：<font color="#2E8B57">在当前行下方插入新行并切换到插入模式</font>。</li>
+<li>其他常用命令：（思考：还有哪些常用的命令模式操作，例如 <code>dd</code> (删除行), <code>p</code> (粘贴), <code>hjkl</code> (光标移动) 等？）</li>
+</ul>
+</li>
+<li><p><strong>插入模式 (Insert mode)</strong>：用于输入文本。</p>
+<ul>
+<li>从命令模式切换到插入模式的常用按键：<code>i</code> (在光标前插入), <code>a</code> (在光标后插入), <code>o</code> (在当前行下方插入新行), <code>I</code> (在行首插入), <code>A</code> (在行尾插入), <code>O</code> (在当前行上方插入新行)。</li>
+<li>按 <code>Esc</code> 键返回命令模式。</li>
+</ul>
+</li>
+<li><p><strong>末行模式 (Command-line mode)</strong>：在命令模式下输入 <code>:</code> 进入，用于执行保存、退出、查找、设置等操作。</p>
+<ul>
+<li><code>:q!</code>：<font color="#FF0000">强制退出，不保存任何修改</font>。（小心使用！）</li>
+<li><code>:x</code>：<font color="#00008B">保存并退出</font>（只有在文件内容被修改时才保存，运维常用！）。</li>
+<li><code>:wq</code>：<font color="#00008B">保存并退出</font>（强制保存并退出）。</li>
+<li><code>:set nu</code>：<font color="#00008B">设置显示行号</font>。</li>
+<li><code>:set nonu</code>：<font color="#00008B">取消显示行号</font>。</li>
+<li><code>/&lt;关键词&gt;</code>：<font color="#00008B">在文件中查找关键词</font>，按 <code>n</code> 查找下一个匹配结果，按 <code>N</code> 查找上一个匹配结果。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="文本查看命令：洞察文件内容-👀"><a href="#文本查看命令：洞察文件内容-👀" class="headerlink" title="文本查看命令：洞察文件内容 👀"></a>文本查看命令：洞察文件内容 👀</h2><p>这些命令用于查看文本文件的内容，各有特点：</p>
+<ul>
+<li><code>cat &lt;文件&gt;</code>：<font color="#DC143C">一次性显示文件所有内容</font>。（适用于小文件。）</li>
+<li><code>more &lt;文件&gt;</code>：<font color="#DC143C">分页显示文件内容</font>。<ul>
+<li><code>空格</code>：向下翻一页。</li>
+<li><code>b</code>：向上翻一页。</li>
+<li><code>/关键词</code>：查找关键词。</li>
+<li><code>q</code>：退出。</li>
+<li>显示当前进度。</li>
+</ul>
+</li>
+<li><code>less &lt;文件&gt;</code>：<font color="#DC143C">更强大的分页查看器</font>，功能比 <code>more</code> 更丰富。<ul>
+<li><code>空格</code>：向下翻一页。</li>
+<li><code>b</code>：向上翻一页。</li>
+<li><code>/关键词</code>：查找关键词，按 <code>n</code> 查看下一个匹配，<code>N</code> 查看上一个匹配。</li>
+<li><code>q</code>：退出。</li>
+<li>支持上下方向键逐行滚动。</li>
+</ul>
+</li>
+<li><code>head -n &lt;文件&gt;</code>：<font color="#DC143C">显示文件的前 n 行</font>（默认显示前 10 行）。（例如 <code>head -20 hello.txt</code> 显示前 20 行。）</li>
+<li><code>tail -n &lt;文件&gt;</code>：<font color="#DC143C">显示文件的后 n 行</font>（默认显示后 10 行）。</li>
+<li><code>tail -f &lt;文件&gt;</code>：<font color="#DC143C">实时监控文件尾部的更新</font>，常用于查看日志文件。（当你需要实时查看日志变化时非常有用。）</li>
+<li><code>wc &lt;文件&gt;</code>：<font color="#DC143C">统计文件的行数、单词数和字节数</font>（Word Count）。<ul>
+<li><code>-l</code>：统计行数（lines）。</li>
+<li><code>-w</code>：统计单词数（words）。</li>
+<li><code>-c</code>：统计字节数（bytes）。</li>
+<li><code>-m</code>：统计字符数（characters）。</li>
+</ul>
+</li>
+<li><code>grep &lt;要查找的内容&gt; &lt;文件名&gt;</code>：<font color="#DC143C">强大的文本搜索工具</font>，用于在文件中查找包含指定模式的行。（思考：<code>grep</code> 还有哪些常用的选项，例如 <code>-i</code> (忽略大小写), <code>-r</code> (递归搜索), <code>-v</code> (反向匹配) 等？）</li>
+</ul>
+<h2 id="文件解压缩：整理你的文件-📦"><a href="#文件解压缩：整理你的文件-📦" class="headerlink" title="文件解压缩：整理你的文件 📦"></a>文件解压缩：整理你的文件 📦</h2><p>在 Linux 上处理压缩文件是很常见的操作。</p>
+<ul>
+<li><p><strong><code>tar</code> 命令 (归档和压缩&#x2F;解压缩)</strong>：常用于打包文件，并结合 <code>gzip</code> 或 <code>bzip2</code> 进行压缩。</p>
+<ul>
+<li><p><strong>打包并使用 gzip 压缩 (<code>.tar.gz</code> 或 <code>.tgz</code>)：</strong><br>  <code>tar -zcvf &lt;归档文件名&gt;.tar.gz &lt;需要归档的目录/文件&gt;</code></p>
+<ul>
+<li><code>-z</code>：使用 gzip 进行压缩。</li>
+<li><code>-c</code>：创建归档文件。</li>
+<li><code>-v</code>：显示详细的归档过程（verbose）。</li>
+<li><code>-f &lt;归档文件名&gt;</code>：指定归档文件名。</li>
+<li><code>&lt;需要归档的目录/文件&gt;</code>：要打包的文件或目录列表。</li>
+<li><code>-C &lt;目标目录&gt;</code>：改变到指定的目录 <code>&lt;目标目录&gt;</code> 再执行压缩。（注意：这个 <code>-C</code> 选项的位置可能会影响理解，通常在解压时使用较多。）</li>
+</ul>
+</li>
+<li><p><strong>解压 <code>.tar.gz</code> 文件：</strong><br>  <code>tar -zxvf &lt;归档文件名&gt;.tar.gz -C &lt;解压到的目录&gt;</code></p>
+<ul>
+<li><code>-z</code>：使用 gzip 进行解压缩。</li>
+<li><code>-x</code>：解压归档文件。</li>
+<li><code>-v</code>：显示详细的解压过程。</li>
+<li><code>-f &lt;归档文件名&gt;</code>：指定要解压的归档文件名。</li>
+<li><code>-C &lt;解压到的目录&gt;</code>：指定解压的目标目录。（例如 <code>-C /root</code> 表示解压到 <code>/root</code> 目录下。）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><code>zip</code> 命令 (压缩和解压缩)</strong>：常见的跨平台压缩格式。</p>
+<ul>
+<li><p><strong>压缩文件或目录：</strong><br>  <code>zip -r &lt;归档文件名&gt;.zip &lt;需要归档的目录/文件列表&gt;</code></p>
+<ul>
+<li><code>-r</code>：递归压缩目录。</li>
+<li><code>&lt;归档文件名&gt;.zip</code>：指定的压缩文件名。</li>
+<li><code>&lt;需要归档的目录/文件列表&gt;</code>：要压缩的文件或目录。</li>
+</ul>
+</li>
+<li><p><strong>解压 <code>.zip</code> 文件：</strong><br>  <code>unzip &lt;归档文件名&gt;.zip -d &lt;解压到的目录&gt;</code></p>
+<ul>
+<li><code>&lt;归档文件名&gt;.zip</code>：要解压的 zip 文件。</li>
+<li><code>-d &lt;解压到的目录&gt;</code>：指定解压的目标目录。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Linux, 文件操作, 文本处理, 压缩, 解压, 笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01-基础扫盲工作 - 我的运维学习笔记 ✍️</title>
+    <url>/2025/04/25/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="初探运维：我的理解-🤔"><a href="#初探运维：我的理解-🤔" class="headerlink" title="初探运维：我的理解 🤔"></a>初探运维：我的理解 🤔</h2><p>一开始，我对运维的印象可能比较模糊，但通过学习，我逐渐认识到：</p>
+<ol>
+<li><strong>核心定位：我们是软件运维</strong>，专注于软件系统的稳定运行。这和硬件运维有所区分。</li>
+<li><strong>关键价值：保障业务连续性</strong>。运维不仅仅是修机器，更重要的是通过专业技术，确保公司的 IT 系统像血液一样流畅运转，保障业务不中断。</li>
+<li><strong>意外的惊喜：薪资潜力超乎想象</strong>！有经验的运维高手，在薪资上竟然能超越开发、测试甚至 UI，这让我对这个领域刮目相看。</li>
+</ol>
+<h2 id="运维日常：我在做什么？-🛠️"><a href="#运维日常：我在做什么？-🛠️" class="headerlink" title="运维日常：我在做什么？ 🛠️"></a>运维日常：我在做什么？ 🛠️</h2><p>那么，运维具体都在做些什么呢？我的理解是：</p>
+<ol>
+<li><strong>像个细心的管家：系统的监控与维护</strong>。我们需要时刻关注服务器、网络设备的健康状况，就像给它们做体检，确保一切正常。（思考：有哪些常用的监控工具呢？）</li>
+<li><strong>化身救火队员：故障的排查与处理</strong>。当系统出现问题时，我们要快速找到原因并解决它，这需要冷静的头脑和扎实的技术。（思考：遇到不同类型的故障，排查思路有什么不同？）</li>
+<li><strong>追求效率的极客：自动化运维</strong>。重复性的工作应该交给机器去做，编写自动化脚本就是解放双手，提高效率的关键。（思考：哪些运维任务适合自动化？）</li>
+<li><strong>系统的搭建者和升级者：系统的部署与更新</strong>。根据业务需求，我们需要部署新的系统，并对现有系统进行升级。（思考：部署和升级过程中有哪些关键步骤和风险点？）</li>
+<li><strong>数据的守护者：备份与恢复</strong>。数据是企业的生命线，定期备份和制定恢复方案至关重要。（思考：有哪些常见的备份策略？）</li>
+<li><strong>安全的第一道防线：安全管理</strong>。及时发现和修复系统及应用的安全漏洞，防止黑客入侵。（思考：如何及时获取和应对安全漏洞信息？）</li>
+</ol>
+<h2 id="云计算：未来的趋势？-☁️"><a href="#云计算：未来的趋势？-☁️" class="headerlink" title="云计算：未来的趋势？ ☁️"></a>云计算：未来的趋势？ ☁️</h2><p>云计算这个概念很火，我的理解是它带来了极大的便利性：</p>
+<ul>
+<li><strong>随时调整操作系统</strong>，就像换手机系统一样灵活。</li>
+<li><strong>CPU 和内存资源、硬盘、网络带宽</strong>都可以根据需求动态调整，特别是阿里云的 100M 带宽，简直是飞一般的感觉！</li>
+</ul>
+<p>我甚至还申请了 2 台云服务器来体验：</p>
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425193845550.png" alt="截图"></p>
+<p>听说有的公司会用到成百上千台服务器，这在以前是难以想象的。</p>
+<p>另外，云计算还有私有云、公有云和混合云之分。了解这些区别，能帮助我们更好地判断网上信息的真实性。比如，通过裁判文书网这类公开渠道，我们可以获取更可靠的企业信息，避免被一些虚假数据误导。（思考：不同类型的云适用于哪些场景？）</p>
+<h2 id="基础概念梳理-💡"><a href="#基础概念梳理-💡" class="headerlink" title="基础概念梳理 💡"></a>基础概念梳理 💡</h2><h4 id="1-服务器：不止一种形态-🏢"><a href="#1-服务器：不止一种形态-🏢" class="headerlink" title="1. 服务器：不止一种形态 🏢"></a>1. 服务器：不止一种形态 🏢</h4><ul>
+<li>柜式服务器</li>
+<li>塔式服务器</li>
+<li>刀片式服务器</li>
+<li>机架式服务器</li>
+</ul>
+<p>学习到这些服务器类型后，我意识到网上那些声称用自己购买的少量服务器进行教学的，在应对业务快速发展和弹性伸缩方面是远远不够的。购买云服务器才是更明智的选择，尤其是在初期快速验证和弹性扩容方面。</p>
+<h4 id="2-IP-地址：网络世界的门牌号-🚪"><a href="#2-IP-地址：网络世界的门牌号-🚪" class="headerlink" title="2. IP 地址：网络世界的门牌号 🚪"></a>2. IP 地址：网络世界的门牌号 🚪</h4><p>（思考：IP 地址的分类和作用是什么？）</p>
+<h4 id="3-企业运行模式：运维身处何处？-🗺️"><a href="#3-企业运行模式：运维身处何处？-🗺️" class="headerlink" title="3. 企业运行模式：运维身处何处？ 🗺️"></a>3. 企业运行模式：运维身处何处？ 🗺️</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425200345846.png" alt="运维的地位"></p>
+<p>这张图清晰地展示了运维在企业中的地位。对于我们运维人员来说，<strong>生产环境</strong>就是我们战斗的核心阵地，它直接关系到企业的生死存亡和用户体验。因此，<strong>稳定性、可用性和安全性</strong>是我们的首要任务，也是我们工作的价值所在。</p>
+<p>运维工作贯穿了开发、测试到最终生产的整个生命周期，是不可或缺的关键环节。</p>
+<h4 id="4-网络通信三要素：对话的基础-🗣️"><a href="#4-网络通信三要素：对话的基础-🗣️" class="headerlink" title="4. 网络通信三要素：对话的基础 🗣️"></a>4. 网络通信三要素：对话的基础 🗣️</h4><p><strong>IP 地址、端口、协议</strong>。记住 <strong>0-1023</strong> 这些<strong>知名端口</strong>很重要，它们就像是常用服务的固定电话号码，例如 HTTP 的 80，HTTPS 的 443，FTP 的 21。（思考：还有哪些常见的知名端口？）</p>
+<h4 id="5-工单系统：协作的桥梁-🤝"><a href="#5-工单系统：协作的桥梁-🤝" class="headerlink" title="5. 工单系统：协作的桥梁 🤝"></a>5. 工单系统：协作的桥梁 🤝</h4><p>有内部使用的工单系统，也有面向外部客户的工单系统。（思考：好的工单系统应该具备哪些功能？）</p>
+<h4 id="6-网络基础：连接的基石-🧱"><a href="#6-网络基础：连接的基石-🧱" class="headerlink" title="6. 网络基础：连接的基石 🧱"></a>6. 网络基础：连接的基石 🧱</h4><p>包括光猫、路由器、交换机、网线这些物理设备。（思考：它们各自的作用是什么？如何排查网络故障？）</p>
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201148875.png" alt="配网用的"></p>
+<h2 id="操作系统：软件的灵魂-⚙️"><a href="#操作系统：软件的灵魂-⚙️" class="headerlink" title="操作系统：软件的灵魂 ⚙️"></a>操作系统：软件的灵魂 ⚙️</h2><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201313931.png" alt="操作系统介绍"></p>
+<p>（思考：不同操作系统的特点和适用场景是什么？Linux 为什么在服务器领域占据主导地位？）</p>
+]]></content>
+      <tags>
+        <tag>运维, 基础, 笔记, 思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/04/25/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
