@@ -376,4 +376,56 @@
 <p>#Linux #权限管理 #新手教程 #小红书 #干货分享 #技术流</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>06-软件安装和系统服务</title>
+    <url>/2025/04/26/06-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p>兄弟们，今天来聊聊在 Linux 系统上怎么“捯饬”各种软件和系统服务！💻✨ 别看命令行黑乎乎的，玩熟了简直打开新世界的大门！😎</p>
+<h3 id="软件分类：你的-App-“出生”方式大揭秘！👶➡️🚀"><a href="#软件分类：你的-App-“出生”方式大揭秘！👶➡️🚀" class="headerlink" title="软件分类：你的 App “出生”方式大揭秘！👶➡️🚀"></a>软件分类：你的 App “出生”方式大揭秘！👶➡️🚀</h3><p>话说软件就像我们的小可爱 App，它们的“出生”方式可不一样哦！主要分两种：</p>
+<p><strong>1. 源码包：</strong> 就像拿到 App 的“源代码”！📜 你需要自己配置好“开发环境”（各种依赖），然后像个小码农一样“编译”它，再“打包”成能安装的“安装包”，最后才能安装使用。听起来是不是有点硬核？💪 但好处是你可以根据自己的需求定制功能，就像自己 DIY 一个独一无二的手机壳！🎨</p>
+<p><strong>举个栗子🌰：</strong> 很多超 cool、最新的开源软件都是以源码包的形式发布的。比如你想用某个还没被主流 Linux 发行版收录的黑科技工具，很可能就需要你先下载源码，然后 <code>./configure</code> -&gt; <code>make</code> -&gt; <code>make install</code> 三连击！💥</p>
+<p><strong>2. 二进制包：</strong> 这就像直接拿到已经打包好的 App 安装包（比如安卓的 <code>.apk</code>，iOS 的 <code>.ipa</code>）。你不需要关心它背后的“源代码”是啥，直接“一键安装”就能用！✌️ 这种方式为了保护开发者的知识产权，会进行代码混淆，让别人不容易直接看到源码。</p>
+<p>二进制包又分<strong>离线安装</strong>和<strong>在线安装</strong>两种方式，各有千秋，适用不同场景哦！</p>
+<h3 id="RPM-离线安装：网不好？没关系！📦"><a href="#RPM-离线安装：网不好？没关系！📦" class="headerlink" title="RPM 离线安装：网不好？没关系！📦"></a>RPM 离线安装：网不好？没关系！📦</h3><p>RPM（Red Hat Package Manager）是很多 Linux 发行版（比如 CentOS、Fedora）都在用的“快递”格式！📦 你可以提前下载好 <code>.rpm</code> 包，然后在没网或者网络不好的情况下直接安装！</p>
+<p><strong>常用命令小贴士：</strong></p>
+<ul>
+<li><strong>查询已安装的 RPM 包：</strong> <code>rpm -qa</code>  （这个命令会列出所有已安装的 RPM 包，信息量有点大哈！👀）</li>
+<li><strong>精准查找包含特定关键词的包：</strong> <code>rpm -qa | grep &lt;关键词&gt;</code>  比如你想找包含 <code>wget</code> 的包：<code>rpm -qa | grep wget</code></li>
+<li><strong>查看特定 RPM 包的详细信息：</strong> <code>rpm -qi &lt;包名&gt;</code>  比如：<code>rpm -qi wget-1.21.1-8.el9.x86_64</code></li>
+<li><strong>安装本地 RPM 包：</strong> <code>rpm -ivh &lt;.rpm 包文件&gt;</code>  <code>i</code> 是安装，<code>v</code> 是显示详细信息，<code>h</code> 是显示安装进度小方块，敲起来是不是很有仪式感？🧱<ul>
+<li><strong>强制安装（小心使用！）：</strong> 有时候遇到依赖问题，可以尝试加上 <code>--nodeps --force</code>，但可能会导致软件运行不稳定哦！⚠️</li>
+</ul>
+</li>
+<li><strong>升级 RPM 包：</strong> <code>rpm -Uvh &lt;.rpm 包文件&gt;</code>  <code>U</code> 是升级，如果没安装过就相当于安装。</li>
+<li><strong>卸载 RPM 包：</strong> <code>rpm -e &lt;包名&gt;</code>  注意这里是<strong>包名</strong>，不是 <code>.rpm</code> 文件名！比如卸载 <code>wget</code>：<code>rpm -e wget</code><ul>
+<li><strong>强制卸载（同样小心！）：</strong> 同样可以加上 <code>--nodeps --force</code>，但后果自负哦！💣</li>
+</ul>
+</li>
+</ul>
+<h3 id="DNF-在线安装：冲浪达人的必备技能！🏄‍♀️"><a href="#DNF-在线安装：冲浪达人的必备技能！🏄‍♀️" class="headerlink" title="DNF 在线安装：冲浪达人的必备技能！🏄‍♀️"></a>DNF 在线安装：冲浪达人的必备技能！🏄‍♀️</h3><p>DNF（Dandified YUM）是新一代的包管理器，在 Fedora 和一些新的 CentOS 版本上取代了 YUM。它就像一个智能的“App Store”，连接着软件仓库，可以自动帮你下载、安装、升级、卸载软件，还能自动处理依赖关系，简直是懒人必备！😎</p>
+<p><strong>常用命令速记：</strong></p>
+<ul>
+<li><strong>列出所有可用的软件包：</strong> <code>dnf list</code> （信息量巨大！🐳）</li>
+<li><strong>搜索软件包：</strong> <code>dnf search &lt;关键词&gt;</code>  比如你想找关于 Python 的包：<code>dnf search python</code></li>
+<li><strong>查看软件包信息：</strong> <code>dnf info &lt;包名&gt;</code>  比如：<code>dnf info python3</code></li>
+<li><strong>安装软件包：</strong> <code>dnf install &lt;包名&gt;</code>  比如安装 Python：<code>dnf install python3</code>  它会自动帮你下载并安装所有相关的依赖包，超省心！💖</li>
+<li><strong>升级软件包：</strong> <code>dnf upgrade &lt;包名&gt;</code>  升级指定的包，比如升级 Python：<code>dnf upgrade python3</code></li>
+<li><strong>升级所有软件包：</strong> <code>dnf update</code> 或者 <code>dnf upgrade</code> （推荐定期执行，保持系统软件最新！✨）</li>
+<li><strong>移除软件包：</strong> <code>dnf remove &lt;包名&gt;</code>  比如移除 Python：<code>dnf remove python3</code><ul>
+<li><strong>移除不再需要的依赖包：</strong> <code>dnf autoremove</code>  卸载掉那些因为之前安装某个包而自动安装，但现在那个包已经被卸载了的“孤儿”依赖包，让你的系统更干净！🧹</li>
+</ul>
+</li>
+<li><strong>列出已安装的软件包：</strong> <code>dnf list --installed</code>  想看看自己都装了啥？用这个！🧐</li>
+<li><strong>查找已安装的包含特定关键词的包：</strong> <code>dnf list --installed | grep &lt;关键词&gt;</code>  比如查找已安装的 Python 包：<code>dnf list --installed | grep python</code></li>
+<li><strong>清理缓存：</strong> <code>dnf clean all</code>  有时候遇到问题可以尝试清理一下缓存。</li>
+</ul>
+<p><strong>举几个 DNF 的实用例子🌰：</strong></p>
+<ul>
+<li><strong>想安装一个超好用的文本编辑器 <code>nano</code>：</strong> <code>sudo dnf install nano</code></li>
+<li><strong>发现 <code>vim</code> 太难学，想换回 <code>nano</code>？</strong> <code>sudo dnf remove vim</code></li>
+<li><strong>听说 <code>neofetch</code> 可以酷炫地展示系统信息，想试试？</strong> <code>sudo dnf install neofetch</code> 然后运行 <code>neofetch</code> 看看效果！🤩</li>
+<li><strong>系统提示有更新，想一次性升级所有软件？</strong> <code>sudo dnf update -y</code> （加上 <code>-y</code> 可以自动确认，不用每次都按 <code>y</code> 啦！😉）</li>
+</ul>
+<p>好啦，关于 Linux 下的软件安装就先聊到这里！是不是感觉也没那么难嘛？😉 掌握了这些小技巧，你也能轻松管理你的 Linux 系统啦！下次再和兄弟们分享更多好玩的技术干货！💖✨</p>
+]]></content>
+  </entry>
 </search>
