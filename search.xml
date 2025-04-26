@@ -282,4 +282,98 @@
 <p>lsp lp<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083352959.png"></p>
 <h3 id="5-进程管理命令"><a href="#5-进程管理命令" class="headerlink" title="5 进程管理命令"></a>5 进程管理命令</h3><h4 id="ps-ef-aux-grep-要查询的进程名字"><a href="#ps-ef-aux-grep-要查询的进程名字" class="headerlink" title="ps -ef&#x2F;aux  | grep 要查询的进程名字"></a>ps -ef&#x2F;aux  | grep 要查询的进程名字</h4><h3 id="6-杀死进程"><a href="#6-杀死进程" class="headerlink" title="6 杀死进程"></a>6 杀死进程</h3><h4 id="kill-9"><a href="#kill-9" class="headerlink" title="kill -9 "></a><strong>kill -9 <PID></strong></h4>]]></content>
   </entry>
+  <entry>
+    <title>05-权限管理</title>
+    <url>/2025/04/26/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"><a href="#🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！" class="headerlink" title="🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"></a>🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！</h1><p>兄弟们，今天给大家分享一下在 Linux 系统里超级重要的一个知识点——<strong>权限管理</strong>！💻💾 别看它好像很高深的样子，其实掌握了它，就能更好地保护我们的文件和数据哦！💪</p>
+<h2 id="🤔-权限是个啥？"><a href="#🤔-权限是个啥？" class="headerlink" title="🤔 权限是个啥？"></a>🤔 权限是个啥？</h2><p>在 Linux 这个神奇的世界里，每个文件和文件夹都有自己的“主人”和“管家”，还有一些“访客”。权限就像是给他们设置的“通行证”，规定了谁能看👀、谁能动✍️、谁能用▶️！</p>
+<p>简单来说，权限就三种：</p>
+<ul>
+<li><strong>r (Read - 读)</strong>：👀 可以看里面的内容！<ul>
+<li><strong>文件</strong>：就能打开看到文件写了啥。</li>
+<li><strong>目录</strong>：就能看到这个文件夹里都有哪些文件和文件夹的名字。</li>
+</ul>
+</li>
+<li><strong>w (Write - 写)</strong>：✍️ 可以修改里面的内容！<ul>
+<li><strong>文件</strong>：就能编辑、保存文件里的东西。</li>
+<li><strong>目录</strong>：就能在这个文件夹里新建、删除、移动文件和文件夹！⚠️ 小心操作哦！</li>
+</ul>
+</li>
+<li><strong>x (Execute - 执行)</strong>：▶️ 可以运行它！<ul>
+<li><strong>文件</strong>：对于程序或者脚本文件，有了这个权限才能跑起来！</li>
+<li><strong>目录</strong>：有了这个权限才能用 <code>cd</code> 命令进入这个文件夹！🚪</li>
+</ul>
+</li>
+</ul>
+<h2 id="🔍-权限信息在哪里看？"><a href="#🔍-权限信息在哪里看？" class="headerlink" title="🔍 权限信息在哪里看？"></a>🔍 权限信息在哪里看？</h2><p>在终端里输入 <code>ls -l</code> 命令，就能看到文件和文件夹的详细信息啦！就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x  2 user group 4096 Apr 26 14:30 my_folder</span><br><span class="line">-rw-r--r--  1 user group  100 Apr 26 14:30 my_file.txt</span><br></pre></td></tr></table></figure>
+
+<p>最前面那一串像 <code>drwxr-xr-x</code> 和 <code>-rw-r--r--</code> 的就是权限信息啦！🤩</p>
+<ul>
+<li><p><strong>第一位</strong>：是文件类型哦！<code>-</code> 代表普通文件，<code>d</code> 代表文件夹，<code>l</code> 代表快捷方式。</p>
+</li>
+<li><p><strong>后面九位</strong>：分成三组，每组三个字母，分别代表 <strong>文件主人 (User)</strong>、<strong>文件所属组 (Group)</strong>、<strong>其他人 (Others)</strong> 的权限！</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(文件主人) (所属组) (其他人)</span><br><span class="line">  rwx     r-x      r-x</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="✍️-怎么修改权限？两种方法安排上！"><a href="#✍️-怎么修改权限？两种方法安排上！" class="headerlink" title="✍️ 怎么修改权限？两种方法安排上！"></a>✍️ 怎么修改权限？两种方法安排上！</h2><h3 id="🅰️-字母大法：简单易懂！"><a href="#🅰️-字母大法：简单易懂！" class="headerlink" title="🅰️ 字母大法：简单易懂！"></a>🅰️ 字母大法：简单易懂！</h3><p>用 <code>chmod</code> 命令就可以修改权限啦！</p>
+<ul>
+<li><code>u</code>：主人</li>
+<li><code>g</code>：所属组</li>
+<li><code>o</code>：其他人</li>
+<li><code>+</code>：添加权限</li>
+<li><code>-</code>：移除权限</li>
+<li><code>=</code>：设置成某个权限</li>
+</ul>
+<p>比如，我想给我写的 <code>linux.txt</code> 文件加上执行权限，让它跑起来！🏃‍♀️</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod u+x linux.txt</span><br></pre></td></tr></table></figure>
+
+<p>如果想给一个文件夹和它里面的所有东西都加上某个权限，记得加上 <code>-R</code> 参数哦！🔄</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod -R g+w my_project</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔢-数字密码：更快更直接！"><a href="#🔢-数字密码：更快更直接！" class="headerlink" title="🔢 数字密码：更快更直接！"></a>🔢 数字密码：更快更直接！</h3><p>还有一种更酷的方法，用数字来代表权限！😎</p>
+<ul>
+<li><code>r</code> &#x3D; 4</li>
+<li><code>w</code> &#x3D; 2</li>
+<li><code>x</code> &#x3D; 1</li>
+</ul>
+<p>把想要的权限数字加起来就好啦！</p>
+<ul>
+<li><code>7</code> (<code>4+2+1</code>) &#x3D; <code>rwx</code> (读写执行全都有！)</li>
+<li><code>6</code> (<code>4+2</code>) &#x3D; <code>rw-</code> (可以读写，不能执行)</li>
+<li><code>5</code> (<code>4+1</code>) &#x3D; <code>r-x</code> (可以读和执行，不能写)</li>
+<li><code>4</code> &#x3D; <code>r--</code> (只能读)</li>
+</ul>
+<p>比如，我想给 <code>shop</code> 这个文件夹所有权限！安排！👇</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 777 shop</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <code>777</code> 权限要谨慎使用哦，因为它给所有人开了大门！🚪</p>
+<h2 id="🤫-默认权限的小秘密-umask"><a href="#🤫-默认权限的小秘密-umask" class="headerlink" title="🤫 默认权限的小秘密 (umask)"></a>🤫 默认权限的小秘密 (<code>umask</code>)</h2><p>每次我们新建文件或者文件夹的时候，系统都会给它们一个默认的权限。这个默认权限是由 <code>umask</code> 这个小家伙决定的！🤫 虽然笔记里没细说，但记住有这么个东西就好啦！</p>
+<h2 id="✨-特殊权限了解一下！"><a href="#✨-特殊权限了解一下！" class="headerlink" title="✨ 特殊权限了解一下！"></a>✨ 特殊权限了解一下！</h2><p>Linux 还有一些特殊的“小彩蛋”权限，虽然不常用，但是了解一下总没错！</p>
+<ul>
+<li><strong>冒险位 (SUID &amp; SGID)</strong>：🚀 让普通用户也能临时拥有文件主人或者文件所属组的“超能力”！<ul>
+<li><code>S</code>：表示设置了冒险位，但主人&#x2F;组没有执行权限（不常见）。</li>
+<li><code>s</code>：表示设置了冒险位，并且主人&#x2F;组有执行权限（更常见）。</li>
+</ul>
+</li>
+<li><strong>粘滞位 (Sticky Bit)</strong>：📍 给公共文件夹加个“小门卫”，只有文件的主人、文件夹的主人或者 root 大佬才能删除里面的文件，别人想动？没门！🙅‍♀️ 用 <code>T</code> 表示哦！</li>
+</ul>
+<h2 id="🤝-文件和文件夹的“户口本”"><a href="#🤝-文件和文件夹的“户口本”" class="headerlink" title="🤝 文件和文件夹的“户口本”"></a>🤝 文件和文件夹的“户口本”</h2><ul>
+<li><strong>所属用户 (<code>chown</code>)</strong>：可以修改文件和文件夹的“主人”！🏠  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chown -R new_owner my_folder</span><br></pre></td></tr></table></figure></li>
+<li><strong>所属组 (<code>chgrp</code>)</strong>：可以修改文件和文件夹的“家庭”！🏘️  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chgrp -R new_group my_folder</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="🛡️-更高级的权限管理-ACL"><a href="#🛡️-更高级的权限管理-ACL" class="headerlink" title="🛡️ 更高级的权限管理 (ACL)"></a>🛡️ 更高级的权限管理 (<code>ACL</code>)</h2><p>如果觉得基本权限不够用，还有更厉害的 <strong>ACL (Access Control List)</strong>！它可以针对** конкретный 用户** 设置更细致的权限！📝 就像给 VIP 用户开通专属通道！下次有机会再给大家细讲！</p>
+<h2 id="🧑‍🤝‍🧑-用户和用户组小课堂"><a href="#🧑‍🤝‍🧑-用户和用户组小课堂" class="headerlink" title="🧑‍🤝‍🧑 用户和用户组小课堂"></a>🧑‍🤝‍🧑 用户和用户组小课堂</h2><ul>
+<li><code>groupadd 用户组名称</code>：新建一个“家庭”！</li>
+<li><code>groupmod 用户组名称</code>：修改“家庭”信息。</li>
+<li><code>groupdel 用户组名称</code>：解散“家庭”。</li>
+<li><code>/etc/group</code>：这里记录了所有“家庭”的信息哦！</li>
+<li><code>useradd 用户名称</code>：新添一个“家庭成员”！</li>
+<li><code>usermod 用户名称</code>：修改“家庭成员”信息。</li>
+<li><code>userdel 用户名称</code>：移除“家庭成员”。</li>
+</ul>
+<hr>
+<p>好啦！今天的 Linux 权限管理小课堂就到这里啦！是不是感觉没那么难了呢？😜 掌握了这些，就能更好地管理你的 Linux 系统，保护好你的数据哦！快去试试看吧！👋</p>
+<p>#Linux #权限管理 #新手教程 #小红书 #干货分享 #技术流</p>
+]]></content>
+  </entry>
 </search>
