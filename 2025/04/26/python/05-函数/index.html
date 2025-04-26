@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.ioe","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="title: 05-函数date: 2025-04-26 17:42:36tags: ✨ Python新手必看！Day05容器与函数基础知识点总结！ 🚀 哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝 # 容器的通用方法 Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="心灵星图笔记">
+<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="心灵星图笔记">
+<meta property="og:description" content="title: 05-函数date: 2025-04-26 17:42:36tags: ✨ Python新手必看！Day05容器与函数基础知识点总结！ 🚀 哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝 # 容器的通用方法 Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-26T09:42:37.012Z">
+<meta property="article:modified_time" content="2025-04-26T09:55:35.308Z">
+<meta property="article:author" content="心灵星图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/","path":"2025/04/26/python/05-函数/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 心灵星图笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心灵星图笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:42:37 / Modified: 17:55:35" itemprop="dateCreated datePublished" datetime="2025-04-26T17:42:37+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<p>title: 05-函数<br>date: 2025-04-26 17:42:36<br>tags:</p>
+<p>✨ <strong>Python新手必看！Day05容器与函数基础知识点总结！</strong> 🚀</p>
+<p>哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝</p>
+<p><strong># 容器的通用方法</strong></p>
+<p>Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的效率！</p>
+<ul>
+<li><strong><code>enumerate()</code></strong>：这个函数简直是遍历容器时的神器！它可以同时给出元素的索引和值，就像这样：  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]):</span><br><span class="line">    <span class="built_in">print</span>(index, element)</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># 0 张三</span></span><br><span class="line"><span class="comment"># 1 李四</span></span><br><span class="line"><span class="comment"># 2 王五</span></span><br></pre></td></tr></table></figure>
+  再也不用手动去数索引啦！🥳</li>
+<li><strong><code>len()</code></strong>：想知道容器里有多少个元素？用<code>len()</code>就对啦！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>])) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>range()</code></strong>：生成一个数字序列，经常用在循环里！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>): <span class="comment"># 生成0到9的序列</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>max()</code></strong> 和 <strong><code>min()</code></strong>：分别用来找出容器中的最大值和最小值。</li>
+</ul>
+<p><strong># 容器中通用的属性</strong></p>
+<p>容器还有一个很重要的特性，那就是可以通过索引来访问和操作元素！</p>
+<ul>
+<li><strong>索引取值</strong>：就像数组一样，用方括号 <code>[]</code> 加上索引就可以获取特定位置的元素。记住索引是从0开始的哦！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>]) <span class="comment"># 输出：a</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>切片操作</strong>：想要一次获取容器中多个连续的元素？切片了解一下！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>, <span class="string">&#x27;赵六&#x27;</span>, <span class="string">&#x27;孙七&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 输出：[&#x27;张三&#x27;, &#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>del</code> 关键字</strong>：可以用来删除容器中的元素。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list) <span class="comment"># 输出：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
+  ⚠️ 注意：列表是可变的，所以删除操作会直接修改列表本身哦！</li>
+</ul>
+<p><strong># 敲黑板！函数的定义与使用</strong></p>
+<p>函数是Python中非常重要的概念，它可以帮助我们组织代码，提高代码的复用性！</p>
+<ul>
+<li><strong>定义函数</strong>：使用 <code>def</code> 关键字来定义一个函数，后面跟着函数名、括号 <code>()</code> 和冒号 <code>:</code>。函数体需要缩进。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_msg</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;乾坤未定，你我皆是黑马！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_num</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">diff</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> a - b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> b - a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成一个四位数的随机数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">1000</span>, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure></li>
+<li><strong>调用函数</strong>：直接使用函数名加上括号 <code>()</code> 就可以调用函数了。如果函数有参数，需要在括号里传入相应的值。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print_msg() <span class="comment"># 调用无参数函数</span></span><br><span class="line">print_num(<span class="number">5</span>) <span class="comment"># 调用带一个参数的函数</span></span><br><span class="line">result = diff(<span class="number">1</span>, <span class="number">2</span>) <span class="comment"># 调用带两个参数并有返回值的函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目3&quot;</span>, diff(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目4&quot;</span>, generate_random())</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>今天的内容就到这里啦！是不是感觉Python更有趣了呢？💪 记得多练习才能更好地掌握哦！下次再见！👋</p>
+<p>#Python学习 #编程入门 #新手教程 #干货分享 #Day05 #容器 #函数 #小红书笔记 #一起学Python</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>心灵星图
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/" title="">https://youtubhexo.github.ioe/2025/04/26/python/05-函数/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/26/python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/" rel="prev" title="04-[容器]列表-元组-字典-集合">
+                  <i class="fa fa-angle-left"></i> 04-[容器]列表-元组-字典-集合
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/26/python/06-%E4%BC%A0%E5%8F%82/" rel="next" title="06-传参">
+                  06-传参 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

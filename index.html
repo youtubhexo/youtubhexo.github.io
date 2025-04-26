@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,943 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">10-网络编程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:55:11 / Modified: 17:55:41" itemprop="dateCreated datePublished" datetime="2025-04-26T17:55:11+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀</p>
+<p><strong># Python网络编程初探：让你的代码连接世界！🌍</strong></p>
+<p>想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉</p>
+<p><strong># 网络编程三要素：IP地址、端口和协议</strong></p>
+<p>在网络世界里，要找到一台特定的计算机并与之通信，就像我们寄快递需要地址一样，需要以下三个要素：</p>
+<ul>
+<li><strong>IP地址 (IP Address)</strong>：就像每台电脑在网络上的唯一地址，用于标识网络上的设备。</li>
+<li><strong>端口 (Port)</strong>：一台计算机上可以运行多个网络程序，端口号就像是这些程序的不同房间号，用于区分不同的网络服务。</li>
+<li><strong>协议 (Protocol)</strong>：网络通信需要双方遵守共同的“语言”和规则，这就是协议。例如，我们平时上网常用的 HTTP 就是一种协议。</li>
+</ul>
+<p>今天我们主要关注 <strong>TCP协议</strong>，它是一种面向连接、可靠的协议，就像打电话一样，需要先建立连接才能进行数据传输，并且能保证数据传输的可靠性。</p>
+<p><strong># 字符串的编码与解码</strong></p>
+<p>在网络传输中，数据通常以字节流的形式进行。而我们平时处理的文本是字符串。所以，在进行网络传输前，我们需要将字符串编码成字节串，接收到数据后，再将字节串解码成字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串编码为字节串 (encode)</span></span><br><span class="line">b1 = str1.encode()</span><br><span class="line"><span class="built_in">print</span>(b1) <span class="comment"># 输出：b&#x27;\xe9\xbb\x91\xe9\xa9\xac\xe7\xa8\x8b\xe5\xba\x8f\xe5\x91\x98&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字节串解码为字符串 (decode)</span></span><br><span class="line">str2 = b1.decode()</span><br><span class="line"><span class="built_in">print</span>(str2) <span class="comment"># 输出：黑马程序员</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的编码格式是 UTF-8，它可以支持各种语言的字符。</p>
+<p><strong># Socket编程初体验</strong></p>
+<p>在Python中，我们可以使用 <code>socket</code> 模块进行网络编程。<code>socket</code> 可以看作是网络通信的一个端点，通过它可以发送和接收数据。</p>
+<p><strong>简单来说，TCP网络编程通常涉及以下步骤：</strong></p>
+<ol>
+<li><strong>创建Socket</strong>：就像创建一根网线插头。</li>
+<li><strong>绑定IP地址和端口 (服务器端)</strong>：告诉别人你的“地址”和“房间号”，这样别人才能找到你。</li>
+<li><strong>监听连接 (服务器端)</strong>：等待别人的“电话”打进来。</li>
+<li><strong>接受连接 (服务器端)</strong>：有人打来“电话”了，接听一下。</li>
+<li><strong>发送&#x2F;接收数据</strong>：开始“聊天”。</li>
+<li><strong>关闭连接</strong>：结束“通话”，挂断“电话”。</li>
+</ol>
+<p><strong># 普通版本 vs Pro版本？</strong></p>
+<p>在网络编程中，可能会有不同版本的实现方式，例如基础版本可能只实现最基本的功能，而 Pro 版本可能会增加更多高级特性，比如并发处理、更复杂的协议支持等等。这就像我们使用的App，可能会有免费版和付费版，付费版功能更多更强大。</p>
+<p><strong># 小贴士</strong></p>
+<ul>
+<li>在进行网络编程时，要理解 IP 地址和端口的概念。</li>
+<li>数据在网络传输前需要进行编码，接收后需要进行解码，确保编码格式一致。</li>
+<li><code>socket</code> 模块是Python进行网络编程的核心工具。</li>
+</ul>
+<p>网络编程的世界非常有趣，通过它你的Python程序就能和世界连接起来啦！快去探索一下吧！有问题随时来找我交流哦！😉</p>
+<p>#Python学习 #网络编程 #TCP #IP地址 #端口 #Socket #编程入门 #干货分享 #Day10 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/09-%E5%BC%82%E5%B8%B8-%E6%A8%A1%E5%9D%97-%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/09-%E5%BC%82%E5%B8%B8-%E6%A8%A1%E5%9D%97-%E5%8C%85/" class="post-title-link" itemprop="url">09-异常,模块,包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:53:40 / Modified: 17:55:39" itemprop="dateCreated datePublished" datetime="2025-04-26T17:53:40+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>好的，兄弟们！今天我们来聊聊Python中让代码更健壮的秘密武器——异常处理！🚀</p>
+<p><strong># 告别崩溃！Python异常处理小技巧！🛡️</strong></p>
+<p>有没有遇到过程序突然报错停止的情况？那感觉简直太崩溃了！🤯 但是有了Python的异常处理机制，我们就可以优雅地捕获和处理这些错误，让程序即使遇到问题也能继续运行下去！是不是很神奇？✨</p>
+<p><strong># 什么是异常？🤔</strong></p>
+<p>简单来说，异常就是在程序运行过程中发生的错误或意外情况。比如，除数为零啦，访问了不存在的列表索引啦，文件找不到啦等等。这些都会导致程序中断。</p>
+<p><strong># <code>try...except</code>：捕获你的小错误！🎣</strong></p>
+<p>Python中使用 <code>try...except</code> 语句来捕获和处理异常。<code>try</code> 块中放置可能出错的代码，如果 <code>try</code> 块中的代码发生了异常，程序会跳转到对应的 <code>except</code> 块中执行处理代码。</p>
+<ul>
+<li><p><strong>捕获单个异常</strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span> / <span class="number">0</span>) <span class="comment"># 这会引发 ZeroDivisionError 异常</span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ZeroDivisionError 这个错误被我抓住了！&quot;</span>)</span><br><span class="line"><span class="comment"># 输出：ZeroDivisionError 这个错误被我抓住了！</span></span><br></pre></td></tr></table></figure>
+<p>  上面的代码尝试进行除以零的操作，这会引发 <code>ZeroDivisionError</code> 异常。但是因为我们用了 <code>try...except</code> 捕获了这个异常，所以程序不会崩溃，而是会执行 <code>except</code> 块中的代码。</p>
+</li>
+<li><p><strong>捕获多个异常</strong><br>  有时候一段代码可能会引发多种类型的异常，我们可以在一个 <code>except</code> 后面跟着多个异常类型，用逗号 <code>,</code> 分隔，或者使用多个 <code>except</code> 块来分别处理不同的异常。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span> / <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;123&quot;</span>[<span class="number">100</span>]) <span class="comment"># 这会引发 IndexError 异常</span></span><br><span class="line"><span class="keyword">except</span> (ZeroDivisionError, IndexError) <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我抓到了一个异常！&quot;</span>, e)</span><br><span class="line"><span class="comment"># 输出：我抓到了一个异常！ division by zero</span></span><br></pre></td></tr></table></figure>
+<p>  使用 <code>as e</code> 可以获取到具体的异常信息哦！</p>
+</li>
+</ul>
+<p><strong># <code>else</code> 和 <code>finally</code>：让你的异常处理更完整！🌟</strong></p>
+<p>除了 <code>try</code> 和 <code>except</code>，我们还可以使用 <code>else</code> 和 <code>finally</code> 块来完善异常处理。</p>
+<ul>
+<li><strong><code>else</code> 块</strong>：当 <code>try</code> 块中的代码没有发生任何异常时，<code>else</code> 块中的代码会被执行。</li>
+<li><strong><code>finally</code> 块</strong>：无论 <code>try</code> 块中的代码是否发生异常，<code>finally</code> 块中的代码都会被执行。通常用于进行清理操作，比如关闭文件、释放资源等。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 一些可能会出错的代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;尝试执行一些操作...&quot;</span>)</span><br><span class="line">    <span class="comment"># raise Exception(&quot;模拟一个异常&quot;) # 手动引发一个异常</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;糟糕！出错了：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;程序正常执行，没问题呀！😊&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;无论如何，我都会执行！💪&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong># 异常的传递性 📢</strong></p>
+<p>如果一个函数内部发生了异常，并且没有被该函数处理，那么这个异常会向上层函数传递，直到被处理或者到达程序的顶层（导致程序崩溃）。</p>
+<p><strong># 模块和包的导入</strong></p>
+<p>在Python中，我们可以通过 <code>import</code> 语句导入其他模块和包来使用别人写好的代码。这就像我们使用别人做好的工具一样，可以大大提高开发效率！</p>
+<ul>
+<li><strong>导入模块</strong>：<code>import 模块名</code></li>
+<li><strong>导入包</strong>：<code>import 包名.模块名</code></li>
+</ul>
+<p><strong># 小贴士</strong></p>
+<ul>
+<li>不要滥用异常处理，只捕获你期望处理的异常。</li>
+<li>尽量提供清晰的异常信息，方便调试。</li>
+<li><code>finally</code> 块非常重要，用于确保资源的正确释放。</li>
+</ul>
+<p>掌握了异常处理，你的Python代码就会更加健壮和可靠啦！再也不用担心程序动不动就崩溃了！快去试试看吧！有问题随时来找我玩哦！😉</p>
+<p>#Python学习 #异常处理 #编程技巧 #新手入门 #代码健壮性 #模块 #包 #干货分享 #Day09 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/08-%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/08-%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">08-编码与文件操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:51:09 / Modified: 17:51:40" itemprop="dateCreated datePublished" datetime="2025-04-26T17:51:09+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Python文件读写全攻略！告别文件操作烦恼！📝"><a href="#Python文件读写全攻略！告别文件操作烦恼！📝" class="headerlink" title="Python文件读写全攻略！告别文件操作烦恼！📝"></a>Python文件读写全攻略！告别文件操作烦恼！📝</h2><p>哈喽兄弟们！今天给大家分享的是Python文件操作和JSON数据处理的实用技巧！学会这些，让你的数据处理工作效率翻倍！再也不用对着文件发愁啦！🥳</p>
+<p><strong># 文件操作初体验：打开、读取与关闭</strong></p>
+<p>在Python中，我们可以轻松地对文件进行读写操作。</p>
+<ul>
+<li><strong>打开文件 <code>open()</code></strong>：使用 <code>open()</code> 函数打开一个文件，你需要指定文件名和打开模式（例如 <code>&#39;r&#39;</code> 表示读取，<code>&#39;w&#39;</code> 表示写入）。还可以指定编码格式，推荐使用 <code>&#39;utf-8&#39;</code> 哦！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;day08.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="comment"># 以只读模式打开文件</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>读取文件内容 <code>read()</code></strong>：使用 <code>read()</code> 方法可以一次性读取文件的全部内容，返回一个字符串。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = f.read()</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure></li>
+<li><strong>关闭文件 <code>close()</code></strong>：操作完文件后，一定要记得使用 <code>close()</code> 方法关闭文件，释放系统资源！这是一个好习惯哦！✅  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.close()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 更优雅的文件操作：<code>with open()</code></strong></p>
+<p>为了避免忘记关闭文件，Python提供了 <code>with open()</code> 语句，它会在代码块执行结束后自动关闭文件，超级方便！强烈推荐使用这种方式！👍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;day08.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read()</span><br><span class="line">    <span class="built_in">print</span>(content)</span><br><span class="line"><span class="comment"># 文件会在这个代码块结束后自动关闭</span></span><br></pre></td></tr></table></figure>
+
+<p><strong># 写入文件内容</strong></p>
+<ul>
+<li><strong>写入字符串 <code>write()</code></strong>：使用 <code>write()</code> 方法可以将字符串写入文件中。如果文件不存在，会自动创建；如果文件已存在，会覆盖原有内容（使用 <code>&#39;w&#39;</code> 模式）。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;word.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">&#x27;今天天气真好！\n&#x27;</span>) <span class="comment"># 写入一行文本，记得加换行符哦！</span></span><br><span class="line">    f.write(<span class="string">&#x27;一起去玩吧！&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><strong>写入列表 <code>writelines()</code></strong>：如果你想一次性写入多行文本，可以使用 <code>writelines()</code> 方法，传入一个包含所有行的列表。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lines = [<span class="string">&#x27;第一行\n&#x27;</span>, <span class="string">&#x27;第二行\n&#x27;</span>, <span class="string">&#x27;第三行\n&#x27;</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;lines.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(lines)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 逐行读取文件内容</strong></p>
+<p>有时候文件很大，一次性读取所有内容可能会占用大量内存。这时，我们可以逐行读取文件内容。</p>
+<ul>
+<li><strong>使用 <code>for</code> 循环</strong>：可以直接对文件对象进行迭代，每次返回文件的一行内容。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;lines.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(line.strip()) <span class="comment"># 使用 strip() 去掉行尾的换行符</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>使用 <code>readlines()</code></strong>：<code>readlines()</code> 方法会一次性读取所有行，并返回一个包含所有行的列表。如果文件很大，不推荐使用。</li>
+</ul>
+<p><strong># JSON数据处理：让数据更有条理！✨</strong></p>
+<p>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式，易于阅读和编写，也方便机器解析和生成。在Python中，我们可以使用 <code>json</code> 模块来处理JSON数据。</p>
+<ul>
+<li><strong>导入 <code>json</code> 模块</strong>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br></pre></td></tr></table></figure></li>
+<li><strong>将Python对象编码为JSON字符串 <code>json.dumps()</code></strong>：可以将Python的字典、列表等对象转换为JSON格式的字符串。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;password&#x27;</span>: <span class="number">123456</span>&#125;</span><br><span class="line">json_str = json.dumps(data, ensure_ascii=<span class="literal">False</span>) <span class="comment"># ensure_ascii=False 可以显示中文</span></span><br><span class="line"><span class="built_in">print</span>(json_str) <span class="comment"># 输出：&#123;&quot;name&quot;: &quot;张三&quot;, &quot;password&quot;: 123456&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>将JSON字符串解码为Python对象 <code>json.loads()</code></strong>：可以将JSON格式的字符串转换为Python的字典、列表等对象。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">json_data = <span class="string">&#x27;&#123;&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: 25&#125;&#x27;</span></span><br><span class="line">python_obj = json.loads(json_data)</span><br><span class="line"><span class="built_in">print</span>(python_obj[<span class="string">&#x27;name&#x27;</span>]) <span class="comment"># 输出：李四</span></span><br><span class="line"><span class="built_in">print</span>(python_obj[<span class="string">&#x27;age&#x27;</span>])  <span class="comment"># 输出：25</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>将Python对象写入JSON文件 <code>json.dump()</code></strong>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;上海&#x27;</span>, <span class="string">&#x27;language&#x27;</span>: <span class="string">&#x27;中文&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.json&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    json.dump(data, f, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">4</span>) <span class="comment"># indent=4 可以使JSON文件更易读</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>从JSON文件读取Python对象 <code>json.load()</code></strong>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    loaded_data = json.load(f)</span><br><span class="line">    <span class="built_in">print</span>(loaded_data[<span class="string">&#x27;city&#x27;</span>])     <span class="comment"># 输出：上海</span></span><br><span class="line">    <span class="built_in">print</span>(loaded_data[<span class="string">&#x27;language&#x27;</span>]) <span class="comment"># 输出：中文</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 小贴士</strong></p>
+<ul>
+<li>在进行文件操作时，一定要注意文件的路径是否正确。</li>
+<li>不同的文件打开模式有不同的作用，要根据需求选择合适的模式（<code>&#39;r&#39;</code> 读，<code>&#39;w&#39;</code> 写，<code>&#39;a&#39;</code> 追加，<code>&#39;b&#39;</code> 二进制模式等）。</li>
+<li>处理JSON数据时，要确保JSON字符串的格式是正确的。</li>
+</ul>
+<p>掌握了文件操作和JSON处理，你就可以轻松地读写各种文件，处理结构化的数据啦！是不是感觉又解锁了一个新技能呢？快去试试看吧！有问题随时call我哦！😉</p>
+<p>#Python学习 #文件操作 #JSON #数据处理 #编程技巧 #新手入门 #干货分享 #Day08 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/07-%E6%AD%A3%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/07-%E6%AD%A3%E5%88%99/" class="post-title-link" itemprop="url">07-正则</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:49:06 / Modified: 17:55:29" itemprop="dateCreated datePublished" datetime="2025-04-26T17:49:06+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>好的，这篇关于Python正则表达式的文章这就为您奉上！</p>
+<h2 id="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"><a href="#Python正则表达式入门指南：从小白到入门只需这一篇！🚀" class="headerlink" title="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"></a>Python正则表达式入门指南：从小白到入门只需这一篇！🚀</h2><p>哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！</p>
+<p><strong># 什么是正则表达式？🤔</strong></p>
+<p>简单来说，正则表达式（Regular Expression，常简写为 regex、regexp 或 RE）是一种用于匹配文本模式的特殊序列的字符。你可以把它想象成一种高级的搜索功能，不仅能找到固定的词语，还能根据你定义的“规则”找到符合特定模式的文本。</p>
+<p><strong># Python中的 <code>re</code> 模块</strong></p>
+<p>要在Python中使用正则表达式，我们需要导入内置的 <code>re</code> 模块。就像你需要一把锤子才能钉钉子一样！🔨</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<p><strong># 核心概念：匹配模式与特殊字符</strong></p>
+<p>正则表达式的强大之处在于其灵活的匹配模式。我们可以使用一些特殊字符来定义这些模式：</p>
+<ul>
+<li><strong>普通字符</strong>：大多数字母、数字、下划线等可以直接匹配自身。比如，正则表达式 <code>&quot;hello&quot;</code> 就能匹配文本中的 <code>&quot;hello&quot;</code>。</li>
+<li><strong><code>.</code> (点号)</strong>：匹配任意单个字符（除了换行符 <code>\n</code>）。</li>
+<li><strong><code>^</code> (脱字符)</strong>：匹配字符串的开头。例如，<code>^hello</code> 只会匹配以 <code>&quot;hello&quot;</code> 开头的字符串。</li>
+<li><strong><code>$</code> (美元符)</strong>：匹配字符串的结尾。例如，<code>hello$</code> 只会匹配以 <code>&quot;hello&quot;</code> 结尾的字符串。</li>
+<li><strong><code>*</code> (星号)</strong>：匹配前一个字符零次或多次。例如，<code>ab*c</code> 可以匹配 <code>&quot;ac&quot;</code>、<code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code> 等。</li>
+<li><strong><code>+</code> (加号)</strong>：匹配前一个字符一次或多次。例如，<code>ab+c</code> 可以匹配 <code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code>，但不能匹配 <code>&quot;ac&quot;</code>。</li>
+<li><strong><code>?</code> (问号)</strong>：匹配前一个字符零次或一次。例如，<code>ab?c</code> 可以匹配 <code>&quot;ac&quot;</code> 或 <code>&quot;abc&quot;</code>。</li>
+<li><strong><code>&#123;m&#125;</code></strong>：匹配前一个字符恰好 <code>m</code> 次。例如，<code>a&#123;3&#125;</code> 只匹配 <code>&quot;aaa&quot;</code>。</li>
+<li><strong><code>&#123;m, n&#125;</code></strong>：匹配前一个字符至少 <code>m</code> 次，至多 <code>n</code> 次。</li>
+<li><strong><code>[]</code> (字符集)</strong>：匹配方括号中的任意一个字符。例如，<code>[abc]</code> 可以匹配 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code> 或 <code>&quot;c&quot;</code>。<ul>
+<li>在字符集中可以使用 <code>-</code> 表示范围，例如 <code>[a-z]</code> 匹配所有小写字母，<code>[0-9]</code> 匹配所有数字。</li>
+<li>在字符集开头使用 <code>^</code> 表示取反，例如 <code>[^abc]</code> 匹配除了 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code>、<code>&quot;c&quot;</code> 之外的任意字符。</li>
+</ul>
+</li>
+<li><strong><code>\</code> (反斜杠)</strong>：用于转义特殊字符，使其失去特殊含义，或者引入特殊的预定义字符序列（见下文）。</li>
+</ul>
+<p><strong># 常用的预定义字符序列</strong></p>
+<p>为了方便使用，<code>re</code> 模块提供了一些预定义的字符序列：</p>
+<ul>
+<li><strong><code>\d</code></strong>：匹配任意数字（等价于 <code>[0-9]</code>）。</li>
+<li><strong><code>\D</code></strong>：匹配任意非数字字符（等价于 <code>[^0-9]</code>）。</li>
+<li><strong><code>\s</code></strong>：匹配任意空白字符（包括空格、制表符 <code>\t</code>、换行符 <code>\n</code> 等）。</li>
+<li><strong><code>\S</code></strong>：匹配任意非空白字符。</li>
+<li><strong><code>\w</code></strong>：匹配任意字母、数字或下划线（等价于 <code>[a-zA-Z0-9_]</code>）。</li>
+<li><strong><code>\W</code></strong>：匹配任意非字母、数字或下划线。</li>
+</ul>
+<p><strong># <code>re</code> 模块的常用函数</strong></p>
+<p>学会了匹配模式，我们来看看 <code>re</code> 模块中一些常用的函数：</p>
+<ul>
+<li><strong><code>re.search(pattern, string)</code></strong>：在字符串 <code>string</code> 中搜索第一个匹配 <code>pattern</code> 的位置，如果找到则返回一个匹配对象（Match object），否则返回 <code>None</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;Hello 123 world 456&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;\d+&quot;</span>, text) <span class="comment"># 查找一个或多个数字</span></span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到匹配:&quot;</span>, result.group()) <span class="comment"># 输出匹配到的内容</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.match(pattern, string)</code></strong>：尝试从字符串 <code>string</code> 的<strong>开头</strong>匹配 <code>pattern</code>，如果匹配成功则返回一个匹配对象，否则返回 <code>None</code>。注意：它只从开头匹配！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;123 Hello&quot;</span></span><br><span class="line">result1 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text1)</span><br><span class="line"><span class="keyword">if</span> result1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result1.group()) <span class="comment"># 输出：开头匹配: 123</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">&quot;Hello 123&quot;</span></span><br><span class="line">result2 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result2) <span class="comment"># 输出：开头匹配: None</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.findall(pattern, string)</code></strong>：在字符串 <code>string</code> 中找到所有匹配 <code>pattern</code> 的子串，并返回一个包含所有匹配项的列表。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;apple banana apple orange&quot;</span></span><br><span class="line">results = re.findall(<span class="string">r&quot;apple&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有匹配:&quot;</span>, results) <span class="comment"># 输出：所有匹配: [&#x27;apple&#x27;, &#x27;apple&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.sub(pattern, repl, string)</code></strong>：将字符串 <code>string</code> 中所有匹配 <code>pattern</code> 的子串替换为 <code>repl</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;I have 2 apples and 3 bananas.&quot;</span></span><br><span class="line">new_text = re.sub(<span class="string">r&quot;\d+&quot;</span>, <span class="string">&quot;number&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;替换后:&quot;</span>, new_text) <span class="comment"># 输出：替换后: I have number apples and number bananas.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 实用技巧：原始字符串 (raw string)</strong></p>
+<p>在正则表达式中，反斜杠 <code>\</code> 有特殊的含义。为了避免与Python字符串自身的转义冲突，我们通常在正则表达式前面加上 <code>r</code> 前缀，表示这是一个原始字符串。这样，反斜杠就不会被Python解释器进行额外的转义，而是直接传递给 <code>re</code> 模块。强烈建议养成使用原始字符串的习惯！👍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pattern = <span class="string">r&quot;\(?\d&#123;3&#125;\)?[- ]?\d&#123;3&#125;[- ]?\d&#123;4&#125;&quot;</span> <span class="comment"># 匹配电话号码的模式</span></span><br><span class="line">text = <span class="string">&quot;我的电话是 (123)-456-7890&quot;</span></span><br><span class="line">result = re.search(pattern, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到电话号码:&quot;</span>, result.group())</span><br></pre></td></tr></table></figure>
+
+<p><strong># 进阶：分组匹配</strong></p>
+<p>正则表达式还支持分组匹配，用小括号 <code>()</code> 包裹起来的部分会被认为是一个分组。我们可以使用匹配对象的 <code>group()</code> 方法来获取不同分组的内容。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;blog:https://blog.zhangwang.com&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;blog:(.*)\/\/([^\/]+)&quot;</span>, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;完整匹配:&quot;</span>, result.group(<span class="number">0</span>)) <span class="comment"># 整个匹配到的字符串</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第一个分组 (//后面的内容):&quot;</span>, result.group(<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第二个分组 (域名):&quot;</span>, result.group(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong># 注意事项</strong></p>
+<ul>
+<li>正则表达式的语法比较灵活，需要多练习才能熟练掌握。</li>
+<li>对于复杂的匹配需求，可以逐步构建正则表达式。</li>
+<li>善用在线正则表达式测试工具，可以帮助你验证你的模式是否正确。</li>
+</ul>
+<p><strong># 总结</strong></p>
+<p>正则表达式是处理文本数据的强大工具，掌握它能让你在文本搜索、数据提取、格式验证等方面事半功倍！希望今天的介绍能帮助你迈出学习Python正则表达式的第一步。快去动手尝试一下吧！加油！💪</p>
+<p>#Python #正则表达式 #Regex #编程入门 #文本处理 #干货分享 #Day07 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/06-%E4%BC%A0%E5%8F%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/06-%E4%BC%A0%E5%8F%82/" class="post-title-link" itemprop="url">06-传参</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:46:33 / Modified: 17:55:31" itemprop="dateCreated datePublished" datetime="2025-04-26T17:46:33+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Python函数参数类型全解析，新手也能轻松掌握！🚀"><a href="#Python函数参数类型全解析，新手也能轻松掌握！🚀" class="headerlink" title="Python函数参数类型全解析，新手也能轻松掌握！🚀"></a>Python函数参数类型全解析，新手也能轻松掌握！🚀</h2><p>哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎</p>
+<p><strong># 认识你的函数朋友：不同类型的参数</strong></p>
+<p>在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：</p>
+<ul>
+<li><p><strong>位置传参（Positional Arguments）</strong>：这是最常见的参数类型啦！函数定义时的参数顺序很重要，你在调用函数时传入的值也会按照这个顺序一一对应。就像给你的朋友按名单顺序发礼物一样！🎁</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info</span>(<span class="params">name, sex, age</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的性别是<span class="subst">&#123;sex&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">20</span>) <span class="comment"># &quot;张三&quot;对应name，&quot;男&quot;对应sex，20对应age</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键字传参（Keyword Arguments）</strong>：有时候我们记不清参数的顺序，或者想让代码更易读，就可以使用关键字传参。在调用函数时，直接指定参数名和对应的值。这样就不怕传错顺序啦！🔑</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_info(age=<span class="number">20</span>, name=<span class="string">&quot;李四&quot;</span>, sex=<span class="string">&quot;男&quot;</span>) <span class="comment"># 顺序可以不一样哦！</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>默认值参数（Default Arguments）</strong>：在定义函数时，我们可以给一些参数设置默认值。如果在调用函数时没有给这些参数传值，它们就会使用默认值。就像你的朋友自带了某种小零食，如果你没带，就吃他的！🍬</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">name, nationality=<span class="string">&quot;中国&quot;</span>, age=<span class="number">20</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的国籍是<span class="subst">&#123;nationality&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="string">&quot;王五&quot;</span>) <span class="comment"># nationality和age会使用默认值</span></span><br><span class="line">print_info_2(<span class="string">&quot;赵六&quot;</span>, age=<span class="number">25</span>) <span class="comment"># 可以只修改部分默认值参数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长位置参数（<code>*args</code>）</strong>：有时候我们不知道函数需要接收多少个位置参数，这时就可以使用<code>*args</code>。它会将传入的所有多余的位置参数打包成一个元组（tuple）。就像一个可以装很多东西的袋子！🎒</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">*args</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>) <span class="comment"># 这些都会被打包到args元组里</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长关键字参数（<code>**kwargs</code>）</strong>：类似地，<code>**kwargs</code>可以接收任意数量的关键字参数，并将它们打包成一个字典（dictionary）。每个传入的参数都需要指定参数名和值。就像一个可以存放各种标签和对应值的盒子！📦</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的国籍是<span class="subst">&#123;kwargs[<span class="string">&#x27;nationality&#x27;</span>]&#125;</span>，您的年龄是<span class="subst">&#123;kwargs[<span class="string">&#x27;age&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(nationality=<span class="string">&quot;韩国&quot;</span>, age=<span class="number">30</span>) <span class="comment"># 这些会被打包到kwargs字典里</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 划重点！参数使用的注意事项</strong></p>
+<ul>
+<li>定义函数时，位置参数必须在默认值参数的前面。</li>
+<li>调用函数时，如果同时使用位置参数和关键字参数，位置参数必须在关键字参数的前面。</li>
+<li><code>*args</code> 和 <code>**kwargs</code> 通常放在参数列表的最后。</li>
+</ul>
+<p><strong># 小彩蛋：匿名函数 <code>lambda</code></strong></p>
+<p>除了用 <code>def</code> 定义函数，Python还提供了一种简洁的方式来创建匿名函数，也就是 <code>lambda</code> 函数。它通常用于一些简单的、只需要使用一次的函数。就像一个临时的便签！📝</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add = <span class="keyword">lambda</span> x, y: x + y</span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>)) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
+
+<p>掌握了这些函数参数的类型，你就可以写出更加灵活和强大的Python代码啦！快去试试吧！有什么问题记得留言哦！😉</p>
+<p>#Python函数 #参数类型 #编程技巧 #新手入门 #干货分享 #一起学Python #Day06</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/05-%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/05-%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:42:37 / Modified: 17:55:35" itemprop="dateCreated datePublished" datetime="2025-04-26T17:42:37+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>title: 05-函数<br>date: 2025-04-26 17:42:36<br>tags:</p>
+<p>✨ <strong>Python新手必看！Day05容器与函数基础知识点总结！</strong> 🚀</p>
+<p>哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝</p>
+<p><strong># 容器的通用方法</strong></p>
+<p>Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的效率！</p>
+<ul>
+<li><strong><code>enumerate()</code></strong>：这个函数简直是遍历容器时的神器！它可以同时给出元素的索引和值，就像这样：  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]):</span><br><span class="line">    <span class="built_in">print</span>(index, element)</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># 0 张三</span></span><br><span class="line"><span class="comment"># 1 李四</span></span><br><span class="line"><span class="comment"># 2 王五</span></span><br></pre></td></tr></table></figure>
+  再也不用手动去数索引啦！🥳</li>
+<li><strong><code>len()</code></strong>：想知道容器里有多少个元素？用<code>len()</code>就对啦！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>])) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>range()</code></strong>：生成一个数字序列，经常用在循环里！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>): <span class="comment"># 生成0到9的序列</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>max()</code></strong> 和 <strong><code>min()</code></strong>：分别用来找出容器中的最大值和最小值。</li>
+</ul>
+<p><strong># 容器中通用的属性</strong></p>
+<p>容器还有一个很重要的特性，那就是可以通过索引来访问和操作元素！</p>
+<ul>
+<li><strong>索引取值</strong>：就像数组一样，用方括号 <code>[]</code> 加上索引就可以获取特定位置的元素。记住索引是从0开始的哦！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>]) <span class="comment"># 输出：a</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>切片操作</strong>：想要一次获取容器中多个连续的元素？切片了解一下！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>, <span class="string">&#x27;赵六&#x27;</span>, <span class="string">&#x27;孙七&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 输出：[&#x27;张三&#x27;, &#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>del</code> 关键字</strong>：可以用来删除容器中的元素。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list) <span class="comment"># 输出：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
+  ⚠️ 注意：列表是可变的，所以删除操作会直接修改列表本身哦！</li>
+</ul>
+<p><strong># 敲黑板！函数的定义与使用</strong></p>
+<p>函数是Python中非常重要的概念，它可以帮助我们组织代码，提高代码的复用性！</p>
+<ul>
+<li><strong>定义函数</strong>：使用 <code>def</code> 关键字来定义一个函数，后面跟着函数名、括号 <code>()</code> 和冒号 <code>:</code>。函数体需要缩进。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_msg</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;乾坤未定，你我皆是黑马！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_num</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">diff</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> a - b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> b - a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成一个四位数的随机数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">1000</span>, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure></li>
+<li><strong>调用函数</strong>：直接使用函数名加上括号 <code>()</code> 就可以调用函数了。如果函数有参数，需要在括号里传入相应的值。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print_msg() <span class="comment"># 调用无参数函数</span></span><br><span class="line">print_num(<span class="number">5</span>) <span class="comment"># 调用带一个参数的函数</span></span><br><span class="line">result = diff(<span class="number">1</span>, <span class="number">2</span>) <span class="comment"># 调用带两个参数并有返回值的函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目3&quot;</span>, diff(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目4&quot;</span>, generate_random())</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>今天的内容就到这里啦！是不是感觉Python更有趣了呢？💪 记得多练习才能更好地掌握哦！下次再见！👋</p>
+<p>#Python学习 #编程入门 #新手教程 #干货分享 #Day05 #容器 #函数 #小红书笔记 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">04-[容器]列表-元组-字典-集合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:27:24 / Modified: 17:41:42" itemprop="dateCreated datePublished" datetime="2025-04-26T17:27:24+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>兄弟们，今天我们来聊聊 Python 里的“百宝箱”—— 列表和字典！📦✨ 它们就像我们收纳各种宝贝的小盒子，让我们的数据井井有条，方便又实用！快来一起解锁这两个超能力吧！😎💖</p>
+<h3 id="列表-List-：我的有序“收藏夹”！️"><a href="#列表-List-：我的有序“收藏夹”！️" class="headerlink" title="列表 (List)：我的有序“收藏夹”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8F&gt;️"></a>列表 (List)：我的有序“收藏夹”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8F&gt;️</h3><p>列表就像一个可以存放很多东西的“收藏夹”，里面的每个“宝贝”都有自己的编号（索引），而且它们放进去的顺序是不会变的哦！就像我们衣橱里的衣服，按类别、按颜色整齐排列！🌈</p>
+<p><strong>创建我的“收藏夹”：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]  <span class="comment"># 可以存放各种类型的数据哦！</span></span><br><span class="line">my_list_append = []  <span class="comment"># 创建一个空列表，准备添加新宝贝</span></span><br><span class="line">my_list_extend = [<span class="string">&#x27;你好&#x27;</span>, <span class="string">&#x27;hello&#x27;</span>]</span><br><span class="line">my_list2 = [<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;Java&#x27;</span>, <span class="string">&#x27;JavaScript&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>给我的“宝贝”贴标签 (索引)：</strong></p>
+<p>列表里的每个元素都有一个索引，就像我们给每个衣服贴上标签，方便查找！索引从 0 开始计数哦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>])   <span class="comment"># 找到第一个“宝贝”：张三</span></span><br><span class="line"><span class="built_in">print</span>(my_list[-<span class="number">1</span>])  <span class="comment"># 找到最后一个“宝贝”：王五</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>“切”出一部分“收藏” (切片)：</strong></p>
+<p>列表也支持切片操作，可以一次性取出多个连续的“宝贝”！就像我们从一排书里拿出几本感兴趣的！📚</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_list[<span class="number">1</span>:<span class="number">3</span>])  <span class="comment"># 取出索引 1 到 3 (不包含 3) 的“宝贝”：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(my_list[:<span class="number">2</span>])   <span class="comment"># 从头开始取，一直到索引 2 (不包含 2)：[&#x27;张三&#x27;, &#x27;李四&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(my_list[::<span class="number">2</span>])  <span class="comment"># 从头到尾取，每隔一个取一个：[&#x27;张三&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>给我的“收藏夹”添砖加瓦 (添加元素)：</strong></p>
+<ul>
+<li><p><strong><code>append()</code>：</strong> 在列表的<strong>末尾</strong>添加一个新“宝贝”！就像我们衣橱里又添了一件新衣服！👗</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.append(<span class="string">&#x27;小明&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小明&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>insert()</code>：</strong> 在列表的<strong>指定位置</strong>插入一个新“宝贝”！就像我们在衣橱的某个空位塞进一件心仪的小裙子！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.insert(<span class="number">0</span>, <span class="string">&#x27;小红&#x27;</span>)  <span class="comment"># 在索引 0 的位置插入 &#x27;小红&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;小明&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>extend()</code>：</strong> 把<strong>另一个列表</strong>里的所有“宝贝”都添加到当前列表的<strong>末尾</strong>！就像我们把另一个小收纳盒里的东西都放进自己的大“收藏夹”！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.extend(my_list_extend)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;小明&#x27;, &#x27;你好&#x27;, &#x27;hello&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>把“不喜欢的”宝贝移走 (删除元素)：</strong></p>
+<ul>
+<li><p><strong><code>pop()</code>：</strong> 移除列表<strong>指定索引</strong>的“宝贝”，并且会告诉你移除的是哪个！就像我们从衣橱里拿走一件不常穿的衣服！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">removed_item = my_list_append.pop(<span class="number">1</span>)  <span class="comment"># 移除索引为 1 的元素 (&#x27;小明&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;你好&#x27;, &#x27;hello&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;我移除了：<span class="subst">&#123;removed_item&#125;</span>&quot;</span>)  <span class="comment"># 输出：我移除了：小明</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>remove()</code>：</strong> 移除列表中<strong>第一个</strong>匹配到的“宝贝”！就像我们从一堆同款衣服里找到一件不喜欢的扔掉！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.remove(<span class="string">&#x27;你好&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;hello&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>del</code>：</strong> 可以根据<strong>索引</strong>或者<strong>切片</strong>来删除列表中的“宝贝”！更直接更粗暴！💪</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> my_list_append[<span class="number">0</span>]  <span class="comment"># 删除索引为 0 的元素 (&#x27;小红&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;hello&#x27;]</span></span><br><span class="line"></span><br><span class="line">my_list2 = [<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;Java&#x27;</span>, <span class="string">&#x27;JavaScript&#x27;</span>, <span class="string">&#x27;C++&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list2[<span class="number">1</span>:<span class="number">3</span>]  <span class="comment"># 删除索引 1 到 3 (不包含 3) 的元素</span></span><br><span class="line"><span class="built_in">print</span>(my_list2)  <span class="comment"># 输出：[&#x27;Python&#x27;, &#x27;C++&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>clear()</code>：</strong> 清空列表里的<strong>所有</strong>“宝贝”！就像我们把整个衣橱都清空了！🧹</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.clear()</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>给我的“收藏”排排队 (排序)：</strong></p>
+<ul>
+<li><p><strong><code>sort()</code>：</strong> 对列表里的“宝贝”进行排序！默认是升序哦！就像我们整理衣服，按颜色深浅排列！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">6</span>]</span><br><span class="line">nums.sort()</span><br><span class="line"><span class="built_in">print</span>(nums)  <span class="comment"># 输出：[1, 1, 2, 3, 4, 5, 6, 9]</span></span><br><span class="line"></span><br><span class="line">nums.sort(reverse=<span class="literal">True</span>)  <span class="comment"># 降序排列</span></span><br><span class="line"><span class="built_in">print</span>(nums)  <span class="comment"># 输出：[9, 6, 5, 4, 3, 2, 1, 1]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>看看我的“收藏”有多少 (查找元素)：</strong></p>
+<ul>
+<li><p><strong><code>index()</code>：</strong> 查找指定“宝贝”在列表中<strong>第一次</strong>出现的位置！就像我们找一件特定的衣服在衣橱的哪个位置！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>, <span class="string">&quot;香蕉&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(fruits.index(<span class="string">&quot;香蕉&quot;</span>))  <span class="comment"># 输出：1 (第一次出现的位置)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>count()</code>：</strong> 统计指定“宝贝”在列表中出现了多少次！就像我们数一下衣橱里有多少件白衬衫！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fruits.count(<span class="string">&quot;香蕉&quot;</span>))  <span class="comment"># 输出：2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>in</code> &#x2F; <code>not in</code>：</strong> 判断某个“宝贝”是否在我的“收藏夹”里！就像我们找一件衣服在不在衣橱里！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;苹果&quot;</span> <span class="keyword">in</span> fruits)     <span class="comment"># 输出：True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;草莓&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> fruits)  <span class="comment"># 输出：True</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>遍历我的“收藏” (循环访问)：</strong></p>
+<ul>
+<li><p><strong><code>for</code> 循环：</strong> 就像我们一个一个地拿出衣橱里的衣服欣赏！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我有一个：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>while</code> 循环：</strong> 也可以遍历列表，但需要自己控制索引！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(fruits):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;还有一个：<span class="subst">&#123;fruits[i]&#125;</span>&quot;</span>)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>enumerate()</code>：</strong> 在遍历列表的同时告诉你当前“宝贝”的索引！就像我们拿出衣服的同时知道它是第几件！</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, fruit <span class="keyword">in</span> <span class="built_in">enumerate</span>(fruits):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第 <span class="subst">&#123;index + <span class="number">1</span>&#125;</span> 个是：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字典-Dictionary-：我的“标签小本本”！🏷️📒"><a href="#字典-Dictionary-：我的“标签小本本”！🏷️📒" class="headerlink" title="字典 (Dictionary)：我的“标签小本本”！🏷️📒"></a>字典 (Dictionary)：我的“标签小本本”！🏷️📒</h3><p>字典就像一个“标签小本本”，里面的每个“宝贝”都有一个<strong>独一无二的“标签” (键)</strong>，通过这个“标签”我们可以快速找到对应的“宝贝” (值)！就像我们的通讯录，通过名字（键）快速找到电话号码（值）！📞</p>
+<p><strong>创建我的“标签小本本”：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_dict = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小美&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">22</span>, <span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;上海&#x27;</span>&#125;</span><br><span class="line">dict_dict = &#123;&#125;  <span class="comment"># 创建一个空字典</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>通过“标签”查找“宝贝” (访问元素)：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_dict[<span class="string">&#x27;name&#x27;</span>])  <span class="comment"># 通过键 &#x27;name&#x27; 找到值：小美</span></span><br><span class="line"><span class="built_in">print</span>(my_dict.get(<span class="string">&#x27;age&#x27;</span>)) <span class="comment"># 另一种安全的方式，如果键不存在会返回 None，不会报错</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>给我的“小本本”添加&#x2F;修改“标签”和“宝贝”：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_dict[<span class="string">&#x27;gender&#x27;</span>] = <span class="string">&#x27;女&#x27;</span>  <span class="comment"># 添加新的键值对</span></span><br><span class="line">my_dict[<span class="string">&#x27;age&#x27;</span>] = <span class="number">23</span>      <span class="comment"># 修改已有的键对应的值</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#x27;name&#x27;: &#x27;小美&#x27;, &#x27;age&#x27;: 23, &#x27;city&#x27;: &#x27;上海&#x27;, &#x27;gender&#x27;: &#x27;女&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>移除“标签”和“宝贝” (删除元素)：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> my_dict[<span class="string">&#x27;city&#x27;</span>]  <span class="comment"># 删除键为 &#x27;city&#x27; 的键值对</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#x27;name&#x27;: &#x27;小美&#x27;, &#x27;age&#x27;: 23, &#x27;gender&#x27;: &#x27;女&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">my_dict.clear()  <span class="comment"># 清空字典里的所有键值对</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>获取所有的“标签”、“宝贝”和“标签-宝贝”对 (查看元素)：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_info = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小刚&#x27;</span>, <span class="string">&#x27;major&#x27;</span>: <span class="string">&#x27;计算机&#x27;</span>, <span class="string">&#x27;grade&#x27;</span>: <span class="string">&#x27;大三&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(my_info.keys())   <span class="comment"># 获取所有键：dict_keys([&#x27;name&#x27;, &#x27;major&#x27;, &#x27;grade&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(my_info.values()) <span class="comment"># 获取所有值：dict_values([&#x27;小刚&#x27;, &#x27;计算机&#x27;, &#x27;大三&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(my_info.items())  <span class="comment"># 获取所有键值对：dict_items([(&#x27;name&#x27;, &#x27;小刚&#x27;), (&#x27;major&#x27;, &#x27;计算机&#x27;), (&#x27;grade&#x27;, &#x27;大三&#x27;)])</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历我的“标签小本本” (循环访问)：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_info:  <span class="comment"># 遍历所有的键</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;键：<span class="subst">&#123;key&#125;</span>，值：<span class="subst">&#123;my_info[key]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> my_info.items():  <span class="comment"># 同时遍历键和值</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;键：<span class="subst">&#123;key&#125;</span>，值：<span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>好啦兄弟们，今天的 Python 列表和字典就聊到这里啦！是不是感觉它们就像我们生活中的好帮手，能把各种数据都整理得井井有条呢？😉 快去试试用它们来收纳你的数据“宝贝”吧！💖✨ 记住，列表是有序的“收藏夹”，字典是带标签的“小本本”哦！下次再和大家分享更多 Python 的实用技巧！😘</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>好的兄弟们，刚才我们聊了列表和字典这两个“收纳神器”，今天再给大家介绍两位新朋友——元组（Tuple）和集合（Set）！它们也各有妙用，能让我们的 Python “百宝箱”更加丰富多彩哦！💖✨</p>
+<h3 id="元组-Tuple-：我的“只读收藏夹”！🔒"><a href="#元组-Tuple-：我的“只读收藏夹”！🔒" class="headerlink" title="元组 (Tuple)：我的“只读收藏夹”！🔒"></a>元组 (Tuple)：我的“只读收藏夹”！🔒</h3><p>元组就像一个“只读”的列表！一旦创建，里面的“宝贝”就不能修改啦！就像我们珍藏的照片，记录了那一刻的美好，不希望被轻易改动！🖼️</p>
+<p><strong>创建我的“只读收藏夹”：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1 = (<span class="number">1</span>,)  <span class="comment"># 注意！只有一个元素的时候，后面要加逗号哦！不然 Python 会以为你只是想用括号！</span></span><br><span class="line">t2 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>“看看”我的“只读收藏” (访问元素)：</strong></p>
+<p>和列表一样，我们可以通过索引来查看元组里的元素！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>])  <span class="comment"># 查看第一个元素：1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>查找“宝贝”的位置和数量：</strong></p>
+<p>元组也有 <code>index()</code> 和 <code>count()</code> 方法哦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(t2.index(<span class="number">1</span>))  <span class="comment"># 查找元素 1 第一次出现的位置：0</span></span><br><span class="line"><span class="built_in">print</span>(t2.count(<span class="number">0</span>))  <span class="comment"># 统计元素 0 在元组中出现的次数：0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>敲黑板！重点来了！</strong> 元组里面的元素是<strong>不可变的</strong>！这意味着你不能像列表那样随意添加、删除或修改元素哦！🔒 这也是元组的一个重要特性，用于存储那些不希望被修改的数据！</p>
+<h3 id="集合-Set-：我的“去重小助手”！"><a href="#集合-Set-：我的“去重小助手”！" class="headerlink" title="集合 (Set)：我的“去重小助手”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA7&gt;&lt;0xAE&gt;"></a>集合 (Set)：我的“去重小助手”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA7&gt;&lt;0xAE&gt;</h3><p>集合就像一个不允许有重复元素的“袋子”！里面的“宝贝”都是独一无二的！而且集合里的元素是无序的哦！就像我们抓一把糖果，不会按照特定的顺序排列，而且相同的糖果只会算一个！🍬</p>
+<p><strong>创建我的“去重袋子”：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;  <span class="comment"># 大括号里直接放元素，相同的元素会自动去重</span></span><br><span class="line">set2 = <span class="built_in">set</span>()     <span class="comment"># 创建一个空集合</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>“变身”小技巧！列表和集合的互相转换！🔄</strong></p>
+<p>有时候我们需要利用集合的去重特性，可以先把列表变成集合，再去重，然后再变回列表！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_list_with_duplicates = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line">my_set = <span class="built_in">set</span>(my_list_with_duplicates)  <span class="comment"># 列表转集合，自动去重：&#123;1, 2, 3&#125;</span></span><br><span class="line">my_list_without_duplicates = <span class="built_in">list</span>(my_set) <span class="comment"># 集合转列表：[1, 2, 3] (注意顺序可能会变哦！)</span></span><br></pre></td></tr></table></figure>
+
+<p>好啦兄弟们，今天又认识了元组和集合这两位新朋友！元组是“只读收藏夹”，安全可靠；集合是“去重小助手”，独一无二！💖✨ 掌握了它们，我们的 Python “百宝箱”是不是更强大了呢？下次再和大家分享更多 Python 的有趣知识哦！😘</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">03-控制流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:02:26 / Modified: 17:27:07" itemprop="dateCreated datePublished" datetime="2025-04-26T17:02:26+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>兄弟们，今天我们来聊聊 Python 里的“循环”小宇宙！🌌✨ 它能让我们的代码像上了发条的小马达一样，重复执行我们想要的操作，简直是解放双手、提升效率的神器！😎💖</p>
+<h3 id="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"><a href="#循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁" class="headerlink" title="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"></a>循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁</h3><p>想象一下，循环里面又套着一个循环，就像我们小时候玩的俄罗斯套娃一样！一层又一层，可以实现一些更复杂的逻辑哦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):  <span class="comment"># 外层循环，执行 3 次</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;--- 外层循环第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次 ---&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):  <span class="comment"># 内层循环，每次外层循环都会执行 2 次</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;    内层循环第 <span class="subst">&#123;j + <span class="number">1</span>&#125;</span> 次&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️"><a href="#遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️" class="headerlink" title="遍历小能手！for 循环！🚶‍♀️🚶🚶‍♂️"></a>遍历小能手！<code>for</code> 循环！🚶‍♀️🚶🚶‍♂️</h3><p><code>for</code> 循环就像一个贴心的导游，可以带着我们一个一个地“参观”容器里的每个“景点”（元素）。容器可以是列表、字符串等等，只要里面有东西，<code>for</code> 循环就能把它遍历个遍！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我喜欢吃：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 容器中有 3 个元素，循环就会执行 3 次</span></span><br></pre></td></tr></table></figure>
+
+<p><code>for</code> 循环还能指定循环次数哦！用 <code>range()</code> 函数就可以实现啦！就像我们跑步，可以指定跑几圈！🏃‍♀️</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定结束位置（必填），从 0 开始，不包含结束位置</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):  <span class="comment"># 循环 5 次 (0, 1, 2, 3, 4)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定开始位置、结束位置和步长</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):  <span class="comment"># 从 1 开始，到 10 结束（不包含 10），每次增加 2 (1, 3, 5, 7, 9)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步长默认为 1，可以省略</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, <span class="number">7</span>):  <span class="comment"># 从 3 开始，到 7 结束（不包含 7），步长为 1 (3, 4, 5, 6)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="永不停歇的小马达！无限循环！"><a href="#永不停歇的小马达！无限循环！" class="headerlink" title="永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;"></a>永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;</h3><p>有时候我们希望程序一直运行下去，直到我们手动停止它，这时候就可以用 <code>while True:</code> 制造一个无限循环！就像一个永动机！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&#x27;请输入报道学生姓名 (输入 exit 退出): &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">        exit(<span class="number">0</span>)  <span class="comment"># 优雅地退出程序</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;今天接待的学生为：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关键时刻喊“停”！break！✋"><a href="#关键时刻喊“停”！break！✋" class="headerlink" title="关键时刻喊“停”！break！✋"></a>关键时刻喊“停”！<code>break</code>！✋</h3><p><code>break</code> 就像我们生活中的“紧急停止”按钮！在循环进行的过程中，如果遇到了 <code>break</code>，程序会立刻跳出整个循环，后面的代码也不会再执行啦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 当 i 大于 6 的时候，立刻停止循环</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;今天正在干饭，这是第 <span class="subst">&#123;i&#125;</span> 个包子&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;如果程序没有被中断，就会执行这个&quot;</span>)</span><br><span class="line"><span class="comment"># 注意：这里的 else 子句只有在循环正常结束（没有被 break 中断）的情况下才会执行哦！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“跳过”这个！continue！➡️"><a href="#“跳过”这个！continue！➡️" class="headerlink" title="“跳过”这个！continue！➡️"></a>“跳过”这个！<code>continue</code>！➡️</h3><p><code>continue</code> 就有点像我们生活中的“跳过”！在循环进行的过程中，如果遇到了 <code>continue</code>，程序会跳过当前这一次循环剩下的代码，直接进入下一次循环！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment"># 当 i 等于 3 的时候，跳过本次循环剩下的代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我正在吃第 <span class="subst">&#123;i&#125;</span> 个葡萄&quot;</span>)</span><br><span class="line"><span class="comment"># 你会发现，第 3 个葡萄被跳过了！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“门牌号”！索引！️"><a href="#字符串的“门牌号”！索引！️" class="headerlink" title="字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️"></a>字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️</h3><p>字符串就像一串珠子，每个字符都有自己的“门牌号”，也就是索引！索引从 0 开始计数哦！我们还可以用负数索引从末尾开始计数，-1 代表最后一个字符！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;天王盖地虎&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>])   <span class="comment"># 输出第一个字符：天</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>])  <span class="comment"># 输出最后一个字符：虎</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“切”出一块美味！切片！🔪🍰"><a href="#“切”出一块美味！切片！🔪🍰" class="headerlink" title="“切”出一块美味！切片！🔪🍰"></a>“切”出一块美味！切片！🔪🍰</h3><p>切片就像我们切蛋糕一样，可以从字符串中“切”出一小块！用 <code>:</code> 来指定切片的范围！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;张王岩，你好呀&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[::])      <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[:])       <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>:-<span class="number">3</span>:-<span class="number">1</span>]) <span class="comment"># 从倒数第一个到倒数第三个（不包含倒数第三个），步长为 -1：呀好</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>:<span class="number">3</span>:<span class="number">2</span>])   <span class="comment"># 从索引 0 到 3（不包含 3），步长为 2：张岩</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“魔法棒”！常用操作！✨🪄"><a href="#字符串的“魔法棒”！常用操作！✨🪄" class="headerlink" title="字符串的“魔法棒”！常用操作！✨🪄"></a>字符串的“魔法棒”！常用操作！✨🪄</h3><p>字符串还有很多自带的“魔法棒”，可以帮我们查找、修改、分割字符串！</p>
+<ul>
+<li><p><strong>查找：<code>find()</code> 和 <code>index()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;刀枪剑戟 斧钺钩叉&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name.find(<span class="string">&#x27;刀&#x27;</span>))  <span class="comment"># 查找 &#x27;刀&#x27; 第一次出现的位置，返回索引：0</span></span><br><span class="line"><span class="comment"># print(nick_name.index(&#x27;何先生&#x27;)) # 查找 &#x27;何先生&#x27;，如果不存在会报错！⚠️</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>替换：<code>replace()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>))   <span class="comment"># 将所有 &#x27;黑马&#x27; 替换成 &#x27;白马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 只替换第一个 &#x27;黑马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1)  <span class="comment"># 原字符串不会改变：黑马程序员</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>分割：<code>split()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s2 = <span class="string">&#x27;tom,19,男,100&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 以 &#x27;,&#x27; 分割字符串，只分割一次：[&#x27;tom&#x27;, &#x27;19,男,100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>))     <span class="comment"># 以 &#x27;,&#x27; 分割字符串，分割所有：[&#x27;tom&#x27;, &#x27;19&#x27;, &#x27;男&#x27;, &#x27;100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2)                <span class="comment"># 原字符串不会改变：tom,19,男,100</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>好啦兄弟们，今天的 Python 控制流程就聊到这里啦！掌握了循环和字符串的各种操作，你的 Python 代码就能更加灵活、更加强大啦！💪 快去试试这些“魔法”，让你的程序动起来吧！💖✨</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -462,1029 +1399,9 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/08-%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%94%B3%E9%A2%86%E3%80%81%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E3%80%81%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B0%8F%E9%97%AD%E7%8E%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/08-%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%94%B3%E9%A2%86%E3%80%81%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E3%80%81%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B0%8F%E9%97%AD%E7%8E%AF/" class="post-title-link" itemprop="url">08-云平台的申领、系统部署、运维监控小闭环</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 16:10:58 / Modified: 16:23:27" itemprop="dateCreated datePublished" datetime="2025-04-26T16:10:58+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>兄弟们，今天来聊聊怎么玩转云平台，让你的小网站、小应用也能拥有超能力！🚀✨ 这可是进阶运维小达人的必修课哦！😎</p>
-<h3 id="云平台初体验：打破次元壁！☁️"><a href="#云平台初体验：打破次元壁！☁️" class="headerlink" title="云平台初体验：打破次元壁！☁️"></a>云平台初体验：打破次元壁！☁️</h3><p>以前我们搞个网站、App，是不是得吭哧吭哧自己买服务器、装系统？现在有了云平台，一切都变得像在网上冲浪一样简单！🏄‍♀️</p>
-<p><strong>一些小知识点 Bang Bang Bang！敲黑板！</strong> 🤓</p>
-<ul>
-<li>不是所有跑着的程序都需要“占个坑”（端口号）来通信的哦！只有需要和外界交流的才需要！就像我们聊天需要手机号一样！📞</li>
-<li>提到云计算，阿里云绝对是国内的扛把子！🥇 起步早、价格亲民、质量还杠杠的！👍</li>
-<li>兄弟们注意啦！云服务器可不是你的个人电脑！虽然都是电脑，但人家是专业的！💪 全是 SSD 固态硬盘，速度飞快！当然，也有磁盘可以存放大容量数据哦！💾</li>
-<li>如果你手头有闲置的服务器，也不是不能把它变成你自己的“专属云盘”！DIY 的快乐谁懂！🤩</li>
-<li>最后辟个谣！阿里云和淘宝虽然都是阿里集团的，但可是独立运营的部门哦！别搞混啦！🙅‍♀️</li>
-</ul>
-<h3 id="什么是云服务器？🤔"><a href="#什么是云服务器？🤔" class="headerlink" title="什么是云服务器？🤔"></a>什么是云服务器？🤔</h3><p>简单来说，云服务器就像你在云端租了一台超厉害的“虚拟电脑”！💻 它基于云计算技术，可以弹性地调整配置，想大就大，想小就小，超灵活！就像我们女生的衣橱，想塞多少就多少！（好像哪里不对？😂）</p>
-<h3 id="常见云服务器“房东”有哪些？🏢🌍"><a href="#常见云服务器“房东”有哪些？🏢🌍" class="headerlink" title="常见云服务器“房东”有哪些？🏢🌍"></a>常见云服务器“房东”有哪些？🏢🌍</h3><p>想在云端安家？选择可不少呢！</p>
-<ul>
-<li><strong>国内知名“房东”：</strong> 阿里云、腾讯云、华为云、UCloud、百度云、金山云、京东云，个个实力都不容小觑！🏘️</li>
-<li><strong>国际大牌“房东”：</strong> AWS (亚马逊云)、微软 Azure、GCP (谷歌云)，技术那是杠杠的！🌍</li>
-</ul>
-<p>偷偷告诉你，在全球市场，AWS 是老大哦！而在我们国内，阿里云可是稳坐第一把交椅！厉害了我的云！👏</p>
-<h3 id="为什么大家都爱云服务器？它的“超能力”大揭秘！🦸‍♀️"><a href="#为什么大家都爱云服务器？它的“超能力”大揭秘！🦸‍♀️" class="headerlink" title="为什么大家都爱云服务器？它的“超能力”大揭秘！🦸‍♀️"></a>为什么大家都爱云服务器？它的“超能力”大揭秘！🦸‍♀️</h3><p>云服务器之所以这么受欢迎，当然是因为它有很多过人之处啦！</p>
-<ol>
-<li><strong>省钱小能手！💰：</strong> 按需付费，用多少花多少，再也不用担心买一堆设备吃灰啦！简直是精打细算姐妹的福音！💖</li>
-<li><strong>灵活小天后！💃：</strong> 业务量大了？一键升级配置！搞活动需要临时扩容？没问题！就像我们穿搭一样，随时切换风格！👗</li>
-<li><strong>安全感爆棚！🛡️：</strong> 专业的安全措施和数据备份机制，全方位保护你的数据！再也不用担心电脑坏了资料全没了！💪</li>
-<li><strong>懒人必备！🛋️：</strong> 各种自动化管理工具，运维变得超简单！不用是 IT 大佬也能轻松管理！✌️</li>
-<li><strong>创新加速器！🚀：</strong> 灵活的计算资源，让你可以专注于搞事情，大胆创新！💡</li>
-</ol>
-<h3 id="挑选云服务器，这些“体检报告”要看仔细！🧐"><a href="#挑选云服务器，这些“体检报告”要看仔细！🧐" class="headerlink" title="挑选云服务器，这些“体检报告”要看仔细！🧐"></a>挑选云服务器，这些“体检报告”要看仔细！🧐</h3><p>选云服务器就像选对象，要看合不合适！😎 这些“体检报告”可要认真研究：</p>
-<ol>
-<li><strong>“大脑”要聪明！🧠 (计算能力)</strong><ul>
-<li><strong>CPU (核数)：</strong> 如果你的应用需要处理大量计算，比如分析数据、跑 AI，那就选 CPU 核心多的！💪</li>
-<li><strong>内存 (大小)：</strong> 应用要处理很多数据或者同时运行很多程序？那就选内存大的！🧠</li>
-</ul>
-</li>
-<li><strong>“仓库”要够大！📦 (存储容量)</strong><ul>
-<li><strong>磁盘类型：</strong> 阿里云提供了 SSD、高效云盘和普通云盘。SSD 速度最快，适合对速度要求高的场景；高效云盘性价比高；普通云盘就适合对速度要求不高的场景啦！根据你的需求来选哦！😉</li>
-<li><strong>存储容量：</strong> 要存很多文件或者经常读写数据？那就选容量大的！💾</li>
-</ul>
-</li>
-<li><strong>“网速”要给力！📶 (网络性能)</strong><ul>
-<li><strong>带宽：</strong> 如果你的应用需要处理很多网络请求或者传输大量数据，那就选带宽高的！🚀</li>
-</ul>
-</li>
-</ol>
-<h3 id="云服务器怎么算钱？💰💳"><a href="#云服务器怎么算钱？💰💳" class="headerlink" title="云服务器怎么算钱？💰💳"></a>云服务器怎么算钱？💰💳</h3><p>云服务器的收费方式也很灵活哦！</p>
-<ul>
-<li><strong>按量付费：</strong> 用多少付多少，就像打车一样！🚕 适合有突发业务量或者临时测试的场景！</li>
-<li><strong>包年包月：</strong> 提前预付一段时间的费用，就像包月会员卡！💳 适合长期稳定运行的服务，比如你的小网站！</li>
-<li><strong>抢占式实例：</strong> 捡漏小能手！😎 阿里云会出售一些空闲的计算资源，价格超划算！但是可能会被随时回收，适合对稳定性要求不高的场景！</li>
-</ul>
-<h3 id="实战演练！手把手教你“云养娃”！👶➡️💪"><a href="#实战演练！手把手教你“云养娃”！👶➡️💪" class="headerlink" title="实战演练！手把手教你“云养娃”！👶➡️💪"></a>实战演练！手把手教你“云养娃”！👶➡️💪</h3><p>说了这么多理论，不如来点实际的！我们来一起“云养”两台小服务器！</p>
-<ol>
-<li><strong>申领云服务器：</strong> 在阿里云上申请两台云服务器！一台用来部署 Nginx，做我们网站的“门面”（反向代理）；另一台用来跑我们的应用，还要装个小数据库！</li>
-<li><strong>配置安全组：</strong> 安全组就像我们电脑的防火墙！🛡️ 设置好规则，才能保护我们的服务器不被坏人入侵！</li>
-<li><strong>配置主机名和内网域名解析：</strong> 给服务器起个好听的名字，再设置一下内网的“昵称”，方便它们互相认识！🤝</li>
-<li><strong>连接服务器：</strong> 下载阿里云的终端工具，或者用其他的终端软件，连接到我们的云服务器！就像远程遥控你的电脑一样！🕹️</li>
-<li><strong>安装软件：</strong> 在服务器上安装我们需要的 Nginx、数据库等等软件！就像给你的“云电脑”装上各种 App！</li>
-<li><strong>配置云监控和报警：</strong> 给我们的“云电脑”装上“眼睛”和“耳朵”！👀👂 监控它的运行状态，一旦出问题就及时发出警报！还可以配置超酷炫的可视化大屏，实时查看服务器的各项指标！📊</li>
-<li><strong>验证和关闭服务器：</strong> 确认一切正常后，就可以暂时关闭服务器啦！就像用完电脑关机一样！👋</li>
-</ol>
-<p>兄弟们，经过这 8 天的课程设计，我们已经成功入门运维的基础啦！🎉 是不是很神奇呢？期待我们下次再见！💖 在未来的日子里，我会继续分享我的运维经验和总结，和大家一起在技术的世界里闪闪发光！✨</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">07-系统服务管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 16:05:33 / Modified: 16:06:08" itemprop="dateCreated datePublished" datetime="2025-04-26T16:05:33+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖</p>
-<h3 id="让服务跑起来！systemctl-大法！🚀"><a href="#让服务跑起来！systemctl-大法！🚀" class="headerlink" title="让服务跑起来！systemctl 大法！🚀"></a>让服务跑起来！<code>systemctl</code> 大法！🚀</h3><p>在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 <code>sshd</code> 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 <code>systemctl</code> 命令啦！💪</p>
-<p>就像遥控器一样，<code>systemctl</code> 可以控制这些“服务”的状态：</p>
-<ul>
-<li><strong>启动服务：</strong> <code>sudo systemctl start &lt;服务名&gt;</code>  比如启动我们的远程连接小助手：<code>sudo systemctl start sshd</code>  启动后你的电脑就能接受远程连接啦！🔗</li>
-<li><strong>停止服务：</strong> <code>sudo systemctl stop &lt;服务名&gt;</code>  暂时不需要某个服务了？就让它先休息一下：<code>sudo systemctl stop sshd</code></li>
-<li><strong>重启服务：</strong> <code>sudo systemctl restart &lt;服务名&gt;</code>  有时候服务出点小状况，重启一下就好啦！就像给 App “刷新”一下：<code>sudo systemctl restart sshd</code></li>
-<li><strong>查看服务状态：</strong> <code>sudo systemctl status &lt;服务名&gt;</code>  想知道某个服务现在正不正常工作？看看它的状态就知道啦！会显示运行状态、进程信息等等，超详细！🔍</li>
-</ul>
-<h3 id="定时任务？交给-crontab-准没错！⏰"><a href="#定时任务？交给-crontab-准没错！⏰" class="headerlink" title="定时任务？交给 crontab 准没错！⏰"></a>定时任务？交给 <code>crontab</code> 准没错！⏰</h3><p>有时候我们希望电脑在特定的时间自动帮我们做一些事情，比如每天凌晨备份数据、定时清理临时文件等等。这时候就要请出我们的“定时任务小管家”—— <code>crontab</code> 啦！🕰️</p>
-<p>你可以编辑一个叫做 “crontab” 的文件，告诉电脑在什么时间执行什么命令。</p>
-<p><strong>编辑你的定时任务列表：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p>第一次运行可能会让你选择一个编辑器，一般选 <code>nano</code> 就很友好啦！😊</p>
-<p><strong><code>crontab</code> 的时间格式是这样的：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分 时 日 月 周 命令</span><br></pre></td></tr></table></figure>
-
-<p>每个字段的取值范围都贴心地告诉你啦：</p>
-<ul>
-<li><strong>分：</strong> 0-59</li>
-<li><strong>时：</strong> 0-23</li>
-<li><strong>日：</strong> 1-31</li>
-<li><strong>月：</strong> 1-12</li>
-<li><strong>周：</strong> 0-7 (0 和 7 都表示星期天哦！)</li>
-</ul>
-<p><strong>一些超实用的小技巧：</strong></p>
-<ul>
-<li><strong><code>*</code>：</strong> 表示这个字段的<strong>每一个值</strong>都符合。比如 <code>* * * * *</code> 就表示每分钟都执行后面的命令！😱</li>
-<li><strong><code>-</code>：</strong> 表示一个<strong>连续的范围</strong>。比如 <code>1-7</code> 就表示 1 到 7。</li>
-<li><strong><code>,</code>：</strong> 表示<strong>多个不连续的值</strong>。比如 <code>1,2,6</code> 就表示 1、2 和 6。</li>
-<li><strong><code>/</code>：</strong> 表示<strong>每隔多久执行一次</strong>。比如 <code>0/10</code> 在“分”的字段表示每隔 10 分钟执行一次（也就是 0, 10, 20, 30, 40, 50 分）。</li>
-</ul>
-<p><strong>举几个超简单的定时任务栗子🌰：</strong></p>
-<ul>
-<li><strong>每天凌晨 3 点备份我的重要文件：</strong> <code>0 3 * * * /bin/bash /path/to/backup_script.sh</code></li>
-<li><strong>每个工作日的下午 5 点发送一封邮件提醒自己下班：</strong> <code>0 17 * * 1-5 /usr/bin/mail -s &quot;下班啦！&quot; your_email@example.com &lt; /dev/null</code></li>
-<li><strong>每隔 30 分钟检查一下服务器状态：</strong> <code>*/30 * * * * /path/to/check_server_status.sh</code></li>
-</ul>
-<p>编辑完 <code>crontab</code> 文件记得保存哦！电脑就会乖乖地按照你的时间表去工作啦！是不是感觉自己像个小小的“时间魔法师”？🧙‍♀️✨</p>
-<p>好啦，今天关于 Linux 服务管理和定时任务的小技巧就分享到这里啦！学会了这些，你的 Linux 系统就能更加智能和自动化啦！下次再和兄弟们分享更多有趣的 Linux 知识！💖💻</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/06-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/06-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">06-软件安装和系统服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 15:54:31 / Modified: 16:01:11" itemprop="dateCreated datePublished" datetime="2025-04-26T15:54:31+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>兄弟们，今天来聊聊在 Linux 系统上怎么“捯饬”各种软件和系统服务！💻✨ 别看命令行黑乎乎的，玩熟了简直打开新世界的大门！😎</p>
-<h3 id="软件分类：你的-App-“出生”方式大揭秘！👶➡️🚀"><a href="#软件分类：你的-App-“出生”方式大揭秘！👶➡️🚀" class="headerlink" title="软件分类：你的 App “出生”方式大揭秘！👶➡️🚀"></a>软件分类：你的 App “出生”方式大揭秘！👶➡️🚀</h3><p>话说软件就像我们的小可爱 App，它们的“出生”方式可不一样哦！主要分两种：</p>
-<p><strong>1. 源码包：</strong> 就像拿到 App 的“源代码”！📜 你需要自己配置好“开发环境”（各种依赖），然后像个小码农一样“编译”它，再“打包”成能安装的“安装包”，最后才能安装使用。听起来是不是有点硬核？💪 但好处是你可以根据自己的需求定制功能，就像自己 DIY 一个独一无二的手机壳！🎨</p>
-<p><strong>举个栗子🌰：</strong> 很多超 cool、最新的开源软件都是以源码包的形式发布的。比如你想用某个还没被主流 Linux 发行版收录的黑科技工具，很可能就需要你先下载源码，然后 <code>./configure</code> -&gt; <code>make</code> -&gt; <code>make install</code> 三连击！💥</p>
-<p><strong>2. 二进制包：</strong> 这就像直接拿到已经打包好的 App 安装包（比如安卓的 <code>.apk</code>，iOS 的 <code>.ipa</code>）。你不需要关心它背后的“源代码”是啥，直接“一键安装”就能用！✌️ 这种方式为了保护开发者的知识产权，会进行代码混淆，让别人不容易直接看到源码。</p>
-<p>二进制包又分<strong>离线安装</strong>和<strong>在线安装</strong>两种方式，各有千秋，适用不同场景哦！</p>
-<h3 id="RPM-离线安装：网不好？没关系！📦"><a href="#RPM-离线安装：网不好？没关系！📦" class="headerlink" title="RPM 离线安装：网不好？没关系！📦"></a>RPM 离线安装：网不好？没关系！📦</h3><p>RPM（Red Hat Package Manager）是很多 Linux 发行版（比如 CentOS、Fedora）都在用的“快递”格式！📦 你可以提前下载好 <code>.rpm</code> 包，然后在没网或者网络不好的情况下直接安装！</p>
-<p><strong>常用命令小贴士：</strong></p>
-<ul>
-<li><strong>查询已安装的 RPM 包：</strong> <code>rpm -qa</code>  （这个命令会列出所有已安装的 RPM 包，信息量有点大哈！👀）</li>
-<li><strong>精准查找包含特定关键词的包：</strong> <code>rpm -qa | grep &lt;关键词&gt;</code>  比如你想找包含 <code>wget</code> 的包：<code>rpm -qa | grep wget</code></li>
-<li><strong>查看特定 RPM 包的详细信息：</strong> <code>rpm -qi &lt;包名&gt;</code>  比如：<code>rpm -qi wget-1.21.1-8.el9.x86_64</code></li>
-<li><strong>安装本地 RPM 包：</strong> <code>rpm -ivh &lt;.rpm 包文件&gt;</code>  <code>i</code> 是安装，<code>v</code> 是显示详细信息，<code>h</code> 是显示安装进度小方块，敲起来是不是很有仪式感？🧱<ul>
-<li><strong>强制安装（小心使用！）：</strong> 有时候遇到依赖问题，可以尝试加上 <code>--nodeps --force</code>，但可能会导致软件运行不稳定哦！⚠️</li>
-</ul>
-</li>
-<li><strong>升级 RPM 包：</strong> <code>rpm -Uvh &lt;.rpm 包文件&gt;</code>  <code>U</code> 是升级，如果没安装过就相当于安装。</li>
-<li><strong>卸载 RPM 包：</strong> <code>rpm -e &lt;包名&gt;</code>  注意这里是<strong>包名</strong>，不是 <code>.rpm</code> 文件名！比如卸载 <code>wget</code>：<code>rpm -e wget</code><ul>
-<li><strong>强制卸载（同样小心！）：</strong> 同样可以加上 <code>--nodeps --force</code>，但后果自负哦！💣</li>
-</ul>
-</li>
-</ul>
-<h3 id="DNF-在线安装：冲浪达人的必备技能！🏄‍♀️"><a href="#DNF-在线安装：冲浪达人的必备技能！🏄‍♀️" class="headerlink" title="DNF 在线安装：冲浪达人的必备技能！🏄‍♀️"></a>DNF 在线安装：冲浪达人的必备技能！🏄‍♀️</h3><p>DNF（Dandified YUM）是新一代的包管理器，在 Fedora 和一些新的 CentOS 版本上取代了 YUM。它就像一个智能的“App Store”，连接着软件仓库，可以自动帮你下载、安装、升级、卸载软件，还能自动处理依赖关系，简直是懒人必备！😎</p>
-<p><strong>常用命令速记：</strong></p>
-<ul>
-<li><strong>列出所有可用的软件包：</strong> <code>dnf list</code> （信息量巨大！🐳）</li>
-<li><strong>搜索软件包：</strong> <code>dnf search &lt;关键词&gt;</code>  比如你想找关于 Python 的包：<code>dnf search python</code></li>
-<li><strong>查看软件包信息：</strong> <code>dnf info &lt;包名&gt;</code>  比如：<code>dnf info python3</code></li>
-<li><strong>安装软件包：</strong> <code>dnf install &lt;包名&gt;</code>  比如安装 Python：<code>dnf install python3</code>  它会自动帮你下载并安装所有相关的依赖包，超省心！💖</li>
-<li><strong>升级软件包：</strong> <code>dnf upgrade &lt;包名&gt;</code>  升级指定的包，比如升级 Python：<code>dnf upgrade python3</code></li>
-<li><strong>升级所有软件包：</strong> <code>dnf update</code> 或者 <code>dnf upgrade</code> （推荐定期执行，保持系统软件最新！✨）</li>
-<li><strong>移除软件包：</strong> <code>dnf remove &lt;包名&gt;</code>  比如移除 Python：<code>dnf remove python3</code><ul>
-<li><strong>移除不再需要的依赖包：</strong> <code>dnf autoremove</code>  卸载掉那些因为之前安装某个包而自动安装，但现在那个包已经被卸载了的“孤儿”依赖包，让你的系统更干净！🧹</li>
-</ul>
-</li>
-<li><strong>列出已安装的软件包：</strong> <code>dnf list --installed</code>  想看看自己都装了啥？用这个！🧐</li>
-<li><strong>查找已安装的包含特定关键词的包：</strong> <code>dnf list --installed | grep &lt;关键词&gt;</code>  比如查找已安装的 Python 包：<code>dnf list --installed | grep python</code></li>
-<li><strong>清理缓存：</strong> <code>dnf clean all</code>  有时候遇到问题可以尝试清理一下缓存。</li>
-</ul>
-<p><strong>举几个 DNF 的实用例子🌰：</strong></p>
-<ul>
-<li><strong>想安装一个超好用的文本编辑器 <code>nano</code>：</strong> <code>sudo dnf install nano</code></li>
-<li><strong>发现 <code>vim</code> 太难学，想换回 <code>nano</code>？</strong> <code>sudo dnf remove vim</code></li>
-<li><strong>听说 <code>neofetch</code> 可以酷炫地展示系统信息，想试试？</strong> <code>sudo dnf install neofetch</code> 然后运行 <code>neofetch</code> 看看效果！🤩</li>
-<li><strong>系统提示有更新，想一次性升级所有软件？</strong> <code>sudo dnf update -y</code> （加上 <code>-y</code> 可以自动确认，不用每次都按 <code>y</code> 啦！😉）</li>
-</ul>
-<p>好啦，关于 Linux 下的软件安装就先聊到这里！是不是感觉也没那么难嘛？😉 掌握了这些小技巧，你也能轻松管理你的 Linux 系统啦！下次再和兄弟们分享更多好玩的技术干货！💖✨</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">05-权限管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 14:30:52 / Modified: 15:49:02" itemprop="dateCreated datePublished" datetime="2025-04-26T14:30:52+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"><a href="#🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！" class="headerlink" title="🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"></a>🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！</h1><p>兄弟们，今天给大家分享一下在 Linux 系统里超级重要的一个知识点——<strong>权限管理</strong>！💻💾 别看它好像很高深的样子，其实掌握了它，就能更好地保护我们的文件和数据哦！💪</p>
-<h2 id="🤔-权限是个啥？"><a href="#🤔-权限是个啥？" class="headerlink" title="🤔 权限是个啥？"></a>🤔 权限是个啥？</h2><p>在 Linux 这个神奇的世界里，每个文件和文件夹都有自己的“主人”和“管家”，还有一些“访客”。权限就像是给他们设置的“通行证”，规定了谁能看👀、谁能动✍️、谁能用▶️！</p>
-<p>简单来说，权限就三种：</p>
-<ul>
-<li><strong>r (Read - 读)</strong>：👀 可以看里面的内容！<ul>
-<li><strong>文件</strong>：就能打开看到文件写了啥。</li>
-<li><strong>目录</strong>：就能看到这个文件夹里都有哪些文件和文件夹的名字。</li>
-</ul>
-</li>
-<li><strong>w (Write - 写)</strong>：✍️ 可以修改里面的内容！<ul>
-<li><strong>文件</strong>：就能编辑、保存文件里的东西。</li>
-<li><strong>目录</strong>：就能在这个文件夹里新建、删除、移动文件和文件夹！⚠️ 小心操作哦！</li>
-</ul>
-</li>
-<li><strong>x (Execute - 执行)</strong>：▶️ 可以运行它！<ul>
-<li><strong>文件</strong>：对于程序或者脚本文件，有了这个权限才能跑起来！</li>
-<li><strong>目录</strong>：有了这个权限才能用 <code>cd</code> 命令进入这个文件夹！🚪</li>
-</ul>
-</li>
-</ul>
-<h2 id="🔍-权限信息在哪里看？"><a href="#🔍-权限信息在哪里看？" class="headerlink" title="🔍 权限信息在哪里看？"></a>🔍 权限信息在哪里看？</h2><p>在终端里输入 <code>ls -l</code> 命令，就能看到文件和文件夹的详细信息啦！就像这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x  2 user group 4096 Apr 26 14:30 my_folder</span><br><span class="line">-rw-r--r--  1 user group  100 Apr 26 14:30 my_file.txt</span><br></pre></td></tr></table></figure>
-
-<p>最前面那一串像 <code>drwxr-xr-x</code> 和 <code>-rw-r--r--</code> 的就是权限信息啦！🤩</p>
-<ul>
-<li><p><strong>第一位</strong>：是文件类型哦！<code>-</code> 代表普通文件，<code>d</code> 代表文件夹，<code>l</code> 代表快捷方式。</p>
-</li>
-<li><p><strong>后面九位</strong>：分成三组，每组三个字母，分别代表 <strong>文件主人 (User)</strong>、<strong>文件所属组 (Group)</strong>、<strong>其他人 (Others)</strong> 的权限！</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(文件主人) (所属组) (其他人)</span><br><span class="line">  rwx     r-x      r-x</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="✍️-怎么修改权限？两种方法安排上！"><a href="#✍️-怎么修改权限？两种方法安排上！" class="headerlink" title="✍️ 怎么修改权限？两种方法安排上！"></a>✍️ 怎么修改权限？两种方法安排上！</h2><h3 id="🅰️-字母大法：简单易懂！"><a href="#🅰️-字母大法：简单易懂！" class="headerlink" title="🅰️ 字母大法：简单易懂！"></a>🅰️ 字母大法：简单易懂！</h3><p>用 <code>chmod</code> 命令就可以修改权限啦！</p>
-<ul>
-<li><code>u</code>：主人</li>
-<li><code>g</code>：所属组</li>
-<li><code>o</code>：其他人</li>
-<li><code>+</code>：添加权限</li>
-<li><code>-</code>：移除权限</li>
-<li><code>=</code>：设置成某个权限</li>
-</ul>
-<p>比如，我想给我写的 <code>linux.txt</code> 文件加上执行权限，让它跑起来！🏃‍♀️</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x linux.txt</span><br></pre></td></tr></table></figure>
-
-<p>如果想给一个文件夹和它里面的所有东西都加上某个权限，记得加上 <code>-R</code> 参数哦！🔄</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R g+w my_project</span><br></pre></td></tr></table></figure>
-
-<h3 id="🔢-数字密码：更快更直接！"><a href="#🔢-数字密码：更快更直接！" class="headerlink" title="🔢 数字密码：更快更直接！"></a>🔢 数字密码：更快更直接！</h3><p>还有一种更酷的方法，用数字来代表权限！😎</p>
-<ul>
-<li><code>r</code> &#x3D; 4</li>
-<li><code>w</code> &#x3D; 2</li>
-<li><code>x</code> &#x3D; 1</li>
-</ul>
-<p>把想要的权限数字加起来就好啦！</p>
-<ul>
-<li><code>7</code> (<code>4+2+1</code>) &#x3D; <code>rwx</code> (读写执行全都有！)</li>
-<li><code>6</code> (<code>4+2</code>) &#x3D; <code>rw-</code> (可以读写，不能执行)</li>
-<li><code>5</code> (<code>4+1</code>) &#x3D; <code>r-x</code> (可以读和执行，不能写)</li>
-<li><code>4</code> &#x3D; <code>r--</code> (只能读)</li>
-</ul>
-<p>比如，我想给 <code>shop</code> 这个文件夹所有权限！安排！👇</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 shop</span><br></pre></td></tr></table></figure>
-
-<p>⚠️ <code>777</code> 权限要谨慎使用哦，因为它给所有人开了大门！🚪</p>
-<h2 id="🤫-默认权限的小秘密-umask"><a href="#🤫-默认权限的小秘密-umask" class="headerlink" title="🤫 默认权限的小秘密 (umask)"></a>🤫 默认权限的小秘密 (<code>umask</code>)</h2><p>每次我们新建文件或者文件夹的时候，系统都会给它们一个默认的权限。这个默认权限是由 <code>umask</code> 这个小家伙决定的！🤫 虽然笔记里没细说，但记住有这么个东西就好啦！</p>
-<h2 id="✨-特殊权限了解一下！"><a href="#✨-特殊权限了解一下！" class="headerlink" title="✨ 特殊权限了解一下！"></a>✨ 特殊权限了解一下！</h2><p>Linux 还有一些特殊的“小彩蛋”权限，虽然不常用，但是了解一下总没错！</p>
-<ul>
-<li><strong>冒险位 (SUID &amp; SGID)</strong>：🚀 让普通用户也能临时拥有文件主人或者文件所属组的“超能力”！<ul>
-<li><code>S</code>：表示设置了冒险位，但主人&#x2F;组没有执行权限（不常见）。</li>
-<li><code>s</code>：表示设置了冒险位，并且主人&#x2F;组有执行权限（更常见）。</li>
-</ul>
-</li>
-<li><strong>粘滞位 (Sticky Bit)</strong>：📍 给公共文件夹加个“小门卫”，只有文件的主人、文件夹的主人或者 root 大佬才能删除里面的文件，别人想动？没门！🙅‍♀️ 用 <code>T</code> 表示哦！</li>
-</ul>
-<h2 id="🤝-文件和文件夹的“户口本”"><a href="#🤝-文件和文件夹的“户口本”" class="headerlink" title="🤝 文件和文件夹的“户口本”"></a>🤝 文件和文件夹的“户口本”</h2><ul>
-<li><strong>所属用户 (<code>chown</code>)</strong>：可以修改文件和文件夹的“主人”！🏠  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R new_owner my_folder</span><br></pre></td></tr></table></figure></li>
-<li><strong>所属组 (<code>chgrp</code>)</strong>：可以修改文件和文件夹的“家庭”！🏘️  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp -R new_group my_folder</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="🛡️-更高级的权限管理-ACL"><a href="#🛡️-更高级的权限管理-ACL" class="headerlink" title="🛡️ 更高级的权限管理 (ACL)"></a>🛡️ 更高级的权限管理 (<code>ACL</code>)</h2><p>如果觉得基本权限不够用，还有更厉害的 <strong>ACL (Access Control List)</strong>！它可以针对** конкретный 用户** 设置更细致的权限！📝 就像给 VIP 用户开通专属通道！下次有机会再给大家细讲！</p>
-<h2 id="🧑‍🤝‍🧑-用户和用户组小课堂"><a href="#🧑‍🤝‍🧑-用户和用户组小课堂" class="headerlink" title="🧑‍🤝‍🧑 用户和用户组小课堂"></a>🧑‍🤝‍🧑 用户和用户组小课堂</h2><ul>
-<li><code>groupadd 用户组名称</code>：新建一个“家庭”！</li>
-<li><code>groupmod 用户组名称</code>：修改“家庭”信息。</li>
-<li><code>groupdel 用户组名称</code>：解散“家庭”。</li>
-<li><code>/etc/group</code>：这里记录了所有“家庭”的信息哦！</li>
-<li><code>useradd 用户名称</code>：新添一个“家庭成员”！</li>
-<li><code>usermod 用户名称</code>：修改“家庭成员”信息。</li>
-<li><code>userdel 用户名称</code>：移除“家庭成员”。</li>
-</ul>
-<hr>
-<p>好啦！今天的 Linux 权限管理小课堂就到这里啦！是不是感觉没那么难了呢？😜 掌握了这些，就能更好地管理你的 Linux 系统，保护好你的数据哦！快去试试看吧！👋</p>
-<p>#Linux #权限管理 #新手教程 #小红书 #干货分享 #技术流</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/04-%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/04-%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">04-系统核心命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 08:21:46 / Modified: 09:27:36" itemprop="dateCreated datePublished" datetime="2025-04-26T08:21:46+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="1-主机名的查看"><a href="#1-主机名的查看" class="headerlink" title="1 主机名的查看"></a>1 主机名的查看</h3><h4 id="hostname-或者hostnamectl"><a href="#hostname-或者hostnamectl" class="headerlink" title="hostname   或者hostnamectl"></a>hostname   或者hostnamectl</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082223456.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082251687.png"></p>
-<p>hostnamectl set-hostname 主机名</p>
-<h3 id="设置host"><a href="#设置host" class="headerlink" title="设置host"></a>设置host</h3><p>&#x2F;etc&#x2F;hosts<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082534071.png"></p>
-<h3 id="系统挂载方案"><a href="#系统挂载方案" class="headerlink" title="系统挂载方案"></a>系统挂载方案</h3><p>nohup  进程名  &amp;<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082942623.png"></p>
-<h4 id="CSDN地址"><a href="#CSDN地址" class="headerlink" title="CSDN地址:"></a>CSDN地址:</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2501_91107759/article/details/147480583">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480583</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2501_91107759/article/details/147480712">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480712</a></p>
-<h3 id="查看系统状态"><a href="#查看系统状态" class="headerlink" title="查看系统状态"></a>查看系统状态</h3><p>top命令和htop命令<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083107947.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083124809.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083141858.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083155497.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">运行 top 之后，可以按下边对应的字母（区分大小写）进行一些功能的切换:</span><br><span class="line">- h 或者?：显示帮助画面，给出一些简短的命令总结说明</span><br><span class="line">- i：忽略闲置和僵死进程。这是一个开关式命令</span><br><span class="line">- q：退出程序</span><br><span class="line">- c：切换显示命令名称和完整命令行。 显示完整的命令。 这个功能很有用</span><br><span class="line">- M：根据驻留内存大小进行排序</span><br><span class="line">- P：根据CPU使用百分比大小进行排序</span><br><span class="line">- T：根据时间/累计时间进行排序</span><br><span class="line"></span><br><span class="line">命令行参数:</span><br><span class="line">top -h ：输出帮助信息</span><br><span class="line">top  -u：监控指定用户的进程</span><br><span class="line">top  -p：监控指定进程（输入参数为进程pid</span><br></pre></td></tr></table></figure>
-<h3 id="查看磁盘命令-df"><a href="#查看磁盘命令-df" class="headerlink" title="查看磁盘命令 df"></a>查看磁盘命令 df</h3><p>df -H<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083232494.png"></p>
-<h3 id="查看内存命令-free"><a href="#查看内存命令-free" class="headerlink" title="查看内存命令 free"></a>查看内存命令 free</h3><p>free -h<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083305910.png"></p>
-<h3 id="进程所占用端口"><a href="#进程所占用端口" class="headerlink" title="进程所占用端口"></a>进程所占用端口</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2501_91107759/article/details/147481702">https://blog.csdn.net/2501_91107759/article/details/147481702</a><br>t</p>
-<p>u</p>
-<p>n </p>
-<p>lsp lp<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083352959.png"></p>
-<h3 id="5-进程管理命令"><a href="#5-进程管理命令" class="headerlink" title="5 进程管理命令"></a>5 进程管理命令</h3><h4 id="ps-ef-aux-grep-要查询的进程名字"><a href="#ps-ef-aux-grep-要查询的进程名字" class="headerlink" title="ps -ef&#x2F;aux  | grep 要查询的进程名字"></a>ps -ef&#x2F;aux  | grep 要查询的进程名字</h4><h3 id="6-杀死进程"><a href="#6-杀死进程" class="headerlink" title="6 杀死进程"></a>6 杀死进程</h3><h4 id="kill-9"><a href="#kill-9" class="headerlink" title="kill -9 "></a><strong>kill -9 <PID></strong></h4>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/03-%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E3%80%81%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/03-%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E3%80%81%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E7%BC%A9/" class="post-title-link" itemprop="url">03-文件编辑、文本查看与解压缩：我的 Linux 工具箱 🧰</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-25 20:55:37 / Modified: 21:10:47" itemprop="dateCreated datePublished" datetime="2025-04-25T20:55:37+08:00">2025-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="文件编辑：Vim-初体验-📝"><a href="#文件编辑：Vim-初体验-📝" class="headerlink" title="文件编辑：Vim 初体验 📝"></a>文件编辑：Vim 初体验 📝</h2><p>Vim 是 Linux 下强大的文本编辑器，虽然上手可能需要一些时间，但熟练后效率很高。</p>
-<ul>
-<li><p><strong>打开文件：</strong></p>
-<ul>
-<li><code>vim &lt;文件名&gt;</code>：<font color="#8B4513">打开指定文件</font>。如果文件不存在，则会创建一个新文件。</li>
-<li><code>vim +&lt;行号&gt; &lt;文件名&gt;</code>：<font color="#8B4513">打开文件并将光标定位到指定行号</font>。（例如 <code>vim +10 hello.txt</code> 会打开 <code>hello.txt</code> 并跳转到第 10 行。）</li>
-</ul>
-</li>
-<li><p><strong>三种模式：Vim 的灵魂 🎭</strong></p>
-<ul>
-<li><p><strong>命令模式 (Normal mode)</strong>：Vim 启动后的默认模式，用于执行各种编辑命令（移动光标、复制粘贴、删除等）。</p>
-<ul>
-<li><code>yy</code>：<font color="#2E8B57">复制当前行</font>（yank）。</li>
-<li><code>G</code>：<font color="#2E8B57">跳转到文件末尾</font>。</li>
-<li><code>o</code>：<font color="#2E8B57">在当前行下方插入新行并切换到插入模式</font>。</li>
-<li>其他常用命令：（思考：还有哪些常用的命令模式操作，例如 <code>dd</code> (删除行), <code>p</code> (粘贴), <code>hjkl</code> (光标移动) 等？）</li>
-</ul>
-</li>
-<li><p><strong>插入模式 (Insert mode)</strong>：用于输入文本。</p>
-<ul>
-<li>从命令模式切换到插入模式的常用按键：<code>i</code> (在光标前插入), <code>a</code> (在光标后插入), <code>o</code> (在当前行下方插入新行), <code>I</code> (在行首插入), <code>A</code> (在行尾插入), <code>O</code> (在当前行上方插入新行)。</li>
-<li>按 <code>Esc</code> 键返回命令模式。</li>
-</ul>
-</li>
-<li><p><strong>末行模式 (Command-line mode)</strong>：在命令模式下输入 <code>:</code> 进入，用于执行保存、退出、查找、设置等操作。</p>
-<ul>
-<li><code>:q!</code>：<font color="#FF0000">强制退出，不保存任何修改</font>。（小心使用！）</li>
-<li><code>:x</code>：<font color="#00008B">保存并退出</font>（只有在文件内容被修改时才保存，运维常用！）。</li>
-<li><code>:wq</code>：<font color="#00008B">保存并退出</font>（强制保存并退出）。</li>
-<li><code>:set nu</code>：<font color="#00008B">设置显示行号</font>。</li>
-<li><code>:set nonu</code>：<font color="#00008B">取消显示行号</font>。</li>
-<li><code>/&lt;关键词&gt;</code>：<font color="#00008B">在文件中查找关键词</font>，按 <code>n</code> 查找下一个匹配结果，按 <code>N</code> 查找上一个匹配结果。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="文本查看命令：洞察文件内容-👀"><a href="#文本查看命令：洞察文件内容-👀" class="headerlink" title="文本查看命令：洞察文件内容 👀"></a>文本查看命令：洞察文件内容 👀</h2><p>这些命令用于查看文本文件的内容，各有特点：</p>
-<ul>
-<li><code>cat &lt;文件&gt;</code>：<font color="#DC143C">一次性显示文件所有内容</font>。（适用于小文件。）</li>
-<li><code>more &lt;文件&gt;</code>：<font color="#DC143C">分页显示文件内容</font>。<ul>
-<li><code>空格</code>：向下翻一页。</li>
-<li><code>b</code>：向上翻一页。</li>
-<li><code>/关键词</code>：查找关键词。</li>
-<li><code>q</code>：退出。</li>
-<li>显示当前进度。</li>
-</ul>
-</li>
-<li><code>less &lt;文件&gt;</code>：<font color="#DC143C">更强大的分页查看器</font>，功能比 <code>more</code> 更丰富。<ul>
-<li><code>空格</code>：向下翻一页。</li>
-<li><code>b</code>：向上翻一页。</li>
-<li><code>/关键词</code>：查找关键词，按 <code>n</code> 查看下一个匹配，<code>N</code> 查看上一个匹配。</li>
-<li><code>q</code>：退出。</li>
-<li>支持上下方向键逐行滚动。</li>
-</ul>
-</li>
-<li><code>head -n &lt;文件&gt;</code>：<font color="#DC143C">显示文件的前 n 行</font>（默认显示前 10 行）。（例如 <code>head -20 hello.txt</code> 显示前 20 行。）</li>
-<li><code>tail -n &lt;文件&gt;</code>：<font color="#DC143C">显示文件的后 n 行</font>（默认显示后 10 行）。</li>
-<li><code>tail -f &lt;文件&gt;</code>：<font color="#DC143C">实时监控文件尾部的更新</font>，常用于查看日志文件。（当你需要实时查看日志变化时非常有用。）</li>
-<li><code>wc &lt;文件&gt;</code>：<font color="#DC143C">统计文件的行数、单词数和字节数</font>（Word Count）。<ul>
-<li><code>-l</code>：统计行数（lines）。</li>
-<li><code>-w</code>：统计单词数（words）。</li>
-<li><code>-c</code>：统计字节数（bytes）。</li>
-<li><code>-m</code>：统计字符数（characters）。</li>
-</ul>
-</li>
-<li><code>grep &lt;要查找的内容&gt; &lt;文件名&gt;</code>：<font color="#DC143C">强大的文本搜索工具</font>，用于在文件中查找包含指定模式的行。（思考：<code>grep</code> 还有哪些常用的选项，例如 <code>-i</code> (忽略大小写), <code>-r</code> (递归搜索), <code>-v</code> (反向匹配) 等？）</li>
-</ul>
-<h2 id="文件解压缩：整理你的文件-📦"><a href="#文件解压缩：整理你的文件-📦" class="headerlink" title="文件解压缩：整理你的文件 📦"></a>文件解压缩：整理你的文件 📦</h2><p>在 Linux 上处理压缩文件是很常见的操作。</p>
-<ul>
-<li><p><strong><code>tar</code> 命令 (归档和压缩&#x2F;解压缩)</strong>：常用于打包文件，并结合 <code>gzip</code> 或 <code>bzip2</code> 进行压缩。</p>
-<ul>
-<li><p><strong>打包并使用 gzip 压缩 (<code>.tar.gz</code> 或 <code>.tgz</code>)：</strong><br>  <code>tar -zcvf &lt;归档文件名&gt;.tar.gz &lt;需要归档的目录/文件&gt;</code></p>
-<ul>
-<li><code>-z</code>：使用 gzip 进行压缩。</li>
-<li><code>-c</code>：创建归档文件。</li>
-<li><code>-v</code>：显示详细的归档过程（verbose）。</li>
-<li><code>-f &lt;归档文件名&gt;</code>：指定归档文件名。</li>
-<li><code>&lt;需要归档的目录/文件&gt;</code>：要打包的文件或目录列表。</li>
-<li><code>-C &lt;目标目录&gt;</code>：改变到指定的目录 <code>&lt;目标目录&gt;</code> 再执行压缩。（注意：这个 <code>-C</code> 选项的位置可能会影响理解，通常在解压时使用较多。）</li>
-</ul>
-</li>
-<li><p><strong>解压 <code>.tar.gz</code> 文件：</strong><br>  <code>tar -zxvf &lt;归档文件名&gt;.tar.gz -C &lt;解压到的目录&gt;</code></p>
-<ul>
-<li><code>-z</code>：使用 gzip 进行解压缩。</li>
-<li><code>-x</code>：解压归档文件。</li>
-<li><code>-v</code>：显示详细的解压过程。</li>
-<li><code>-f &lt;归档文件名&gt;</code>：指定要解压的归档文件名。</li>
-<li><code>-C &lt;解压到的目录&gt;</code>：指定解压的目标目录。（例如 <code>-C /root</code> 表示解压到 <code>/root</code> 目录下。）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong><code>zip</code> 命令 (压缩和解压缩)</strong>：常见的跨平台压缩格式。</p>
-<ul>
-<li><p><strong>压缩文件或目录：</strong><br>  <code>zip -r &lt;归档文件名&gt;.zip &lt;需要归档的目录/文件列表&gt;</code></p>
-<ul>
-<li><code>-r</code>：递归压缩目录。</li>
-<li><code>&lt;归档文件名&gt;.zip</code>：指定的压缩文件名。</li>
-<li><code>&lt;需要归档的目录/文件列表&gt;</code>：要压缩的文件或目录。</li>
-</ul>
-</li>
-<li><p><strong>解压 <code>.zip</code> 文件：</strong><br>  <code>unzip &lt;归档文件名&gt;.zip -d &lt;解压到的目录&gt;</code></p>
-<ul>
-<li><code>&lt;归档文件名&gt;.zip</code>：要解压的 zip 文件。</li>
-<li><code>-d &lt;解压到的目录&gt;</code>：指定解压的目标目录。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/02-Linux%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/02-Linux%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">02-Linux文件及目录操作：我的 Linux 基础笔记 📂</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-25 20:27:10 / Modified: 20:52:46" itemprop="dateCreated datePublished" datetime="2025-04-25T20:27:10+08:00">2025-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Linux-目录结构：系统的骨架-🦴"><a href="#Linux-目录结构：系统的骨架-🦴" class="headerlink" title="Linux 目录结构：系统的骨架 🦴"></a>Linux 目录结构：系统的骨架 🦴</h2><p>在 Linux 系统中，目录的组织结构是理解文件操作的基础。以下是一些重要的目录及其作用：</p>
-<ul>
-<li><code>/usr</code>：<font color="#008080">系统软件默认安装位置</font>，通常包含用户安装的应用程序和库文件。（思考：为什么不直接安装在根目录下？）</li>
-<li><code>/opt</code>：<font color="#008080">可选软件包目录</font>，通常用于安装第三方或大型商业软件。（思考：将第三方软件放在这里有什么好处？）</li>
-<li><code>/etc</code>：<font color="#008080">系统配置文件目录</font>，几乎所有系统服务和应用程序的配置都在这里。（重要！修改配置文件需要谨慎。）</li>
-<li><code>/dev</code>：<font color="#008080">设备文件目录</font>，Linux 将所有硬件设备都抽象为文件。（思考：如何通过操作这些文件与硬件交互？）</li>
-<li><code>/tmp</code>：<font color="#008080">临时文件存储目录</font>，系统重启后该目录下的文件通常会被清空。（注意：不要在这里存放重要数据。）</li>
-<li><code>/home</code>：<font color="#008080">普通用户的家目录</font>，每个用户都有自己的独立空间。（我的个人文件通常在这里。）</li>
-<li><code>/root</code>：<font color="#008080">超级管理员（root）的家目录</font>，拥有系统的最高权限。（谨慎使用 root 权限！）</li>
-</ul>
-<h2 id="Linux-目录相关命令：我的导航工具-🧭"><a href="#Linux-目录相关命令：我的导航工具-🧭" class="headerlink" title="Linux 目录相关命令：我的导航工具 🧭"></a>Linux 目录相关命令：我的导航工具 🧭</h2><p>学习这些命令，就像学会了在 Linux 世界中导航：</p>
-<ul>
-<li><code>pwd</code>：<font color="#0000FF">显示当前工作目录</font>（Print Working Directory）。（我当前在哪儿？）</li>
-<li><code>ls</code>：<font color="#0000FF">列出目录内容</font>（List）。<ul>
-<li><code>ls -a</code>：<font color="#0000FF">显示所有目录和文件</font>，包括以 <code>.</code> 开头的隐藏文件。（隐藏文件有什么用？）</li>
-<li><code>ls -l</code>：<font color="#0000FF">以长列表格式显示</font>，包含详细的文件权限、所有者、大小和修改时间等信息。（这些信息的含义是什么？）</li>
-<li><code>ls -h</code>：<font color="#0000FF">以人类可读的格式显示文件大小</font>（Human-readable）。（比如 KB、MB、GB，更直观。）</li>
-</ul>
-</li>
-<li><code>mkdir &lt;目录名&gt;</code>：<font color="#0000FF">创建新目录</font>（Make Directory）。</li>
-<li><code>rmdir &lt;空目录名&gt;</code>：<font color="#0000FF">删除空目录</font>（Remove Directory）。（只能删除空目录，不常用。）</li>
-<li><code>cd &lt;目标目录&gt;</code>：<font color="#0000FF">切换工作目录</font>（Change Directory）。<ul>
-<li><code>cd ..</code>：返回上一级目录。</li>
-<li><code>cd ~</code> 或 <code>cd</code>：返回当前用户的家目录。</li>
-</ul>
-</li>
-<li><code>tree &lt;目录名&gt;</code>：<font color="#0000FF">以树状结构显示目录内容</font>。（清晰地展示目录层级关系，很直观。）</li>
-</ul>
-<h2 id="Linux-文件相关命令：我的操作利器-🔪"><a href="#Linux-文件相关命令：我的操作利器-🔪" class="headerlink" title="Linux 文件相关命令：我的操作利器 🔪"></a>Linux 文件相关命令：我的操作利器 🔪</h2><p>这些命令用于对文件进行各种操作：</p>
-<ul>
-<li><p><strong>创建文件</strong>：</p>
-<ul>
-<li><code>touch &lt;文件名&gt;</code>：<font color="#A0522D">创建一个空文件或更新文件的时间戳</font>。（很常用的创建空文件的方法。）</li>
-</ul>
-</li>
-<li><p><strong>复制文件</strong>：</p>
-<ul>
-<li><code>cp -r &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">复制文件或目录</font>（Copy，<code>-r</code> 用于复制目录，表示递归复制）。（复制目录时一定要加 <code>-r</code>！）</li>
-</ul>
-</li>
-<li><p><strong>移动文件</strong>：</p>
-<ul>
-<li><code>mv &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">移动文件或目录，也可以用于重命名</font>（Move）。（如果目标路径是已存在的目录，则移动到该目录下；如果是新的文件名，则重命名。）</li>
-</ul>
-</li>
-<li><p><strong>文件上传与下载</strong>：（思考：有哪些常用的文件上传和下载工具？例如 <code>scp</code>、<code>sftp</code>、<code>rz/sz</code> 等。）</p>
-</li>
-<li><p><strong>删除文件</strong>：</p>
-<ul>
-<li><code>rm -r &lt;文件/目录&gt;</code>：<font color="#A0522D">删除文件或目录</font>（Remove，<code>-r</code> 用于删除目录，请谨慎使用！）。（删除操作不可逆，一定要小心！）</li>
-</ul>
-</li>
-<li><p><strong>文本查找命令：在浩瀚的文件中寻找目标 🔍</strong></p>
-<ul>
-<li><p><code>find &lt;查找路径&gt; &lt;查找条件&gt;</code>：<font color="#228B22">强大的文件查找工具</font>。</p>
-<ul>
-<li><code>-name &lt;文件名&gt;</code>：<font color="#228B22">按文件名进行搜索</font>（支持通配符 <code>*</code>）。</li>
-<li><code>-type f</code>：<font color="#228B22">查找文件类型为普通文件</font>（<code>d</code> 表示目录，<code>l</code> 表示链接等）。</li>
-<li><code>-size &lt;+/-&gt;&lt;大小&gt;</code>：<font color="#228B22">按文件大小搜索</font>，<code>+</code> 大于，<code>-</code> 小于。（例如 <code>+100M</code> 表示大于 100MB。）</li>
-<li><code>-mtime &lt;+/-&gt;&lt;天数&gt;</code>：<font color="#228B22">按文件修改时间搜索</font>，<code>+n</code> 表示 n 天以前修改过，<code>-n</code> 表示 n 天以内修改过。</li>
-<li><code>-exec &lt;命令&gt; &#123;&#125; \;</code>：<font color="#228B22">对查找到的文件执行指定的命令</font>，<code>&#123;&#125;</code> 代表查找到的每个文件，<code>\;</code> 是命令结束符。（非常灵活的操作！）</li>
-</ul>
-</li>
-<li><p><strong>举例：</strong> <code>find /usr/lib -size +100M -type f -exec cp &#123;&#125; /archive/large_files \;</code></p>
-<p>  这条命令的含义是：在 <code>/usr/lib</code> 目录下查找所有大于 100MB 的普通文件 (<code>-type f -size +100M</code>)，并将找到的每个文件 (<code>&#123;&#125;</code>) 复制 (<code>cp</code>) 到 <code>/archive/large_files</code> 目录下，直到遇到 <code>\;</code> 结束。</p>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/25/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/" class="post-title-link" itemprop="url">01-基础扫盲工作 - 我的运维学习笔记 ✍️</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-25 19:11:44 / Modified: 20:21:14" itemprop="dateCreated datePublished" datetime="2025-04-25T19:11:44+08:00">2025-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="初探运维：我的理解-🤔"><a href="#初探运维：我的理解-🤔" class="headerlink" title="初探运维：我的理解 🤔"></a>初探运维：我的理解 🤔</h2><p>一开始，我对运维的印象可能比较模糊，但通过学习，我逐渐认识到：</p>
-<ol>
-<li><strong>核心定位：我们是软件运维</strong>，专注于软件系统的稳定运行。这和硬件运维有所区分。</li>
-<li><strong>关键价值：保障业务连续性</strong>。运维不仅仅是修机器，更重要的是通过专业技术，确保公司的 IT 系统像血液一样流畅运转，保障业务不中断。</li>
-<li><strong>意外的惊喜：薪资潜力超乎想象</strong>！有经验的运维高手，在薪资上竟然能超越开发、测试甚至 UI，这让我对这个领域刮目相看。</li>
-</ol>
-<h2 id="运维日常：我在做什么？-🛠️"><a href="#运维日常：我在做什么？-🛠️" class="headerlink" title="运维日常：我在做什么？ 🛠️"></a>运维日常：我在做什么？ 🛠️</h2><p>那么，运维具体都在做些什么呢？我的理解是：</p>
-<ol>
-<li><strong>像个细心的管家：系统的监控与维护</strong>。我们需要时刻关注服务器、网络设备的健康状况，就像给它们做体检，确保一切正常。（思考：有哪些常用的监控工具呢？）</li>
-<li><strong>化身救火队员：故障的排查与处理</strong>。当系统出现问题时，我们要快速找到原因并解决它，这需要冷静的头脑和扎实的技术。（思考：遇到不同类型的故障，排查思路有什么不同？）</li>
-<li><strong>追求效率的极客：自动化运维</strong>。重复性的工作应该交给机器去做，编写自动化脚本就是解放双手，提高效率的关键。（思考：哪些运维任务适合自动化？）</li>
-<li><strong>系统的搭建者和升级者：系统的部署与更新</strong>。根据业务需求，我们需要部署新的系统，并对现有系统进行升级。（思考：部署和升级过程中有哪些关键步骤和风险点？）</li>
-<li><strong>数据的守护者：备份与恢复</strong>。数据是企业的生命线，定期备份和制定恢复方案至关重要。（思考：有哪些常见的备份策略？）</li>
-<li><strong>安全的第一道防线：安全管理</strong>。及时发现和修复系统及应用的安全漏洞，防止黑客入侵。（思考：如何及时获取和应对安全漏洞信息？）</li>
-</ol>
-<h2 id="云计算：未来的趋势？-☁️"><a href="#云计算：未来的趋势？-☁️" class="headerlink" title="云计算：未来的趋势？ ☁️"></a>云计算：未来的趋势？ ☁️</h2><p>云计算这个概念很火，我的理解是它带来了极大的便利性：</p>
-<ul>
-<li><strong>随时调整操作系统</strong>，就像换手机系统一样灵活。</li>
-<li><strong>CPU 和内存资源、硬盘、网络带宽</strong>都可以根据需求动态调整，特别是阿里云的 100M 带宽，简直是飞一般的感觉！</li>
-</ul>
-<p>我甚至还申请了 2 台云服务器来体验：</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425193845550.png" alt="截图"></p>
-<p>听说有的公司会用到成百上千台服务器，这在以前是难以想象的。</p>
-<p>另外，云计算还有私有云、公有云和混合云之分。了解这些区别，能帮助我们更好地判断网上信息的真实性。比如，通过裁判文书网这类公开渠道，我们可以获取更可靠的企业信息，避免被一些虚假数据误导。（思考：不同类型的云适用于哪些场景？）</p>
-<h2 id="基础概念梳理-💡"><a href="#基础概念梳理-💡" class="headerlink" title="基础概念梳理 💡"></a>基础概念梳理 💡</h2><h4 id="1-服务器：不止一种形态-🏢"><a href="#1-服务器：不止一种形态-🏢" class="headerlink" title="1. 服务器：不止一种形态 🏢"></a>1. 服务器：不止一种形态 🏢</h4><ul>
-<li>柜式服务器</li>
-<li>塔式服务器</li>
-<li>刀片式服务器</li>
-<li>机架式服务器</li>
-</ul>
-<p>学习到这些服务器类型后，我意识到网上那些声称用自己购买的少量服务器进行教学的，在应对业务快速发展和弹性伸缩方面是远远不够的。购买云服务器才是更明智的选择，尤其是在初期快速验证和弹性扩容方面。</p>
-<h4 id="2-IP-地址：网络世界的门牌号-🚪"><a href="#2-IP-地址：网络世界的门牌号-🚪" class="headerlink" title="2. IP 地址：网络世界的门牌号 🚪"></a>2. IP 地址：网络世界的门牌号 🚪</h4><p>（思考：IP 地址的分类和作用是什么？）</p>
-<h4 id="3-企业运行模式：运维身处何处？-🗺️"><a href="#3-企业运行模式：运维身处何处？-🗺️" class="headerlink" title="3. 企业运行模式：运维身处何处？ 🗺️"></a>3. 企业运行模式：运维身处何处？ 🗺️</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425200345846.png" alt="运维的地位"></p>
-<p>这张图清晰地展示了运维在企业中的地位。对于我们运维人员来说，<strong>生产环境</strong>就是我们战斗的核心阵地，它直接关系到企业的生死存亡和用户体验。因此，<strong>稳定性、可用性和安全性</strong>是我们的首要任务，也是我们工作的价值所在。</p>
-<p>运维工作贯穿了开发、测试到最终生产的整个生命周期，是不可或缺的关键环节。</p>
-<h4 id="4-网络通信三要素：对话的基础-🗣️"><a href="#4-网络通信三要素：对话的基础-🗣️" class="headerlink" title="4. 网络通信三要素：对话的基础 🗣️"></a>4. 网络通信三要素：对话的基础 🗣️</h4><p><strong>IP 地址、端口、协议</strong>。记住 <strong>0-1023</strong> 这些<strong>知名端口</strong>很重要，它们就像是常用服务的固定电话号码，例如 HTTP 的 80，HTTPS 的 443，FTP 的 21。（思考：还有哪些常见的知名端口？）</p>
-<h4 id="5-工单系统：协作的桥梁-🤝"><a href="#5-工单系统：协作的桥梁-🤝" class="headerlink" title="5. 工单系统：协作的桥梁 🤝"></a>5. 工单系统：协作的桥梁 🤝</h4><p>有内部使用的工单系统，也有面向外部客户的工单系统。（思考：好的工单系统应该具备哪些功能？）</p>
-<h4 id="6-网络基础：连接的基石-🧱"><a href="#6-网络基础：连接的基石-🧱" class="headerlink" title="6. 网络基础：连接的基石 🧱"></a>6. 网络基础：连接的基石 🧱</h4><p>包括光猫、路由器、交换机、网线这些物理设备。（思考：它们各自的作用是什么？如何排查网络故障？）</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201148875.png" alt="配网用的"></p>
-<h2 id="操作系统：软件的灵魂-⚙️"><a href="#操作系统：软件的灵魂-⚙️" class="headerlink" title="操作系统：软件的灵魂 ⚙️"></a>操作系统：软件的灵魂 ⚙️</h2><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201313931.png" alt="操作系统介绍"></p>
-<p>（思考：不同操作系统的特点和适用场景是什么？Linux 为什么在服务器领域占据主导地位？）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 </div>
   </main>

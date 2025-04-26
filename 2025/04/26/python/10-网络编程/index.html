@@ -19,26 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.ioe","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖 让服务跑起来！systemctl 大法！🚀在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 sshd 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 sys">
+    <meta name="description" content="好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀 # Python网络编程初探：让你的代码连接世界！🌍 想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉 # 网络编程三要素：IP地址、端口和协议 在网络世界里，要找到一台特定的计算机并与之通信，就像">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="07-系统服务管理">
-<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:title" content="10-网络编程">
+<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="心灵星图笔记">
-<meta property="og:description" content="兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖 让服务跑起来！systemctl 大法！🚀在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 sshd 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 sys">
+<meta property="og:description" content="好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀 # Python网络编程初探：让你的代码连接世界！🌍 想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉 # 网络编程三要素：IP地址、端口和协议 在网络世界里，要找到一台特定的计算机并与之通信，就像">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-26T08:05:33.000Z">
-<meta property="article:modified_time" content="2025-04-26T08:06:08.288Z">
+<meta property="article:published_time" content="2025-04-26T09:55:11.000Z">
+<meta property="article:modified_time" content="2025-04-26T09:55:41.157Z">
 <meta property="article:author" content="心灵星图">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/","path":"2025/04/26/8天小闭环/07-系统服务管理/","title":"07-系统服务管理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/","path":"2025/04/26/python/10-网络编程/","title":"10-网络编程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>07-系统服务管理 | 心灵星图笔记</title>
+<title>10-网络编程 | 心灵星图笔记</title>
   
 
 
@@ -144,7 +144,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -157,7 +157,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E6%9C%8D%E5%8A%A1%E8%B7%91%E8%B5%B7%E6%9D%A5%EF%BC%81systemctl-%E5%A4%A7%E6%B3%95%EF%BC%81%F0%9F%9A%80"><span class="nav-number">1.</span> <span class="nav-text">让服务跑起来！systemctl 大法！🚀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%9F%E4%BA%A4%E7%BB%99-crontab-%E5%87%86%E6%B2%A1%E9%94%99%EF%BC%81%E2%8F%B0"><span class="nav-number">2.</span> <span class="nav-text">定时任务？交给 crontab 准没错！⏰</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -205,7 +204,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,12 +217,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="07-系统服务管理 | 心灵星图笔记">
+      <meta itemprop="name" content="10-网络编程 | 心灵星图笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          07-系统服务管理
+          10-网络编程
         </h1>
 
         <div class="post-meta-container">
@@ -235,7 +234,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-04-26 16:05:33 / Modified: 16:06:08" itemprop="dateCreated datePublished" datetime="2025-04-26T16:05:33+08:00">2025-04-26</time>
+      <time title="Created: 2025-04-26 17:55:11 / Modified: 17:55:41" itemprop="dateCreated datePublished" datetime="2025-04-26T17:55:11+08:00">2025-04-26</time>
     </span>
 
   
@@ -247,47 +246,43 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖</p>
-<h3 id="让服务跑起来！systemctl-大法！🚀"><a href="#让服务跑起来！systemctl-大法！🚀" class="headerlink" title="让服务跑起来！systemctl 大法！🚀"></a>让服务跑起来！<code>systemctl</code> 大法！🚀</h3><p>在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 <code>sshd</code> 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 <code>systemctl</code> 命令啦！💪</p>
-<p>就像遥控器一样，<code>systemctl</code> 可以控制这些“服务”的状态：</p>
+    <div class="post-body" itemprop="articleBody"><p>好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀</p>
+<p><strong># Python网络编程初探：让你的代码连接世界！🌍</strong></p>
+<p>想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉</p>
+<p><strong># 网络编程三要素：IP地址、端口和协议</strong></p>
+<p>在网络世界里，要找到一台特定的计算机并与之通信，就像我们寄快递需要地址一样，需要以下三个要素：</p>
 <ul>
-<li><strong>启动服务：</strong> <code>sudo systemctl start &lt;服务名&gt;</code>  比如启动我们的远程连接小助手：<code>sudo systemctl start sshd</code>  启动后你的电脑就能接受远程连接啦！🔗</li>
-<li><strong>停止服务：</strong> <code>sudo systemctl stop &lt;服务名&gt;</code>  暂时不需要某个服务了？就让它先休息一下：<code>sudo systemctl stop sshd</code></li>
-<li><strong>重启服务：</strong> <code>sudo systemctl restart &lt;服务名&gt;</code>  有时候服务出点小状况，重启一下就好啦！就像给 App “刷新”一下：<code>sudo systemctl restart sshd</code></li>
-<li><strong>查看服务状态：</strong> <code>sudo systemctl status &lt;服务名&gt;</code>  想知道某个服务现在正不正常工作？看看它的状态就知道啦！会显示运行状态、进程信息等等，超详细！🔍</li>
+<li><strong>IP地址 (IP Address)</strong>：就像每台电脑在网络上的唯一地址，用于标识网络上的设备。</li>
+<li><strong>端口 (Port)</strong>：一台计算机上可以运行多个网络程序，端口号就像是这些程序的不同房间号，用于区分不同的网络服务。</li>
+<li><strong>协议 (Protocol)</strong>：网络通信需要双方遵守共同的“语言”和规则，这就是协议。例如，我们平时上网常用的 HTTP 就是一种协议。</li>
 </ul>
-<h3 id="定时任务？交给-crontab-准没错！⏰"><a href="#定时任务？交给-crontab-准没错！⏰" class="headerlink" title="定时任务？交给 crontab 准没错！⏰"></a>定时任务？交给 <code>crontab</code> 准没错！⏰</h3><p>有时候我们希望电脑在特定的时间自动帮我们做一些事情，比如每天凌晨备份数据、定时清理临时文件等等。这时候就要请出我们的“定时任务小管家”—— <code>crontab</code> 啦！🕰️</p>
-<p>你可以编辑一个叫做 “crontab” 的文件，告诉电脑在什么时间执行什么命令。</p>
-<p><strong>编辑你的定时任务列表：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<p>今天我们主要关注 <strong>TCP协议</strong>，它是一种面向连接、可靠的协议，就像打电话一样，需要先建立连接才能进行数据传输，并且能保证数据传输的可靠性。</p>
+<p><strong># 字符串的编码与解码</strong></p>
+<p>在网络传输中，数据通常以字节流的形式进行。而我们平时处理的文本是字符串。所以，在进行网络传输前，我们需要将字符串编码成字节串，接收到数据后，再将字节串解码成字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串编码为字节串 (encode)</span></span><br><span class="line">b1 = str1.encode()</span><br><span class="line"><span class="built_in">print</span>(b1) <span class="comment"># 输出：b&#x27;\xe9\xbb\x91\xe9\xa9\xac\xe7\xa8\x8b\xe5\xba\x8f\xe5\x91\x98&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字节串解码为字符串 (decode)</span></span><br><span class="line">str2 = b1.decode()</span><br><span class="line"><span class="built_in">print</span>(str2) <span class="comment"># 输出：黑马程序员</span></span><br></pre></td></tr></table></figure>
 
-<p>第一次运行可能会让你选择一个编辑器，一般选 <code>nano</code> 就很友好啦！😊</p>
-<p><strong><code>crontab</code> 的时间格式是这样的：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分 时 日 月 周 命令</span><br></pre></td></tr></table></figure>
-
-<p>每个字段的取值范围都贴心地告诉你啦：</p>
+<p>常用的编码格式是 UTF-8，它可以支持各种语言的字符。</p>
+<p><strong># Socket编程初体验</strong></p>
+<p>在Python中，我们可以使用 <code>socket</code> 模块进行网络编程。<code>socket</code> 可以看作是网络通信的一个端点，通过它可以发送和接收数据。</p>
+<p><strong>简单来说，TCP网络编程通常涉及以下步骤：</strong></p>
+<ol>
+<li><strong>创建Socket</strong>：就像创建一根网线插头。</li>
+<li><strong>绑定IP地址和端口 (服务器端)</strong>：告诉别人你的“地址”和“房间号”，这样别人才能找到你。</li>
+<li><strong>监听连接 (服务器端)</strong>：等待别人的“电话”打进来。</li>
+<li><strong>接受连接 (服务器端)</strong>：有人打来“电话”了，接听一下。</li>
+<li><strong>发送&#x2F;接收数据</strong>：开始“聊天”。</li>
+<li><strong>关闭连接</strong>：结束“通话”，挂断“电话”。</li>
+</ol>
+<p><strong># 普通版本 vs Pro版本？</strong></p>
+<p>在网络编程中，可能会有不同版本的实现方式，例如基础版本可能只实现最基本的功能，而 Pro 版本可能会增加更多高级特性，比如并发处理、更复杂的协议支持等等。这就像我们使用的App，可能会有免费版和付费版，付费版功能更多更强大。</p>
+<p><strong># 小贴士</strong></p>
 <ul>
-<li><strong>分：</strong> 0-59</li>
-<li><strong>时：</strong> 0-23</li>
-<li><strong>日：</strong> 1-31</li>
-<li><strong>月：</strong> 1-12</li>
-<li><strong>周：</strong> 0-7 (0 和 7 都表示星期天哦！)</li>
+<li>在进行网络编程时，要理解 IP 地址和端口的概念。</li>
+<li>数据在网络传输前需要进行编码，接收后需要进行解码，确保编码格式一致。</li>
+<li><code>socket</code> 模块是Python进行网络编程的核心工具。</li>
 </ul>
-<p><strong>一些超实用的小技巧：</strong></p>
-<ul>
-<li><strong><code>*</code>：</strong> 表示这个字段的<strong>每一个值</strong>都符合。比如 <code>* * * * *</code> 就表示每分钟都执行后面的命令！😱</li>
-<li><strong><code>-</code>：</strong> 表示一个<strong>连续的范围</strong>。比如 <code>1-7</code> 就表示 1 到 7。</li>
-<li><strong><code>,</code>：</strong> 表示<strong>多个不连续的值</strong>。比如 <code>1,2,6</code> 就表示 1、2 和 6。</li>
-<li><strong><code>/</code>：</strong> 表示<strong>每隔多久执行一次</strong>。比如 <code>0/10</code> 在“分”的字段表示每隔 10 分钟执行一次（也就是 0, 10, 20, 30, 40, 50 分）。</li>
-</ul>
-<p><strong>举几个超简单的定时任务栗子🌰：</strong></p>
-<ul>
-<li><strong>每天凌晨 3 点备份我的重要文件：</strong> <code>0 3 * * * /bin/bash /path/to/backup_script.sh</code></li>
-<li><strong>每个工作日的下午 5 点发送一封邮件提醒自己下班：</strong> <code>0 17 * * 1-5 /usr/bin/mail -s &quot;下班啦！&quot; your_email@example.com &lt; /dev/null</code></li>
-<li><strong>每隔 30 分钟检查一下服务器状态：</strong> <code>*/30 * * * * /path/to/check_server_status.sh</code></li>
-</ul>
-<p>编辑完 <code>crontab</code> 文件记得保存哦！电脑就会乖乖地按照你的时间表去工作啦！是不是感觉自己像个小小的“时间魔法师”？🧙‍♀️✨</p>
-<p>好啦，今天关于 Linux 服务管理和定时任务的小技巧就分享到这里啦！学会了这些，你的 Linux 系统就能更加智能和自动化啦！下次再和兄弟们分享更多有趣的 Linux 知识！💖💻</p>
+<p>网络编程的世界非常有趣，通过它你的Python程序就能和世界连接起来啦！快去探索一下吧！有问题随时来找我交流哦！😉</p>
+<p>#Python学习 #网络编程 #TCP #IP地址 #端口 #Socket #编程入门 #干货分享 #Day10 #一起学Python</p>
 
     </div>
 
@@ -305,7 +300,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://youtubhexo.github.ioe/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/" title="07-系统服务管理">https://youtubhexo.github.ioe/2025/04/26/8天小闭环/07-系统服务管理/</a>
+      <a href="https://youtubhexo.github.ioe/2025/04/26/python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="10-网络编程">https://youtubhexo.github.ioe/2025/04/26/python/10-网络编程/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -323,14 +318,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/06-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/" rel="prev" title="06-软件安装和系统服务">
-                  <i class="fa fa-angle-left"></i> 06-软件安装和系统服务
+                <a href="/2025/04/26/python/09-%E5%BC%82%E5%B8%B8-%E6%A8%A1%E5%9D%97-%E5%8C%85/" rel="prev" title="09-异常,模块,包">
+                  <i class="fa fa-angle-left"></i> 09-异常,模块,包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/04/26/8%E5%A4%A9%E5%B0%8F%E9%97%AD%E7%8E%AF/08-%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%94%B3%E9%A2%86%E3%80%81%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E3%80%81%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B0%8F%E9%97%AD%E7%8E%AF/" rel="next" title="08-云平台的申领、系统部署、运维监控小闭环">
-                  08-云平台的申领、系统部署、运维监控小闭环 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
