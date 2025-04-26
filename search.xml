@@ -263,4 +263,23 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>04-系统核心命令</title>
+    <url>/2025/04/26/04-%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="1-主机名的查看"><a href="#1-主机名的查看" class="headerlink" title="1 主机名的查看"></a>1 主机名的查看</h3><h4 id="hostname-或者hostnamectl"><a href="#hostname-或者hostnamectl" class="headerlink" title="hostname   或者hostnamectl"></a>hostname   或者hostnamectl</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082223456.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082251687.png"></p>
+<p>hostnamectl set-hostname 主机名</p>
+<h3 id="设置host"><a href="#设置host" class="headerlink" title="设置host"></a>设置host</h3><p>&#x2F;etc&#x2F;hosts<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082534071.png"></p>
+<h3 id="系统挂载方案"><a href="#系统挂载方案" class="headerlink" title="系统挂载方案"></a>系统挂载方案</h3><p>nohup  进程名  &amp;<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082942623.png"></p>
+<h4 id="CSDN地址"><a href="#CSDN地址" class="headerlink" title="CSDN地址:"></a>CSDN地址:</h4><p><a href="https://blog.csdn.net/2501_91107759/article/details/147480583">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480583</a></p>
+<p><a href="https://blog.csdn.net/2501_91107759/article/details/147480712">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480712</a></p>
+<h3 id="查看系统状态"><a href="#查看系统状态" class="headerlink" title="查看系统状态"></a>查看系统状态</h3><p>top命令和htop命令<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083107947.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083124809.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083141858.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083155497.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">运行 top 之后，可以按下边对应的字母（区分大小写）进行一些功能的切换:</span><br><span class="line">- h 或者?：显示帮助画面，给出一些简短的命令总结说明</span><br><span class="line">- i：忽略闲置和僵死进程。这是一个开关式命令</span><br><span class="line">- q：退出程序</span><br><span class="line">- c：切换显示命令名称和完整命令行。 显示完整的命令。 这个功能很有用</span><br><span class="line">- M：根据驻留内存大小进行排序</span><br><span class="line">- P：根据CPU使用百分比大小进行排序</span><br><span class="line">- T：根据时间/累计时间进行排序</span><br><span class="line"></span><br><span class="line">命令行参数:</span><br><span class="line">top -h ：输出帮助信息</span><br><span class="line">top  -u：监控指定用户的进程</span><br><span class="line">top  -p：监控指定进程（输入参数为进程pid</span><br></pre></td></tr></table></figure>
+<h3 id="查看磁盘命令-df"><a href="#查看磁盘命令-df" class="headerlink" title="查看磁盘命令 df"></a>查看磁盘命令 df</h3><p>df -H<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083232494.png"></p>
+<h3 id="查看内存命令-free"><a href="#查看内存命令-free" class="headerlink" title="查看内存命令 free"></a>查看内存命令 free</h3><p>free -h<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083305910.png"></p>
+<h3 id="进程所占用端口"><a href="#进程所占用端口" class="headerlink" title="进程所占用端口"></a>进程所占用端口</h3><p><a href="https://blog.csdn.net/2501_91107759/article/details/147481702">https://blog.csdn.net/2501_91107759/article/details/147481702</a><br>t</p>
+<p>u</p>
+<p>n </p>
+<p>lsp lp<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083352959.png"></p>
+<h3 id="5-进程管理命令"><a href="#5-进程管理命令" class="headerlink" title="5 进程管理命令"></a>5 进程管理命令</h3><h4 id="ps-ef-aux-grep-要查询的进程名字"><a href="#ps-ef-aux-grep-要查询的进程名字" class="headerlink" title="ps -ef&#x2F;aux  | grep 要查询的进程名字"></a>ps -ef&#x2F;aux  | grep 要查询的进程名字</h4><h3 id="6-杀死进程"><a href="#6-杀死进程" class="headerlink" title="6 杀死进程"></a>6 杀死进程</h3><h4 id="kill-9"><a href="#kill-9" class="headerlink" title="kill -9 "></a><strong>kill -9 <PID></strong></h4>]]></content>
+  </entry>
 </search>
