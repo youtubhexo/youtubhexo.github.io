@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.ioe","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Python函数参数类型全解析，新手也能轻松掌握！🚀哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎 # 认识你的函数朋友：不同类型的参数 在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：  位置传参（Positional Arguments）：">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="06-传参">
+<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/index.html">
+<meta property="og:site_name" content="心灵星图笔记">
+<meta property="og:description" content="Python函数参数类型全解析，新手也能轻松掌握！🚀哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎 # 认识你的函数朋友：不同类型的参数 在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：  位置传参（Positional Arguments）：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-26T09:46:33.000Z">
+<meta property="article:modified_time" content="2025-04-26T09:55:31.933Z">
+<meta property="article:author" content="心灵星图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/","path":"2025/04/26/01python/06-传参/","title":"06-传参"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>06-传参 | 心灵星图笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心灵星图笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%85%A8%E8%A7%A3%E6%9E%90%EF%BC%8C%E6%96%B0%E6%89%8B%E4%B9%9F%E8%83%BD%E8%BD%BB%E6%9D%BE%E6%8E%8C%E6%8F%A1%EF%BC%81%F0%9F%9A%80"><span class="nav-number">1.</span> <span class="nav-text">Python函数参数类型全解析，新手也能轻松掌握！🚀</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="06-传参 | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          06-传参
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:46:33 / Modified: 17:55:31" itemprop="dateCreated datePublished" datetime="2025-04-26T17:46:33+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Python函数参数类型全解析，新手也能轻松掌握！🚀"><a href="#Python函数参数类型全解析，新手也能轻松掌握！🚀" class="headerlink" title="Python函数参数类型全解析，新手也能轻松掌握！🚀"></a>Python函数参数类型全解析，新手也能轻松掌握！🚀</h2><p>哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎</p>
+<p><strong># 认识你的函数朋友：不同类型的参数</strong></p>
+<p>在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：</p>
+<ul>
+<li><p><strong>位置传参（Positional Arguments）</strong>：这是最常见的参数类型啦！函数定义时的参数顺序很重要，你在调用函数时传入的值也会按照这个顺序一一对应。就像给你的朋友按名单顺序发礼物一样！🎁</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info</span>(<span class="params">name, sex, age</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的性别是<span class="subst">&#123;sex&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">20</span>) <span class="comment"># &quot;张三&quot;对应name，&quot;男&quot;对应sex，20对应age</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键字传参（Keyword Arguments）</strong>：有时候我们记不清参数的顺序，或者想让代码更易读，就可以使用关键字传参。在调用函数时，直接指定参数名和对应的值。这样就不怕传错顺序啦！🔑</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_info(age=<span class="number">20</span>, name=<span class="string">&quot;李四&quot;</span>, sex=<span class="string">&quot;男&quot;</span>) <span class="comment"># 顺序可以不一样哦！</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>默认值参数（Default Arguments）</strong>：在定义函数时，我们可以给一些参数设置默认值。如果在调用函数时没有给这些参数传值，它们就会使用默认值。就像你的朋友自带了某种小零食，如果你没带，就吃他的！🍬</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">name, nationality=<span class="string">&quot;中国&quot;</span>, age=<span class="number">20</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的国籍是<span class="subst">&#123;nationality&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="string">&quot;王五&quot;</span>) <span class="comment"># nationality和age会使用默认值</span></span><br><span class="line">print_info_2(<span class="string">&quot;赵六&quot;</span>, age=<span class="number">25</span>) <span class="comment"># 可以只修改部分默认值参数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长位置参数（<code>*args</code>）</strong>：有时候我们不知道函数需要接收多少个位置参数，这时就可以使用<code>*args</code>。它会将传入的所有多余的位置参数打包成一个元组（tuple）。就像一个可以装很多东西的袋子！🎒</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">*args</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>) <span class="comment"># 这些都会被打包到args元组里</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长关键字参数（<code>**kwargs</code>）</strong>：类似地，<code>**kwargs</code>可以接收任意数量的关键字参数，并将它们打包成一个字典（dictionary）。每个传入的参数都需要指定参数名和值。就像一个可以存放各种标签和对应值的盒子！📦</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的国籍是<span class="subst">&#123;kwargs[<span class="string">&#x27;nationality&#x27;</span>]&#125;</span>，您的年龄是<span class="subst">&#123;kwargs[<span class="string">&#x27;age&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(nationality=<span class="string">&quot;韩国&quot;</span>, age=<span class="number">30</span>) <span class="comment"># 这些会被打包到kwargs字典里</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 划重点！参数使用的注意事项</strong></p>
+<ul>
+<li>定义函数时，位置参数必须在默认值参数的前面。</li>
+<li>调用函数时，如果同时使用位置参数和关键字参数，位置参数必须在关键字参数的前面。</li>
+<li><code>*args</code> 和 <code>**kwargs</code> 通常放在参数列表的最后。</li>
+</ul>
+<p><strong># 小彩蛋：匿名函数 <code>lambda</code></strong></p>
+<p>除了用 <code>def</code> 定义函数，Python还提供了一种简洁的方式来创建匿名函数，也就是 <code>lambda</code> 函数。它通常用于一些简单的、只需要使用一次的函数。就像一个临时的便签！📝</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add = <span class="keyword">lambda</span> x, y: x + y</span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>)) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
+
+<p>掌握了这些函数参数的类型，你就可以写出更加灵活和强大的Python代码啦！快去试试吧！有什么问题记得留言哦！😉</p>
+<p>#Python函数 #参数类型 #编程技巧 #新手入门 #干货分享 #一起学Python #Day06</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>心灵星图
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://youtubhexo.github.ioe/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/" title="06-传参">https://youtubhexo.github.ioe/2025/04/26/01python/06-传参/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/26/01python/05-%E5%87%BD%E6%95%B0/" rel="prev" title="05-函数">
+                  <i class="fa fa-angle-left"></i> 05-函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/" rel="next" title="07-正则">
+                  07-正则 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

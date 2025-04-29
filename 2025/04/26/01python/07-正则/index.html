@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.ioe","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="好的，这篇关于Python正则表达式的文章这就为您奉上！ Python正则表达式入门指南：从小白到入门只需这一篇！🚀哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！ # 什么是正则表达式？🤔 简单来说，正则表达式（Regu">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="07-正则">
+<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/index.html">
+<meta property="og:site_name" content="心灵星图笔记">
+<meta property="og:description" content="好的，这篇关于Python正则表达式的文章这就为您奉上！ Python正则表达式入门指南：从小白到入门只需这一篇！🚀哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！ # 什么是正则表达式？🤔 简单来说，正则表达式（Regu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-26T09:49:06.000Z">
+<meta property="article:modified_time" content="2025-04-26T09:55:29.473Z">
+<meta property="article:author" content="心灵星图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/","path":"2025/04/26/01python/07-正则/","title":"07-正则"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>07-正则 | 心灵星图笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心灵星图笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%B0%8F%E7%99%BD%E5%88%B0%E5%85%A5%E9%97%A8%E5%8F%AA%E9%9C%80%E8%BF%99%E4%B8%80%E7%AF%87%EF%BC%81%F0%9F%9A%80"><span class="nav-number">1.</span> <span class="nav-text">Python正则表达式入门指南：从小白到入门只需这一篇！🚀</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="07-正则 | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          07-正则
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:49:06 / Modified: 17:55:29" itemprop="dateCreated datePublished" datetime="2025-04-26T17:49:06+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>好的，这篇关于Python正则表达式的文章这就为您奉上！</p>
+<h2 id="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"><a href="#Python正则表达式入门指南：从小白到入门只需这一篇！🚀" class="headerlink" title="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"></a>Python正则表达式入门指南：从小白到入门只需这一篇！🚀</h2><p>哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！</p>
+<p><strong># 什么是正则表达式？🤔</strong></p>
+<p>简单来说，正则表达式（Regular Expression，常简写为 regex、regexp 或 RE）是一种用于匹配文本模式的特殊序列的字符。你可以把它想象成一种高级的搜索功能，不仅能找到固定的词语，还能根据你定义的“规则”找到符合特定模式的文本。</p>
+<p><strong># Python中的 <code>re</code> 模块</strong></p>
+<p>要在Python中使用正则表达式，我们需要导入内置的 <code>re</code> 模块。就像你需要一把锤子才能钉钉子一样！🔨</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<p><strong># 核心概念：匹配模式与特殊字符</strong></p>
+<p>正则表达式的强大之处在于其灵活的匹配模式。我们可以使用一些特殊字符来定义这些模式：</p>
+<ul>
+<li><strong>普通字符</strong>：大多数字母、数字、下划线等可以直接匹配自身。比如，正则表达式 <code>&quot;hello&quot;</code> 就能匹配文本中的 <code>&quot;hello&quot;</code>。</li>
+<li><strong><code>.</code> (点号)</strong>：匹配任意单个字符（除了换行符 <code>\n</code>）。</li>
+<li><strong><code>^</code> (脱字符)</strong>：匹配字符串的开头。例如，<code>^hello</code> 只会匹配以 <code>&quot;hello&quot;</code> 开头的字符串。</li>
+<li><strong><code>$</code> (美元符)</strong>：匹配字符串的结尾。例如，<code>hello$</code> 只会匹配以 <code>&quot;hello&quot;</code> 结尾的字符串。</li>
+<li><strong><code>*</code> (星号)</strong>：匹配前一个字符零次或多次。例如，<code>ab*c</code> 可以匹配 <code>&quot;ac&quot;</code>、<code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code> 等。</li>
+<li><strong><code>+</code> (加号)</strong>：匹配前一个字符一次或多次。例如，<code>ab+c</code> 可以匹配 <code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code>，但不能匹配 <code>&quot;ac&quot;</code>。</li>
+<li><strong><code>?</code> (问号)</strong>：匹配前一个字符零次或一次。例如，<code>ab?c</code> 可以匹配 <code>&quot;ac&quot;</code> 或 <code>&quot;abc&quot;</code>。</li>
+<li><strong><code>&#123;m&#125;</code></strong>：匹配前一个字符恰好 <code>m</code> 次。例如，<code>a&#123;3&#125;</code> 只匹配 <code>&quot;aaa&quot;</code>。</li>
+<li><strong><code>&#123;m, n&#125;</code></strong>：匹配前一个字符至少 <code>m</code> 次，至多 <code>n</code> 次。</li>
+<li><strong><code>[]</code> (字符集)</strong>：匹配方括号中的任意一个字符。例如，<code>[abc]</code> 可以匹配 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code> 或 <code>&quot;c&quot;</code>。<ul>
+<li>在字符集中可以使用 <code>-</code> 表示范围，例如 <code>[a-z]</code> 匹配所有小写字母，<code>[0-9]</code> 匹配所有数字。</li>
+<li>在字符集开头使用 <code>^</code> 表示取反，例如 <code>[^abc]</code> 匹配除了 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code>、<code>&quot;c&quot;</code> 之外的任意字符。</li>
+</ul>
+</li>
+<li><strong><code>\</code> (反斜杠)</strong>：用于转义特殊字符，使其失去特殊含义，或者引入特殊的预定义字符序列（见下文）。</li>
+</ul>
+<p><strong># 常用的预定义字符序列</strong></p>
+<p>为了方便使用，<code>re</code> 模块提供了一些预定义的字符序列：</p>
+<ul>
+<li><strong><code>\d</code></strong>：匹配任意数字（等价于 <code>[0-9]</code>）。</li>
+<li><strong><code>\D</code></strong>：匹配任意非数字字符（等价于 <code>[^0-9]</code>）。</li>
+<li><strong><code>\s</code></strong>：匹配任意空白字符（包括空格、制表符 <code>\t</code>、换行符 <code>\n</code> 等）。</li>
+<li><strong><code>\S</code></strong>：匹配任意非空白字符。</li>
+<li><strong><code>\w</code></strong>：匹配任意字母、数字或下划线（等价于 <code>[a-zA-Z0-9_]</code>）。</li>
+<li><strong><code>\W</code></strong>：匹配任意非字母、数字或下划线。</li>
+</ul>
+<p><strong># <code>re</code> 模块的常用函数</strong></p>
+<p>学会了匹配模式，我们来看看 <code>re</code> 模块中一些常用的函数：</p>
+<ul>
+<li><strong><code>re.search(pattern, string)</code></strong>：在字符串 <code>string</code> 中搜索第一个匹配 <code>pattern</code> 的位置，如果找到则返回一个匹配对象（Match object），否则返回 <code>None</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;Hello 123 world 456&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;\d+&quot;</span>, text) <span class="comment"># 查找一个或多个数字</span></span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到匹配:&quot;</span>, result.group()) <span class="comment"># 输出匹配到的内容</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.match(pattern, string)</code></strong>：尝试从字符串 <code>string</code> 的<strong>开头</strong>匹配 <code>pattern</code>，如果匹配成功则返回一个匹配对象，否则返回 <code>None</code>。注意：它只从开头匹配！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;123 Hello&quot;</span></span><br><span class="line">result1 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text1)</span><br><span class="line"><span class="keyword">if</span> result1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result1.group()) <span class="comment"># 输出：开头匹配: 123</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">&quot;Hello 123&quot;</span></span><br><span class="line">result2 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result2) <span class="comment"># 输出：开头匹配: None</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.findall(pattern, string)</code></strong>：在字符串 <code>string</code> 中找到所有匹配 <code>pattern</code> 的子串，并返回一个包含所有匹配项的列表。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;apple banana apple orange&quot;</span></span><br><span class="line">results = re.findall(<span class="string">r&quot;apple&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有匹配:&quot;</span>, results) <span class="comment"># 输出：所有匹配: [&#x27;apple&#x27;, &#x27;apple&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.sub(pattern, repl, string)</code></strong>：将字符串 <code>string</code> 中所有匹配 <code>pattern</code> 的子串替换为 <code>repl</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;I have 2 apples and 3 bananas.&quot;</span></span><br><span class="line">new_text = re.sub(<span class="string">r&quot;\d+&quot;</span>, <span class="string">&quot;number&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;替换后:&quot;</span>, new_text) <span class="comment"># 输出：替换后: I have number apples and number bananas.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 实用技巧：原始字符串 (raw string)</strong></p>
+<p>在正则表达式中，反斜杠 <code>\</code> 有特殊的含义。为了避免与Python字符串自身的转义冲突，我们通常在正则表达式前面加上 <code>r</code> 前缀，表示这是一个原始字符串。这样，反斜杠就不会被Python解释器进行额外的转义，而是直接传递给 <code>re</code> 模块。强烈建议养成使用原始字符串的习惯！👍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pattern = <span class="string">r&quot;\(?\d&#123;3&#125;\)?[- ]?\d&#123;3&#125;[- ]?\d&#123;4&#125;&quot;</span> <span class="comment"># 匹配电话号码的模式</span></span><br><span class="line">text = <span class="string">&quot;我的电话是 (123)-456-7890&quot;</span></span><br><span class="line">result = re.search(pattern, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到电话号码:&quot;</span>, result.group())</span><br></pre></td></tr></table></figure>
+
+<p><strong># 进阶：分组匹配</strong></p>
+<p>正则表达式还支持分组匹配，用小括号 <code>()</code> 包裹起来的部分会被认为是一个分组。我们可以使用匹配对象的 <code>group()</code> 方法来获取不同分组的内容。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;blog:https://blog.zhangwang.com&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;blog:(.*)\/\/([^\/]+)&quot;</span>, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;完整匹配:&quot;</span>, result.group(<span class="number">0</span>)) <span class="comment"># 整个匹配到的字符串</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第一个分组 (//后面的内容):&quot;</span>, result.group(<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第二个分组 (域名):&quot;</span>, result.group(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong># 注意事项</strong></p>
+<ul>
+<li>正则表达式的语法比较灵活，需要多练习才能熟练掌握。</li>
+<li>对于复杂的匹配需求，可以逐步构建正则表达式。</li>
+<li>善用在线正则表达式测试工具，可以帮助你验证你的模式是否正确。</li>
+</ul>
+<p><strong># 总结</strong></p>
+<p>正则表达式是处理文本数据的强大工具，掌握它能让你在文本搜索、数据提取、格式验证等方面事半功倍！希望今天的介绍能帮助你迈出学习Python正则表达式的第一步。快去动手尝试一下吧！加油！💪</p>
+<p>#Python #正则表达式 #Regex #编程入门 #文本处理 #干货分享 #Day07 #一起学Python</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>心灵星图
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://youtubhexo.github.ioe/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/" title="07-正则">https://youtubhexo.github.ioe/2025/04/26/01python/07-正则/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/" rel="prev" title="06-传参">
+                  <i class="fa fa-angle-left"></i> 06-传参
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/26/01python/08-%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="next" title="08-编码与文件操作">
+                  08-编码与文件操作 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
