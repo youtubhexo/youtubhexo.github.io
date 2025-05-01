@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.ioe","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="rsync官网及介绍rsync rsync语法rsync [选项] 源路径... 目标路径 rsync  用户名@主机地址::模块名称  -v：详细模式输出，显示传输过程中的文件信息。 -a：归档模式，表示递归传输文件，并保持所有文件属性。 -z：对备份的文件在传输时进行压缩处理。 –delete：删除目标目录中源目录中没有的文件（可选，用于实现双向同步）  编写监控脚本-采用ssh1234567">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="02-数据同步服务">
+<meta property="og:url" content="https://youtubhexo.github.ioe/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="心灵星图笔记">
+<meta property="og:description" content="rsync官网及介绍rsync rsync语法rsync [选项] 源路径... 目标路径 rsync  用户名@主机地址::模块名称  -v：详细模式输出，显示传输过程中的文件信息。 -a：归档模式，表示递归传输文件，并保持所有文件属性。 -z：对备份的文件在传输时进行压缩处理。 –delete：删除目标目录中源目录中没有的文件（可选，用于实现双向同步）  编写监控脚本-采用ssh1234567">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250501204949631.png">
+<meta property="article:published_time" content="2025-04-30T07:12:27.000Z">
+<meta property="article:modified_time" content="2025-05-01T14:00:36.121Z">
+<meta property="article:author" content="心灵星图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250501204949631.png">
+
+
+<link rel="canonical" href="https://youtubhexo.github.ioe/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.ioe/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/","path":"2025/04/30/03系统运维/02-数据同步服务/","title":"02-数据同步服务"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>02-数据同步服务 | 心灵星图笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心灵星图笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#rsync%E5%AE%98%E7%BD%91%E5%8F%8A%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">rsync官网及介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsync%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">rsync语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC-%E9%87%87%E7%94%A8ssh"><span class="nav-number">3.</span> <span class="nav-text">编写监控脚本-采用ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">3.1.</span> <span class="nav-text">测试是否可以同步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E7%9B%91%E6%8E%A7%E8%84%9A%E6%9C%AC-%E9%87%87%E7%94%A8rsync%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">编写监控脚本-采用rsync协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8systemd%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">使用systemd创建本地服务</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="02-数据同步服务 | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          02-数据同步服务
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-30 15:12:27" itemprop="dateCreated datePublished" datetime="2025-04-30T15:12:27+08:00">2025-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-05-01 22:00:36" itemprop="dateModified" datetime="2025-05-01T22:00:36+08:00">2025-05-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="rsync官网及介绍"><a href="#rsync官网及介绍" class="headerlink" title="rsync官网及介绍"></a>rsync官网及介绍</h3><p><a target="_blank" rel="noopener" href="https://rsync.samba.org/">rsync</a><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250501204949631.png" alt="rsync作用及来源"></p>
+<h3 id="rsync语法"><a href="#rsync语法" class="headerlink" title="rsync语法"></a>rsync语法</h3><p><code>rsync [选项] 源路径... 目标路径</code><br><code> rsync  用户名@主机地址::模块名称</code></p>
+<ul>
+<li>-v：详细模式输出，显示传输过程中的文件信息。</li>
+<li>-a：归档模式，表示递归传输文件，并保持所有文件属性。</li>
+<li>-z：对备份的文件在传输时进行压缩处理。</li>
+<li>–delete：删除目标目录中源目录中没有的文件（可选，用于实现双向同步）</li>
+</ul>
+<h3 id="编写监控脚本-采用ssh"><a href="#编写监控脚本-采用ssh" class="headerlink" title="编写监控脚本-采用ssh"></a>编写监控脚本-采用ssh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vi /root/real_time_sync.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># 定义源目录和目标目录（目标目录是远程服务器的目录）</span><br><span class="line">SOURCE_DIR=&quot;/export/data/logs&quot;</span><br><span class="line">TARGET_DIR=&quot;root@192.168.88.102:/export/data/node1_exe_backup_log&quot;  # 替换为目标服务器的用户名和目录</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/rsync_realtime_sync.log&quot;</span><br><span class="line"> </span><br><span class="line"># 使用inotifywait监听$&#123;WATCH_DIR&#125;目录中的文件变化</span><br><span class="line">inotifywait -m -r -e modify,create,delete,move &quot;$&#123;SOURCE_DIR&#125;&quot; | while read path action file; do</span><br><span class="line">    echo &quot;Detected $&#123;action&#125; on $&#123;file&#125; in $&#123;path&#125;. Starting rsync...&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">    # 执行rsync同步操作</span><br><span class="line">    rsync -avz --delete -e ssh &quot;$&#123;SOURCE_DIR&#125;/&quot; &quot;$&#123;TARGET_DIR&#125;&quot;  &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1</span><br><span class="line">    echo &quot;Sync completed for $&#123;file&#125; in $&#123;path&#125;.&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="测试是否可以同步"><a href="#测试是否可以同步" class="headerlink" title="测试是否可以同步"></a>测试是否可以同步</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/root</span></span><br><span class="line"><span class="attr">./real_time_sync.sh</span></span><br><span class="line"></span><br><span class="line"><span class="attr">启动后，</span> <span class="string">开启一个新窗口， 尝试向node1的/export/data/logs路径放入文件， 观察node2是否能够立即同步过来</span></span><br><span class="line"></span><br><span class="line"><span class="attr">测试成功后，</span> <span class="string">可以采用   nohup ./real_time_sync.sh &amp; 挂载在后台使用</span></span><br><span class="line"></span><br><span class="line"><span class="attr">此种方式，有一个弊端，</span> <span class="string">如果服务器重启后， 需要手动开启实时同步脚本</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#98;&#97;&#99;&#107;&#117;&#112;&#x5f;&#117;&#115;&#101;&#x72;&#64;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#x38;&#x2e;&#x38;&#x38;&#46;&#49;&#x30;&#50;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/rsyncd.conf</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">uid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">gid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">use</span> <span class="string">chroot = no</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">873</span></span><br><span class="line"><span class="attr">max</span> <span class="string">connections = 200</span></span><br><span class="line"><span class="attr">pid</span> <span class="string">file = /var/run/rsyncd.pid</span></span><br><span class="line"><span class="attr">log</span> <span class="string">file = /var/log/rsyncd.log</span></span><br><span class="line"><span class="attr">transfer</span> <span class="string">logging = yes</span></span><br><span class="line"><span class="attr">ignore</span> <span class="string">nonreadable = yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">[node1_logs]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">/export/data/node1_exe_backup_log</span></span><br><span class="line">    <span class="attr">comment</span> = <span class="string">Backup Directory</span></span><br><span class="line">    <span class="attr">read</span> <span class="string">only = no</span></span><br><span class="line">    <span class="attr">secrets</span> <span class="string">file = /etc/rsyncd.passwd</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">allow = 192.168.88.0/24</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">deny = *</span></span><br><span class="line">    <span class="attr">auth</span> <span class="string">users = backup_user</span></span><br></pre></td></tr></table></figure>
+<p>echo “backup_user:123456” &gt; &#x2F;etc&#x2F;rsyncd.passwd</p>
+<p>设置密码文件的权限为600，确保该文件只有 RSYNC 服务可以读取<br>chmod 600 &#x2F;etc&#x2F;rsyncd.passwd<br>rsync –daemon</p>
+<h3 id="使用systemd创建本地服务"><a href="#使用systemd创建本地服务" class="headerlink" title="使用systemd创建本地服务"></a>使用systemd创建本地服务</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/systemd/system/rsync_inotify.service</span></span><br><span class="line"></span><br><span class="line"><span class="attr">内容如下：</span></span><br><span class="line"><span class="attr">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=<span class="string">Real-time Rsync Sync with Inotify</span></span><br><span class="line"><span class="attr">After</span>=<span class="string">network.target</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Service]</span></span><br><span class="line"><span class="attr">ExecStart</span>=<span class="string">/root/real_time_sync.sh</span></span><br><span class="line"><span class="attr">Restart</span>=<span class="string">always</span></span><br><span class="line"><span class="attr">User</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">Group</span>=<span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=<span class="string">multi-user.target</span></span><br></pre></td></tr></table></figure>
+<p>systemctl daemon-reload          #重新加载系统服务<br>systemctl start rsync_inotify    #开启服务<br>systemctl enable rsync_inotify   #设置服务为开机自启</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>心灵星图
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://youtubhexo.github.ioe/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/" title="02-数据同步服务">https://youtubhexo.github.ioe/2025/04/30/03系统运维/02-数据同步服务/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/29/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/01-SSH%E6%9C%8D%E5%8A%A1/" rel="prev" title="💻 效率翻倍！SSH 服务那些你不知道的小技巧！">
+                  <i class="fa fa-angle-left"></i> 💻 效率翻倍！SSH 服务那些你不知道的小技巧！
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
