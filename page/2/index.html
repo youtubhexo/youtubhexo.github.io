@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,112 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/01python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/01python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">03-控制流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:02:26 / Modified: 17:27:07" itemprop="dateCreated datePublished" datetime="2025-04-26T17:02:26+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>兄弟们，今天我们来聊聊 Python 里的“循环”小宇宙！🌌✨ 它能让我们的代码像上了发条的小马达一样，重复执行我们想要的操作，简直是解放双手、提升效率的神器！😎💖</p>
+<h3 id="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"><a href="#循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁" class="headerlink" title="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"></a>循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁</h3><p>想象一下，循环里面又套着一个循环，就像我们小时候玩的俄罗斯套娃一样！一层又一层，可以实现一些更复杂的逻辑哦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):  <span class="comment"># 外层循环，执行 3 次</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;--- 外层循环第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次 ---&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):  <span class="comment"># 内层循环，每次外层循环都会执行 2 次</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;    内层循环第 <span class="subst">&#123;j + <span class="number">1</span>&#125;</span> 次&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️"><a href="#遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️" class="headerlink" title="遍历小能手！for 循环！🚶‍♀️🚶🚶‍♂️"></a>遍历小能手！<code>for</code> 循环！🚶‍♀️🚶🚶‍♂️</h3><p><code>for</code> 循环就像一个贴心的导游，可以带着我们一个一个地“参观”容器里的每个“景点”（元素）。容器可以是列表、字符串等等，只要里面有东西，<code>for</code> 循环就能把它遍历个遍！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我喜欢吃：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 容器中有 3 个元素，循环就会执行 3 次</span></span><br></pre></td></tr></table></figure>
+
+<p><code>for</code> 循环还能指定循环次数哦！用 <code>range()</code> 函数就可以实现啦！就像我们跑步，可以指定跑几圈！🏃‍♀️</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定结束位置（必填），从 0 开始，不包含结束位置</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):  <span class="comment"># 循环 5 次 (0, 1, 2, 3, 4)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定开始位置、结束位置和步长</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):  <span class="comment"># 从 1 开始，到 10 结束（不包含 10），每次增加 2 (1, 3, 5, 7, 9)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步长默认为 1，可以省略</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, <span class="number">7</span>):  <span class="comment"># 从 3 开始，到 7 结束（不包含 7），步长为 1 (3, 4, 5, 6)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="永不停歇的小马达！无限循环！"><a href="#永不停歇的小马达！无限循环！" class="headerlink" title="永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;"></a>永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;</h3><p>有时候我们希望程序一直运行下去，直到我们手动停止它，这时候就可以用 <code>while True:</code> 制造一个无限循环！就像一个永动机！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&#x27;请输入报道学生姓名 (输入 exit 退出): &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">        exit(<span class="number">0</span>)  <span class="comment"># 优雅地退出程序</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;今天接待的学生为：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关键时刻喊“停”！break！✋"><a href="#关键时刻喊“停”！break！✋" class="headerlink" title="关键时刻喊“停”！break！✋"></a>关键时刻喊“停”！<code>break</code>！✋</h3><p><code>break</code> 就像我们生活中的“紧急停止”按钮！在循环进行的过程中，如果遇到了 <code>break</code>，程序会立刻跳出整个循环，后面的代码也不会再执行啦！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 当 i 大于 6 的时候，立刻停止循环</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;今天正在干饭，这是第 <span class="subst">&#123;i&#125;</span> 个包子&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;如果程序没有被中断，就会执行这个&quot;</span>)</span><br><span class="line"><span class="comment"># 注意：这里的 else 子句只有在循环正常结束（没有被 break 中断）的情况下才会执行哦！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“跳过”这个！continue！➡️"><a href="#“跳过”这个！continue！➡️" class="headerlink" title="“跳过”这个！continue！➡️"></a>“跳过”这个！<code>continue</code>！➡️</h3><p><code>continue</code> 就有点像我们生活中的“跳过”！在循环进行的过程中，如果遇到了 <code>continue</code>，程序会跳过当前这一次循环剩下的代码，直接进入下一次循环！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment"># 当 i 等于 3 的时候，跳过本次循环剩下的代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我正在吃第 <span class="subst">&#123;i&#125;</span> 个葡萄&quot;</span>)</span><br><span class="line"><span class="comment"># 你会发现，第 3 个葡萄被跳过了！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“门牌号”！索引！️"><a href="#字符串的“门牌号”！索引！️" class="headerlink" title="字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️"></a>字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️</h3><p>字符串就像一串珠子，每个字符都有自己的“门牌号”，也就是索引！索引从 0 开始计数哦！我们还可以用负数索引从末尾开始计数，-1 代表最后一个字符！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;天王盖地虎&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>])   <span class="comment"># 输出第一个字符：天</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>])  <span class="comment"># 输出最后一个字符：虎</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“切”出一块美味！切片！🔪🍰"><a href="#“切”出一块美味！切片！🔪🍰" class="headerlink" title="“切”出一块美味！切片！🔪🍰"></a>“切”出一块美味！切片！🔪🍰</h3><p>切片就像我们切蛋糕一样，可以从字符串中“切”出一小块！用 <code>:</code> 来指定切片的范围！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;张王岩，你好呀&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[::])      <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[:])       <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>:-<span class="number">3</span>:-<span class="number">1</span>]) <span class="comment"># 从倒数第一个到倒数第三个（不包含倒数第三个），步长为 -1：呀好</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>:<span class="number">3</span>:<span class="number">2</span>])   <span class="comment"># 从索引 0 到 3（不包含 3），步长为 2：张岩</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“魔法棒”！常用操作！✨🪄"><a href="#字符串的“魔法棒”！常用操作！✨🪄" class="headerlink" title="字符串的“魔法棒”！常用操作！✨🪄"></a>字符串的“魔法棒”！常用操作！✨🪄</h3><p>字符串还有很多自带的“魔法棒”，可以帮我们查找、修改、分割字符串！</p>
+<ul>
+<li><p><strong>查找：<code>find()</code> 和 <code>index()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;刀枪剑戟 斧钺钩叉&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name.find(<span class="string">&#x27;刀&#x27;</span>))  <span class="comment"># 查找 &#x27;刀&#x27; 第一次出现的位置，返回索引：0</span></span><br><span class="line"><span class="comment"># print(nick_name.index(&#x27;何先生&#x27;)) # 查找 &#x27;何先生&#x27;，如果不存在会报错！⚠️</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>替换：<code>replace()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>))   <span class="comment"># 将所有 &#x27;黑马&#x27; 替换成 &#x27;白马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 只替换第一个 &#x27;黑马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1)  <span class="comment"># 原字符串不会改变：黑马程序员</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>分割：<code>split()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s2 = <span class="string">&#x27;tom,19,男,100&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 以 &#x27;,&#x27; 分割字符串，只分割一次：[&#x27;tom&#x27;, &#x27;19,男,100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>))     <span class="comment"># 以 &#x27;,&#x27; 分割字符串，分割所有：[&#x27;tom&#x27;, &#x27;19&#x27;, &#x27;男&#x27;, &#x27;100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2)                <span class="comment"># 原字符串不会改变：tom,19,男,100</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>好啦兄弟们，今天的 Python 控制流程就聊到这里啦！掌握了循环和字符串的各种操作，你的 Python 代码就能更加灵活、更加强大啦！💪 快去试试这些“魔法”，让你的程序动起来吧！💖✨</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1375,118 +1481,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/" class="post-title-link" itemprop="url">01-基础扫盲工作 - 我的运维学习笔记 ✍️</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-25 19:11:44 / Modified: 20:21:14" itemprop="dateCreated datePublished" datetime="2025-04-25T19:11:44+08:00">2025-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="初探运维：我的理解-🤔"><a href="#初探运维：我的理解-🤔" class="headerlink" title="初探运维：我的理解 🤔"></a>初探运维：我的理解 🤔</h2><p>一开始，我对运维的印象可能比较模糊，但通过学习，我逐渐认识到：</p>
-<ol>
-<li><strong>核心定位：我们是软件运维</strong>，专注于软件系统的稳定运行。这和硬件运维有所区分。</li>
-<li><strong>关键价值：保障业务连续性</strong>。运维不仅仅是修机器，更重要的是通过专业技术，确保公司的 IT 系统像血液一样流畅运转，保障业务不中断。</li>
-<li><strong>意外的惊喜：薪资潜力超乎想象</strong>！有经验的运维高手，在薪资上竟然能超越开发、测试甚至 UI，这让我对这个领域刮目相看。</li>
-</ol>
-<h2 id="运维日常：我在做什么？-🛠️"><a href="#运维日常：我在做什么？-🛠️" class="headerlink" title="运维日常：我在做什么？ 🛠️"></a>运维日常：我在做什么？ 🛠️</h2><p>那么，运维具体都在做些什么呢？我的理解是：</p>
-<ol>
-<li><strong>像个细心的管家：系统的监控与维护</strong>。我们需要时刻关注服务器、网络设备的健康状况，就像给它们做体检，确保一切正常。（思考：有哪些常用的监控工具呢？）</li>
-<li><strong>化身救火队员：故障的排查与处理</strong>。当系统出现问题时，我们要快速找到原因并解决它，这需要冷静的头脑和扎实的技术。（思考：遇到不同类型的故障，排查思路有什么不同？）</li>
-<li><strong>追求效率的极客：自动化运维</strong>。重复性的工作应该交给机器去做，编写自动化脚本就是解放双手，提高效率的关键。（思考：哪些运维任务适合自动化？）</li>
-<li><strong>系统的搭建者和升级者：系统的部署与更新</strong>。根据业务需求，我们需要部署新的系统，并对现有系统进行升级。（思考：部署和升级过程中有哪些关键步骤和风险点？）</li>
-<li><strong>数据的守护者：备份与恢复</strong>。数据是企业的生命线，定期备份和制定恢复方案至关重要。（思考：有哪些常见的备份策略？）</li>
-<li><strong>安全的第一道防线：安全管理</strong>。及时发现和修复系统及应用的安全漏洞，防止黑客入侵。（思考：如何及时获取和应对安全漏洞信息？）</li>
-</ol>
-<h2 id="云计算：未来的趋势？-☁️"><a href="#云计算：未来的趋势？-☁️" class="headerlink" title="云计算：未来的趋势？ ☁️"></a>云计算：未来的趋势？ ☁️</h2><p>云计算这个概念很火，我的理解是它带来了极大的便利性：</p>
-<ul>
-<li><strong>随时调整操作系统</strong>，就像换手机系统一样灵活。</li>
-<li><strong>CPU 和内存资源、硬盘、网络带宽</strong>都可以根据需求动态调整，特别是阿里云的 100M 带宽，简直是飞一般的感觉！</li>
-</ul>
-<p>我甚至还申请了 2 台云服务器来体验：</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425193845550.png" alt="截图"></p>
-<p>听说有的公司会用到成百上千台服务器，这在以前是难以想象的。</p>
-<p>另外，云计算还有私有云、公有云和混合云之分。了解这些区别，能帮助我们更好地判断网上信息的真实性。比如，通过裁判文书网这类公开渠道，我们可以获取更可靠的企业信息，避免被一些虚假数据误导。（思考：不同类型的云适用于哪些场景？）</p>
-<h2 id="基础概念梳理-💡"><a href="#基础概念梳理-💡" class="headerlink" title="基础概念梳理 💡"></a>基础概念梳理 💡</h2><h4 id="1-服务器：不止一种形态-🏢"><a href="#1-服务器：不止一种形态-🏢" class="headerlink" title="1. 服务器：不止一种形态 🏢"></a>1. 服务器：不止一种形态 🏢</h4><ul>
-<li>柜式服务器</li>
-<li>塔式服务器</li>
-<li>刀片式服务器</li>
-<li>机架式服务器</li>
-</ul>
-<p>学习到这些服务器类型后，我意识到网上那些声称用自己购买的少量服务器进行教学的，在应对业务快速发展和弹性伸缩方面是远远不够的。购买云服务器才是更明智的选择，尤其是在初期快速验证和弹性扩容方面。</p>
-<h4 id="2-IP-地址：网络世界的门牌号-🚪"><a href="#2-IP-地址：网络世界的门牌号-🚪" class="headerlink" title="2. IP 地址：网络世界的门牌号 🚪"></a>2. IP 地址：网络世界的门牌号 🚪</h4><p>（思考：IP 地址的分类和作用是什么？）</p>
-<h4 id="3-企业运行模式：运维身处何处？-🗺️"><a href="#3-企业运行模式：运维身处何处？-🗺️" class="headerlink" title="3. 企业运行模式：运维身处何处？ 🗺️"></a>3. 企业运行模式：运维身处何处？ 🗺️</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425200345846.png" alt="运维的地位"></p>
-<p>这张图清晰地展示了运维在企业中的地位。对于我们运维人员来说，<strong>生产环境</strong>就是我们战斗的核心阵地，它直接关系到企业的生死存亡和用户体验。因此，<strong>稳定性、可用性和安全性</strong>是我们的首要任务，也是我们工作的价值所在。</p>
-<p>运维工作贯穿了开发、测试到最终生产的整个生命周期，是不可或缺的关键环节。</p>
-<h4 id="4-网络通信三要素：对话的基础-🗣️"><a href="#4-网络通信三要素：对话的基础-🗣️" class="headerlink" title="4. 网络通信三要素：对话的基础 🗣️"></a>4. 网络通信三要素：对话的基础 🗣️</h4><p><strong>IP 地址、端口、协议</strong>。记住 <strong>0-1023</strong> 这些<strong>知名端口</strong>很重要，它们就像是常用服务的固定电话号码，例如 HTTP 的 80，HTTPS 的 443，FTP 的 21。（思考：还有哪些常见的知名端口？）</p>
-<h4 id="5-工单系统：协作的桥梁-🤝"><a href="#5-工单系统：协作的桥梁-🤝" class="headerlink" title="5. 工单系统：协作的桥梁 🤝"></a>5. 工单系统：协作的桥梁 🤝</h4><p>有内部使用的工单系统，也有面向外部客户的工单系统。（思考：好的工单系统应该具备哪些功能？）</p>
-<h4 id="6-网络基础：连接的基石-🧱"><a href="#6-网络基础：连接的基石-🧱" class="headerlink" title="6. 网络基础：连接的基石 🧱"></a>6. 网络基础：连接的基石 🧱</h4><p>包括光猫、路由器、交换机、网线这些物理设备。（思考：它们各自的作用是什么？如何排查网络故障？）</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201148875.png" alt="配网用的"></p>
-<h2 id="操作系统：软件的灵魂-⚙️"><a href="#操作系统：软件的灵魂-⚙️" class="headerlink" title="操作系统：软件的灵魂 ⚙️"></a>操作系统：软件的灵魂 ⚙️</h2><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201313931.png" alt="操作系统介绍"></p>
-<p>（思考：不同操作系统的特点和适用场景是什么？Linux 为什么在服务器领域占据主导地位？）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
