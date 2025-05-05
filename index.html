@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,111 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/05/05/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/04-%E6%8C%82%E8%BD%BD%E5%92%8C%E7%9B%AE%E5%BD%95%E5%85%B1%E4%BA%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/05/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/04-%E6%8C%82%E8%BD%BD%E5%92%8C%E7%9B%AE%E5%BD%95%E5%85%B1%E4%BA%AB/" class="post-title-link" itemprop="url">04-挂载和目录共享</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-05-05 20:21:53 / Modified: 20:41:13" itemprop="dateCreated datePublished" datetime="2025-05-05T20:21:53+08:00">2025-05-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅"><a href="#兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅" class="headerlink" title="兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅"></a>兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅</h1><p>兄弟们有没有遇到过这种情况，想给咱们的Linux系统扩容一下，插了个新硬盘上去，结果… 咦？怎么没反应？🤔</p>
+<p>别慌！这可不像咱们Windows那样“即插即用”哦！Linux的磁盘挂载，可是要讲究步骤滴！今天就来给兄弟们好好唠唠嗑！</p>
+<h3 id="💡-告别盲操，先看看“家底”！"><a href="#💡-告别盲操，先看看“家底”！" class="headerlink" title="💡 告别盲操，先看看“家底”！"></a>💡 告别盲操，先看看“家底”！</h3><p>就像我们买衣服前要看看衣柜里有什么一样，操作磁盘前，先用这个命令看看咱们的“家底”：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+
+<p>这个命令一敲，电脑里所有的磁盘信息都给你安排得明明白白！哪个是新来的“姐妹”，哪个是“老住户”，一眼就能认出来！👀<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505090627746.png"></p>
+<h3 id="🔪-给硬盘“安排房间”：磁盘分区实操！"><a href="#🔪-给硬盘“安排房间”：磁盘分区实操！" class="headerlink" title="🔪 给硬盘“安排房间”：磁盘分区实操！"></a>🔪 给硬盘“安排房间”：磁盘分区实操！</h3><p>好比咱们要给新买的衣服分门别类放好，新的硬盘也要给它“分区”！我之前在我的阿里云服务器上就这么干过，当时我这块40GB的“小可爱”，就被我安排了两个“房间”：</p>
+<ul>
+<li>“大房间”（1分区）：10GB，放些重要的文件~</li>
+<li>“超大房间”（2分区）：剩下的30GB，随便造作！😜</li>
+</ul>
+<p><strong>⚠️ 小Tips：</strong></p>
+<p>分区的时候，里面有个神奇的“小助手”会一直等着你的指令！你可以一直输入一些特定的“暗号”来操作，比如输入 <code>p</code> 就能看到你现在的“房间格局”啦！想退出就输入相应的退出命令就好！</p>
+<h3 id="💭-灵光一闪！这不就是…"><a href="#💭-灵光一闪！这不就是…" class="headerlink" title="💭 灵光一闪！这不就是…"></a>💭 灵光一闪！这不就是…</h3><p>哎呦喂！说到磁盘操作，我突然想到之前在慕课网学习“大前端”的时候，老师好像也提到过类似的概念！看来技术都是相通的嘛！😄</p>
+<h3 id="💣-“翻车”预警！挂载可能遇到的那些坑！"><a href="#💣-“翻车”预警！挂载可能遇到的那些坑！" class="headerlink" title="💣 “翻车”预警！挂载可能遇到的那些坑！"></a>💣 “翻车”预警！挂载可能遇到的那些坑！</h3><p>姐妹们注意啦！挂载的时候也可能会遇到一些“小插曲”哦！</p>
+<ul>
+<li><strong>“新硬盘还没装修好就想入住？”</strong> ➡️ 没格式化！记得先给分区“装修”（格式化）一下！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505101851772.png"></li>
+<li><strong>“房间都没隔好就想放东西？”</strong> ➡️ 没分区！顺序别搞反啦，先分区再格式化！</li>
+<li><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505111122707.png"></li>
+<li><strong>“衣柜太小，衣服都塞不下！”</strong> ➡️ 磁盘分区太小了！提前规划好容量很重要哦！</li>
+<li><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505102103409.png"></li>
+</ul>
+<h3 id="🤸‍♀️-“临时抱佛脚”：临时挂载和取消挂载！"><a href="#🤸‍♀️-“临时抱佛脚”：临时挂载和取消挂载！" class="headerlink" title="🤸‍♀️ “临时抱佛脚”：临时挂载和取消挂载！"></a>🤸‍♀️ “临时抱佛脚”：临时挂载和取消挂载！</h3><p>有时候我们只是临时用一下某个磁盘，可以用这两个命令“快速入住”和“退房”：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n2p1 /disk2  <span class="comment"># 把这个“房间”临时安排到/disk2这个“文件夹”</span></span><br><span class="line">umount /dev/nvme0n2p1 <span class="comment"># “退房”啦！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-“安全第一”：校验挂载很重要！"><a href="#✅-“安全第一”：校验挂载很重要！" class="headerlink" title="✅ “安全第一”：校验挂载很重要！"></a>✅ “安全第一”：校验挂载很重要！</h3><p>这个命令一定要记住！就像我们出门前要检查门窗有没有关好一样重要！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>⚠️ 敲黑板！</strong> 不校验的话，万一哪个“房间”没安排好，可能导致咱们的“小电脑”开不了机，直接卡住给你看！😱</p>
+<h3 id="🤝-“好东西要分享”：目录共享登场！"><a href="#🤝-“好东西要分享”：目录共享登场！" class="headerlink" title="🤝 “好东西要分享”：目录共享登场！"></a>🤝 “好东西要分享”：目录共享登场！</h3><p>说到这里，我又想到了Git和SVN的区别！它们在同步和共享文件方面，是不是也有点异曲同工之妙呢？🤔</p>
+<h3 id="🧱-重温基础，打好地基！"><a href="#🧱-重温基础，打好地基！" class="headerlink" title="🧱 重温基础，打好地基！"></a>🧱 重温基础，打好地基！</h3><p>在搞共享之前，先看看咱们的“防火墙”有没有开门迎接客人哦！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<h3 id="📢-“共享快乐”：NFS和SAMBA了解一下！"><a href="#📢-“共享快乐”：NFS和SAMBA了解一下！" class="headerlink" title="📢 “共享快乐”：NFS和SAMBA了解一下！"></a>📢 “共享快乐”：NFS和SAMBA了解一下！</h3><p>想要在Linux系统之间共享文件，可以用NFS！想要和Windows的小伙伴共享，SAMBA就是你的好帮手！具体的操作咱们下次再详细唠嗑！😉</p>
+<hr>
+<p>希望这篇小红书风格的教程，能让姐妹们对Linux的磁盘挂载和目录共享有个更清晰的认识！下次再遇到类似的问题，就不用慌啦！💪</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -378,7 +483,7 @@
 </ul>
 <h3 id="编写监控脚本-采用ssh"><a href="#编写监控脚本-采用ssh" class="headerlink" title="编写监控脚本-采用ssh"></a>编写监控脚本-采用ssh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vi /root/real_time_sync.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># 定义源目录和目标目录（目标目录是远程服务器的目录）</span><br><span class="line">SOURCE_DIR=&quot;/export/data/logs&quot;</span><br><span class="line">TARGET_DIR=&quot;root@192.168.88.102:/export/data/node1_exe_backup_log&quot;  # 替换为目标服务器的用户名和目录</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/rsync_realtime_sync.log&quot;</span><br><span class="line"> </span><br><span class="line"># 使用inotifywait监听$&#123;WATCH_DIR&#125;目录中的文件变化</span><br><span class="line">inotifywait -m -r -e modify,create,delete,move &quot;$&#123;SOURCE_DIR&#125;&quot; | while read path action file; do</span><br><span class="line">    echo &quot;Detected $&#123;action&#125; on $&#123;file&#125; in $&#123;path&#125;. Starting rsync...&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">    # 执行rsync同步操作</span><br><span class="line">    rsync -avz --delete -e ssh &quot;$&#123;SOURCE_DIR&#125;/&quot; &quot;$&#123;TARGET_DIR&#125;&quot;  &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1</span><br><span class="line">    echo &quot;Sync completed for $&#123;file&#125; in $&#123;path&#125;.&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="测试是否可以同步"><a href="#测试是否可以同步" class="headerlink" title="测试是否可以同步"></a>测试是否可以同步</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/root</span></span><br><span class="line"><span class="attr">./real_time_sync.sh</span></span><br><span class="line"></span><br><span class="line"><span class="attr">启动后，</span> <span class="string">开启一个新窗口， 尝试向node1的/export/data/logs路径放入文件， 观察node2是否能够立即同步过来</span></span><br><span class="line"></span><br><span class="line"><span class="attr">测试成功后，</span> <span class="string">可以采用   nohup ./real_time_sync.sh &amp; 挂载在后台使用</span></span><br><span class="line"></span><br><span class="line"><span class="attr">此种方式，有一个弊端，</span> <span class="string">如果服务器重启后， 需要手动开启实时同步脚本</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#x62;&#97;&#x63;&#x6b;&#117;&#x70;&#95;&#x75;&#115;&#x65;&#114;&#64;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x38;&#56;&#x2e;&#49;&#48;&#50;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
+<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#98;&#x61;&#99;&#107;&#117;&#112;&#95;&#x75;&#115;&#101;&#114;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#56;&#x38;&#46;&#x31;&#x30;&#x32;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/rsyncd.conf</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">uid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">gid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">use</span> <span class="string">chroot = no</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">873</span></span><br><span class="line"><span class="attr">max</span> <span class="string">connections = 200</span></span><br><span class="line"><span class="attr">pid</span> <span class="string">file = /var/run/rsyncd.pid</span></span><br><span class="line"><span class="attr">log</span> <span class="string">file = /var/log/rsyncd.log</span></span><br><span class="line"><span class="attr">transfer</span> <span class="string">logging = yes</span></span><br><span class="line"><span class="attr">ignore</span> <span class="string">nonreadable = yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">[node1_logs]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">/export/data/node1_exe_backup_log</span></span><br><span class="line">    <span class="attr">comment</span> = <span class="string">Backup Directory</span></span><br><span class="line">    <span class="attr">read</span> <span class="string">only = no</span></span><br><span class="line">    <span class="attr">secrets</span> <span class="string">file = /etc/rsyncd.passwd</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">allow = 192.168.88.0/24</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">deny = *</span></span><br><span class="line">    <span class="attr">auth</span> <span class="string">users = backup_user</span></span><br></pre></td></tr></table></figure>
 <p>echo “backup_user:123456” &gt; &#x2F;etc&#x2F;rsyncd.passwd</p>
 <p>设置密码文件的权限为600，确保该文件只有 RSYNC 服务可以读取<br>chmod 600 &#x2F;etc&#x2F;rsyncd.passwd<br>rsync –daemon</p>
@@ -1137,183 +1242,6 @@
 </ul>
 <p>今天的内容就到这里啦！是不是感觉Python更有趣了呢？💪 记得多练习才能更好地掌握哦！下次再见！👋</p>
 <p>#Python学习 #编程入门 #新手教程 #干货分享 #Day05 #容器 #函数 #小红书笔记 #一起学Python</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/26/01python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/01python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">04-[容器]列表-元组-字典-集合</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 17:27:24 / Modified: 17:41:42" itemprop="dateCreated datePublished" datetime="2025-04-26T17:27:24+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>兄弟们，今天我们来聊聊 Python 里的“百宝箱”—— 列表和字典！📦✨ 它们就像我们收纳各种宝贝的小盒子，让我们的数据井井有条，方便又实用！快来一起解锁这两个超能力吧！😎💖</p>
-<h3 id="列表-List-：我的有序“收藏夹”！️"><a href="#列表-List-：我的有序“收藏夹”！️" class="headerlink" title="列表 (List)：我的有序“收藏夹”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8F&gt;️"></a>列表 (List)：我的有序“收藏夹”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8F&gt;️</h3><p>列表就像一个可以存放很多东西的“收藏夹”，里面的每个“宝贝”都有自己的编号（索引），而且它们放进去的顺序是不会变的哦！就像我们衣橱里的衣服，按类别、按颜色整齐排列！🌈</p>
-<p><strong>创建我的“收藏夹”：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]  <span class="comment"># 可以存放各种类型的数据哦！</span></span><br><span class="line">my_list_append = []  <span class="comment"># 创建一个空列表，准备添加新宝贝</span></span><br><span class="line">my_list_extend = [<span class="string">&#x27;你好&#x27;</span>, <span class="string">&#x27;hello&#x27;</span>]</span><br><span class="line">my_list2 = [<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;Java&#x27;</span>, <span class="string">&#x27;JavaScript&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>给我的“宝贝”贴标签 (索引)：</strong></p>
-<p>列表里的每个元素都有一个索引，就像我们给每个衣服贴上标签，方便查找！索引从 0 开始计数哦！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>])   <span class="comment"># 找到第一个“宝贝”：张三</span></span><br><span class="line"><span class="built_in">print</span>(my_list[-<span class="number">1</span>])  <span class="comment"># 找到最后一个“宝贝”：王五</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>“切”出一部分“收藏” (切片)：</strong></p>
-<p>列表也支持切片操作，可以一次性取出多个连续的“宝贝”！就像我们从一排书里拿出几本感兴趣的！📚</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_list[<span class="number">1</span>:<span class="number">3</span>])  <span class="comment"># 取出索引 1 到 3 (不包含 3) 的“宝贝”：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(my_list[:<span class="number">2</span>])   <span class="comment"># 从头开始取，一直到索引 2 (不包含 2)：[&#x27;张三&#x27;, &#x27;李四&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(my_list[::<span class="number">2</span>])  <span class="comment"># 从头到尾取，每隔一个取一个：[&#x27;张三&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>给我的“收藏夹”添砖加瓦 (添加元素)：</strong></p>
-<ul>
-<li><p><strong><code>append()</code>：</strong> 在列表的<strong>末尾</strong>添加一个新“宝贝”！就像我们衣橱里又添了一件新衣服！👗</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.append(<span class="string">&#x27;小明&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小明&#x27;]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>insert()</code>：</strong> 在列表的<strong>指定位置</strong>插入一个新“宝贝”！就像我们在衣橱的某个空位塞进一件心仪的小裙子！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.insert(<span class="number">0</span>, <span class="string">&#x27;小红&#x27;</span>)  <span class="comment"># 在索引 0 的位置插入 &#x27;小红&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;小明&#x27;]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>extend()</code>：</strong> 把<strong>另一个列表</strong>里的所有“宝贝”都添加到当前列表的<strong>末尾</strong>！就像我们把另一个小收纳盒里的东西都放进自己的大“收藏夹”！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.extend(my_list_extend)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;小明&#x27;, &#x27;你好&#x27;, &#x27;hello&#x27;]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>把“不喜欢的”宝贝移走 (删除元素)：</strong></p>
-<ul>
-<li><p><strong><code>pop()</code>：</strong> 移除列表<strong>指定索引</strong>的“宝贝”，并且会告诉你移除的是哪个！就像我们从衣橱里拿走一件不常穿的衣服！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">removed_item = my_list_append.pop(<span class="number">1</span>)  <span class="comment"># 移除索引为 1 的元素 (&#x27;小明&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;你好&#x27;, &#x27;hello&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;我移除了：<span class="subst">&#123;removed_item&#125;</span>&quot;</span>)  <span class="comment"># 输出：我移除了：小明</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>remove()</code>：</strong> 移除列表中<strong>第一个</strong>匹配到的“宝贝”！就像我们从一堆同款衣服里找到一件不喜欢的扔掉！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.remove(<span class="string">&#x27;你好&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;小红&#x27;, &#x27;hello&#x27;]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>del</code>：</strong> 可以根据<strong>索引</strong>或者<strong>切片</strong>来删除列表中的“宝贝”！更直接更粗暴！💪</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> my_list_append[<span class="number">0</span>]  <span class="comment"># 删除索引为 0 的元素 (&#x27;小红&#x27;)</span></span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[&#x27;hello&#x27;]</span></span><br><span class="line"></span><br><span class="line">my_list2 = [<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;Java&#x27;</span>, <span class="string">&#x27;JavaScript&#x27;</span>, <span class="string">&#x27;C++&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list2[<span class="number">1</span>:<span class="number">3</span>]  <span class="comment"># 删除索引 1 到 3 (不包含 3) 的元素</span></span><br><span class="line"><span class="built_in">print</span>(my_list2)  <span class="comment"># 输出：[&#x27;Python&#x27;, &#x27;C++&#x27;]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>clear()</code>：</strong> 清空列表里的<strong>所有</strong>“宝贝”！就像我们把整个衣橱都清空了！🧹</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list_append.clear()</span><br><span class="line"><span class="built_in">print</span>(my_list_append)  <span class="comment"># 输出：[]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>给我的“收藏”排排队 (排序)：</strong></p>
-<ul>
-<li><p><strong><code>sort()</code>：</strong> 对列表里的“宝贝”进行排序！默认是升序哦！就像我们整理衣服，按颜色深浅排列！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">6</span>]</span><br><span class="line">nums.sort()</span><br><span class="line"><span class="built_in">print</span>(nums)  <span class="comment"># 输出：[1, 1, 2, 3, 4, 5, 6, 9]</span></span><br><span class="line"></span><br><span class="line">nums.sort(reverse=<span class="literal">True</span>)  <span class="comment"># 降序排列</span></span><br><span class="line"><span class="built_in">print</span>(nums)  <span class="comment"># 输出：[9, 6, 5, 4, 3, 2, 1, 1]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>看看我的“收藏”有多少 (查找元素)：</strong></p>
-<ul>
-<li><p><strong><code>index()</code>：</strong> 查找指定“宝贝”在列表中<strong>第一次</strong>出现的位置！就像我们找一件特定的衣服在衣橱的哪个位置！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>, <span class="string">&quot;香蕉&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(fruits.index(<span class="string">&quot;香蕉&quot;</span>))  <span class="comment"># 输出：1 (第一次出现的位置)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>count()</code>：</strong> 统计指定“宝贝”在列表中出现了多少次！就像我们数一下衣橱里有多少件白衬衫！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fruits.count(<span class="string">&quot;香蕉&quot;</span>))  <span class="comment"># 输出：2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>in</code> &#x2F; <code>not in</code>：</strong> 判断某个“宝贝”是否在我的“收藏夹”里！就像我们找一件衣服在不在衣橱里！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;苹果&quot;</span> <span class="keyword">in</span> fruits)     <span class="comment"># 输出：True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;草莓&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> fruits)  <span class="comment"># 输出：True</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>遍历我的“收藏” (循环访问)：</strong></p>
-<ul>
-<li><p><strong><code>for</code> 循环：</strong> 就像我们一个一个地拿出衣橱里的衣服欣赏！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我有一个：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>while</code> 循环：</strong> 也可以遍历列表，但需要自己控制索引！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(fruits):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;还有一个：<span class="subst">&#123;fruits[i]&#125;</span>&quot;</span>)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>enumerate()</code>：</strong> 在遍历列表的同时告诉你当前“宝贝”的索引！就像我们拿出衣服的同时知道它是第几件！</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, fruit <span class="keyword">in</span> <span class="built_in">enumerate</span>(fruits):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第 <span class="subst">&#123;index + <span class="number">1</span>&#125;</span> 个是：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="字典-Dictionary-：我的“标签小本本”！🏷️📒"><a href="#字典-Dictionary-：我的“标签小本本”！🏷️📒" class="headerlink" title="字典 (Dictionary)：我的“标签小本本”！🏷️📒"></a>字典 (Dictionary)：我的“标签小本本”！🏷️📒</h3><p>字典就像一个“标签小本本”，里面的每个“宝贝”都有一个<strong>独一无二的“标签” (键)</strong>，通过这个“标签”我们可以快速找到对应的“宝贝” (值)！就像我们的通讯录，通过名字（键）快速找到电话号码（值）！📞</p>
-<p><strong>创建我的“标签小本本”：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_dict = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小美&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">22</span>, <span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;上海&#x27;</span>&#125;</span><br><span class="line">dict_dict = &#123;&#125;  <span class="comment"># 创建一个空字典</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>通过“标签”查找“宝贝” (访问元素)：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_dict[<span class="string">&#x27;name&#x27;</span>])  <span class="comment"># 通过键 &#x27;name&#x27; 找到值：小美</span></span><br><span class="line"><span class="built_in">print</span>(my_dict.get(<span class="string">&#x27;age&#x27;</span>)) <span class="comment"># 另一种安全的方式，如果键不存在会返回 None，不会报错</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>给我的“小本本”添加&#x2F;修改“标签”和“宝贝”：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_dict[<span class="string">&#x27;gender&#x27;</span>] = <span class="string">&#x27;女&#x27;</span>  <span class="comment"># 添加新的键值对</span></span><br><span class="line">my_dict[<span class="string">&#x27;age&#x27;</span>] = <span class="number">23</span>      <span class="comment"># 修改已有的键对应的值</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#x27;name&#x27;: &#x27;小美&#x27;, &#x27;age&#x27;: 23, &#x27;city&#x27;: &#x27;上海&#x27;, &#x27;gender&#x27;: &#x27;女&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>移除“标签”和“宝贝” (删除元素)：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> my_dict[<span class="string">&#x27;city&#x27;</span>]  <span class="comment"># 删除键为 &#x27;city&#x27; 的键值对</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#x27;name&#x27;: &#x27;小美&#x27;, &#x27;age&#x27;: 23, &#x27;gender&#x27;: &#x27;女&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">my_dict.clear()  <span class="comment"># 清空字典里的所有键值对</span></span><br><span class="line"><span class="built_in">print</span>(my_dict)  <span class="comment"># 输出：&#123;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>获取所有的“标签”、“宝贝”和“标签-宝贝”对 (查看元素)：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_info = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小刚&#x27;</span>, <span class="string">&#x27;major&#x27;</span>: <span class="string">&#x27;计算机&#x27;</span>, <span class="string">&#x27;grade&#x27;</span>: <span class="string">&#x27;大三&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(my_info.keys())   <span class="comment"># 获取所有键：dict_keys([&#x27;name&#x27;, &#x27;major&#x27;, &#x27;grade&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(my_info.values()) <span class="comment"># 获取所有值：dict_values([&#x27;小刚&#x27;, &#x27;计算机&#x27;, &#x27;大三&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(my_info.items())  <span class="comment"># 获取所有键值对：dict_items([(&#x27;name&#x27;, &#x27;小刚&#x27;), (&#x27;major&#x27;, &#x27;计算机&#x27;), (&#x27;grade&#x27;, &#x27;大三&#x27;)])</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>遍历我的“标签小本本” (循环访问)：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_info:  <span class="comment"># 遍历所有的键</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;键：<span class="subst">&#123;key&#125;</span>，值：<span class="subst">&#123;my_info[key]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> my_info.items():  <span class="comment"># 同时遍历键和值</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;键：<span class="subst">&#123;key&#125;</span>，值：<span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>好啦兄弟们，今天的 Python 列表和字典就聊到这里啦！是不是感觉它们就像我们生活中的好帮手，能把各种数据都整理得井井有条呢？😉 快去试试用它们来收纳你的数据“宝贝”吧！💖✨ 记住，列表是有序的“收藏夹”，字典是带标签的“小本本”哦！下次再和大家分享更多 Python 的实用技巧！😘</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>好的兄弟们，刚才我们聊了列表和字典这两个“收纳神器”，今天再给大家介绍两位新朋友——元组（Tuple）和集合（Set）！它们也各有妙用，能让我们的 Python “百宝箱”更加丰富多彩哦！💖✨</p>
-<h3 id="元组-Tuple-：我的“只读收藏夹”！🔒"><a href="#元组-Tuple-：我的“只读收藏夹”！🔒" class="headerlink" title="元组 (Tuple)：我的“只读收藏夹”！🔒"></a>元组 (Tuple)：我的“只读收藏夹”！🔒</h3><p>元组就像一个“只读”的列表！一旦创建，里面的“宝贝”就不能修改啦！就像我们珍藏的照片，记录了那一刻的美好，不希望被轻易改动！🖼️</p>
-<p><strong>创建我的“只读收藏夹”：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1 = (<span class="number">1</span>,)  <span class="comment"># 注意！只有一个元素的时候，后面要加逗号哦！不然 Python 会以为你只是想用括号！</span></span><br><span class="line">t2 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>“看看”我的“只读收藏” (访问元素)：</strong></p>
-<p>和列表一样，我们可以通过索引来查看元组里的元素！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>])  <span class="comment"># 查看第一个元素：1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>查找“宝贝”的位置和数量：</strong></p>
-<p>元组也有 <code>index()</code> 和 <code>count()</code> 方法哦！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(t2.index(<span class="number">1</span>))  <span class="comment"># 查找元素 1 第一次出现的位置：0</span></span><br><span class="line"><span class="built_in">print</span>(t2.count(<span class="number">0</span>))  <span class="comment"># 统计元素 0 在元组中出现的次数：0</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>敲黑板！重点来了！</strong> 元组里面的元素是<strong>不可变的</strong>！这意味着你不能像列表那样随意添加、删除或修改元素哦！🔒 这也是元组的一个重要特性，用于存储那些不希望被修改的数据！</p>
-<h3 id="集合-Set-：我的“去重小助手”！"><a href="#集合-Set-：我的“去重小助手”！" class="headerlink" title="集合 (Set)：我的“去重小助手”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA7&gt;&lt;0xAE&gt;"></a>集合 (Set)：我的“去重小助手”！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA7&gt;&lt;0xAE&gt;</h3><p>集合就像一个不允许有重复元素的“袋子”！里面的“宝贝”都是独一无二的！而且集合里的元素是无序的哦！就像我们抓一把糖果，不会按照特定的顺序排列，而且相同的糖果只会算一个！🍬</p>
-<p><strong>创建我的“去重袋子”：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;  <span class="comment"># 大括号里直接放元素，相同的元素会自动去重</span></span><br><span class="line">set2 = <span class="built_in">set</span>()     <span class="comment"># 创建一个空集合</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>“变身”小技巧！列表和集合的互相转换！🔄</strong></p>
-<p>有时候我们需要利用集合的去重特性，可以先把列表变成集合，再去重，然后再变回列表！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_list_with_duplicates = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line">my_set = <span class="built_in">set</span>(my_list_with_duplicates)  <span class="comment"># 列表转集合，自动去重：&#123;1, 2, 3&#125;</span></span><br><span class="line">my_list_without_duplicates = <span class="built_in">list</span>(my_set) <span class="comment"># 集合转列表：[1, 2, 3] (注意顺序可能会变哦！)</span></span><br></pre></td></tr></table></figure>
-
-<p>好啦兄弟们，今天又认识了元组和集合这两位新朋友！元组是“只读收藏夹”，安全可靠；集合是“去重小助手”，独一无二！💖✨ 掌握了它们，我们的 Python “百宝箱”是不是更强大了呢？下次再和大家分享更多 Python 的有趣知识哦！😘</p>
 
       
     </div>

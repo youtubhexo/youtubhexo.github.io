@@ -54,206 +54,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>02-流程控制</title>
-    <url>/2025/04/26/01python/02-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<p>兄弟们，今天我们来聊聊 Python 里的“流程控制”！🚦🚥 就像我们生活中的红绿灯，它能让我们的代码有条不紊地执行，该走哪条路，听谁的指令，都安排得明明白白！😎✨</p>
-<h3 id="让你的输出更精致！格式化输出小技巧！💅"><a href="#让你的输出更精致！格式化输出小技巧！💅" class="headerlink" title="让你的输出更精致！格式化输出小技巧！💅"></a>让你的输出更精致！格式化输出小技巧！💅</h3><p>有时候我们想让 <code>print()</code> 出来的文字更漂亮、更整齐，就需要用到格式化输出啦！就像我们化妆一样，精致一点才更吸睛！😉</p>
-<ul>
-<li><p><strong>百分号 <code>%</code> 格式化：</strong> 这是 Python 比较“经典”的格式化方式啦！用不同的符号代表不同的数据类型：</p>
-<ul>
-<li><code>%d</code>：整数 (digit)</li>
-<li><code>%f</code>：浮点数 (float)</li>
-<li><code>%s</code>：字符串 (string)</li>
-</ul>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;小可爱&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line">height = <span class="number">1.65</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我的名字是：%s，年龄是：%d，身高是：%.2f&quot;</span> % (name, age, height))</span><br><span class="line"><span class="comment"># %s 对应 name，%d 对应 age，%.2f 对应 height，.2 表示保留两位小数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>F-string 格式化：</strong> 这是 Python 3.6 之后推出的超好用、超简洁的格式化方式！强烈推荐！👍 只需要在字符串前面加个 <code>f</code>，然后用大括号 <code>&#123;&#125;</code> 把变量包起来就好啦！简直不要太方便！💖</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;小仙女&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;我的名字是：<span class="subst">&#123;name&#125;</span>，今年<span class="subst">&#123;age&#125;</span>岁啦！&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="和你的程序“对话”！input-输入函数！🗣️"><a href="#和你的程序“对话”！input-输入函数！🗣️" class="headerlink" title="和你的程序“对话”！input() 输入函数！🗣️"></a>和你的程序“对话”！<code>input()</code> 输入函数！🗣️</h3><p>我们的程序不能总是“自说自话”，有时候也需要我们用户输入一些信息，这时候就要用到 <code>input()</code> 函数啦！它就像一个“提问小助手”，等待我们输入内容。📝</p>
-<p><strong>敲黑板！重点来了！</strong> <code>input()</code> 函数接收到的任何值都会变成<strong>字符串</strong>类型！即使你输入的是数字，它也会被当成文本来处理哦！所以，如果你想把输入的内容当成数字来用，就需要进行类型转换！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入你的名字：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;你好，<span class="subst">&#123;name&#125;</span>！&quot;</span>)</span><br><span class="line"></span><br><span class="line">age_str = <span class="built_in">input</span>(<span class="string">&quot;请输入你的年龄：&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(age_str)  <span class="comment"># 最佳实践！把输入的字符串转换成整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;你的年龄是：<span class="subst">&#123;age&#125;</span>岁！&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="“七十二变”！数据类型转换！✨"><a href="#“七十二变”！数据类型转换！✨" class="headerlink" title="“七十二变”！数据类型转换！✨"></a>“七十二变”！数据类型转换！✨</h3><p>有时候我们需要把数据从一种类型变成另一种类型，就像我们穿不同的衣服适应不同的场合一样！👗 Python 提供了一些内置函数来帮我们实现这个“变身”！</p>
-<ul>
-<li><code>int(x)</code>：把 <code>x</code> 转换成整数。注意！如果 <code>x</code> 是不能转换成整数的字符串（比如 “abc”），就会报错哦！⚠️</li>
-<li><code>float(x)</code>：把 <code>x</code> 转换成浮点数。</li>
-<li><code>str(x)</code>：把 <code>x</code> 转换成字符串。这个最常用啦，几乎所有类型都可以转换成字符串！</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_str = <span class="string">&quot;123&quot;</span></span><br><span class="line">num_int = <span class="built_in">int</span>(num_str)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;字符串 &#x27;<span class="subst">&#123;num_str&#125;</span>&#x27; 转换成整数是：<span class="subst">&#123;num_int&#125;</span>，类型是：<span class="subst">&#123;<span class="built_in">type</span>(num_int)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">pi = <span class="number">3.14159</span></span><br><span class="line">pi_str = <span class="built_in">str</span>(pi)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;浮点数 <span class="subst">&#123;pi&#125;</span> 转换成字符串是：&#x27;<span class="subst">&#123;pi_str&#125;</span>&#x27;，类型是：<span class="subst">&#123;<span class="built_in">type</span>(pi_str)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="程序世界的“交通规则”！运算符！🚦"><a href="#程序世界的“交通规则”！运算符！🚦" class="headerlink" title="程序世界的“交通规则”！运算符！🚦"></a>程序世界的“交通规则”！运算符！🚦</h3><p>运算符就像我们生活中的各种符号，告诉程序该怎么“计算”或者“比较”不同的值。</p>
-<ul>
-<li><p><strong>关系运算符：</strong> 用来比较两个值之间的关系，结果是布尔值（<code>True</code> 或 <code>False</code>）。就像我们比较谁高谁矮、谁大谁小一样！📏</p>
-<ul>
-<li><code>&gt;</code> (大于)</li>
-<li><code>&lt;</code> (小于)</li>
-<li><code>&gt;=</code> (大于等于)</li>
-<li><code>&lt;=</code> (小于等于)</li>
-<li><code>==</code> (等于)</li>
-<li><code>!=</code> (不等于)</li>
-</ul>
-</li>
-<li><p><strong>逻辑运算符：</strong> 用来组合多个条件判断。就像我们说话时的“并且”、“或者”、“不是”！🔗</p>
-<ul>
-<li><code>or</code> (或者)：只要有一个条件为真，结果就为真。</li>
-<li><code>and</code> (并且)：所有条件都为真，结果才为真。</li>
-<li><code>not</code> (不是)：对一个条件取反，真变成假，假变成真。</li>
-</ul>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">25</span></span><br><span class="line">is_student = <span class="literal">False</span></span><br><span class="line"><span class="keyword">if</span> age &gt; <span class="number">18</span> <span class="keyword">and</span> <span class="keyword">not</span> is_student:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你是一个已经毕业的成年人！&quot;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>算术运算符：</strong> 用来进行数学计算。就像我们平时做的加减乘除！➕➖✖️➗</p>
-<ul>
-<li><code>+</code> (加)</li>
-<li><code>-</code> (减)</li>
-<li><code>*</code> (乘)</li>
-<li><code>/</code> (除)</li>
-<li><code>//</code> (整除，结果只保留整数部分)</li>
-<li><code>%</code> (取余数，就是除法运算后的余数)</li>
-<li><code>**</code> (幂运算，就是几的几次方)</li>
-</ul>
-</li>
-<li><p><strong>赋值运算符：</strong> 用来给变量赋值。最常见的就是 <code>=</code> 等号啦！当然还有一些更简洁的写法：</p>
-<ul>
-<li><code>=</code> (等于)</li>
-<li><code>+=</code> (加等于，相当于 <code>a = a + b</code>)</li>
-<li><code>-=</code> (减等于，相当于 <code>a = a - b</code>)</li>
-<li><code>*=</code> (乘等于，相当于 <code>a = a * b</code>)</li>
-<li><code>/=</code> (除等于，相当于 <code>a = a / b</code>)</li>
-<li><code>//=</code> (整除等于)</li>
-<li><code>%=</code> (取余等于)</li>
-<li><code>**=</code> (幂等于)</li>
-</ul>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">count = <span class="number">10</span></span><br><span class="line">count += <span class="number">5</span>  <span class="comment"># 相当于 count = count + 5，count 现在是 15</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="让你的代码“聪明”起来！if-语句！🧠"><a href="#让你的代码“聪明”起来！if-语句！🧠" class="headerlink" title="让你的代码“聪明”起来！if 语句！🧠"></a>让你的代码“聪明”起来！<code>if</code> 语句！🧠</h3><p><code>if</code> 语句就像我们生活中的“如果…就…”的判断。它能让我们的代码根据不同的条件执行不同的操作，变得更智能！</p>
-<ul>
-<li><p><strong><code>if</code> 单分支结构：</strong> 如果条件成立，就执行一些代码。</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">85</span></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;恭喜你，及格啦！🎉&quot;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>if</code> 双分支结构：</strong> 如果条件成立，执行一些代码；否则，执行另一些代码。就像我们选择题，要么 A，要么 B！</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">15</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你已经成年啦！&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你还是个未成年小可爱哦！😊&quot;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><code>if</code> 多分支结构：</strong> 有多个条件需要判断的时候用！就像我们根据不同的分数评判等级一样！</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">78</span></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;优秀！💯&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;良好！👍&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;及格！😊&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;不及格，要加油哦！💪&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="让你的代码“循环”起来！while-语句！🔄"><a href="#让你的代码“循环”起来！while-语句！🔄" class="headerlink" title="让你的代码“循环”起来！while 语句！🔄"></a>让你的代码“循环”起来！<code>while</code> 语句！🔄</h3><p><code>while</code> 循环就像我们生活中的“重复…直到…”的过程。只要条件成立，它就会一直执行一些代码，直到条件不成立才停止。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt; <span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;count + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line">    count += <span class="number">1</span>  <span class="comment"># 记得要让条件最终会变成 False，否则就会无限循环啦！⚠️</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;循环结束！&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>好啦兄弟们，今天的 Python 流程控制就聊到这里啦！是不是感觉你的代码一下子就变得有逻辑、有条理了呢？😉 掌握了这些“交通规则”，你的 Python 之路一定会更加顺畅！下次再和大家分享更多 Python 的有趣知识！💖✨</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>03-控制流程</title>
-    <url>/2025/04/26/01python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<p>兄弟们，今天我们来聊聊 Python 里的“循环”小宇宙！🌌✨ 它能让我们的代码像上了发条的小马达一样，重复执行我们想要的操作，简直是解放双手、提升效率的神器！😎💖</p>
-<h3 id="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"><a href="#循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁" class="headerlink" title="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"></a>循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁</h3><p>想象一下，循环里面又套着一个循环，就像我们小时候玩的俄罗斯套娃一样！一层又一层，可以实现一些更复杂的逻辑哦！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):  <span class="comment"># 外层循环，执行 3 次</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;--- 外层循环第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次 ---&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):  <span class="comment"># 内层循环，每次外层循环都会执行 2 次</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;    内层循环第 <span class="subst">&#123;j + <span class="number">1</span>&#125;</span> 次&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️"><a href="#遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️" class="headerlink" title="遍历小能手！for 循环！🚶‍♀️🚶🚶‍♂️"></a>遍历小能手！<code>for</code> 循环！🚶‍♀️🚶🚶‍♂️</h3><p><code>for</code> 循环就像一个贴心的导游，可以带着我们一个一个地“参观”容器里的每个“景点”（元素）。容器可以是列表、字符串等等，只要里面有东西，<code>for</code> 循环就能把它遍历个遍！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我喜欢吃：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 容器中有 3 个元素，循环就会执行 3 次</span></span><br></pre></td></tr></table></figure>
-
-<p><code>for</code> 循环还能指定循环次数哦！用 <code>range()</code> 函数就可以实现啦！就像我们跑步，可以指定跑几圈！🏃‍♀️</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定结束位置（必填），从 0 开始，不包含结束位置</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):  <span class="comment"># 循环 5 次 (0, 1, 2, 3, 4)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定开始位置、结束位置和步长</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):  <span class="comment"># 从 1 开始，到 10 结束（不包含 10），每次增加 2 (1, 3, 5, 7, 9)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步长默认为 1，可以省略</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, <span class="number">7</span>):  <span class="comment"># 从 3 开始，到 7 结束（不包含 7），步长为 1 (3, 4, 5, 6)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="永不停歇的小马达！无限循环！"><a href="#永不停歇的小马达！无限循环！" class="headerlink" title="永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;"></a>永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;</h3><p>有时候我们希望程序一直运行下去，直到我们手动停止它，这时候就可以用 <code>while True:</code> 制造一个无限循环！就像一个永动机！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&#x27;请输入报道学生姓名 (输入 exit 退出): &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">        exit(<span class="number">0</span>)  <span class="comment"># 优雅地退出程序</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;今天接待的学生为：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="关键时刻喊“停”！break！✋"><a href="#关键时刻喊“停”！break！✋" class="headerlink" title="关键时刻喊“停”！break！✋"></a>关键时刻喊“停”！<code>break</code>！✋</h3><p><code>break</code> 就像我们生活中的“紧急停止”按钮！在循环进行的过程中，如果遇到了 <code>break</code>，程序会立刻跳出整个循环，后面的代码也不会再执行啦！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 当 i 大于 6 的时候，立刻停止循环</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;今天正在干饭，这是第 <span class="subst">&#123;i&#125;</span> 个包子&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;如果程序没有被中断，就会执行这个&quot;</span>)</span><br><span class="line"><span class="comment"># 注意：这里的 else 子句只有在循环正常结束（没有被 break 中断）的情况下才会执行哦！</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="“跳过”这个！continue！➡️"><a href="#“跳过”这个！continue！➡️" class="headerlink" title="“跳过”这个！continue！➡️"></a>“跳过”这个！<code>continue</code>！➡️</h3><p><code>continue</code> 就有点像我们生活中的“跳过”！在循环进行的过程中，如果遇到了 <code>continue</code>，程序会跳过当前这一次循环剩下的代码，直接进入下一次循环！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment"># 当 i 等于 3 的时候，跳过本次循环剩下的代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我正在吃第 <span class="subst">&#123;i&#125;</span> 个葡萄&quot;</span>)</span><br><span class="line"><span class="comment"># 你会发现，第 3 个葡萄被跳过了！</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字符串的“门牌号”！索引！️"><a href="#字符串的“门牌号”！索引！️" class="headerlink" title="字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️"></a>字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️</h3><p>字符串就像一串珠子，每个字符都有自己的“门牌号”，也就是索引！索引从 0 开始计数哦！我们还可以用负数索引从末尾开始计数，-1 代表最后一个字符！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;天王盖地虎&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>])   <span class="comment"># 输出第一个字符：天</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>])  <span class="comment"># 输出最后一个字符：虎</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="“切”出一块美味！切片！🔪🍰"><a href="#“切”出一块美味！切片！🔪🍰" class="headerlink" title="“切”出一块美味！切片！🔪🍰"></a>“切”出一块美味！切片！🔪🍰</h3><p>切片就像我们切蛋糕一样，可以从字符串中“切”出一小块！用 <code>:</code> 来指定切片的范围！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;张王岩，你好呀&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[::])      <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[:])       <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>:-<span class="number">3</span>:-<span class="number">1</span>]) <span class="comment"># 从倒数第一个到倒数第三个（不包含倒数第三个），步长为 -1：呀好</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>:<span class="number">3</span>:<span class="number">2</span>])   <span class="comment"># 从索引 0 到 3（不包含 3），步长为 2：张岩</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字符串的“魔法棒”！常用操作！✨🪄"><a href="#字符串的“魔法棒”！常用操作！✨🪄" class="headerlink" title="字符串的“魔法棒”！常用操作！✨🪄"></a>字符串的“魔法棒”！常用操作！✨🪄</h3><p>字符串还有很多自带的“魔法棒”，可以帮我们查找、修改、分割字符串！</p>
-<ul>
-<li><p><strong>查找：<code>find()</code> 和 <code>index()</code></strong></p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;刀枪剑戟 斧钺钩叉&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name.find(<span class="string">&#x27;刀&#x27;</span>))  <span class="comment"># 查找 &#x27;刀&#x27; 第一次出现的位置，返回索引：0</span></span><br><span class="line"><span class="comment"># print(nick_name.index(&#x27;何先生&#x27;)) # 查找 &#x27;何先生&#x27;，如果不存在会报错！⚠️</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>替换：<code>replace()</code></strong></p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>))   <span class="comment"># 将所有 &#x27;黑马&#x27; 替换成 &#x27;白马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 只替换第一个 &#x27;黑马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1)  <span class="comment"># 原字符串不会改变：黑马程序员</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>分割：<code>split()</code></strong></p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s2 = <span class="string">&#x27;tom,19,男,100&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 以 &#x27;,&#x27; 分割字符串，只分割一次：[&#x27;tom&#x27;, &#x27;19,男,100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>))     <span class="comment"># 以 &#x27;,&#x27; 分割字符串，分割所有：[&#x27;tom&#x27;, &#x27;19&#x27;, &#x27;男&#x27;, &#x27;100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2)                <span class="comment"># 原字符串不会改变：tom,19,男,100</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>好啦兄弟们，今天的 Python 控制流程就聊到这里啦！掌握了循环和字符串的各种操作，你的 Python 代码就能更加灵活、更加强大啦！💪 快去试试这些“魔法”，让你的程序动起来吧！💖✨</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>05-函数</title>
-    <url>/2025/04/26/01python/05-%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<p>✨ <strong>Python新手必看！Day05容器与函数基础知识点总结！</strong> 🚀</p>
-<p>哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝</p>
-<p><strong># 容器的通用方法</strong></p>
-<p>Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的效率！</p>
-<ul>
-<li><strong><code>enumerate()</code></strong>：这个函数简直是遍历容器时的神器！它可以同时给出元素的索引和值，就像这样：  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]):</span><br><span class="line">    <span class="built_in">print</span>(index, element)</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># 0 张三</span></span><br><span class="line"><span class="comment"># 1 李四</span></span><br><span class="line"><span class="comment"># 2 王五</span></span><br></pre></td></tr></table></figure>
-  再也不用手动去数索引啦！🥳</li>
-<li><strong><code>len()</code></strong>：想知道容器里有多少个元素？用<code>len()</code>就对啦！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>])) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure></li>
-<li><strong><code>range()</code></strong>：生成一个数字序列，经常用在循环里！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>): <span class="comment"># 生成0到9的序列</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
-<li><strong><code>max()</code></strong> 和 <strong><code>min()</code></strong>：分别用来找出容器中的最大值和最小值。</li>
-</ul>
-<p><strong># 容器中通用的属性</strong></p>
-<p>容器还有一个很重要的特性，那就是可以通过索引来访问和操作元素！</p>
-<ul>
-<li><strong>索引取值</strong>：就像数组一样，用方括号 <code>[]</code> 加上索引就可以获取特定位置的元素。记住索引是从0开始的哦！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>]) <span class="comment"># 输出：a</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>切片操作</strong>：想要一次获取容器中多个连续的元素？切片了解一下！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>, <span class="string">&#x27;赵六&#x27;</span>, <span class="string">&#x27;孙七&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 输出：[&#x27;张三&#x27;, &#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure></li>
-<li><strong><code>del</code> 关键字</strong>：可以用来删除容器中的元素。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list) <span class="comment"># 输出：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
-  ⚠️ 注意：列表是可变的，所以删除操作会直接修改列表本身哦！</li>
-</ul>
-<p><strong># 敲黑板！函数的定义与使用</strong></p>
-<p>函数是Python中非常重要的概念，它可以帮助我们组织代码，提高代码的复用性！</p>
-<ul>
-<li><strong>定义函数</strong>：使用 <code>def</code> 关键字来定义一个函数，后面跟着函数名、括号 <code>()</code> 和冒号 <code>:</code>。函数体需要缩进。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_msg</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;乾坤未定，你我皆是黑马！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_num</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">diff</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> a - b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> b - a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成一个四位数的随机数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">1000</span>, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure></li>
-<li><strong>调用函数</strong>：直接使用函数名加上括号 <code>()</code> 就可以调用函数了。如果函数有参数，需要在括号里传入相应的值。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print_msg() <span class="comment"># 调用无参数函数</span></span><br><span class="line">print_num(<span class="number">5</span>) <span class="comment"># 调用带一个参数的函数</span></span><br><span class="line">result = diff(<span class="number">1</span>, <span class="number">2</span>) <span class="comment"># 调用带两个参数并有返回值的函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目3&quot;</span>, diff(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目4&quot;</span>, generate_random())</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>今天的内容就到这里啦！是不是感觉Python更有趣了呢？💪 记得多练习才能更好地掌握哦！下次再见！👋</p>
-<p>#Python学习 #编程入门 #新手教程 #干货分享 #Day05 #容器 #函数 #小红书笔记 #一起学Python</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>06-传参</title>
-    <url>/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/</url>
-    <content><![CDATA[<h2 id="Python函数参数类型全解析，新手也能轻松掌握！🚀"><a href="#Python函数参数类型全解析，新手也能轻松掌握！🚀" class="headerlink" title="Python函数参数类型全解析，新手也能轻松掌握！🚀"></a>Python函数参数类型全解析，新手也能轻松掌握！🚀</h2><p>哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎</p>
-<p><strong># 认识你的函数朋友：不同类型的参数</strong></p>
-<p>在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：</p>
-<ul>
-<li><p><strong>位置传参（Positional Arguments）</strong>：这是最常见的参数类型啦！函数定义时的参数顺序很重要，你在调用函数时传入的值也会按照这个顺序一一对应。就像给你的朋友按名单顺序发礼物一样！🎁</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info</span>(<span class="params">name, sex, age</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的性别是<span class="subst">&#123;sex&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">20</span>) <span class="comment"># &quot;张三&quot;对应name，&quot;男&quot;对应sex，20对应age</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>关键字传参（Keyword Arguments）</strong>：有时候我们记不清参数的顺序，或者想让代码更易读，就可以使用关键字传参。在调用函数时，直接指定参数名和对应的值。这样就不怕传错顺序啦！🔑</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print_info(age=<span class="number">20</span>, name=<span class="string">&quot;李四&quot;</span>, sex=<span class="string">&quot;男&quot;</span>) <span class="comment"># 顺序可以不一样哦！</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>默认值参数（Default Arguments）</strong>：在定义函数时，我们可以给一些参数设置默认值。如果在调用函数时没有给这些参数传值，它们就会使用默认值。就像你的朋友自带了某种小零食，如果你没带，就吃他的！🍬</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">name, nationality=<span class="string">&quot;中国&quot;</span>, age=<span class="number">20</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的国籍是<span class="subst">&#123;nationality&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="string">&quot;王五&quot;</span>) <span class="comment"># nationality和age会使用默认值</span></span><br><span class="line">print_info_2(<span class="string">&quot;赵六&quot;</span>, age=<span class="number">25</span>) <span class="comment"># 可以只修改部分默认值参数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>不定长位置参数（<code>*args</code>）</strong>：有时候我们不知道函数需要接收多少个位置参数，这时就可以使用<code>*args</code>。它会将传入的所有多余的位置参数打包成一个元组（tuple）。就像一个可以装很多东西的袋子！🎒</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">*args</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>) <span class="comment"># 这些都会被打包到args元组里</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>不定长关键字参数（<code>**kwargs</code>）</strong>：类似地，<code>**kwargs</code>可以接收任意数量的关键字参数，并将它们打包成一个字典（dictionary）。每个传入的参数都需要指定参数名和值。就像一个可以存放各种标签和对应值的盒子！📦</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的国籍是<span class="subst">&#123;kwargs[<span class="string">&#x27;nationality&#x27;</span>]&#125;</span>，您的年龄是<span class="subst">&#123;kwargs[<span class="string">&#x27;age&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(nationality=<span class="string">&quot;韩国&quot;</span>, age=<span class="number">30</span>) <span class="comment"># 这些会被打包到kwargs字典里</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong># 划重点！参数使用的注意事项</strong></p>
-<ul>
-<li>定义函数时，位置参数必须在默认值参数的前面。</li>
-<li>调用函数时，如果同时使用位置参数和关键字参数，位置参数必须在关键字参数的前面。</li>
-<li><code>*args</code> 和 <code>**kwargs</code> 通常放在参数列表的最后。</li>
-</ul>
-<p><strong># 小彩蛋：匿名函数 <code>lambda</code></strong></p>
-<p>除了用 <code>def</code> 定义函数，Python还提供了一种简洁的方式来创建匿名函数，也就是 <code>lambda</code> 函数。它通常用于一些简单的、只需要使用一次的函数。就像一个临时的便签！📝</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">add = <span class="keyword">lambda</span> x, y: x + y</span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>)) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
-
-<p>掌握了这些函数参数的类型，你就可以写出更加灵活和强大的Python代码啦！快去试试吧！有什么问题记得留言哦！😉</p>
-<p>#Python函数 #参数类型 #编程技巧 #新手入门 #干货分享 #一起学Python #Day06</p>
-]]></content>
-  </entry>
-  <entry>
     <title>04-[容器]列表-元组-字典-集合</title>
     <url>/2025/04/26/01python/04-%E5%AE%B9%E5%99%A8-%E5%88%97%E8%A1%A8-%E5%85%83%E7%BB%84-%E5%AD%97%E5%85%B8-%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<p>兄弟们，今天我们来聊聊 Python 里的“百宝箱”—— 列表和字典！📦✨ 它们就像我们收纳各种宝贝的小盒子，让我们的数据井井有条，方便又实用！快来一起解锁这两个超能力吧！😎💖</p>
@@ -367,6 +167,96 @@
 ]]></content>
   </entry>
   <entry>
+    <title>02-流程控制</title>
+    <url>/2025/04/26/01python/02-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<p>兄弟们，今天我们来聊聊 Python 里的“流程控制”！🚦🚥 就像我们生活中的红绿灯，它能让我们的代码有条不紊地执行，该走哪条路，听谁的指令，都安排得明明白白！😎✨</p>
+<h3 id="让你的输出更精致！格式化输出小技巧！💅"><a href="#让你的输出更精致！格式化输出小技巧！💅" class="headerlink" title="让你的输出更精致！格式化输出小技巧！💅"></a>让你的输出更精致！格式化输出小技巧！💅</h3><p>有时候我们想让 <code>print()</code> 出来的文字更漂亮、更整齐，就需要用到格式化输出啦！就像我们化妆一样，精致一点才更吸睛！😉</p>
+<ul>
+<li><p><strong>百分号 <code>%</code> 格式化：</strong> 这是 Python 比较“经典”的格式化方式啦！用不同的符号代表不同的数据类型：</p>
+<ul>
+<li><code>%d</code>：整数 (digit)</li>
+<li><code>%f</code>：浮点数 (float)</li>
+<li><code>%s</code>：字符串 (string)</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;小可爱&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line">height = <span class="number">1.65</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我的名字是：%s，年龄是：%d，身高是：%.2f&quot;</span> % (name, age, height))</span><br><span class="line"><span class="comment"># %s 对应 name，%d 对应 age，%.2f 对应 height，.2 表示保留两位小数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>F-string 格式化：</strong> 这是 Python 3.6 之后推出的超好用、超简洁的格式化方式！强烈推荐！👍 只需要在字符串前面加个 <code>f</code>，然后用大括号 <code>&#123;&#125;</code> 把变量包起来就好啦！简直不要太方便！💖</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;小仙女&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;我的名字是：<span class="subst">&#123;name&#125;</span>，今年<span class="subst">&#123;age&#125;</span>岁啦！&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="和你的程序“对话”！input-输入函数！🗣️"><a href="#和你的程序“对话”！input-输入函数！🗣️" class="headerlink" title="和你的程序“对话”！input() 输入函数！🗣️"></a>和你的程序“对话”！<code>input()</code> 输入函数！🗣️</h3><p>我们的程序不能总是“自说自话”，有时候也需要我们用户输入一些信息，这时候就要用到 <code>input()</code> 函数啦！它就像一个“提问小助手”，等待我们输入内容。📝</p>
+<p><strong>敲黑板！重点来了！</strong> <code>input()</code> 函数接收到的任何值都会变成<strong>字符串</strong>类型！即使你输入的是数字，它也会被当成文本来处理哦！所以，如果你想把输入的内容当成数字来用，就需要进行类型转换！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入你的名字：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;你好，<span class="subst">&#123;name&#125;</span>！&quot;</span>)</span><br><span class="line"></span><br><span class="line">age_str = <span class="built_in">input</span>(<span class="string">&quot;请输入你的年龄：&quot;</span>)</span><br><span class="line">age = <span class="built_in">int</span>(age_str)  <span class="comment"># 最佳实践！把输入的字符串转换成整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;你的年龄是：<span class="subst">&#123;age&#125;</span>岁！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="“七十二变”！数据类型转换！✨"><a href="#“七十二变”！数据类型转换！✨" class="headerlink" title="“七十二变”！数据类型转换！✨"></a>“七十二变”！数据类型转换！✨</h3><p>有时候我们需要把数据从一种类型变成另一种类型，就像我们穿不同的衣服适应不同的场合一样！👗 Python 提供了一些内置函数来帮我们实现这个“变身”！</p>
+<ul>
+<li><code>int(x)</code>：把 <code>x</code> 转换成整数。注意！如果 <code>x</code> 是不能转换成整数的字符串（比如 “abc”），就会报错哦！⚠️</li>
+<li><code>float(x)</code>：把 <code>x</code> 转换成浮点数。</li>
+<li><code>str(x)</code>：把 <code>x</code> 转换成字符串。这个最常用啦，几乎所有类型都可以转换成字符串！</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num_str = <span class="string">&quot;123&quot;</span></span><br><span class="line">num_int = <span class="built_in">int</span>(num_str)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;字符串 &#x27;<span class="subst">&#123;num_str&#125;</span>&#x27; 转换成整数是：<span class="subst">&#123;num_int&#125;</span>，类型是：<span class="subst">&#123;<span class="built_in">type</span>(num_int)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">pi = <span class="number">3.14159</span></span><br><span class="line">pi_str = <span class="built_in">str</span>(pi)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;浮点数 <span class="subst">&#123;pi&#125;</span> 转换成字符串是：&#x27;<span class="subst">&#123;pi_str&#125;</span>&#x27;，类型是：<span class="subst">&#123;<span class="built_in">type</span>(pi_str)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="程序世界的“交通规则”！运算符！🚦"><a href="#程序世界的“交通规则”！运算符！🚦" class="headerlink" title="程序世界的“交通规则”！运算符！🚦"></a>程序世界的“交通规则”！运算符！🚦</h3><p>运算符就像我们生活中的各种符号，告诉程序该怎么“计算”或者“比较”不同的值。</p>
+<ul>
+<li><p><strong>关系运算符：</strong> 用来比较两个值之间的关系，结果是布尔值（<code>True</code> 或 <code>False</code>）。就像我们比较谁高谁矮、谁大谁小一样！📏</p>
+<ul>
+<li><code>&gt;</code> (大于)</li>
+<li><code>&lt;</code> (小于)</li>
+<li><code>&gt;=</code> (大于等于)</li>
+<li><code>&lt;=</code> (小于等于)</li>
+<li><code>==</code> (等于)</li>
+<li><code>!=</code> (不等于)</li>
+</ul>
+</li>
+<li><p><strong>逻辑运算符：</strong> 用来组合多个条件判断。就像我们说话时的“并且”、“或者”、“不是”！🔗</p>
+<ul>
+<li><code>or</code> (或者)：只要有一个条件为真，结果就为真。</li>
+<li><code>and</code> (并且)：所有条件都为真，结果才为真。</li>
+<li><code>not</code> (不是)：对一个条件取反，真变成假，假变成真。</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">25</span></span><br><span class="line">is_student = <span class="literal">False</span></span><br><span class="line"><span class="keyword">if</span> age &gt; <span class="number">18</span> <span class="keyword">and</span> <span class="keyword">not</span> is_student:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你是一个已经毕业的成年人！&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>算术运算符：</strong> 用来进行数学计算。就像我们平时做的加减乘除！➕➖✖️➗</p>
+<ul>
+<li><code>+</code> (加)</li>
+<li><code>-</code> (减)</li>
+<li><code>*</code> (乘)</li>
+<li><code>/</code> (除)</li>
+<li><code>//</code> (整除，结果只保留整数部分)</li>
+<li><code>%</code> (取余数，就是除法运算后的余数)</li>
+<li><code>**</code> (幂运算，就是几的几次方)</li>
+</ul>
+</li>
+<li><p><strong>赋值运算符：</strong> 用来给变量赋值。最常见的就是 <code>=</code> 等号啦！当然还有一些更简洁的写法：</p>
+<ul>
+<li><code>=</code> (等于)</li>
+<li><code>+=</code> (加等于，相当于 <code>a = a + b</code>)</li>
+<li><code>-=</code> (减等于，相当于 <code>a = a - b</code>)</li>
+<li><code>*=</code> (乘等于，相当于 <code>a = a * b</code>)</li>
+<li><code>/=</code> (除等于，相当于 <code>a = a / b</code>)</li>
+<li><code>//=</code> (整除等于)</li>
+<li><code>%=</code> (取余等于)</li>
+<li><code>**=</code> (幂等于)</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">count = <span class="number">10</span></span><br><span class="line">count += <span class="number">5</span>  <span class="comment"># 相当于 count = count + 5，count 现在是 15</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="让你的代码“聪明”起来！if-语句！🧠"><a href="#让你的代码“聪明”起来！if-语句！🧠" class="headerlink" title="让你的代码“聪明”起来！if 语句！🧠"></a>让你的代码“聪明”起来！<code>if</code> 语句！🧠</h3><p><code>if</code> 语句就像我们生活中的“如果…就…”的判断。它能让我们的代码根据不同的条件执行不同的操作，变得更智能！</p>
+<ul>
+<li><p><strong><code>if</code> 单分支结构：</strong> 如果条件成立，就执行一些代码。</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">85</span></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;恭喜你，及格啦！🎉&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>if</code> 双分支结构：</strong> 如果条件成立，执行一些代码；否则，执行另一些代码。就像我们选择题，要么 A，要么 B！</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">15</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你已经成年啦！&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;你还是个未成年小可爱哦！😊&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>if</code> 多分支结构：</strong> 有多个条件需要判断的时候用！就像我们根据不同的分数评判等级一样！</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">78</span></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;优秀！💯&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;良好！👍&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;及格！😊&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;不及格，要加油哦！💪&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="让你的代码“循环”起来！while-语句！🔄"><a href="#让你的代码“循环”起来！while-语句！🔄" class="headerlink" title="让你的代码“循环”起来！while 语句！🔄"></a>让你的代码“循环”起来！<code>while</code> 语句！🔄</h3><p><code>while</code> 循环就像我们生活中的“重复…直到…”的过程。只要条件成立，它就会一直执行一些代码，直到条件不成立才停止。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt; <span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;count + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line">    count += <span class="number">1</span>  <span class="comment"># 记得要让条件最终会变成 False，否则就会无限循环啦！⚠️</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;循环结束！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>好啦兄弟们，今天的 Python 流程控制就聊到这里啦！是不是感觉你的代码一下子就变得有逻辑、有条理了呢？😉 掌握了这些“交通规则”，你的 Python 之路一定会更加顺畅！下次再和大家分享更多 Python 的有趣知识！💖✨</p>
+]]></content>
+  </entry>
+  <entry>
     <title>07-正则</title>
     <url>/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/</url>
     <content><![CDATA[<p>好的，这篇关于Python正则表达式的文章这就为您奉上！</p>
@@ -434,6 +324,122 @@
 ]]></content>
   </entry>
   <entry>
+    <title>05-函数</title>
+    <url>/2025/04/26/01python/05-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>✨ <strong>Python新手必看！Day05容器与函数基础知识点总结！</strong> 🚀</p>
+<p>哈喽兄弟们！今天给大家整理的是Python学习第五天的干货笔记，主要讲的是容器的一些通用方法和属性，以及超实用的函数哦！快拿出小本本记下来！📝</p>
+<p><strong># 容器的通用方法</strong></p>
+<p>Python的列表、元组、字符串这些容器，有一些通用的方法可以大大提高我们的效率！</p>
+<ul>
+<li><strong><code>enumerate()</code></strong>：这个函数简直是遍历容器时的神器！它可以同时给出元素的索引和值，就像这样：  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index, element <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]):</span><br><span class="line">    <span class="built_in">print</span>(index, element)</span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># 0 张三</span></span><br><span class="line"><span class="comment"># 1 李四</span></span><br><span class="line"><span class="comment"># 2 王五</span></span><br></pre></td></tr></table></figure>
+  再也不用手动去数索引啦！🥳</li>
+<li><strong><code>len()</code></strong>：想知道容器里有多少个元素？用<code>len()</code>就对啦！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>([<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>])) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>range()</code></strong>：生成一个数字序列，经常用在循环里！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>): <span class="comment"># 生成0到9的序列</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>max()</code></strong> 和 <strong><code>min()</code></strong>：分别用来找出容器中的最大值和最小值。</li>
+</ul>
+<p><strong># 容器中通用的属性</strong></p>
+<p>容器还有一个很重要的特性，那就是可以通过索引来访问和操作元素！</p>
+<ul>
+<li><strong>索引取值</strong>：就像数组一样，用方括号 <code>[]</code> 加上索引就可以获取特定位置的元素。记住索引是从0开始的哦！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>]) <span class="comment"># 输出：a</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>切片操作</strong>：想要一次获取容器中多个连续的元素？切片了解一下！  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>, <span class="string">&#x27;赵六&#x27;</span>, <span class="string">&#x27;孙七&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 输出：[&#x27;张三&#x27;, &#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>del</code> 关键字</strong>：可以用来删除容器中的元素。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]</span><br><span class="line"><span class="keyword">del</span> my_list[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(my_list) <span class="comment"># 输出：[&#x27;李四&#x27;, &#x27;王五&#x27;]</span></span><br></pre></td></tr></table></figure>
+  ⚠️ 注意：列表是可变的，所以删除操作会直接修改列表本身哦！</li>
+</ul>
+<p><strong># 敲黑板！函数的定义与使用</strong></p>
+<p>函数是Python中非常重要的概念，它可以帮助我们组织代码，提高代码的复用性！</p>
+<ul>
+<li><strong>定义函数</strong>：使用 <code>def</code> 关键字来定义一个函数，后面跟着函数名、括号 <code>()</code> 和冒号 <code>:</code>。函数体需要缩进。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_msg</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;乾坤未定，你我皆是黑马！&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_num</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">diff</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> a - b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> b - a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成一个四位数的随机数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">1000</span>, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure></li>
+<li><strong>调用函数</strong>：直接使用函数名加上括号 <code>()</code> 就可以调用函数了。如果函数有参数，需要在括号里传入相应的值。  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print_msg() <span class="comment"># 调用无参数函数</span></span><br><span class="line">print_num(<span class="number">5</span>) <span class="comment"># 调用带一个参数的函数</span></span><br><span class="line">result = diff(<span class="number">1</span>, <span class="number">2</span>) <span class="comment"># 调用带两个参数并有返回值的函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目3&quot;</span>, diff(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;题目4&quot;</span>, generate_random())</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>今天的内容就到这里啦！是不是感觉Python更有趣了呢？💪 记得多练习才能更好地掌握哦！下次再见！👋</p>
+<p>#Python学习 #编程入门 #新手教程 #干货分享 #Day05 #容器 #函数 #小红书笔记 #一起学Python</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>03-控制流程</title>
+    <url>/2025/04/26/01python/03-%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>兄弟们，今天我们来聊聊 Python 里的“循环”小宇宙！🌌✨ 它能让我们的代码像上了发条的小马达一样，重复执行我们想要的操作，简直是解放双手、提升效率的神器！😎💖</p>
+<h3 id="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"><a href="#循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁" class="headerlink" title="循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁"></a>循环中的“俄罗斯套娃”！嵌套循环！🎁🎁🎁</h3><p>想象一下，循环里面又套着一个循环，就像我们小时候玩的俄罗斯套娃一样！一层又一层，可以实现一些更复杂的逻辑哦！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):  <span class="comment"># 外层循环，执行 3 次</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;--- 外层循环第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次 ---&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):  <span class="comment"># 内层循环，每次外层循环都会执行 2 次</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;    内层循环第 <span class="subst">&#123;j + <span class="number">1</span>&#125;</span> 次&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️"><a href="#遍历小能手！for-循环！🚶‍♀️🚶🚶‍♂️" class="headerlink" title="遍历小能手！for 循环！🚶‍♀️🚶🚶‍♂️"></a>遍历小能手！<code>for</code> 循环！🚶‍♀️🚶🚶‍♂️</h3><p><code>for</code> 循环就像一个贴心的导游，可以带着我们一个一个地“参观”容器里的每个“景点”（元素）。容器可以是列表、字符串等等，只要里面有东西，<code>for</code> 循环就能把它遍历个遍！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我喜欢吃：<span class="subst">&#123;fruit&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 容器中有 3 个元素，循环就会执行 3 次</span></span><br></pre></td></tr></table></figure>
+
+<p><code>for</code> 循环还能指定循环次数哦！用 <code>range()</code> 函数就可以实现啦！就像我们跑步，可以指定跑几圈！🏃‍♀️</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定结束位置（必填），从 0 开始，不包含结束位置</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):  <span class="comment"># 循环 5 次 (0, 1, 2, 3, 4)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;这是第 <span class="subst">&#123;i + <span class="number">1</span>&#125;</span> 次循环！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定开始位置、结束位置和步长</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):  <span class="comment"># 从 1 开始，到 10 结束（不包含 10），每次增加 2 (1, 3, 5, 7, 9)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步长默认为 1，可以省略</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, <span class="number">7</span>):  <span class="comment"># 从 3 开始，到 7 结束（不包含 7），步长为 1 (3, 4, 5, 6)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前数字是：<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="永不停歇的小马达！无限循环！"><a href="#永不停歇的小马达！无限循环！" class="headerlink" title="永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;"></a>永不停歇的小马达！无限循环！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xAA&gt;&lt;0xB0&gt;</h3><p>有时候我们希望程序一直运行下去，直到我们手动停止它，这时候就可以用 <code>while True:</code> 制造一个无限循环！就像一个永动机！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&#x27;请输入报道学生姓名 (输入 exit 退出): &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">        exit(<span class="number">0</span>)  <span class="comment"># 优雅地退出程序</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;今天接待的学生为：<span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关键时刻喊“停”！break！✋"><a href="#关键时刻喊“停”！break！✋" class="headerlink" title="关键时刻喊“停”！break！✋"></a>关键时刻喊“停”！<code>break</code>！✋</h3><p><code>break</code> 就像我们生活中的“紧急停止”按钮！在循环进行的过程中，如果遇到了 <code>break</code>，程序会立刻跳出整个循环，后面的代码也不会再执行啦！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 当 i 大于 6 的时候，立刻停止循环</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;今天正在干饭，这是第 <span class="subst">&#123;i&#125;</span> 个包子&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;如果程序没有被中断，就会执行这个&quot;</span>)</span><br><span class="line"><span class="comment"># 注意：这里的 else 子句只有在循环正常结束（没有被 break 中断）的情况下才会执行哦！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“跳过”这个！continue！➡️"><a href="#“跳过”这个！continue！➡️" class="headerlink" title="“跳过”这个！continue！➡️"></a>“跳过”这个！<code>continue</code>！➡️</h3><p><code>continue</code> 就有点像我们生活中的“跳过”！在循环进行的过程中，如果遇到了 <code>continue</code>，程序会跳过当前这一次循环剩下的代码，直接进入下一次循环！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment"># 当 i 等于 3 的时候，跳过本次循环剩下的代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;我正在吃第 <span class="subst">&#123;i&#125;</span> 个葡萄&quot;</span>)</span><br><span class="line"><span class="comment"># 你会发现，第 3 个葡萄被跳过了！</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“门牌号”！索引！️"><a href="#字符串的“门牌号”！索引！️" class="headerlink" title="字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️"></a>字符串的“门牌号”！索引！&lt;0xF0&gt;&lt;0x9F&gt;&lt;0x97&gt;&lt;0x8E&gt;️</h3><p>字符串就像一串珠子，每个字符都有自己的“门牌号”，也就是索引！索引从 0 开始计数哦！我们还可以用负数索引从末尾开始计数，-1 代表最后一个字符！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;天王盖地虎&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>])   <span class="comment"># 输出第一个字符：天</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>])  <span class="comment"># 输出最后一个字符：虎</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="“切”出一块美味！切片！🔪🍰"><a href="#“切”出一块美味！切片！🔪🍰" class="headerlink" title="“切”出一块美味！切片！🔪🍰"></a>“切”出一块美味！切片！🔪🍰</h3><p>切片就像我们切蛋糕一样，可以从字符串中“切”出一小块！用 <code>:</code> 来指定切片的范围！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;张王岩，你好呀&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[::])      <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[:])       <span class="comment"># 输出整个字符串：张王岩，你好呀</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[-<span class="number">1</span>:-<span class="number">3</span>:-<span class="number">1</span>]) <span class="comment"># 从倒数第一个到倒数第三个（不包含倒数第三个），步长为 -1：呀好</span></span><br><span class="line"><span class="built_in">print</span>(nick_name[<span class="number">0</span>:<span class="number">3</span>:<span class="number">2</span>])   <span class="comment"># 从索引 0 到 3（不包含 3），步长为 2：张岩</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的“魔法棒”！常用操作！✨🪄"><a href="#字符串的“魔法棒”！常用操作！✨🪄" class="headerlink" title="字符串的“魔法棒”！常用操作！✨🪄"></a>字符串的“魔法棒”！常用操作！✨🪄</h3><p>字符串还有很多自带的“魔法棒”，可以帮我们查找、修改、分割字符串！</p>
+<ul>
+<li><p><strong>查找：<code>find()</code> 和 <code>index()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">nick_name = <span class="string">&#x27;刀枪剑戟 斧钺钩叉&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(nick_name.find(<span class="string">&#x27;刀&#x27;</span>))  <span class="comment"># 查找 &#x27;刀&#x27; 第一次出现的位置，返回索引：0</span></span><br><span class="line"><span class="comment"># print(nick_name.index(&#x27;何先生&#x27;)) # 查找 &#x27;何先生&#x27;，如果不存在会报错！⚠️</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>替换：<code>replace()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>))   <span class="comment"># 将所有 &#x27;黑马&#x27; 替换成 &#x27;白马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1.replace(<span class="string">&quot;黑马&quot;</span>, <span class="string">&#x27;白马&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 只替换第一个 &#x27;黑马&#x27;：白马程序员</span></span><br><span class="line"><span class="built_in">print</span>(s1)  <span class="comment"># 原字符串不会改变：黑马程序员</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>分割：<code>split()</code></strong></p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s2 = <span class="string">&#x27;tom,19,男,100&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>))  <span class="comment"># 以 &#x27;,&#x27; 分割字符串，只分割一次：[&#x27;tom&#x27;, &#x27;19,男,100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2.split(<span class="string">&#x27;,&#x27;</span>))     <span class="comment"># 以 &#x27;,&#x27; 分割字符串，分割所有：[&#x27;tom&#x27;, &#x27;19&#x27;, &#x27;男&#x27;, &#x27;100&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(s2)                <span class="comment"># 原字符串不会改变：tom,19,男,100</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>好啦兄弟们，今天的 Python 控制流程就聊到这里啦！掌握了循环和字符串的各种操作，你的 Python 代码就能更加灵活、更加强大啦！💪 快去试试这些“魔法”，让你的程序动起来吧！💖✨</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>10-网络编程</title>
+    <url>/2025/04/26/01python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<p>好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀</p>
+<p><strong># Python网络编程初探：让你的代码连接世界！🌍</strong></p>
+<p>想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉</p>
+<p><strong># 网络编程三要素：IP地址、端口和协议</strong></p>
+<p>在网络世界里，要找到一台特定的计算机并与之通信，就像我们寄快递需要地址一样，需要以下三个要素：</p>
+<ul>
+<li><strong>IP地址 (IP Address)</strong>：就像每台电脑在网络上的唯一地址，用于标识网络上的设备。</li>
+<li><strong>端口 (Port)</strong>：一台计算机上可以运行多个网络程序，端口号就像是这些程序的不同房间号，用于区分不同的网络服务。</li>
+<li><strong>协议 (Protocol)</strong>：网络通信需要双方遵守共同的“语言”和规则，这就是协议。例如，我们平时上网常用的 HTTP 就是一种协议。</li>
+</ul>
+<p>今天我们主要关注 <strong>TCP协议</strong>，它是一种面向连接、可靠的协议，就像打电话一样，需要先建立连接才能进行数据传输，并且能保证数据传输的可靠性。</p>
+<p><strong># 字符串的编码与解码</strong></p>
+<p>在网络传输中，数据通常以字节流的形式进行。而我们平时处理的文本是字符串。所以，在进行网络传输前，我们需要将字符串编码成字节串，接收到数据后，再将字节串解码成字符串。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串编码为字节串 (encode)</span></span><br><span class="line">b1 = str1.encode()</span><br><span class="line"><span class="built_in">print</span>(b1) <span class="comment"># 输出：b&#x27;\xe9\xbb\x91\xe9\xa9\xac\xe7\xa8\x8b\xe5\xba\x8f\xe5\x91\x98&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字节串解码为字符串 (decode)</span></span><br><span class="line">str2 = b1.decode()</span><br><span class="line"><span class="built_in">print</span>(str2) <span class="comment"># 输出：黑马程序员</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的编码格式是 UTF-8，它可以支持各种语言的字符。</p>
+<p><strong># Socket编程初体验</strong></p>
+<p>在Python中，我们可以使用 <code>socket</code> 模块进行网络编程。<code>socket</code> 可以看作是网络通信的一个端点，通过它可以发送和接收数据。</p>
+<p><strong>简单来说，TCP网络编程通常涉及以下步骤：</strong></p>
+<ol>
+<li><strong>创建Socket</strong>：就像创建一根网线插头。</li>
+<li><strong>绑定IP地址和端口 (服务器端)</strong>：告诉别人你的“地址”和“房间号”，这样别人才能找到你。</li>
+<li><strong>监听连接 (服务器端)</strong>：等待别人的“电话”打进来。</li>
+<li><strong>接受连接 (服务器端)</strong>：有人打来“电话”了，接听一下。</li>
+<li><strong>发送&#x2F;接收数据</strong>：开始“聊天”。</li>
+<li><strong>关闭连接</strong>：结束“通话”，挂断“电话”。</li>
+</ol>
+<p><strong># 普通版本 vs Pro版本？</strong></p>
+<p>在网络编程中，可能会有不同版本的实现方式，例如基础版本可能只实现最基本的功能，而 Pro 版本可能会增加更多高级特性，比如并发处理、更复杂的协议支持等等。这就像我们使用的App，可能会有免费版和付费版，付费版功能更多更强大。</p>
+<p><strong># 小贴士</strong></p>
+<ul>
+<li>在进行网络编程时，要理解 IP 地址和端口的概念。</li>
+<li>数据在网络传输前需要进行编码，接收后需要进行解码，确保编码格式一致。</li>
+<li><code>socket</code> 模块是Python进行网络编程的核心工具。</li>
+</ul>
+<p>网络编程的世界非常有趣，通过它你的Python程序就能和世界连接起来啦！快去探索一下吧！有问题随时来找我交流哦！😉</p>
+<p>#Python学习 #网络编程 #TCP #IP地址 #端口 #Socket #编程入门 #干货分享 #Day10 #一起学Python</p>
+]]></content>
+  </entry>
+  <entry>
     <title>08-编码与文件操作</title>
     <url>/2025/04/26/01python/08-%E7%BC%96%E7%A0%81%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="Python文件读写全攻略！告别文件操作烦恼！📝"><a href="#Python文件读写全攻略！告别文件操作烦恼！📝" class="headerlink" title="Python文件读写全攻略！告别文件操作烦恼！📝"></a>Python文件读写全攻略！告别文件操作烦恼！📝</h2><p>哈喽兄弟们！今天给大家分享的是Python文件操作和JSON数据处理的实用技巧！学会这些，让你的数据处理工作效率翻倍！再也不用对着文件发愁啦！🥳</p>
@@ -476,6 +482,42 @@
 </ul>
 <p>掌握了文件操作和JSON处理，你就可以轻松地读写各种文件，处理结构化的数据啦！是不是感觉又解锁了一个新技能呢？快去试试看吧！有问题随时call我哦！😉</p>
 <p>#Python学习 #文件操作 #JSON #数据处理 #编程技巧 #新手入门 #干货分享 #Day08 #一起学Python</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>06-传参</title>
+    <url>/2025/04/26/01python/06-%E4%BC%A0%E5%8F%82/</url>
+    <content><![CDATA[<h2 id="Python函数参数类型全解析，新手也能轻松掌握！🚀"><a href="#Python函数参数类型全解析，新手也能轻松掌握！🚀" class="headerlink" title="Python函数参数类型全解析，新手也能轻松掌握！🚀"></a>Python函数参数类型全解析，新手也能轻松掌握！🚀</h2><p>哈喽各位小可爱！今天我们来聊聊Python函数中各种各样的参数类型，这可是写出灵活又强大的代码的关键哦！别担心，我会用最简单的方式带你搞懂！😎</p>
+<p><strong># 认识你的函数朋友：不同类型的参数</strong></p>
+<p>在Python中，定义函数时，我们可以设置不同类型的参数，让函数能够接收各种各样的输入。主要有以下几种：</p>
+<ul>
+<li><p><strong>位置传参（Positional Arguments）</strong>：这是最常见的参数类型啦！函数定义时的参数顺序很重要，你在调用函数时传入的值也会按照这个顺序一一对应。就像给你的朋友按名单顺序发礼物一样！🎁</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info</span>(<span class="params">name, sex, age</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的性别是<span class="subst">&#123;sex&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">20</span>) <span class="comment"># &quot;张三&quot;对应name，&quot;男&quot;对应sex，20对应age</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键字传参（Keyword Arguments）</strong>：有时候我们记不清参数的顺序，或者想让代码更易读，就可以使用关键字传参。在调用函数时，直接指定参数名和对应的值。这样就不怕传错顺序啦！🔑</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print_info(age=<span class="number">20</span>, name=<span class="string">&quot;李四&quot;</span>, sex=<span class="string">&quot;男&quot;</span>) <span class="comment"># 顺序可以不一样哦！</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>默认值参数（Default Arguments）</strong>：在定义函数时，我们可以给一些参数设置默认值。如果在调用函数时没有给这些参数传值，它们就会使用默认值。就像你的朋友自带了某种小零食，如果你没带，就吃他的！🍬</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">name, nationality=<span class="string">&quot;中国&quot;</span>, age=<span class="number">20</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的姓名是<span class="subst">&#123;name&#125;</span>，您的国籍是<span class="subst">&#123;nationality&#125;</span>，您的年龄是<span class="subst">&#123;age&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="string">&quot;王五&quot;</span>) <span class="comment"># nationality和age会使用默认值</span></span><br><span class="line">print_info_2(<span class="string">&quot;赵六&quot;</span>, age=<span class="number">25</span>) <span class="comment"># 可以只修改部分默认值参数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长位置参数（<code>*args</code>）</strong>：有时候我们不知道函数需要接收多少个位置参数，这时就可以使用<code>*args</code>。它会将传入的所有多余的位置参数打包成一个元组（tuple）。就像一个可以装很多东西的袋子！🎒</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">*args</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">print_info_2(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>) <span class="comment"># 这些都会被打包到args元组里</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不定长关键字参数（<code>**kwargs</code>）</strong>：类似地，<code>**kwargs</code>可以接收任意数量的关键字参数，并将它们打包成一个字典（dictionary）。每个传入的参数都需要指定参数名和值。就像一个可以存放各种标签和对应值的盒子！📦</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_info_2</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您的国籍是<span class="subst">&#123;kwargs[<span class="string">&#x27;nationality&#x27;</span>]&#125;</span>，您的年龄是<span class="subst">&#123;kwargs[<span class="string">&#x27;age&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_info_2(nationality=<span class="string">&quot;韩国&quot;</span>, age=<span class="number">30</span>) <span class="comment"># 这些会被打包到kwargs字典里</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 划重点！参数使用的注意事项</strong></p>
+<ul>
+<li>定义函数时，位置参数必须在默认值参数的前面。</li>
+<li>调用函数时，如果同时使用位置参数和关键字参数，位置参数必须在关键字参数的前面。</li>
+<li><code>*args</code> 和 <code>**kwargs</code> 通常放在参数列表的最后。</li>
+</ul>
+<p><strong># 小彩蛋：匿名函数 <code>lambda</code></strong></p>
+<p>除了用 <code>def</code> 定义函数，Python还提供了一种简洁的方式来创建匿名函数，也就是 <code>lambda</code> 函数。它通常用于一些简单的、只需要使用一次的函数。就像一个临时的便签！📝</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">add = <span class="keyword">lambda</span> x, y: x + y</span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>)) <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
+
+<p>掌握了这些函数参数的类型，你就可以写出更加灵活和强大的Python代码啦！快去试试吧！有什么问题记得留言哦！😉</p>
+<p>#Python函数 #参数类型 #编程技巧 #新手入门 #干货分享 #一起学Python #Day06</p>
 ]]></content>
   </entry>
   <entry>
@@ -525,65 +567,53 @@
 ]]></content>
   </entry>
   <entry>
-    <title>10-网络编程</title>
-    <url>/2025/04/26/01python/10-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<p>好的，兄弟们！今天我们来聊聊Python网络编程的入门知识！让你的程序也能轻松实现网络通信！🚀</p>
-<p><strong># Python网络编程初探：让你的代码连接世界！🌍</strong></p>
-<p>想让你的Python程序也能像微信一样和服务器聊天吗？网络编程就是实现这个功能的关键！听起来是不是有点高大上？别怕，今天我们就来揭开它的神秘面纱！😉</p>
-<p><strong># 网络编程三要素：IP地址、端口和协议</strong></p>
-<p>在网络世界里，要找到一台特定的计算机并与之通信，就像我们寄快递需要地址一样，需要以下三个要素：</p>
-<ul>
-<li><strong>IP地址 (IP Address)</strong>：就像每台电脑在网络上的唯一地址，用于标识网络上的设备。</li>
-<li><strong>端口 (Port)</strong>：一台计算机上可以运行多个网络程序，端口号就像是这些程序的不同房间号，用于区分不同的网络服务。</li>
-<li><strong>协议 (Protocol)</strong>：网络通信需要双方遵守共同的“语言”和规则，这就是协议。例如，我们平时上网常用的 HTTP 就是一种协议。</li>
-</ul>
-<p>今天我们主要关注 <strong>TCP协议</strong>，它是一种面向连接、可靠的协议，就像打电话一样，需要先建立连接才能进行数据传输，并且能保证数据传输的可靠性。</p>
-<p><strong># 字符串的编码与解码</strong></p>
-<p>在网络传输中，数据通常以字节流的形式进行。而我们平时处理的文本是字符串。所以，在进行网络传输前，我们需要将字符串编码成字节串，接收到数据后，再将字节串解码成字符串。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;黑马程序员&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串编码为字节串 (encode)</span></span><br><span class="line">b1 = str1.encode()</span><br><span class="line"><span class="built_in">print</span>(b1) <span class="comment"># 输出：b&#x27;\xe9\xbb\x91\xe9\xa9\xac\xe7\xa8\x8b\xe5\xba\x8f\xe5\x91\x98&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字节串解码为字符串 (decode)</span></span><br><span class="line">str2 = b1.decode()</span><br><span class="line"><span class="built_in">print</span>(str2) <span class="comment"># 输出：黑马程序员</span></span><br></pre></td></tr></table></figure>
-
-<p>常用的编码格式是 UTF-8，它可以支持各种语言的字符。</p>
-<p><strong># Socket编程初体验</strong></p>
-<p>在Python中，我们可以使用 <code>socket</code> 模块进行网络编程。<code>socket</code> 可以看作是网络通信的一个端点，通过它可以发送和接收数据。</p>
-<p><strong>简单来说，TCP网络编程通常涉及以下步骤：</strong></p>
+    <title>01-基础扫盲工作 - 我的运维学习笔记 ✍️</title>
+    <url>/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="初探运维：我的理解-🤔"><a href="#初探运维：我的理解-🤔" class="headerlink" title="初探运维：我的理解 🤔"></a>初探运维：我的理解 🤔</h2><p>一开始，我对运维的印象可能比较模糊，但通过学习，我逐渐认识到：</p>
 <ol>
-<li><strong>创建Socket</strong>：就像创建一根网线插头。</li>
-<li><strong>绑定IP地址和端口 (服务器端)</strong>：告诉别人你的“地址”和“房间号”，这样别人才能找到你。</li>
-<li><strong>监听连接 (服务器端)</strong>：等待别人的“电话”打进来。</li>
-<li><strong>接受连接 (服务器端)</strong>：有人打来“电话”了，接听一下。</li>
-<li><strong>发送&#x2F;接收数据</strong>：开始“聊天”。</li>
-<li><strong>关闭连接</strong>：结束“通话”，挂断“电话”。</li>
+<li><strong>核心定位：我们是软件运维</strong>，专注于软件系统的稳定运行。这和硬件运维有所区分。</li>
+<li><strong>关键价值：保障业务连续性</strong>。运维不仅仅是修机器，更重要的是通过专业技术，确保公司的 IT 系统像血液一样流畅运转，保障业务不中断。</li>
+<li><strong>意外的惊喜：薪资潜力超乎想象</strong>！有经验的运维高手，在薪资上竟然能超越开发、测试甚至 UI，这让我对这个领域刮目相看。</li>
 </ol>
-<p><strong># 普通版本 vs Pro版本？</strong></p>
-<p>在网络编程中，可能会有不同版本的实现方式，例如基础版本可能只实现最基本的功能，而 Pro 版本可能会增加更多高级特性，比如并发处理、更复杂的协议支持等等。这就像我们使用的App，可能会有免费版和付费版，付费版功能更多更强大。</p>
-<p><strong># 小贴士</strong></p>
+<h2 id="运维日常：我在做什么？-🛠️"><a href="#运维日常：我在做什么？-🛠️" class="headerlink" title="运维日常：我在做什么？ 🛠️"></a>运维日常：我在做什么？ 🛠️</h2><p>那么，运维具体都在做些什么呢？我的理解是：</p>
+<ol>
+<li><strong>像个细心的管家：系统的监控与维护</strong>。我们需要时刻关注服务器、网络设备的健康状况，就像给它们做体检，确保一切正常。（思考：有哪些常用的监控工具呢？）</li>
+<li><strong>化身救火队员：故障的排查与处理</strong>。当系统出现问题时，我们要快速找到原因并解决它，这需要冷静的头脑和扎实的技术。（思考：遇到不同类型的故障，排查思路有什么不同？）</li>
+<li><strong>追求效率的极客：自动化运维</strong>。重复性的工作应该交给机器去做，编写自动化脚本就是解放双手，提高效率的关键。（思考：哪些运维任务适合自动化？）</li>
+<li><strong>系统的搭建者和升级者：系统的部署与更新</strong>。根据业务需求，我们需要部署新的系统，并对现有系统进行升级。（思考：部署和升级过程中有哪些关键步骤和风险点？）</li>
+<li><strong>数据的守护者：备份与恢复</strong>。数据是企业的生命线，定期备份和制定恢复方案至关重要。（思考：有哪些常见的备份策略？）</li>
+<li><strong>安全的第一道防线：安全管理</strong>。及时发现和修复系统及应用的安全漏洞，防止黑客入侵。（思考：如何及时获取和应对安全漏洞信息？）</li>
+</ol>
+<h2 id="云计算：未来的趋势？-☁️"><a href="#云计算：未来的趋势？-☁️" class="headerlink" title="云计算：未来的趋势？ ☁️"></a>云计算：未来的趋势？ ☁️</h2><p>云计算这个概念很火，我的理解是它带来了极大的便利性：</p>
 <ul>
-<li>在进行网络编程时，要理解 IP 地址和端口的概念。</li>
-<li>数据在网络传输前需要进行编码，接收后需要进行解码，确保编码格式一致。</li>
-<li><code>socket</code> 模块是Python进行网络编程的核心工具。</li>
+<li><strong>随时调整操作系统</strong>，就像换手机系统一样灵活。</li>
+<li><strong>CPU 和内存资源、硬盘、网络带宽</strong>都可以根据需求动态调整，特别是阿里云的 100M 带宽，简直是飞一般的感觉！</li>
 </ul>
-<p>网络编程的世界非常有趣，通过它你的Python程序就能和世界连接起来啦！快去探索一下吧！有问题随时来找我交流哦！😉</p>
-<p>#Python学习 #网络编程 #TCP #IP地址 #端口 #Socket #编程入门 #干货分享 #Day10 #一起学Python</p>
+<p>我甚至还申请了 2 台云服务器来体验：</p>
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425193845550.png" alt="截图"></p>
+<p>听说有的公司会用到成百上千台服务器，这在以前是难以想象的。</p>
+<p>另外，云计算还有私有云、公有云和混合云之分。了解这些区别，能帮助我们更好地判断网上信息的真实性。比如，通过裁判文书网这类公开渠道，我们可以获取更可靠的企业信息，避免被一些虚假数据误导。（思考：不同类型的云适用于哪些场景？）</p>
+<h2 id="基础概念梳理-💡"><a href="#基础概念梳理-💡" class="headerlink" title="基础概念梳理 💡"></a>基础概念梳理 💡</h2><h4 id="1-服务器：不止一种形态-🏢"><a href="#1-服务器：不止一种形态-🏢" class="headerlink" title="1. 服务器：不止一种形态 🏢"></a>1. 服务器：不止一种形态 🏢</h4><ul>
+<li>柜式服务器</li>
+<li>塔式服务器</li>
+<li>刀片式服务器</li>
+<li>机架式服务器</li>
+</ul>
+<p>学习到这些服务器类型后，我意识到网上那些声称用自己购买的少量服务器进行教学的，在应对业务快速发展和弹性伸缩方面是远远不够的。购买云服务器才是更明智的选择，尤其是在初期快速验证和弹性扩容方面。</p>
+<h4 id="2-IP-地址：网络世界的门牌号-🚪"><a href="#2-IP-地址：网络世界的门牌号-🚪" class="headerlink" title="2. IP 地址：网络世界的门牌号 🚪"></a>2. IP 地址：网络世界的门牌号 🚪</h4><p>（思考：IP 地址的分类和作用是什么？）</p>
+<h4 id="3-企业运行模式：运维身处何处？-🗺️"><a href="#3-企业运行模式：运维身处何处？-🗺️" class="headerlink" title="3. 企业运行模式：运维身处何处？ 🗺️"></a>3. 企业运行模式：运维身处何处？ 🗺️</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425200345846.png" alt="运维的地位"></p>
+<p>这张图清晰地展示了运维在企业中的地位。对于我们运维人员来说，<strong>生产环境</strong>就是我们战斗的核心阵地，它直接关系到企业的生死存亡和用户体验。因此，<strong>稳定性、可用性和安全性</strong>是我们的首要任务，也是我们工作的价值所在。</p>
+<p>运维工作贯穿了开发、测试到最终生产的整个生命周期，是不可或缺的关键环节。</p>
+<h4 id="4-网络通信三要素：对话的基础-🗣️"><a href="#4-网络通信三要素：对话的基础-🗣️" class="headerlink" title="4. 网络通信三要素：对话的基础 🗣️"></a>4. 网络通信三要素：对话的基础 🗣️</h4><p><strong>IP 地址、端口、协议</strong>。记住 <strong>0-1023</strong> 这些<strong>知名端口</strong>很重要，它们就像是常用服务的固定电话号码，例如 HTTP 的 80，HTTPS 的 443，FTP 的 21。（思考：还有哪些常见的知名端口？）</p>
+<h4 id="5-工单系统：协作的桥梁-🤝"><a href="#5-工单系统：协作的桥梁-🤝" class="headerlink" title="5. 工单系统：协作的桥梁 🤝"></a>5. 工单系统：协作的桥梁 🤝</h4><p>有内部使用的工单系统，也有面向外部客户的工单系统。（思考：好的工单系统应该具备哪些功能？）</p>
+<h4 id="6-网络基础：连接的基石-🧱"><a href="#6-网络基础：连接的基石-🧱" class="headerlink" title="6. 网络基础：连接的基石 🧱"></a>6. 网络基础：连接的基石 🧱</h4><p>包括光猫、路由器、交换机、网线这些物理设备。（思考：它们各自的作用是什么？如何排查网络故障？）</p>
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201148875.png" alt="配网用的"></p>
+<h2 id="操作系统：软件的灵魂-⚙️"><a href="#操作系统：软件的灵魂-⚙️" class="headerlink" title="操作系统：软件的灵魂 ⚙️"></a>操作系统：软件的灵魂 ⚙️</h2><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201313931.png" alt="操作系统介绍"></p>
+<p>（思考：不同操作系统的特点和适用场景是什么？Linux 为什么在服务器领域占据主导地位？）</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>04-系统核心命令</title>
-    <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/04-%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="1-主机名的查看"><a href="#1-主机名的查看" class="headerlink" title="1 主机名的查看"></a>1 主机名的查看</h3><h4 id="hostname-或者hostnamectl"><a href="#hostname-或者hostnamectl" class="headerlink" title="hostname   或者hostnamectl"></a>hostname   或者hostnamectl</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082223456.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082251687.png"></p>
-<p>hostnamectl set-hostname 主机名</p>
-<h3 id="设置host"><a href="#设置host" class="headerlink" title="设置host"></a>设置host</h3><p>&#x2F;etc&#x2F;hosts<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082534071.png"></p>
-<h3 id="系统挂载方案"><a href="#系统挂载方案" class="headerlink" title="系统挂载方案"></a>系统挂载方案</h3><p>nohup  进程名  &amp;<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082942623.png"></p>
-<h4 id="CSDN地址"><a href="#CSDN地址" class="headerlink" title="CSDN地址:"></a>CSDN地址:</h4><p><a href="https://blog.csdn.net/2501_91107759/article/details/147480583">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480583</a></p>
-<p><a href="https://blog.csdn.net/2501_91107759/article/details/147480712">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480712</a></p>
-<h3 id="查看系统状态"><a href="#查看系统状态" class="headerlink" title="查看系统状态"></a>查看系统状态</h3><p>top命令和htop命令<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083107947.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083124809.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083141858.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083155497.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">运行 top 之后，可以按下边对应的字母（区分大小写）进行一些功能的切换:</span><br><span class="line">- h 或者?：显示帮助画面，给出一些简短的命令总结说明</span><br><span class="line">- i：忽略闲置和僵死进程。这是一个开关式命令</span><br><span class="line">- q：退出程序</span><br><span class="line">- c：切换显示命令名称和完整命令行。 显示完整的命令。 这个功能很有用</span><br><span class="line">- M：根据驻留内存大小进行排序</span><br><span class="line">- P：根据CPU使用百分比大小进行排序</span><br><span class="line">- T：根据时间/累计时间进行排序</span><br><span class="line"></span><br><span class="line">命令行参数:</span><br><span class="line">top -h ：输出帮助信息</span><br><span class="line">top  -u：监控指定用户的进程</span><br><span class="line">top  -p：监控指定进程（输入参数为进程pid</span><br></pre></td></tr></table></figure>
-<h3 id="查看磁盘命令-df"><a href="#查看磁盘命令-df" class="headerlink" title="查看磁盘命令 df"></a>查看磁盘命令 df</h3><p>df -H<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083232494.png"></p>
-<h3 id="查看内存命令-free"><a href="#查看内存命令-free" class="headerlink" title="查看内存命令 free"></a>查看内存命令 free</h3><p>free -h<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083305910.png"></p>
-<h3 id="进程所占用端口"><a href="#进程所占用端口" class="headerlink" title="进程所占用端口"></a>进程所占用端口</h3><p><a href="https://blog.csdn.net/2501_91107759/article/details/147481702">https://blog.csdn.net/2501_91107759/article/details/147481702</a><br>t</p>
-<p>u</p>
-<p>n </p>
-<p>lsp lp<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083352959.png"></p>
-<h3 id="5-进程管理命令"><a href="#5-进程管理命令" class="headerlink" title="5 进程管理命令"></a>5 进程管理命令</h3><h4 id="ps-ef-aux-grep-要查询的进程名字"><a href="#ps-ef-aux-grep-要查询的进程名字" class="headerlink" title="ps -ef&#x2F;aux  | grep 要查询的进程名字"></a>ps -ef&#x2F;aux  | grep 要查询的进程名字</h4><h3 id="6-杀死进程"><a href="#6-杀死进程" class="headerlink" title="6 杀死进程"></a>6 杀死进程</h3><h4 id="kill-9"><a href="#kill-9" class="headerlink" title="kill -9 "></a><strong>kill -9 <PID></strong></h4>]]></content>
+      <tags>
+        <tag>运维, 基础, 笔记, 思考</tag>
+      </tags>
   </entry>
   <entry>
     <title>02-Linux文件及目录操作：我的 Linux 基础笔记 📂</title>
@@ -660,55 +690,6 @@
 ]]></content>
       <tags>
         <tag>Hexo, Linux, 文件管理, 笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>01-基础扫盲工作 - 我的运维学习笔记 ✍️</title>
-    <url>/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/01-%E5%9F%BA%E7%A1%80%E6%89%AB%E7%9B%B2%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="初探运维：我的理解-🤔"><a href="#初探运维：我的理解-🤔" class="headerlink" title="初探运维：我的理解 🤔"></a>初探运维：我的理解 🤔</h2><p>一开始，我对运维的印象可能比较模糊，但通过学习，我逐渐认识到：</p>
-<ol>
-<li><strong>核心定位：我们是软件运维</strong>，专注于软件系统的稳定运行。这和硬件运维有所区分。</li>
-<li><strong>关键价值：保障业务连续性</strong>。运维不仅仅是修机器，更重要的是通过专业技术，确保公司的 IT 系统像血液一样流畅运转，保障业务不中断。</li>
-<li><strong>意外的惊喜：薪资潜力超乎想象</strong>！有经验的运维高手，在薪资上竟然能超越开发、测试甚至 UI，这让我对这个领域刮目相看。</li>
-</ol>
-<h2 id="运维日常：我在做什么？-🛠️"><a href="#运维日常：我在做什么？-🛠️" class="headerlink" title="运维日常：我在做什么？ 🛠️"></a>运维日常：我在做什么？ 🛠️</h2><p>那么，运维具体都在做些什么呢？我的理解是：</p>
-<ol>
-<li><strong>像个细心的管家：系统的监控与维护</strong>。我们需要时刻关注服务器、网络设备的健康状况，就像给它们做体检，确保一切正常。（思考：有哪些常用的监控工具呢？）</li>
-<li><strong>化身救火队员：故障的排查与处理</strong>。当系统出现问题时，我们要快速找到原因并解决它，这需要冷静的头脑和扎实的技术。（思考：遇到不同类型的故障，排查思路有什么不同？）</li>
-<li><strong>追求效率的极客：自动化运维</strong>。重复性的工作应该交给机器去做，编写自动化脚本就是解放双手，提高效率的关键。（思考：哪些运维任务适合自动化？）</li>
-<li><strong>系统的搭建者和升级者：系统的部署与更新</strong>。根据业务需求，我们需要部署新的系统，并对现有系统进行升级。（思考：部署和升级过程中有哪些关键步骤和风险点？）</li>
-<li><strong>数据的守护者：备份与恢复</strong>。数据是企业的生命线，定期备份和制定恢复方案至关重要。（思考：有哪些常见的备份策略？）</li>
-<li><strong>安全的第一道防线：安全管理</strong>。及时发现和修复系统及应用的安全漏洞，防止黑客入侵。（思考：如何及时获取和应对安全漏洞信息？）</li>
-</ol>
-<h2 id="云计算：未来的趋势？-☁️"><a href="#云计算：未来的趋势？-☁️" class="headerlink" title="云计算：未来的趋势？ ☁️"></a>云计算：未来的趋势？ ☁️</h2><p>云计算这个概念很火，我的理解是它带来了极大的便利性：</p>
-<ul>
-<li><strong>随时调整操作系统</strong>，就像换手机系统一样灵活。</li>
-<li><strong>CPU 和内存资源、硬盘、网络带宽</strong>都可以根据需求动态调整，特别是阿里云的 100M 带宽，简直是飞一般的感觉！</li>
-</ul>
-<p>我甚至还申请了 2 台云服务器来体验：</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425193845550.png" alt="截图"></p>
-<p>听说有的公司会用到成百上千台服务器，这在以前是难以想象的。</p>
-<p>另外，云计算还有私有云、公有云和混合云之分。了解这些区别，能帮助我们更好地判断网上信息的真实性。比如，通过裁判文书网这类公开渠道，我们可以获取更可靠的企业信息，避免被一些虚假数据误导。（思考：不同类型的云适用于哪些场景？）</p>
-<h2 id="基础概念梳理-💡"><a href="#基础概念梳理-💡" class="headerlink" title="基础概念梳理 💡"></a>基础概念梳理 💡</h2><h4 id="1-服务器：不止一种形态-🏢"><a href="#1-服务器：不止一种形态-🏢" class="headerlink" title="1. 服务器：不止一种形态 🏢"></a>1. 服务器：不止一种形态 🏢</h4><ul>
-<li>柜式服务器</li>
-<li>塔式服务器</li>
-<li>刀片式服务器</li>
-<li>机架式服务器</li>
-</ul>
-<p>学习到这些服务器类型后，我意识到网上那些声称用自己购买的少量服务器进行教学的，在应对业务快速发展和弹性伸缩方面是远远不够的。购买云服务器才是更明智的选择，尤其是在初期快速验证和弹性扩容方面。</p>
-<h4 id="2-IP-地址：网络世界的门牌号-🚪"><a href="#2-IP-地址：网络世界的门牌号-🚪" class="headerlink" title="2. IP 地址：网络世界的门牌号 🚪"></a>2. IP 地址：网络世界的门牌号 🚪</h4><p>（思考：IP 地址的分类和作用是什么？）</p>
-<h4 id="3-企业运行模式：运维身处何处？-🗺️"><a href="#3-企业运行模式：运维身处何处？-🗺️" class="headerlink" title="3. 企业运行模式：运维身处何处？ 🗺️"></a>3. 企业运行模式：运维身处何处？ 🗺️</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425200345846.png" alt="运维的地位"></p>
-<p>这张图清晰地展示了运维在企业中的地位。对于我们运维人员来说，<strong>生产环境</strong>就是我们战斗的核心阵地，它直接关系到企业的生死存亡和用户体验。因此，<strong>稳定性、可用性和安全性</strong>是我们的首要任务，也是我们工作的价值所在。</p>
-<p>运维工作贯穿了开发、测试到最终生产的整个生命周期，是不可或缺的关键环节。</p>
-<h4 id="4-网络通信三要素：对话的基础-🗣️"><a href="#4-网络通信三要素：对话的基础-🗣️" class="headerlink" title="4. 网络通信三要素：对话的基础 🗣️"></a>4. 网络通信三要素：对话的基础 🗣️</h4><p><strong>IP 地址、端口、协议</strong>。记住 <strong>0-1023</strong> 这些<strong>知名端口</strong>很重要，它们就像是常用服务的固定电话号码，例如 HTTP 的 80，HTTPS 的 443，FTP 的 21。（思考：还有哪些常见的知名端口？）</p>
-<h4 id="5-工单系统：协作的桥梁-🤝"><a href="#5-工单系统：协作的桥梁-🤝" class="headerlink" title="5. 工单系统：协作的桥梁 🤝"></a>5. 工单系统：协作的桥梁 🤝</h4><p>有内部使用的工单系统，也有面向外部客户的工单系统。（思考：好的工单系统应该具备哪些功能？）</p>
-<h4 id="6-网络基础：连接的基石-🧱"><a href="#6-网络基础：连接的基石-🧱" class="headerlink" title="6. 网络基础：连接的基石 🧱"></a>6. 网络基础：连接的基石 🧱</h4><p>包括光猫、路由器、交换机、网线这些物理设备。（思考：它们各自的作用是什么？如何排查网络故障？）</p>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201148875.png" alt="配网用的"></p>
-<h2 id="操作系统：软件的灵魂-⚙️"><a href="#操作系统：软件的灵魂-⚙️" class="headerlink" title="操作系统：软件的灵魂 ⚙️"></a>操作系统：软件的灵魂 ⚙️</h2><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250425201313931.png" alt="操作系统介绍"></p>
-<p>（思考：不同操作系统的特点和适用场景是什么？Linux 为什么在服务器领域占据主导地位？）</p>
-]]></content>
-      <tags>
-        <tag>运维, 基础, 笔记, 思考</tag>
       </tags>
   </entry>
   <entry>
@@ -831,6 +812,25 @@
       </tags>
   </entry>
   <entry>
+    <title>04-系统核心命令</title>
+    <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/04-%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="1-主机名的查看"><a href="#1-主机名的查看" class="headerlink" title="1 主机名的查看"></a>1 主机名的查看</h3><h4 id="hostname-或者hostnamectl"><a href="#hostname-或者hostnamectl" class="headerlink" title="hostname   或者hostnamectl"></a>hostname   或者hostnamectl</h4><p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082223456.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082251687.png"></p>
+<p>hostnamectl set-hostname 主机名</p>
+<h3 id="设置host"><a href="#设置host" class="headerlink" title="设置host"></a>设置host</h3><p>&#x2F;etc&#x2F;hosts<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082534071.png"></p>
+<h3 id="系统挂载方案"><a href="#系统挂载方案" class="headerlink" title="系统挂载方案"></a>系统挂载方案</h3><p>nohup  进程名  &amp;<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426082942623.png"></p>
+<h4 id="CSDN地址"><a href="#CSDN地址" class="headerlink" title="CSDN地址:"></a>CSDN地址:</h4><p><a href="https://blog.csdn.net/2501_91107759/article/details/147480583">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480583</a></p>
+<p><a href="https://blog.csdn.net/2501_91107759/article/details/147480712">https://blog.csdn.net/2501_91107759&#x2F;article&#x2F;details&#x2F;147480712</a></p>
+<h3 id="查看系统状态"><a href="#查看系统状态" class="headerlink" title="查看系统状态"></a>查看系统状态</h3><p>top命令和htop命令<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083107947.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083124809.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083141858.png"><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083155497.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">运行 top 之后，可以按下边对应的字母（区分大小写）进行一些功能的切换:</span><br><span class="line">- h 或者?：显示帮助画面，给出一些简短的命令总结说明</span><br><span class="line">- i：忽略闲置和僵死进程。这是一个开关式命令</span><br><span class="line">- q：退出程序</span><br><span class="line">- c：切换显示命令名称和完整命令行。 显示完整的命令。 这个功能很有用</span><br><span class="line">- M：根据驻留内存大小进行排序</span><br><span class="line">- P：根据CPU使用百分比大小进行排序</span><br><span class="line">- T：根据时间/累计时间进行排序</span><br><span class="line"></span><br><span class="line">命令行参数:</span><br><span class="line">top -h ：输出帮助信息</span><br><span class="line">top  -u：监控指定用户的进程</span><br><span class="line">top  -p：监控指定进程（输入参数为进程pid</span><br></pre></td></tr></table></figure>
+<h3 id="查看磁盘命令-df"><a href="#查看磁盘命令-df" class="headerlink" title="查看磁盘命令 df"></a>查看磁盘命令 df</h3><p>df -H<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083232494.png"></p>
+<h3 id="查看内存命令-free"><a href="#查看内存命令-free" class="headerlink" title="查看内存命令 free"></a>查看内存命令 free</h3><p>free -h<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083305910.png"></p>
+<h3 id="进程所占用端口"><a href="#进程所占用端口" class="headerlink" title="进程所占用端口"></a>进程所占用端口</h3><p><a href="https://blog.csdn.net/2501_91107759/article/details/147481702">https://blog.csdn.net/2501_91107759/article/details/147481702</a><br>t</p>
+<p>u</p>
+<p>n </p>
+<p>lsp lp<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250426083352959.png"></p>
+<h3 id="5-进程管理命令"><a href="#5-进程管理命令" class="headerlink" title="5 进程管理命令"></a>5 进程管理命令</h3><h4 id="ps-ef-aux-grep-要查询的进程名字"><a href="#ps-ef-aux-grep-要查询的进程名字" class="headerlink" title="ps -ef&#x2F;aux  | grep 要查询的进程名字"></a>ps -ef&#x2F;aux  | grep 要查询的进程名字</h4><h3 id="6-杀死进程"><a href="#6-杀死进程" class="headerlink" title="6 杀死进程"></a>6 杀死进程</h3><h4 id="kill-9"><a href="#kill-9" class="headerlink" title="kill -9 "></a><strong>kill -9 <PID></strong></h4>]]></content>
+  </entry>
+  <entry>
     <title>05-权限管理</title>
     <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"><a href="#🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！" class="headerlink" title="🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"></a>🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！</h1><p>兄弟们，今天给大家分享一下在 Linux 系统里超级重要的一个知识点——<strong>权限管理</strong>！💻💾 别看它好像很高深的样子，其实掌握了它，就能更好地保护我们的文件和数据哦！💪</p>
@@ -925,43 +925,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>💻 效率翻倍！SSH 服务那些你不知道的小技巧！</title>
-    <url>/2025/04/29/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/01-SSH%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<p>兄弟们，今天给大家分享一些关于 SSH 服务的实用小技巧，让你的开发效率直线 Up！🚀</p>
-<h3 id="虚拟机多开大法！💻💻💻"><a href="#虚拟机多开大法！💻💻💻" class="headerlink" title="虚拟机多开大法！💻💻💻"></a>虚拟机多开大法！💻💻💻</h3><p>还在一个一个打开虚拟机？No No No！试试扫描你的虚拟机管理工具，很多都支持一次性启动多个虚拟机哦！解放双手，节省时间，简直不要太爽！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250429194015700.png"></p>
-<h3 id="ISO-文件用完就扔？👋"><a href="#ISO-文件用完就扔？👋" class="headerlink" title="ISO 文件用完就扔？👋"></a>ISO 文件用完就扔？👋</h3><p>系统安装好之后，那个 <code>.iso</code> 镜像文件就可以功成身退啦！删掉它，释放你的磁盘空间！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250429211001090.png"></p>
-<h3 id="SSH-认证小秘密🔑"><a href="#SSH-认证小秘密🔑" class="headerlink" title="SSH 认证小秘密🔑"></a>SSH 认证小秘密🔑</h3><p>你知道 SSH 登录的时候，会先检查服务器的公钥文件里有没有你的记录吗？就像门卫大爷认门一样，认证通过才能顺利进入！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250429155837857.png"></p>
-<h3 id="服务状态随时掌握！👀"><a href="#服务状态随时掌握！👀" class="headerlink" title="服务状态随时掌握！👀"></a>服务状态随时掌握！👀</h3><p>想知道 SSH 服务有没有在好好工作？用 <code>service ssh status</code> 或者更简洁的 <code>ps aux | grep sshd</code> 都可以查看服务状态哦！</p>
-<h3 id="配置文件别乱动！🙅‍♀️"><a href="#配置文件别乱动！🙅‍♀️" class="headerlink" title="配置文件别乱动！🙅‍♀️"></a>配置文件别乱动！🙅‍♀️</h3><p>SSH 的配置文件一般在 <code>/etc/ssh/</code> 目录下，姐妹们千万不要直接修改原始文件！想要自定义配置，可以新建一个配置文件，这样更安全也更方便管理。<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250429211341849.png"></p>
-<h3 id="远程操作小贴士！💡"><a href="#远程操作小贴士！💡" class="headerlink" title="远程操作小贴士！💡"></a>远程操作小贴士！💡</h3><p>用 SSH 远程登录到另一台机器后，想退出来？直接输入 <code>exit</code> 就行啦！跟 <code>Ctrl + C</code> 的效果差不多哦！</p>
-<h3 id="文件传输-So-Easy！💨"><a href="#文件传输-So-Easy！💨" class="headerlink" title="文件传输 So Easy！💨"></a>文件传输 So Easy！💨</h3><ul>
-<li><p><strong><code>scp</code>大法好！</strong> 本地文件想传到远程服务器？一条命令搞定！远程的文件想下载到本地？也是一样简单！</p>
-<ul>
-<li>本地复制到远程：<code>scp your_local_file user@remote_ip:/path/to/remote_directory</code></li>
-<li>远程复制到本地：<code>scp user@remote_ip:/path/to/remote_file /path/to/local_directory</code></li>
-</ul>
-</li>
-<li><p><strong>告别垃圾同步！</strong> 某度网盘的同步简直让人抓狂？试试 <code>rsync</code> 命令吧！它可以实现更高效、更可靠的文件同步！</p>
-</li>
-</ul>
-<h3 id="自动化运维小助手！🤖"><a href="#自动化运维小助手！🤖" class="headerlink" title="自动化运维小助手！🤖"></a>自动化运维小助手！🤖</h3><p>基于 SSH，我们可以实现很多自动化操作，比如自动发送命令到服务器。不过要注意，有些涉及到进程的命令（比如 <code>source</code>）可能会执行不成功哦！</p>
-<h3 id="t-参数了解一下！😉"><a href="#t-参数了解一下！😉" class="headerlink" title="-t 参数了解一下！😉"></a><code>-t</code> 参数了解一下！😉</h3><p>在使用 <code>ssh root@192.168.88.102</code> 连接服务器的时候，强烈推荐加上 <code>-t</code> 参数！你会看到一个友好的提示信息：<code>Connection to 192.168.88.101</code>，让你更清楚连接状态！</p>
-<h3 id="SSH-的无限可能！✨"><a href="#SSH-的无限可能！✨" class="headerlink" title="SSH 的无限可能！✨"></a>SSH 的无限可能！✨</h3><p>基于 SSH，我们可以做的事情真的太多啦！比如用 <code>scp</code> 把文件轻松复制到不同的服务器，简直是运维小姐姐的必备技能！</p>
-<h3 id="Vim-编辑小技巧！✍️"><a href="#Vim-编辑小技巧！✍️" class="headerlink" title="Vim 编辑小技巧！✍️"></a>Vim 编辑小技巧！✍️</h3><ul>
-<li>在 Vim 编辑器里，想要一次性删除多行？试试 <code>5dd</code> 吧！数字 <code>5</code> 可以替换成你想要删除的行数哦！</li>
-<li>不小心操作失误？别慌！输入 <code>u</code> 就可以撤销上一步操作啦！</li>
-</ul>
-<h3 id="公钥文件小知识！🔑"><a href="#公钥文件小知识！🔑" class="headerlink" title="公钥文件小知识！🔑"></a>公钥文件小知识！🔑</h3><p>记住哦，每一个 SSH 连接都会在你的 <code>~/.ssh/authorized_keys</code> 公钥文件里占用一行记录！</p>
-<p>希望这些小技巧能帮助到大家！学会这些，你也能成为高效运维小能手！💪 还有什么关于 SSH 的问题，欢迎在评论区留言交流哦！💖</p>
-]]></content>
-      <tags>
-        <tag>SSH</tag>
-        <tag>虚拟机</tag>
-        <tag>效率工具</tag>
-        <tag>服务器管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>06-软件安装和系统服务</title>
     <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/06-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>兄弟们，今天来聊聊在 Linux 系统上怎么“捯饬”各种软件和系统服务！💻✨ 别看命令行黑乎乎的，玩熟了简直打开新世界的大门！😎</p>
@@ -1014,24 +977,49 @@
 ]]></content>
   </entry>
   <entry>
-    <title>02-数据同步服务</title>
-    <url>/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h3 id="rsync官网及介绍"><a href="#rsync官网及介绍" class="headerlink" title="rsync官网及介绍"></a>rsync官网及介绍</h3><p><a href="https://rsync.samba.org/">rsync</a><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250501204949631.png" alt="rsync作用及来源"></p>
-<h3 id="rsync语法"><a href="#rsync语法" class="headerlink" title="rsync语法"></a>rsync语法</h3><p><code>rsync [选项] 源路径... 目标路径</code><br><code> rsync  用户名@主机地址::模块名称</code></p>
+    <title>07-系统服务管理</title>
+    <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖</p>
+<h3 id="让服务跑起来！systemctl-大法！🚀"><a href="#让服务跑起来！systemctl-大法！🚀" class="headerlink" title="让服务跑起来！systemctl 大法！🚀"></a>让服务跑起来！<code>systemctl</code> 大法！🚀</h3><p>在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 <code>sshd</code> 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 <code>systemctl</code> 命令啦！💪</p>
+<p>就像遥控器一样，<code>systemctl</code> 可以控制这些“服务”的状态：</p>
 <ul>
-<li>-v：详细模式输出，显示传输过程中的文件信息。</li>
-<li>-a：归档模式，表示递归传输文件，并保持所有文件属性。</li>
-<li>-z：对备份的文件在传输时进行压缩处理。</li>
-<li>–delete：删除目标目录中源目录中没有的文件（可选，用于实现双向同步）</li>
+<li><strong>启动服务：</strong> <code>sudo systemctl start &lt;服务名&gt;</code>  比如启动我们的远程连接小助手：<code>sudo systemctl start sshd</code>  启动后你的电脑就能接受远程连接啦！🔗</li>
+<li><strong>停止服务：</strong> <code>sudo systemctl stop &lt;服务名&gt;</code>  暂时不需要某个服务了？就让它先休息一下：<code>sudo systemctl stop sshd</code></li>
+<li><strong>重启服务：</strong> <code>sudo systemctl restart &lt;服务名&gt;</code>  有时候服务出点小状况，重启一下就好啦！就像给 App “刷新”一下：<code>sudo systemctl restart sshd</code></li>
+<li><strong>查看服务状态：</strong> <code>sudo systemctl status &lt;服务名&gt;</code>  想知道某个服务现在正不正常工作？看看它的状态就知道啦！会显示运行状态、进程信息等等，超详细！🔍</li>
 </ul>
-<h3 id="编写监控脚本-采用ssh"><a href="#编写监控脚本-采用ssh" class="headerlink" title="编写监控脚本-采用ssh"></a>编写监控脚本-采用ssh</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /root/real_time_sync.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># 定义源目录和目标目录（目标目录是远程服务器的目录）</span><br><span class="line">SOURCE_DIR=&quot;/export/data/logs&quot;</span><br><span class="line">TARGET_DIR=&quot;root@192.168.88.102:/export/data/node1_exe_backup_log&quot;  # 替换为目标服务器的用户名和目录</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/rsync_realtime_sync.log&quot;</span><br><span class="line"> </span><br><span class="line"># 使用inotifywait监听$&#123;WATCH_DIR&#125;目录中的文件变化</span><br><span class="line">inotifywait -m -r -e modify,create,delete,move &quot;$&#123;SOURCE_DIR&#125;&quot; | while read path action file; do</span><br><span class="line">    echo &quot;Detected $&#123;action&#125; on $&#123;file&#125; in $&#123;path&#125;. Starting rsync...&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">    # 执行rsync同步操作</span><br><span class="line">    rsync -avz --delete -e ssh &quot;$&#123;SOURCE_DIR&#125;/&quot; &quot;$&#123;TARGET_DIR&#125;&quot;  &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1</span><br><span class="line">    echo &quot;Sync completed for $&#123;file&#125; in $&#123;path&#125;.&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="测试是否可以同步"><a href="#测试是否可以同步" class="headerlink" title="测试是否可以同步"></a>测试是否可以同步</h4><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/root</span></span><br><span class="line"><span class="attr">./real_time_sync.sh</span></span><br><span class="line"></span><br><span class="line"><span class="attr">启动后，</span> <span class="string">开启一个新窗口， 尝试向node1的/export/data/logs路径放入文件， 观察node2是否能够立即同步过来</span></span><br><span class="line"></span><br><span class="line"><span class="attr">测试成功后，</span> <span class="string">可以采用   nohup ./real_time_sync.sh &amp; 挂载在后台使用</span></span><br><span class="line"></span><br><span class="line"><span class="attr">此种方式，有一个弊端，</span> <span class="string">如果服务器重启后， 需要手动开启实时同步脚本</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#x62;&#97;&#x63;&#x6b;&#117;&#x70;&#95;&#x75;&#115;&#x65;&#114;&#64;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x38;&#56;&#x2e;&#49;&#48;&#50;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/rsyncd.conf</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">uid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">gid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">use</span> <span class="string">chroot = no</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">873</span></span><br><span class="line"><span class="attr">max</span> <span class="string">connections = 200</span></span><br><span class="line"><span class="attr">pid</span> <span class="string">file = /var/run/rsyncd.pid</span></span><br><span class="line"><span class="attr">log</span> <span class="string">file = /var/log/rsyncd.log</span></span><br><span class="line"><span class="attr">transfer</span> <span class="string">logging = yes</span></span><br><span class="line"><span class="attr">ignore</span> <span class="string">nonreadable = yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">[node1_logs]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">/export/data/node1_exe_backup_log</span></span><br><span class="line">    <span class="attr">comment</span> = <span class="string">Backup Directory</span></span><br><span class="line">    <span class="attr">read</span> <span class="string">only = no</span></span><br><span class="line">    <span class="attr">secrets</span> <span class="string">file = /etc/rsyncd.passwd</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">allow = 192.168.88.0/24</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">deny = *</span></span><br><span class="line">    <span class="attr">auth</span> <span class="string">users = backup_user</span></span><br></pre></td></tr></table></figure>
-<p>echo “backup_user:123456” &gt; &#x2F;etc&#x2F;rsyncd.passwd</p>
-<p>设置密码文件的权限为600，确保该文件只有 RSYNC 服务可以读取<br>chmod 600 &#x2F;etc&#x2F;rsyncd.passwd<br>rsync –daemon</p>
-<h3 id="使用systemd创建本地服务"><a href="#使用systemd创建本地服务" class="headerlink" title="使用systemd创建本地服务"></a>使用systemd创建本地服务</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/systemd/system/rsync_inotify.service</span></span><br><span class="line"></span><br><span class="line"><span class="attr">内容如下：</span></span><br><span class="line"><span class="attr">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=<span class="string">Real-time Rsync Sync with Inotify</span></span><br><span class="line"><span class="attr">After</span>=<span class="string">network.target</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Service]</span></span><br><span class="line"><span class="attr">ExecStart</span>=<span class="string">/root/real_time_sync.sh</span></span><br><span class="line"><span class="attr">Restart</span>=<span class="string">always</span></span><br><span class="line"><span class="attr">User</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">Group</span>=<span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=<span class="string">multi-user.target</span></span><br></pre></td></tr></table></figure>
-<p>systemctl daemon-reload          #重新加载系统服务<br>systemctl start rsync_inotify    #开启服务<br>systemctl enable rsync_inotify   #设置服务为开机自启</p>
+<h3 id="定时任务？交给-crontab-准没错！⏰"><a href="#定时任务？交给-crontab-准没错！⏰" class="headerlink" title="定时任务？交给 crontab 准没错！⏰"></a>定时任务？交给 <code>crontab</code> 准没错！⏰</h3><p>有时候我们希望电脑在特定的时间自动帮我们做一些事情，比如每天凌晨备份数据、定时清理临时文件等等。这时候就要请出我们的“定时任务小管家”—— <code>crontab</code> 啦！🕰️</p>
+<p>你可以编辑一个叫做 “crontab” 的文件，告诉电脑在什么时间执行什么命令。</p>
+<p><strong>编辑你的定时任务列表：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>第一次运行可能会让你选择一个编辑器，一般选 <code>nano</code> 就很友好啦！😊</p>
+<p><strong><code>crontab</code> 的时间格式是这样的：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">分 时 日 月 周 命令</span><br></pre></td></tr></table></figure>
+
+<p>每个字段的取值范围都贴心地告诉你啦：</p>
+<ul>
+<li><strong>分：</strong> 0-59</li>
+<li><strong>时：</strong> 0-23</li>
+<li><strong>日：</strong> 1-31</li>
+<li><strong>月：</strong> 1-12</li>
+<li><strong>周：</strong> 0-7 (0 和 7 都表示星期天哦！)</li>
+</ul>
+<p><strong>一些超实用的小技巧：</strong></p>
+<ul>
+<li><strong><code>*</code>：</strong> 表示这个字段的<strong>每一个值</strong>都符合。比如 <code>* * * * *</code> 就表示每分钟都执行后面的命令！😱</li>
+<li><strong><code>-</code>：</strong> 表示一个<strong>连续的范围</strong>。比如 <code>1-7</code> 就表示 1 到 7。</li>
+<li><strong><code>,</code>：</strong> 表示<strong>多个不连续的值</strong>。比如 <code>1,2,6</code> 就表示 1、2 和 6。</li>
+<li><strong><code>/</code>：</strong> 表示<strong>每隔多久执行一次</strong>。比如 <code>0/10</code> 在“分”的字段表示每隔 10 分钟执行一次（也就是 0, 10, 20, 30, 40, 50 分）。</li>
+</ul>
+<p><strong>举几个超简单的定时任务栗子🌰：</strong></p>
+<ul>
+<li><strong>每天凌晨 3 点备份我的重要文件：</strong> <code>0 3 * * * /bin/bash /path/to/backup_script.sh</code></li>
+<li><strong>每个工作日的下午 5 点发送一封邮件提醒自己下班：</strong> <code>0 17 * * 1-5 /usr/bin/mail -s &quot;下班啦！&quot; your_email@example.com &lt; /dev/null</code></li>
+<li><strong>每隔 30 分钟检查一下服务器状态：</strong> <code>*/30 * * * * /path/to/check_server_status.sh</code></li>
+</ul>
+<p>编辑完 <code>crontab</code> 文件记得保存哦！电脑就会乖乖地按照你的时间表去工作啦！是不是感觉自己像个小小的“时间魔法师”？🧙‍♀️✨</p>
+<p>好啦，今天关于 Linux 服务管理和定时任务的小技巧就分享到这里啦！学会了这些，你的 Linux 系统就能更加智能和自动化啦！下次再和兄弟们分享更多有趣的 Linux 知识！💖💻</p>
 ]]></content>
   </entry>
   <entry>
@@ -1099,6 +1087,64 @@
 ]]></content>
   </entry>
   <entry>
+    <title>💻 效率翻倍！SSH 服务那些你不知道的小技巧！</title>
+    <url>/2025/04/29/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/01-SSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p>兄弟们，今天给大家分享一些关于 SSH 服务的实用小技巧，让你的开发效率直线 Up！🚀</p>
+<h3 id="虚拟机多开大法！💻💻💻"><a href="#虚拟机多开大法！💻💻💻" class="headerlink" title="虚拟机多开大法！💻💻💻"></a>虚拟机多开大法！💻💻💻</h3><p>还在一个一个打开虚拟机？No No No！试试扫描你的虚拟机管理工具，很多都支持一次性启动多个虚拟机哦！解放双手，节省时间，简直不要太爽！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250429194015700.png"></p>
+<h3 id="ISO-文件用完就扔？👋"><a href="#ISO-文件用完就扔？👋" class="headerlink" title="ISO 文件用完就扔？👋"></a>ISO 文件用完就扔？👋</h3><p>系统安装好之后，那个 <code>.iso</code> 镜像文件就可以功成身退啦！删掉它，释放你的磁盘空间！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250429211001090.png"></p>
+<h3 id="SSH-认证小秘密🔑"><a href="#SSH-认证小秘密🔑" class="headerlink" title="SSH 认证小秘密🔑"></a>SSH 认证小秘密🔑</h3><p>你知道 SSH 登录的时候，会先检查服务器的公钥文件里有没有你的记录吗？就像门卫大爷认门一样，认证通过才能顺利进入！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250429155837857.png"></p>
+<h3 id="服务状态随时掌握！👀"><a href="#服务状态随时掌握！👀" class="headerlink" title="服务状态随时掌握！👀"></a>服务状态随时掌握！👀</h3><p>想知道 SSH 服务有没有在好好工作？用 <code>service ssh status</code> 或者更简洁的 <code>ps aux | grep sshd</code> 都可以查看服务状态哦！</p>
+<h3 id="配置文件别乱动！🙅‍♀️"><a href="#配置文件别乱动！🙅‍♀️" class="headerlink" title="配置文件别乱动！🙅‍♀️"></a>配置文件别乱动！🙅‍♀️</h3><p>SSH 的配置文件一般在 <code>/etc/ssh/</code> 目录下，姐妹们千万不要直接修改原始文件！想要自定义配置，可以新建一个配置文件，这样更安全也更方便管理。<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250429211341849.png"></p>
+<h3 id="远程操作小贴士！💡"><a href="#远程操作小贴士！💡" class="headerlink" title="远程操作小贴士！💡"></a>远程操作小贴士！💡</h3><p>用 SSH 远程登录到另一台机器后，想退出来？直接输入 <code>exit</code> 就行啦！跟 <code>Ctrl + C</code> 的效果差不多哦！</p>
+<h3 id="文件传输-So-Easy！💨"><a href="#文件传输-So-Easy！💨" class="headerlink" title="文件传输 So Easy！💨"></a>文件传输 So Easy！💨</h3><ul>
+<li><p><strong><code>scp</code>大法好！</strong> 本地文件想传到远程服务器？一条命令搞定！远程的文件想下载到本地？也是一样简单！</p>
+<ul>
+<li>本地复制到远程：<code>scp your_local_file user@remote_ip:/path/to/remote_directory</code></li>
+<li>远程复制到本地：<code>scp user@remote_ip:/path/to/remote_file /path/to/local_directory</code></li>
+</ul>
+</li>
+<li><p><strong>告别垃圾同步！</strong> 某度网盘的同步简直让人抓狂？试试 <code>rsync</code> 命令吧！它可以实现更高效、更可靠的文件同步！</p>
+</li>
+</ul>
+<h3 id="自动化运维小助手！🤖"><a href="#自动化运维小助手！🤖" class="headerlink" title="自动化运维小助手！🤖"></a>自动化运维小助手！🤖</h3><p>基于 SSH，我们可以实现很多自动化操作，比如自动发送命令到服务器。不过要注意，有些涉及到进程的命令（比如 <code>source</code>）可能会执行不成功哦！</p>
+<h3 id="t-参数了解一下！😉"><a href="#t-参数了解一下！😉" class="headerlink" title="-t 参数了解一下！😉"></a><code>-t</code> 参数了解一下！😉</h3><p>在使用 <code>ssh root@192.168.88.102</code> 连接服务器的时候，强烈推荐加上 <code>-t</code> 参数！你会看到一个友好的提示信息：<code>Connection to 192.168.88.101</code>，让你更清楚连接状态！</p>
+<h3 id="SSH-的无限可能！✨"><a href="#SSH-的无限可能！✨" class="headerlink" title="SSH 的无限可能！✨"></a>SSH 的无限可能！✨</h3><p>基于 SSH，我们可以做的事情真的太多啦！比如用 <code>scp</code> 把文件轻松复制到不同的服务器，简直是运维小姐姐的必备技能！</p>
+<h3 id="Vim-编辑小技巧！✍️"><a href="#Vim-编辑小技巧！✍️" class="headerlink" title="Vim 编辑小技巧！✍️"></a>Vim 编辑小技巧！✍️</h3><ul>
+<li>在 Vim 编辑器里，想要一次性删除多行？试试 <code>5dd</code> 吧！数字 <code>5</code> 可以替换成你想要删除的行数哦！</li>
+<li>不小心操作失误？别慌！输入 <code>u</code> 就可以撤销上一步操作啦！</li>
+</ul>
+<h3 id="公钥文件小知识！🔑"><a href="#公钥文件小知识！🔑" class="headerlink" title="公钥文件小知识！🔑"></a>公钥文件小知识！🔑</h3><p>记住哦，每一个 SSH 连接都会在你的 <code>~/.ssh/authorized_keys</code> 公钥文件里占用一行记录！</p>
+<p>希望这些小技巧能帮助到大家！学会这些，你也能成为高效运维小能手！💪 还有什么关于 SSH 的问题，欢迎在评论区留言交流哦！💖</p>
+]]></content>
+      <tags>
+        <tag>SSH</tag>
+        <tag>虚拟机</tag>
+        <tag>效率工具</tag>
+        <tag>服务器管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>02-数据同步服务</title>
+    <url>/2025/04/30/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/02-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h3 id="rsync官网及介绍"><a href="#rsync官网及介绍" class="headerlink" title="rsync官网及介绍"></a>rsync官网及介绍</h3><p><a href="https://rsync.samba.org/">rsync</a><br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/20250501204949631.png" alt="rsync作用及来源"></p>
+<h3 id="rsync语法"><a href="#rsync语法" class="headerlink" title="rsync语法"></a>rsync语法</h3><p><code>rsync [选项] 源路径... 目标路径</code><br><code> rsync  用户名@主机地址::模块名称</code></p>
+<ul>
+<li>-v：详细模式输出，显示传输过程中的文件信息。</li>
+<li>-a：归档模式，表示递归传输文件，并保持所有文件属性。</li>
+<li>-z：对备份的文件在传输时进行压缩处理。</li>
+<li>–delete：删除目标目录中源目录中没有的文件（可选，用于实现双向同步）</li>
+</ul>
+<h3 id="编写监控脚本-采用ssh"><a href="#编写监控脚本-采用ssh" class="headerlink" title="编写监控脚本-采用ssh"></a>编写监控脚本-采用ssh</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /root/real_time_sync.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># 定义源目录和目标目录（目标目录是远程服务器的目录）</span><br><span class="line">SOURCE_DIR=&quot;/export/data/logs&quot;</span><br><span class="line">TARGET_DIR=&quot;root@192.168.88.102:/export/data/node1_exe_backup_log&quot;  # 替换为目标服务器的用户名和目录</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/rsync_realtime_sync.log&quot;</span><br><span class="line"> </span><br><span class="line"># 使用inotifywait监听$&#123;WATCH_DIR&#125;目录中的文件变化</span><br><span class="line">inotifywait -m -r -e modify,create,delete,move &quot;$&#123;SOURCE_DIR&#125;&quot; | while read path action file; do</span><br><span class="line">    echo &quot;Detected $&#123;action&#125; on $&#123;file&#125; in $&#123;path&#125;. Starting rsync...&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">    # 执行rsync同步操作</span><br><span class="line">    rsync -avz --delete -e ssh &quot;$&#123;SOURCE_DIR&#125;/&quot; &quot;$&#123;TARGET_DIR&#125;&quot;  &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1</span><br><span class="line">    echo &quot;Sync completed for $&#123;file&#125; in $&#123;path&#125;.&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="测试是否可以同步"><a href="#测试是否可以同步" class="headerlink" title="测试是否可以同步"></a>测试是否可以同步</h4><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/root</span></span><br><span class="line"><span class="attr">./real_time_sync.sh</span></span><br><span class="line"></span><br><span class="line"><span class="attr">启动后，</span> <span class="string">开启一个新窗口， 尝试向node1的/export/data/logs路径放入文件， 观察node2是否能够立即同步过来</span></span><br><span class="line"></span><br><span class="line"><span class="attr">测试成功后，</span> <span class="string">可以采用   nohup ./real_time_sync.sh &amp; 挂载在后台使用</span></span><br><span class="line"></span><br><span class="line"><span class="attr">此种方式，有一个弊端，</span> <span class="string">如果服务器重启后， 需要手动开启实时同步脚本</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#98;&#x61;&#99;&#107;&#117;&#112;&#95;&#x75;&#115;&#101;&#114;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#56;&#x38;&#46;&#x31;&#x30;&#x32;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/rsyncd.conf</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">uid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">gid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">use</span> <span class="string">chroot = no</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">873</span></span><br><span class="line"><span class="attr">max</span> <span class="string">connections = 200</span></span><br><span class="line"><span class="attr">pid</span> <span class="string">file = /var/run/rsyncd.pid</span></span><br><span class="line"><span class="attr">log</span> <span class="string">file = /var/log/rsyncd.log</span></span><br><span class="line"><span class="attr">transfer</span> <span class="string">logging = yes</span></span><br><span class="line"><span class="attr">ignore</span> <span class="string">nonreadable = yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">[node1_logs]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">/export/data/node1_exe_backup_log</span></span><br><span class="line">    <span class="attr">comment</span> = <span class="string">Backup Directory</span></span><br><span class="line">    <span class="attr">read</span> <span class="string">only = no</span></span><br><span class="line">    <span class="attr">secrets</span> <span class="string">file = /etc/rsyncd.passwd</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">allow = 192.168.88.0/24</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">deny = *</span></span><br><span class="line">    <span class="attr">auth</span> <span class="string">users = backup_user</span></span><br></pre></td></tr></table></figure>
+<p>echo “backup_user:123456” &gt; &#x2F;etc&#x2F;rsyncd.passwd</p>
+<p>设置密码文件的权限为600，确保该文件只有 RSYNC 服务可以读取<br>chmod 600 &#x2F;etc&#x2F;rsyncd.passwd<br>rsync –daemon</p>
+<h3 id="使用systemd创建本地服务"><a href="#使用systemd创建本地服务" class="headerlink" title="使用systemd创建本地服务"></a>使用systemd创建本地服务</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/systemd/system/rsync_inotify.service</span></span><br><span class="line"></span><br><span class="line"><span class="attr">内容如下：</span></span><br><span class="line"><span class="attr">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=<span class="string">Real-time Rsync Sync with Inotify</span></span><br><span class="line"><span class="attr">After</span>=<span class="string">network.target</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Service]</span></span><br><span class="line"><span class="attr">ExecStart</span>=<span class="string">/root/real_time_sync.sh</span></span><br><span class="line"><span class="attr">Restart</span>=<span class="string">always</span></span><br><span class="line"><span class="attr">User</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">Group</span>=<span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=<span class="string">multi-user.target</span></span><br></pre></td></tr></table></figure>
+<p>systemctl daemon-reload          #重新加载系统服务<br>systemctl start rsync_inotify    #开启服务<br>systemctl enable rsync_inotify   #设置服务为开机自启</p>
+]]></content>
+  </entry>
+  <entry>
     <title>03-挖到宝藏！这些FTP神技能，让你的文件管理飞起来！</title>
     <url>/2025/05/04/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/03-FTP%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>好的，兄弟们，今天给大家分享一下关于FTP的一些小技巧和安全设置，都是干货满满哦！💻✨</p>
@@ -1155,49 +1201,44 @@
 ]]></content>
   </entry>
   <entry>
-    <title>07-系统服务管理</title>
-    <url>/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/07-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>兄弟们，今天来聊聊 Linux 系统里那些让电脑“乖乖听话”的小秘密！🤫✨ 掌握了这些，你也能轻松安排电脑的日常工作啦！💻💖</p>
-<h3 id="让服务跑起来！systemctl-大法！🚀"><a href="#让服务跑起来！systemctl-大法！🚀" class="headerlink" title="让服务跑起来！systemctl 大法！🚀"></a>让服务跑起来！<code>systemctl</code> 大法！🚀</h3><p>在 Linux 这个神奇的世界里，各种功能都像一个个小小的“服务”在后台默默运行。比如你想远程连接你的电脑？那就需要 <code>sshd</code> 这个“小助手”一直在后台待命！怎么让它们启动、停止、重启，甚至查看状态呢？就靠我们强大的 <code>systemctl</code> 命令啦！💪</p>
-<p>就像遥控器一样，<code>systemctl</code> 可以控制这些“服务”的状态：</p>
-<ul>
-<li><strong>启动服务：</strong> <code>sudo systemctl start &lt;服务名&gt;</code>  比如启动我们的远程连接小助手：<code>sudo systemctl start sshd</code>  启动后你的电脑就能接受远程连接啦！🔗</li>
-<li><strong>停止服务：</strong> <code>sudo systemctl stop &lt;服务名&gt;</code>  暂时不需要某个服务了？就让它先休息一下：<code>sudo systemctl stop sshd</code></li>
-<li><strong>重启服务：</strong> <code>sudo systemctl restart &lt;服务名&gt;</code>  有时候服务出点小状况，重启一下就好啦！就像给 App “刷新”一下：<code>sudo systemctl restart sshd</code></li>
-<li><strong>查看服务状态：</strong> <code>sudo systemctl status &lt;服务名&gt;</code>  想知道某个服务现在正不正常工作？看看它的状态就知道啦！会显示运行状态、进程信息等等，超详细！🔍</li>
-</ul>
-<h3 id="定时任务？交给-crontab-准没错！⏰"><a href="#定时任务？交给-crontab-准没错！⏰" class="headerlink" title="定时任务？交给 crontab 准没错！⏰"></a>定时任务？交给 <code>crontab</code> 准没错！⏰</h3><p>有时候我们希望电脑在特定的时间自动帮我们做一些事情，比如每天凌晨备份数据、定时清理临时文件等等。这时候就要请出我们的“定时任务小管家”—— <code>crontab</code> 啦！🕰️</p>
-<p>你可以编辑一个叫做 “crontab” 的文件，告诉电脑在什么时间执行什么命令。</p>
-<p><strong>编辑你的定时任务列表：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+    <title>04-挂载和目录共享</title>
+    <url>/2025/05/05/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/04-%E6%8C%82%E8%BD%BD%E5%92%8C%E7%9B%AE%E5%BD%95%E5%85%B1%E4%BA%AB/</url>
+    <content><![CDATA[<h1 id="兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅"><a href="#兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅" class="headerlink" title="兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅"></a>兄弟们！Linux磁盘挂载和目录共享那些事儿，新手小白也能轻松拿捏！💅</h1><p>兄弟们有没有遇到过这种情况，想给咱们的Linux系统扩容一下，插了个新硬盘上去，结果… 咦？怎么没反应？🤔</p>
+<p>别慌！这可不像咱们Windows那样“即插即用”哦！Linux的磁盘挂载，可是要讲究步骤滴！今天就来给兄弟们好好唠唠嗑！</p>
+<h3 id="💡-告别盲操，先看看“家底”！"><a href="#💡-告别盲操，先看看“家底”！" class="headerlink" title="💡 告别盲操，先看看“家底”！"></a>💡 告别盲操，先看看“家底”！</h3><p>就像我们买衣服前要看看衣柜里有什么一样，操作磁盘前，先用这个命令看看咱们的“家底”：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
 
-<p>第一次运行可能会让你选择一个编辑器，一般选 <code>nano</code> 就很友好啦！😊</p>
-<p><strong><code>crontab</code> 的时间格式是这样的：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">分 时 日 月 周 命令</span><br></pre></td></tr></table></figure>
+<p>这个命令一敲，电脑里所有的磁盘信息都给你安排得明明白白！哪个是新来的“姐妹”，哪个是“老住户”，一眼就能认出来！👀<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505090627746.png"></p>
+<h3 id="🔪-给硬盘“安排房间”：磁盘分区实操！"><a href="#🔪-给硬盘“安排房间”：磁盘分区实操！" class="headerlink" title="🔪 给硬盘“安排房间”：磁盘分区实操！"></a>🔪 给硬盘“安排房间”：磁盘分区实操！</h3><p>好比咱们要给新买的衣服分门别类放好，新的硬盘也要给它“分区”！我之前在我的阿里云服务器上就这么干过，当时我这块40GB的“小可爱”，就被我安排了两个“房间”：</p>
+<ul>
+<li>“大房间”（1分区）：10GB，放些重要的文件~</li>
+<li>“超大房间”（2分区）：剩下的30GB，随便造作！😜</li>
+</ul>
+<p><strong>⚠️ 小Tips：</strong></p>
+<p>分区的时候，里面有个神奇的“小助手”会一直等着你的指令！你可以一直输入一些特定的“暗号”来操作，比如输入 <code>p</code> 就能看到你现在的“房间格局”啦！想退出就输入相应的退出命令就好！</p>
+<h3 id="💭-灵光一闪！这不就是…"><a href="#💭-灵光一闪！这不就是…" class="headerlink" title="💭 灵光一闪！这不就是…"></a>💭 灵光一闪！这不就是…</h3><p>哎呦喂！说到磁盘操作，我突然想到之前在慕课网学习“大前端”的时候，老师好像也提到过类似的概念！看来技术都是相通的嘛！😄</p>
+<h3 id="💣-“翻车”预警！挂载可能遇到的那些坑！"><a href="#💣-“翻车”预警！挂载可能遇到的那些坑！" class="headerlink" title="💣 “翻车”预警！挂载可能遇到的那些坑！"></a>💣 “翻车”预警！挂载可能遇到的那些坑！</h3><p>姐妹们注意啦！挂载的时候也可能会遇到一些“小插曲”哦！</p>
+<ul>
+<li><strong>“新硬盘还没装修好就想入住？”</strong> ➡️ 没格式化！记得先给分区“装修”（格式化）一下！<br><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505101851772.png"></li>
+<li><strong>“房间都没隔好就想放东西？”</strong> ➡️ 没分区！顺序别搞反啦，先分区再格式化！</li>
+<li><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505111122707.png"></li>
+<li><strong>“衣柜太小，衣服都塞不下！”</strong> ➡️ 磁盘分区太小了！提前规划好容量很重要哦！</li>
+<li><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250505102103409.png"></li>
+</ul>
+<h3 id="🤸‍♀️-“临时抱佛脚”：临时挂载和取消挂载！"><a href="#🤸‍♀️-“临时抱佛脚”：临时挂载和取消挂载！" class="headerlink" title="🤸‍♀️ “临时抱佛脚”：临时挂载和取消挂载！"></a>🤸‍♀️ “临时抱佛脚”：临时挂载和取消挂载！</h3><p>有时候我们只是临时用一下某个磁盘，可以用这两个命令“快速入住”和“退房”：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/nvme0n2p1 /disk2  <span class="comment"># 把这个“房间”临时安排到/disk2这个“文件夹”</span></span><br><span class="line">umount /dev/nvme0n2p1 <span class="comment"># “退房”啦！</span></span><br></pre></td></tr></table></figure>
 
-<p>每个字段的取值范围都贴心地告诉你啦：</p>
-<ul>
-<li><strong>分：</strong> 0-59</li>
-<li><strong>时：</strong> 0-23</li>
-<li><strong>日：</strong> 1-31</li>
-<li><strong>月：</strong> 1-12</li>
-<li><strong>周：</strong> 0-7 (0 和 7 都表示星期天哦！)</li>
-</ul>
-<p><strong>一些超实用的小技巧：</strong></p>
-<ul>
-<li><strong><code>*</code>：</strong> 表示这个字段的<strong>每一个值</strong>都符合。比如 <code>* * * * *</code> 就表示每分钟都执行后面的命令！😱</li>
-<li><strong><code>-</code>：</strong> 表示一个<strong>连续的范围</strong>。比如 <code>1-7</code> 就表示 1 到 7。</li>
-<li><strong><code>,</code>：</strong> 表示<strong>多个不连续的值</strong>。比如 <code>1,2,6</code> 就表示 1、2 和 6。</li>
-<li><strong><code>/</code>：</strong> 表示<strong>每隔多久执行一次</strong>。比如 <code>0/10</code> 在“分”的字段表示每隔 10 分钟执行一次（也就是 0, 10, 20, 30, 40, 50 分）。</li>
-</ul>
-<p><strong>举几个超简单的定时任务栗子🌰：</strong></p>
-<ul>
-<li><strong>每天凌晨 3 点备份我的重要文件：</strong> <code>0 3 * * * /bin/bash /path/to/backup_script.sh</code></li>
-<li><strong>每个工作日的下午 5 点发送一封邮件提醒自己下班：</strong> <code>0 17 * * 1-5 /usr/bin/mail -s &quot;下班啦！&quot; your_email@example.com &lt; /dev/null</code></li>
-<li><strong>每隔 30 分钟检查一下服务器状态：</strong> <code>*/30 * * * * /path/to/check_server_status.sh</code></li>
-</ul>
-<p>编辑完 <code>crontab</code> 文件记得保存哦！电脑就会乖乖地按照你的时间表去工作啦！是不是感觉自己像个小小的“时间魔法师”？🧙‍♀️✨</p>
-<p>好啦，今天关于 Linux 服务管理和定时任务的小技巧就分享到这里啦！学会了这些，你的 Linux 系统就能更加智能和自动化啦！下次再和兄弟们分享更多有趣的 Linux 知识！💖💻</p>
+<h3 id="✅-“安全第一”：校验挂载很重要！"><a href="#✅-“安全第一”：校验挂载很重要！" class="headerlink" title="✅ “安全第一”：校验挂载很重要！"></a>✅ “安全第一”：校验挂载很重要！</h3><p>这个命令一定要记住！就像我们出门前要检查门窗有没有关好一样重要！</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>⚠️ 敲黑板！</strong> 不校验的话，万一哪个“房间”没安排好，可能导致咱们的“小电脑”开不了机，直接卡住给你看！😱</p>
+<h3 id="🤝-“好东西要分享”：目录共享登场！"><a href="#🤝-“好东西要分享”：目录共享登场！" class="headerlink" title="🤝 “好东西要分享”：目录共享登场！"></a>🤝 “好东西要分享”：目录共享登场！</h3><p>说到这里，我又想到了Git和SVN的区别！它们在同步和共享文件方面，是不是也有点异曲同工之妙呢？🤔</p>
+<h3 id="🧱-重温基础，打好地基！"><a href="#🧱-重温基础，打好地基！" class="headerlink" title="🧱 重温基础，打好地基！"></a>🧱 重温基础，打好地基！</h3><p>在搞共享之前，先看看咱们的“防火墙”有没有开门迎接客人哦！</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<h3 id="📢-“共享快乐”：NFS和SAMBA了解一下！"><a href="#📢-“共享快乐”：NFS和SAMBA了解一下！" class="headerlink" title="📢 “共享快乐”：NFS和SAMBA了解一下！"></a>📢 “共享快乐”：NFS和SAMBA了解一下！</h3><p>想要在Linux系统之间共享文件，可以用NFS！想要和Windows的小伙伴共享，SAMBA就是你的好帮手！具体的操作咱们下次再详细唠嗑！😉</p>
+<hr>
+<p>希望这篇小红书风格的教程，能让姐妹们对Linux的磁盘挂载和目录共享有个更清晰的认识！下次再遇到类似的问题，就不用慌啦！💪</p>
 ]]></content>
   </entry>
 </search>

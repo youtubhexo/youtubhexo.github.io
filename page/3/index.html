@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,144 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.ioe/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/02-Linux%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/25/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/02-Linux%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">02-Linux文件及目录操作：我的 Linux 基础笔记 📂</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-25 20:27:10 / Modified: 20:52:46" itemprop="dateCreated datePublished" datetime="2025-04-25T20:27:10+08:00">2025-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Linux-目录结构：系统的骨架-🦴"><a href="#Linux-目录结构：系统的骨架-🦴" class="headerlink" title="Linux 目录结构：系统的骨架 🦴"></a>Linux 目录结构：系统的骨架 🦴</h2><p>在 Linux 系统中，目录的组织结构是理解文件操作的基础。以下是一些重要的目录及其作用：</p>
+<ul>
+<li><code>/usr</code>：<font color="#008080">系统软件默认安装位置</font>，通常包含用户安装的应用程序和库文件。（思考：为什么不直接安装在根目录下？）</li>
+<li><code>/opt</code>：<font color="#008080">可选软件包目录</font>，通常用于安装第三方或大型商业软件。（思考：将第三方软件放在这里有什么好处？）</li>
+<li><code>/etc</code>：<font color="#008080">系统配置文件目录</font>，几乎所有系统服务和应用程序的配置都在这里。（重要！修改配置文件需要谨慎。）</li>
+<li><code>/dev</code>：<font color="#008080">设备文件目录</font>，Linux 将所有硬件设备都抽象为文件。（思考：如何通过操作这些文件与硬件交互？）</li>
+<li><code>/tmp</code>：<font color="#008080">临时文件存储目录</font>，系统重启后该目录下的文件通常会被清空。（注意：不要在这里存放重要数据。）</li>
+<li><code>/home</code>：<font color="#008080">普通用户的家目录</font>，每个用户都有自己的独立空间。（我的个人文件通常在这里。）</li>
+<li><code>/root</code>：<font color="#008080">超级管理员（root）的家目录</font>，拥有系统的最高权限。（谨慎使用 root 权限！）</li>
+</ul>
+<h2 id="Linux-目录相关命令：我的导航工具-🧭"><a href="#Linux-目录相关命令：我的导航工具-🧭" class="headerlink" title="Linux 目录相关命令：我的导航工具 🧭"></a>Linux 目录相关命令：我的导航工具 🧭</h2><p>学习这些命令，就像学会了在 Linux 世界中导航：</p>
+<ul>
+<li><code>pwd</code>：<font color="#0000FF">显示当前工作目录</font>（Print Working Directory）。（我当前在哪儿？）</li>
+<li><code>ls</code>：<font color="#0000FF">列出目录内容</font>（List）。<ul>
+<li><code>ls -a</code>：<font color="#0000FF">显示所有目录和文件</font>，包括以 <code>.</code> 开头的隐藏文件。（隐藏文件有什么用？）</li>
+<li><code>ls -l</code>：<font color="#0000FF">以长列表格式显示</font>，包含详细的文件权限、所有者、大小和修改时间等信息。（这些信息的含义是什么？）</li>
+<li><code>ls -h</code>：<font color="#0000FF">以人类可读的格式显示文件大小</font>（Human-readable）。（比如 KB、MB、GB，更直观。）</li>
+</ul>
+</li>
+<li><code>mkdir &lt;目录名&gt;</code>：<font color="#0000FF">创建新目录</font>（Make Directory）。</li>
+<li><code>rmdir &lt;空目录名&gt;</code>：<font color="#0000FF">删除空目录</font>（Remove Directory）。（只能删除空目录，不常用。）</li>
+<li><code>cd &lt;目标目录&gt;</code>：<font color="#0000FF">切换工作目录</font>（Change Directory）。<ul>
+<li><code>cd ..</code>：返回上一级目录。</li>
+<li><code>cd ~</code> 或 <code>cd</code>：返回当前用户的家目录。</li>
+</ul>
+</li>
+<li><code>tree &lt;目录名&gt;</code>：<font color="#0000FF">以树状结构显示目录内容</font>。（清晰地展示目录层级关系，很直观。）</li>
+</ul>
+<h2 id="Linux-文件相关命令：我的操作利器-🔪"><a href="#Linux-文件相关命令：我的操作利器-🔪" class="headerlink" title="Linux 文件相关命令：我的操作利器 🔪"></a>Linux 文件相关命令：我的操作利器 🔪</h2><p>这些命令用于对文件进行各种操作：</p>
+<ul>
+<li><p><strong>创建文件</strong>：</p>
+<ul>
+<li><code>touch &lt;文件名&gt;</code>：<font color="#A0522D">创建一个空文件或更新文件的时间戳</font>。（很常用的创建空文件的方法。）</li>
+</ul>
+</li>
+<li><p><strong>复制文件</strong>：</p>
+<ul>
+<li><code>cp -r &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">复制文件或目录</font>（Copy，<code>-r</code> 用于复制目录，表示递归复制）。（复制目录时一定要加 <code>-r</code>！）</li>
+</ul>
+</li>
+<li><p><strong>移动文件</strong>：</p>
+<ul>
+<li><code>mv &lt;源文件/目录&gt; &lt;目标路径&gt;</code>：<font color="#A0522D">移动文件或目录，也可以用于重命名</font>（Move）。（如果目标路径是已存在的目录，则移动到该目录下；如果是新的文件名，则重命名。）</li>
+</ul>
+</li>
+<li><p><strong>文件上传与下载</strong>：（思考：有哪些常用的文件上传和下载工具？例如 <code>scp</code>、<code>sftp</code>、<code>rz/sz</code> 等。）</p>
+</li>
+<li><p><strong>删除文件</strong>：</p>
+<ul>
+<li><code>rm -r &lt;文件/目录&gt;</code>：<font color="#A0522D">删除文件或目录</font>（Remove，<code>-r</code> 用于删除目录，请谨慎使用！）。（删除操作不可逆，一定要小心！）</li>
+</ul>
+</li>
+<li><p><strong>文本查找命令：在浩瀚的文件中寻找目标 🔍</strong></p>
+<ul>
+<li><p><code>find &lt;查找路径&gt; &lt;查找条件&gt;</code>：<font color="#228B22">强大的文件查找工具</font>。</p>
+<ul>
+<li><code>-name &lt;文件名&gt;</code>：<font color="#228B22">按文件名进行搜索</font>（支持通配符 <code>*</code>）。</li>
+<li><code>-type f</code>：<font color="#228B22">查找文件类型为普通文件</font>（<code>d</code> 表示目录，<code>l</code> 表示链接等）。</li>
+<li><code>-size &lt;+/-&gt;&lt;大小&gt;</code>：<font color="#228B22">按文件大小搜索</font>，<code>+</code> 大于，<code>-</code> 小于。（例如 <code>+100M</code> 表示大于 100MB。）</li>
+<li><code>-mtime &lt;+/-&gt;&lt;天数&gt;</code>：<font color="#228B22">按文件修改时间搜索</font>，<code>+n</code> 表示 n 天以前修改过，<code>-n</code> 表示 n 天以内修改过。</li>
+<li><code>-exec &lt;命令&gt; &#123;&#125; \;</code>：<font color="#228B22">对查找到的文件执行指定的命令</font>，<code>&#123;&#125;</code> 代表查找到的每个文件，<code>\;</code> 是命令结束符。（非常灵活的操作！）</li>
+</ul>
+</li>
+<li><p><strong>举例：</strong> <code>find /usr/lib -size +100M -type f -exec cp &#123;&#125; /archive/large_files \;</code></p>
+<p>  这条命令的含义是：在 <code>/usr/lib</code> 目录下查找所有大于 100MB 的普通文件 (<code>-type f -size +100M</code>)，并将找到的每个文件 (<code>&#123;&#125;</code>) 复制 (<code>cp</code>) 到 <code>/archive/large_files</code> 目录下，直到遇到 <code>\;</code> 结束。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
