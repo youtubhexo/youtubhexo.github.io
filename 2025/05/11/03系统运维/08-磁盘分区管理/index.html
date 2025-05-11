@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"youtubhexo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="磁盘类型机械硬盘 (服务器使用,便宜,容量又大)SSD ps: 磁盘接口类型(扩展…) 文件系统类型    Ext4 XFS 等等 磁盘分区操作fdisk：用于管理 MBR 分区表的工具。  MBR传统分区表gdisk：用于管理 GPT 分区表的工具。  GPT现代分区表parted 相比于 gdisk (专门用于 GPT 磁盘) 和 fdisk (主要用于 MBR 磁盘)，parted 更加通用">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="08-磁盘分区管理">
+<meta property="og:url" content="https://youtubhexo.github.io/2025/05/11/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/08-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="心灵星图笔记">
+<meta property="og:description" content="磁盘类型机械硬盘 (服务器使用,便宜,容量又大)SSD ps: 磁盘接口类型(扩展…) 文件系统类型    Ext4 XFS 等等 磁盘分区操作fdisk：用于管理 MBR 分区表的工具。  MBR传统分区表gdisk：用于管理 GPT 分区表的工具。  GPT现代分区表parted 相比于 gdisk (专门用于 GPT 磁盘) 和 fdisk (主要用于 MBR 磁盘)，parted 更加通用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250511161605118.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250511162126302.png">
+<meta property="article:published_time" content="2025-05-11T06:20:45.000Z">
+<meta property="article:modified_time" content="2025-05-11T13:41:37.658Z">
+<meta property="article:author" content="心灵星图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250511161605118.png">
+
+
+<link rel="canonical" href="https://youtubhexo.github.io/2025/05/11/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/08-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://youtubhexo.github.io/2025/05/11/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/08-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86/","path":"2025/05/11/03系统运维/08-磁盘分区管理/","title":"08-磁盘分区管理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>08-磁盘分区管理 | 心灵星图笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心灵星图笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">磁盘类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">磁盘分区操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%88%86%E5%8C%BA"><span class="nav-number">2.1.</span> <span class="nav-text">创建一个分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">LVM逻辑卷管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAID-%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">RAID 磁盘阵列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RAID%E5%AE%9E%E6%88%98-%E5%9F%BA%E4%BA%8E%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">RAID实战[基于软件]</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.io/2025/05/11/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/08-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="08-磁盘分区管理 | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          08-磁盘分区管理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-05-11 14:20:45 / Modified: 21:41:37" itemprop="dateCreated datePublished" datetime="2025-05-11T14:20:45+08:00">2025-05-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="磁盘类型"><a href="#磁盘类型" class="headerlink" title="磁盘类型"></a>磁盘类型</h3><p>机械硬盘 (服务器使用,便宜,容量又大)<br>SSD</p>
+<p>ps: 磁盘接口类型(扩展…)</p>
+<p>文件系统类型    Ext4 XFS 等等</p>
+<h3 id="磁盘分区操作"><a href="#磁盘分区操作" class="headerlink" title="磁盘分区操作"></a>磁盘分区操作</h3><p>fdisk：用于管理 MBR 分区表的工具。  MBR传统分区表<br>gdisk：用于管理 GPT 分区表的工具。  GPT现代分区表<br>parted 相比于 gdisk (专门用于 GPT 磁盘) 和 fdisk (主要用于 MBR 磁盘)，parted 更加通用，可以处理多种分区表类型。它也提供了一个交互式界面和命令行模式，方便用户进行分区操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用以下命令查看系统中可用磁盘：</span><br><span class="line">lsblk</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    parted 设备名称</span><br><span class="line">示例：</span><br><span class="line">parted /dev/nvme0n2</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建一个分区"><a href="#创建一个分区" class="headerlink" title="创建一个分区"></a>创建一个分区</h4><p>mkpart primary xfs 1MiB 100%<br>print</p>
+<h3 id="LVM逻辑卷管理"><a href="#LVM逻辑卷管理" class="headerlink" title="LVM逻辑卷管理"></a>LVM逻辑卷管理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#把每块硬盘变成物理卷   pv</span><br><span class="line">[root@node3 ~]# pvcreate /dev/nvme0n2  /dev/nvme0n3 /dev/nvme0n4</span><br><span class="line">  Physical volume &quot;/dev/nvme0n2&quot; successfully created.</span><br><span class="line">  Physical volume &quot;/dev/nvme0n3&quot; successfully created.</span><br><span class="line">  Physical volume &quot;/dev/nvme0n4&quot; successfully created.</span><br><span class="line">  root@node3 ~]# pv</span><br><span class="line">pvchange   pvck       pvcreate   pvdisplay  pvmove     pvremove   pvresize   pvs        pvscan</span><br><span class="line">[root@node3 ~]# pvdisplay</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 创建卷组  VG</span><br><span class="line">vgcreate vg_zhangwangyan /dev/nvme0n2  /dev/nvme0n3 /dev/nvme0n4</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#创建逻辑卷  LV</span><br><span class="line">lvcreate -L 50G -n lv_zhanwangyan vg_zhangwangyan</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#格式化</span><br><span class="line">mkfs.xfs /dev/vg_zhangwangyan/lv_zhanwangyan</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250511161605118.png" alt="image-20250511161605118"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#挂载</span><br><span class="line">mount /dev/vg_zhangwangyan/lv_zhanwangyan /mnt/data</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/youtubhexo/picgo-image/master/image-20250511162126302.png" alt="image-20250511162126302"></p>
+<h3 id="RAID-磁盘阵列"><a href="#RAID-磁盘阵列" class="headerlink" title="RAID 磁盘阵列"></a>RAID 磁盘阵列</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RAID 是一种将多个物理磁盘合并为一个逻辑磁盘的方法。它通过不同的配置来提高磁盘的性能、容错性、冗余等。RAID 的主要目标是提升系统性能和数据的可靠性。</span><br><span class="line">目标是为了存储安全和读写效率.</span><br></pre></td></tr></table></figure>
+
+<p><strong>硬件 RAID</strong>：由专用的 RAID 控制卡处理，性能和管理通常较好，但成本较高。硬件 RAID 会在硬件层面上处理数据的冗余和校验。</p>
+<p><strong>软件 RAID</strong>：由操作系统控制，无需额外硬件。通常性能稍差，但成本低，配置和管理较为灵活，适合大多数应用场景。</p>
+<p>优先级:</p>
+<table>
+<thead>
+<tr>
+<th>RAID 级别</th>
+<th><strong>性能</strong></th>
+<th><strong>冗余性</strong></th>
+<th><strong>存储空间利用率</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>优缺点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>RAID 0</strong></td>
+<td>提升读写性能，数据分布到多个磁盘并行处理</td>
+<td>无冗余，单个磁盘故障导致数据丢失</td>
+<td>100%</td>
+<td>临时数据存储、高性能应用</td>
+<td><strong>优点</strong>：性能高，存储空间利用率高；<strong>缺点</strong>：无冗余，硬盘故障会导致数据丢失</td>
+</tr>
+<tr>
+<td><strong>RAID 1</strong></td>
+<td>读取性能提升，但写入性能无显著变化</td>
+<td>数据完全镜像，单个磁盘故障数据不丢失</td>
+<td>50%</td>
+<td>需要高冗余的应用，如数据库服务器</td>
+<td><strong>优点</strong>：高冗余性，数据安全；<strong>缺点</strong>：存储空间利用率低</td>
+</tr>
+<tr>
+<td><strong>RAID 5</strong></td>
+<td>性能良好，读取性能高，写入性能较低（因奇偶校验）</td>
+<td>提供冗余，通过奇偶校验信息恢复数据，单个磁盘故障不会丢失数据</td>
+<td>（N-1）&#x2F;N</td>
+<td>需要平衡性能、冗余和存储空间的应用，如文件服务器</td>
+<td><strong>优点</strong>：冗余性好，性能较高，存储空间利用较好；<strong>缺点</strong>：写入性能稍低，奇偶校验计算开销</td>
+</tr>
+<tr>
+<td><strong>RAID 10</strong></td>
+<td>性能提升，结合了 RAID 1 的冗余和 RAID 0 的性能</td>
+<td>提供冗余，至少两个磁盘故障（不同组）不会丢失数据</td>
+<td>50%</td>
+<td>高性能、高冗余要求的场景，如数据库和高可用服务器</td>
+<td><strong>优点</strong>：高性能，高冗余性，故障容忍度高；<strong>缺点</strong>：存储空间利用率低，至少需要 4 个磁盘</td>
+</tr>
+</tbody></table>
+<h4 id="RAID实战-基于软件"><a href="#RAID实战-基于软件" class="headerlink" title="RAID实战[基于软件]"></a>RAID实战[基于软件]</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1.安装mdadm软件</span><br><span class="line">	dnf -y install mdadm</span><br><span class="line"></span><br><span class="line">2.创建磁盘阵列设备名字叫 md0</span><br><span class="line">mdadm --create /dev/md0 <span class="attr">--level</span>=<span class="number">1</span> --raid-devices=<span class="number">2</span> /dev/nvme0n3 /dev/nvme0n4</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    mdadm 是用于管理 Linux 软件 RAID 阵列的命令行工具。它用于创建、管理和监视 RAID 阵列。</span><br><span class="line">    --create 参数告诉 mdadm 创建一个新的 RAID 阵列。</span><br><span class="line">    /dev/md0 是创建的 RAID 阵列的设备文件名。在 Linux 中，RAID 阵列被识别为 /dev/mdX（其中 X 是 RAID 阵列的编号）。在这个例子中，md0 表示第一个 RAID 阵列。</span><br><span class="line">    <span class="attr">--level</span>=<span class="number">1</span> 指定 RAID 的级别为 RAID <span class="number">1</span>，即镜像。RAID <span class="number">1</span> 会将数据同时写入到两个硬盘上，实现数据冗余（即两个磁盘上的数据完全相同）。如果一个磁盘发生故障，另一个磁盘的数据依然可用。</span><br><span class="line">    <span class="attr">--raid-devices</span>=<span class="number">2</span> 表示 RAID 阵列中包含两个磁盘。RAID <span class="number">1</span> 需要至少两个磁盘，因此这里指定了两个磁盘 /dev/sdb 和 /dev/sdc。</span><br><span class="line">    /dev/nvme0n3 /dev/nvme0n4 这两个是要加入 RAI1 阵列的物理磁盘设备文件。在这个例子中，/dev/sdb 和 /dev/sdc 是两个物理硬盘，你希望它们一起组成 RAID 1 阵列。</span><br><span class="line">    </span><br><span class="line">3.永久配置磁盘阵列</span><br><span class="line">    mdadm --detail --scan --verbose &gt;&gt; /etc/mdadm.conf</span><br><span class="line">    dracut --force</span><br><span class="line">	<span class="comment">#dracut --force： 一个用于重新生成 initramfs（初始内存文件系统）的命令。initramfs 是一个临时的根文件系统，用于在 Linux 内核启动时加载必要的驱动程序和工具，以便挂载真正的根文件系统。</span></span><br><span class="line">4.格式化磁盘</span><br><span class="line">	mkfs.xfs  /dev/md0</span><br><span class="line">5. 挂载磁盘:</span><br><span class="line">	mkdir -p /mnt/mydata</span><br><span class="line">	mount /dev/md0 /mnt/mydata</span><br></pre></td></tr></table></figure>
+
+<p>扩展操作</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">扩展， 如果需要清除阵列</span><br><span class="line">1. 停止 RAID 阵列</span><br><span class="line">首先，你需要停止 RAID 阵列。在删除阵列之前，确保其已经停止运行。</span><br><span class="line">mdadm --stop /dev/md0</span><br><span class="line">这会停止名为 /dev/md0 的 RAID 阵列。如果使用的是其他设备名称（例如 /dev/md1），请相应地更改命令中的设备名称。</span><br><span class="line"></span><br><span class="line">2. 删除 RAID 阵列</span><br><span class="line">接下来，可以删除 RAID 阵列。使用以下命令来删除它：</span><br><span class="line">mdadm --remove /dev/md0</span><br><span class="line">这会从系统中删除 /dev/md0 阵列。如果使用的是其他设备名称，请更改命令中的设备名称。</span><br><span class="line"></span><br><span class="line">3. 清除 RAID 配置文件</span><br><span class="line">如果你曾将 RAID 配置信息写入了 /etc/mdadm.conf 文件，可以手动清除其中相关的条目。如果文件存在，删除包含 RAID 阵列信息的行或直接删除该文件。</span><br><span class="line">rm /etc/mdadm.conf</span><br><span class="line"></span><br><span class="line">4. 清除磁盘上的 RAID 元数据</span><br><span class="line">RAID 阵列中的磁盘通常会保存元数据来标识它们属于 RAID 阵列。如果你打算重新使用这些磁盘或将其从 RAID 阵列中删除，可以清除这些元数据。你可以使用 mdadm 的 --zero-superblock 命令来清除元数据。</span><br><span class="line">例如，清除 /dev/nvme0n3 和 /dev/nvme0n4 上的 RAID 元数据：</span><br><span class="line">mdadm --zero-superblock /dev/nvme0n3</span><br><span class="line">mdadm --zero-superblock /dev/nvme0n4</span><br><span class="line">这将清除磁盘上的 RAID 配置信息，确保它们不再被认为是 RAID 阵列的一部分。</span><br><span class="line"></span><br><span class="line">5. 更新 initramfs</span><br><span class="line">如果你修改了 RAID 配置，尤其是清除了阵列，建议更新 initramfs 以确保系统启动时没有 RAID 配置遗留的问题。可以使用 dracut 命令来更新 initramfs：</span><br><span class="line">dracut --force</span><br><span class="line"></span><br><span class="line">6. 检查阵列状态</span><br><span class="line">使用以下命令确认 RAID 阵列已成功删除：</span><br><span class="line">mdadm --detail --scan</span><br><span class="line">此命令不应显示已删除的 RAID 阵列。</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>心灵星图
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://youtubhexo.github.io/2025/05/11/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/08-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86/" title="08-磁盘分区管理">https://youtubhexo.github.io/2025/05/11/03系统运维/08-磁盘分区管理/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/05/10/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/07-RSYSLOG%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/" rel="prev" title="07-RSYSLOG系统日志">
+                  <i class="fa fa-angle-left"></i> 07-RSYSLOG系统日志
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
