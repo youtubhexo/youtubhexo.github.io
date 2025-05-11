@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,105 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.io/2025/05/10/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/07-RSYSLOG%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/10/03%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/07-RSYSLOG%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">07-RSYSLOG系统日志</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-05-10 08:24:24" itemprop="dateCreated datePublished" datetime="2025-05-10T08:24:24+08:00">2025-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-05-11 10:41:05" itemprop="dateModified" datetime="2025-05-11T10:41:05+08:00">2025-05-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="高级用法-写日志"><a href="#高级用法-写日志" class="headerlink" title="高级用法-写日志"></a>高级用法-写日志</h3><p><code>logger [OPTION] MESSAGE</code><br>-p ：指定日志的优先级(priority)（日志级别）。<br>    例如：-p local0.debug 表示将日志记录为 local0 设施，debug 严重性级别。</p>
+<h3 id="RSYSLOG系统日志服务优点"><a href="#RSYSLOG系统日志服务优点" class="headerlink" title="RSYSLOG系统日志服务优点"></a>RSYSLOG系统日志服务优点</h3><p>  支持 TCP 协议，可以保证日志数据的可靠传输，特别适合重要信息的记录和远程日志传输。<br>  持加密传输（如 TLS），即使在公共网络上传输日志，也能防止数据被窃听或篡改<br>  内置了日志分析和过滤的功能，能够对日志信息进行实时处理。很<img src="/000AAE9E.png" alt="alt text"><img src="/000ADABF.png" alt="alt text"><br>  支持后台数据库</p>
+<ul>
+<li>配置文件中可以有分支结构</li>
+</ul>
+<h3 id="常见的日志文件"><a href="#常见的日志文件" class="headerlink" title="常见的日志文件"></a>常见的日志文件</h3><table>
+<thead>
+<tr>
+<th>&#x2F;var&#x2F;log&#x2F;messagesyslog</th>
+<th>记录系统重要信息的日志。这个日志文件中会记录 Linux 系统的绝大多数重要信息，如果系统出现问题时，首先要检查的就应该是这个日志文件。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;var&#x2F;log&#x2F;secure auth.log</td>
+<td>记录验证和授权方面的信息，只要涉及账户和密码的程序都会记录。比如说<strong>系统的登录</strong>，ssh 的登录，su 切换用户，sudo 授权，甚至添加用户和修改用户密码都会记录在这个日志文件中。</td>
+</tr>
+</tbody></table>
+<h3 id="rsyslogd使用"><a href="#rsyslogd使用" class="headerlink" title="rsyslogd使用"></a>rsyslogd使用</h3><p> 分析&#x2F;etc&#x2F;rsyslog.conf<br> 大概有4个模块</p>
+<h4 id="接收远程日志-Syslog-Reception-模块-默认没开"><a href="#接收远程日志-Syslog-Reception-模块-默认没开" class="headerlink" title="接收远程日志 (Syslog Reception)模块 [默认没开]"></a>接收远程日志 (Syslog Reception)模块 [默认没开]</h4><p>rsyslog</p>
+<h4 id="规则模块"><a href="#规则模块" class="headerlink" title="规则模块"></a>规则模块</h4><ol start="3">
+<li>日志规则 (RULES)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 日志规则部分定义了不同日志级别和类别的日志存储位置。</span><br><span class="line"></span><br><span class="line"># 内核日志到控制台</span><br><span class="line"># 作用: 将所有内核消息（`kern.*`）输出到控制台。由于太多信息会使屏幕杂乱，因此通常会注释掉。</span><br><span class="line">#kern.* /dev/console</span><br><span class="line"></span><br><span class="line"># 系统日志存储</span><br><span class="line"># 所有普通日志（排除邮件、登录、定时任务）存这里</span><br><span class="line">*.info;mail.none;authpriv.none;cron.none /var/log/messages</span><br><span class="line"></span><br><span class="line"># 安全日志</span><br><span class="line"># 登录、权限相关的日志（如SSH登录失败）存这里，权限严格。</span><br><span class="line">authpriv.* /var/log/secure</span><br><span class="line"></span><br><span class="line"># 邮件日志</span><br><span class="line"># 邮件日志，用“异步写入”（先放内存，攒一波再写硬盘，避免卡住）。</span><br><span class="line">mail.* -/var/log/maillog</span><br><span class="line"></span><br><span class="line"># cron 日志</span><br><span class="line"># 定时任务（cron）的日志，比如任务何时执行。</span><br><span class="line">cron.* /var/log/cron</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart rsyslog</span><br><span class="line"></span><br><span class="line">systemctl status  rsyslog</span><br><span class="line"></span><br><span class="line">打开TCP接收模块</span><br><span class="line">firewall-cmd --add-port 514/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志轮询工具-logrotate-工具"><a href="#日志轮询工具-logrotate-工具" class="headerlink" title="日志轮询工具 logrotate 工具"></a>日志轮询工具 logrotate 工具</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">  1- 要求每日进行日志轮替     daily</span><br><span class="line">        2- 保留7个日志备份文件  rotate 7</span><br><span class="line">        3- 压缩旧日志文件  compress</span><br><span class="line">        4- 不能停止tomcat， 完成日志轮替操作 copytruncate</span><br><span class="line">        5- 如果日志不存在，忽略错误  missingok</span><br><span class="line">        6- 如果日志文件为空，则不轮替 notifempty</span><br><span class="line">		</span><br><span class="line">vi  tomcat</span><br><span class="line"></span><br><span class="line">[root@node1 opt]# ls</span><br><span class="line">apache-tomcat-9.0.97</span><br><span class="line"></span><br><span class="line">cd /opt</span><br><span class="line">cd /opt/apache-tomcat-9.0.97/bin</span><br><span class="line">./start.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd /etc/logrotate.d/</span><br><span class="line"></span><br><span class="line">vi  tomcat</span><br><span class="line"></span><br><span class="line">输入 i 插入以下内容：</span><br><span class="line">/opt/apache-tomcat-9.0.97/logs/catalina.out &#123;</span><br><span class="line">        daily</span><br><span class="line">        rotate 7</span><br><span class="line">        compress</span><br><span class="line">        copytruncate</span><br><span class="line">        missingok</span><br><span class="line">        notifempty</span><br><span class="line">        sharedscripts</span><br><span class="line">        prerotate</span><br><span class="line">                chattr -a  /opt/apache-tomcat-9.0.97/logs/catalina.out</span><br><span class="line">        endscript</span><br><span class="line">&#125;</span><br><span class="line">~</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">systemctl restart logrotate</span><br><span class="line">systemctl status logrotate</span><br><span class="line"></span><br><span class="line">logrotate -vf  /etc/logrotate.conf  测试9次</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -685,7 +784,7 @@
 </ul>
 <h3 id="编写监控脚本-采用ssh"><a href="#编写监控脚本-采用ssh" class="headerlink" title="编写监控脚本-采用ssh"></a>编写监控脚本-采用ssh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vi /root/real_time_sync.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># 定义源目录和目标目录（目标目录是远程服务器的目录）</span><br><span class="line">SOURCE_DIR=&quot;/export/data/logs&quot;</span><br><span class="line">TARGET_DIR=&quot;root@192.168.88.102:/export/data/node1_exe_backup_log&quot;  # 替换为目标服务器的用户名和目录</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/rsync_realtime_sync.log&quot;</span><br><span class="line"> </span><br><span class="line"># 使用inotifywait监听$&#123;WATCH_DIR&#125;目录中的文件变化</span><br><span class="line">inotifywait -m -r -e modify,create,delete,move &quot;$&#123;SOURCE_DIR&#125;&quot; | while read path action file; do</span><br><span class="line">    echo &quot;Detected $&#123;action&#125; on $&#123;file&#125; in $&#123;path&#125;. Starting rsync...&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">    # 执行rsync同步操作</span><br><span class="line">    rsync -avz --delete -e ssh &quot;$&#123;SOURCE_DIR&#125;/&quot; &quot;$&#123;TARGET_DIR&#125;&quot;  &gt;&gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1</span><br><span class="line">    echo &quot;Sync completed for $&#123;file&#125; in $&#123;path&#125;.&quot; &gt;&gt; &quot;$LOG_FILE&quot;</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="测试是否可以同步"><a href="#测试是否可以同步" class="headerlink" title="测试是否可以同步"></a>测试是否可以同步</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/root</span></span><br><span class="line"><span class="attr">./real_time_sync.sh</span></span><br><span class="line"></span><br><span class="line"><span class="attr">启动后，</span> <span class="string">开启一个新窗口， 尝试向node1的/export/data/logs路径放入文件， 观察node2是否能够立即同步过来</span></span><br><span class="line"></span><br><span class="line"><span class="attr">测试成功后，</span> <span class="string">可以采用   nohup ./real_time_sync.sh &amp; 挂载在后台使用</span></span><br><span class="line"></span><br><span class="line"><span class="attr">此种方式，有一个弊端，</span> <span class="string">如果服务器重启后， 需要手动开启实时同步脚本</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#x62;&#x61;&#x63;&#x6b;&#x75;&#112;&#95;&#117;&#x73;&#x65;&#x72;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#x2e;&#x38;&#x38;&#46;&#49;&#48;&#x32;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
+<h3 id="编写监控脚本-采用rsync协议"><a href="#编写监控脚本-采用rsync协议" class="headerlink" title="编写监控脚本-采用rsync协议"></a>编写监控脚本-采用rsync协议</h3><p>rsync rsync:&#x2F;&#x2F;<a href="mailto:&#x62;&#x61;&#x63;&#107;&#117;&#112;&#95;&#x75;&#115;&#x65;&#x72;&#x40;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#56;&#46;&#56;&#x38;&#46;&#49;&#48;&#x32;">backup_user@192.168.88.102</a>&#x2F;node1_logs</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vi</span> <span class="string">/etc/rsyncd.conf</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">uid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">gid</span> = <span class="string">rsync</span></span><br><span class="line"><span class="attr">use</span> <span class="string">chroot = no</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">873</span></span><br><span class="line"><span class="attr">max</span> <span class="string">connections = 200</span></span><br><span class="line"><span class="attr">pid</span> <span class="string">file = /var/run/rsyncd.pid</span></span><br><span class="line"><span class="attr">log</span> <span class="string">file = /var/log/rsyncd.log</span></span><br><span class="line"><span class="attr">transfer</span> <span class="string">logging = yes</span></span><br><span class="line"><span class="attr">ignore</span> <span class="string">nonreadable = yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">[node1_logs]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">/export/data/node1_exe_backup_log</span></span><br><span class="line">    <span class="attr">comment</span> = <span class="string">Backup Directory</span></span><br><span class="line">    <span class="attr">read</span> <span class="string">only = no</span></span><br><span class="line">    <span class="attr">secrets</span> <span class="string">file = /etc/rsyncd.passwd</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">allow = 192.168.88.0/24</span></span><br><span class="line">    <span class="attr">hosts</span> <span class="string">deny = *</span></span><br><span class="line">    <span class="attr">auth</span> <span class="string">users = backup_user</span></span><br></pre></td></tr></table></figure>
 <p>echo “backup_user:123456” &gt; &#x2F;etc&#x2F;rsyncd.passwd</p>
 <p>设置密码文件的权限为600，确保该文件只有 RSYNC 服务可以读取<br>chmod 600 &#x2F;etc&#x2F;rsyncd.passwd<br>rsync –daemon</p>
@@ -1111,137 +1210,6 @@
 </ul>
 <p>掌握了文件操作和JSON处理，你就可以轻松地读写各种文件，处理结构化的数据啦！是不是感觉又解锁了一个新技能呢？快去试试看吧！有问题随时call我哦！😉</p>
 <p>#Python学习 #文件操作 #JSON #数据处理 #编程技巧 #新手入门 #干货分享 #Day08 #一起学Python</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.io/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/" class="post-title-link" itemprop="url">07-正则</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 17:49:06 / Modified: 17:55:29" itemprop="dateCreated datePublished" datetime="2025-04-26T17:49:06+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>好的，这篇关于Python正则表达式的文章这就为您奉上！</p>
-<h2 id="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"><a href="#Python正则表达式入门指南：从小白到入门只需这一篇！🚀" class="headerlink" title="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"></a>Python正则表达式入门指南：从小白到入门只需这一篇！🚀</h2><p>哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！</p>
-<p><strong># 什么是正则表达式？🤔</strong></p>
-<p>简单来说，正则表达式（Regular Expression，常简写为 regex、regexp 或 RE）是一种用于匹配文本模式的特殊序列的字符。你可以把它想象成一种高级的搜索功能，不仅能找到固定的词语，还能根据你定义的“规则”找到符合特定模式的文本。</p>
-<p><strong># Python中的 <code>re</code> 模块</strong></p>
-<p>要在Python中使用正则表达式，我们需要导入内置的 <code>re</code> 模块。就像你需要一把锤子才能钉钉子一样！🔨</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
-
-<p><strong># 核心概念：匹配模式与特殊字符</strong></p>
-<p>正则表达式的强大之处在于其灵活的匹配模式。我们可以使用一些特殊字符来定义这些模式：</p>
-<ul>
-<li><strong>普通字符</strong>：大多数字母、数字、下划线等可以直接匹配自身。比如，正则表达式 <code>&quot;hello&quot;</code> 就能匹配文本中的 <code>&quot;hello&quot;</code>。</li>
-<li><strong><code>.</code> (点号)</strong>：匹配任意单个字符（除了换行符 <code>\n</code>）。</li>
-<li><strong><code>^</code> (脱字符)</strong>：匹配字符串的开头。例如，<code>^hello</code> 只会匹配以 <code>&quot;hello&quot;</code> 开头的字符串。</li>
-<li><strong><code>$</code> (美元符)</strong>：匹配字符串的结尾。例如，<code>hello$</code> 只会匹配以 <code>&quot;hello&quot;</code> 结尾的字符串。</li>
-<li><strong><code>*</code> (星号)</strong>：匹配前一个字符零次或多次。例如，<code>ab*c</code> 可以匹配 <code>&quot;ac&quot;</code>、<code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code> 等。</li>
-<li><strong><code>+</code> (加号)</strong>：匹配前一个字符一次或多次。例如，<code>ab+c</code> 可以匹配 <code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code>，但不能匹配 <code>&quot;ac&quot;</code>。</li>
-<li><strong><code>?</code> (问号)</strong>：匹配前一个字符零次或一次。例如，<code>ab?c</code> 可以匹配 <code>&quot;ac&quot;</code> 或 <code>&quot;abc&quot;</code>。</li>
-<li><strong><code>&#123;m&#125;</code></strong>：匹配前一个字符恰好 <code>m</code> 次。例如，<code>a&#123;3&#125;</code> 只匹配 <code>&quot;aaa&quot;</code>。</li>
-<li><strong><code>&#123;m, n&#125;</code></strong>：匹配前一个字符至少 <code>m</code> 次，至多 <code>n</code> 次。</li>
-<li><strong><code>[]</code> (字符集)</strong>：匹配方括号中的任意一个字符。例如，<code>[abc]</code> 可以匹配 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code> 或 <code>&quot;c&quot;</code>。<ul>
-<li>在字符集中可以使用 <code>-</code> 表示范围，例如 <code>[a-z]</code> 匹配所有小写字母，<code>[0-9]</code> 匹配所有数字。</li>
-<li>在字符集开头使用 <code>^</code> 表示取反，例如 <code>[^abc]</code> 匹配除了 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code>、<code>&quot;c&quot;</code> 之外的任意字符。</li>
-</ul>
-</li>
-<li><strong><code>\</code> (反斜杠)</strong>：用于转义特殊字符，使其失去特殊含义，或者引入特殊的预定义字符序列（见下文）。</li>
-</ul>
-<p><strong># 常用的预定义字符序列</strong></p>
-<p>为了方便使用，<code>re</code> 模块提供了一些预定义的字符序列：</p>
-<ul>
-<li><strong><code>\d</code></strong>：匹配任意数字（等价于 <code>[0-9]</code>）。</li>
-<li><strong><code>\D</code></strong>：匹配任意非数字字符（等价于 <code>[^0-9]</code>）。</li>
-<li><strong><code>\s</code></strong>：匹配任意空白字符（包括空格、制表符 <code>\t</code>、换行符 <code>\n</code> 等）。</li>
-<li><strong><code>\S</code></strong>：匹配任意非空白字符。</li>
-<li><strong><code>\w</code></strong>：匹配任意字母、数字或下划线（等价于 <code>[a-zA-Z0-9_]</code>）。</li>
-<li><strong><code>\W</code></strong>：匹配任意非字母、数字或下划线。</li>
-</ul>
-<p><strong># <code>re</code> 模块的常用函数</strong></p>
-<p>学会了匹配模式，我们来看看 <code>re</code> 模块中一些常用的函数：</p>
-<ul>
-<li><strong><code>re.search(pattern, string)</code></strong>：在字符串 <code>string</code> 中搜索第一个匹配 <code>pattern</code> 的位置，如果找到则返回一个匹配对象（Match object），否则返回 <code>None</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;Hello 123 world 456&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;\d+&quot;</span>, text) <span class="comment"># 查找一个或多个数字</span></span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到匹配:&quot;</span>, result.group()) <span class="comment"># 输出匹配到的内容</span></span><br></pre></td></tr></table></figure></li>
-<li><strong><code>re.match(pattern, string)</code></strong>：尝试从字符串 <code>string</code> 的<strong>开头</strong>匹配 <code>pattern</code>，如果匹配成功则返回一个匹配对象，否则返回 <code>None</code>。注意：它只从开头匹配！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;123 Hello&quot;</span></span><br><span class="line">result1 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text1)</span><br><span class="line"><span class="keyword">if</span> result1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result1.group()) <span class="comment"># 输出：开头匹配: 123</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">&quot;Hello 123&quot;</span></span><br><span class="line">result2 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result2) <span class="comment"># 输出：开头匹配: None</span></span><br></pre></td></tr></table></figure></li>
-<li><strong><code>re.findall(pattern, string)</code></strong>：在字符串 <code>string</code> 中找到所有匹配 <code>pattern</code> 的子串，并返回一个包含所有匹配项的列表。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;apple banana apple orange&quot;</span></span><br><span class="line">results = re.findall(<span class="string">r&quot;apple&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有匹配:&quot;</span>, results) <span class="comment"># 输出：所有匹配: [&#x27;apple&#x27;, &#x27;apple&#x27;]</span></span><br></pre></td></tr></table></figure></li>
-<li><strong><code>re.sub(pattern, repl, string)</code></strong>：将字符串 <code>string</code> 中所有匹配 <code>pattern</code> 的子串替换为 <code>repl</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;I have 2 apples and 3 bananas.&quot;</span></span><br><span class="line">new_text = re.sub(<span class="string">r&quot;\d+&quot;</span>, <span class="string">&quot;number&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;替换后:&quot;</span>, new_text) <span class="comment"># 输出：替换后: I have number apples and number bananas.</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong># 实用技巧：原始字符串 (raw string)</strong></p>
-<p>在正则表达式中，反斜杠 <code>\</code> 有特殊的含义。为了避免与Python字符串自身的转义冲突，我们通常在正则表达式前面加上 <code>r</code> 前缀，表示这是一个原始字符串。这样，反斜杠就不会被Python解释器进行额外的转义，而是直接传递给 <code>re</code> 模块。强烈建议养成使用原始字符串的习惯！👍</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pattern = <span class="string">r&quot;\(?\d&#123;3&#125;\)?[- ]?\d&#123;3&#125;[- ]?\d&#123;4&#125;&quot;</span> <span class="comment"># 匹配电话号码的模式</span></span><br><span class="line">text = <span class="string">&quot;我的电话是 (123)-456-7890&quot;</span></span><br><span class="line">result = re.search(pattern, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到电话号码:&quot;</span>, result.group())</span><br></pre></td></tr></table></figure>
-
-<p><strong># 进阶：分组匹配</strong></p>
-<p>正则表达式还支持分组匹配，用小括号 <code>()</code> 包裹起来的部分会被认为是一个分组。我们可以使用匹配对象的 <code>group()</code> 方法来获取不同分组的内容。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;blog:https://blog.zhangwang.com&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;blog:(.*)\/\/([^\/]+)&quot;</span>, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;完整匹配:&quot;</span>, result.group(<span class="number">0</span>)) <span class="comment"># 整个匹配到的字符串</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第一个分组 (//后面的内容):&quot;</span>, result.group(<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第二个分组 (域名):&quot;</span>, result.group(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-
-<p><strong># 注意事项</strong></p>
-<ul>
-<li>正则表达式的语法比较灵活，需要多练习才能熟练掌握。</li>
-<li>对于复杂的匹配需求，可以逐步构建正则表达式。</li>
-<li>善用在线正则表达式测试工具，可以帮助你验证你的模式是否正确。</li>
-</ul>
-<p><strong># 总结</strong></p>
-<p>正则表达式是处理文本数据的强大工具，掌握它能让你在文本搜索、数据提取、格式验证等方面事半功倍！希望今天的介绍能帮助你迈出学习Python正则表达式的第一步。快去动手尝试一下吧！加油！💪</p>
-<p>#Python #正则表达式 #Regex #编程入门 #文本处理 #干货分享 #Day07 #一起学Python</p>
 
       
     </div>

@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,6 +190,137 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.io/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心灵星图笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/26/01python/07-%E6%AD%A3%E5%88%99/" class="post-title-link" itemprop="url">07-正则</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-26 17:49:06 / Modified: 17:55:29" itemprop="dateCreated datePublished" datetime="2025-04-26T17:49:06+08:00">2025-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>好的，这篇关于Python正则表达式的文章这就为您奉上！</p>
+<h2 id="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"><a href="#Python正则表达式入门指南：从小白到入门只需这一篇！🚀" class="headerlink" title="Python正则表达式入门指南：从小白到入门只需这一篇！🚀"></a>Python正则表达式入门指南：从小白到入门只需这一篇！🚀</h2><p>哈喽各位小伙伴！今天我们要一起探索Python中一个非常强大且实用的工具——正则表达式！它就像一位超级侦探，能帮助我们在文本中快速准确地找到我们想要的信息。是不是听起来就很酷？😎 别担心，我会用最简单易懂的方式带你入门！</p>
+<p><strong># 什么是正则表达式？🤔</strong></p>
+<p>简单来说，正则表达式（Regular Expression，常简写为 regex、regexp 或 RE）是一种用于匹配文本模式的特殊序列的字符。你可以把它想象成一种高级的搜索功能，不仅能找到固定的词语，还能根据你定义的“规则”找到符合特定模式的文本。</p>
+<p><strong># Python中的 <code>re</code> 模块</strong></p>
+<p>要在Python中使用正则表达式，我们需要导入内置的 <code>re</code> 模块。就像你需要一把锤子才能钉钉子一样！🔨</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<p><strong># 核心概念：匹配模式与特殊字符</strong></p>
+<p>正则表达式的强大之处在于其灵活的匹配模式。我们可以使用一些特殊字符来定义这些模式：</p>
+<ul>
+<li><strong>普通字符</strong>：大多数字母、数字、下划线等可以直接匹配自身。比如，正则表达式 <code>&quot;hello&quot;</code> 就能匹配文本中的 <code>&quot;hello&quot;</code>。</li>
+<li><strong><code>.</code> (点号)</strong>：匹配任意单个字符（除了换行符 <code>\n</code>）。</li>
+<li><strong><code>^</code> (脱字符)</strong>：匹配字符串的开头。例如，<code>^hello</code> 只会匹配以 <code>&quot;hello&quot;</code> 开头的字符串。</li>
+<li><strong><code>$</code> (美元符)</strong>：匹配字符串的结尾。例如，<code>hello$</code> 只会匹配以 <code>&quot;hello&quot;</code> 结尾的字符串。</li>
+<li><strong><code>*</code> (星号)</strong>：匹配前一个字符零次或多次。例如，<code>ab*c</code> 可以匹配 <code>&quot;ac&quot;</code>、<code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code> 等。</li>
+<li><strong><code>+</code> (加号)</strong>：匹配前一个字符一次或多次。例如，<code>ab+c</code> 可以匹配 <code>&quot;abc&quot;</code>、<code>&quot;abbc&quot;</code>，但不能匹配 <code>&quot;ac&quot;</code>。</li>
+<li><strong><code>?</code> (问号)</strong>：匹配前一个字符零次或一次。例如，<code>ab?c</code> 可以匹配 <code>&quot;ac&quot;</code> 或 <code>&quot;abc&quot;</code>。</li>
+<li><strong><code>&#123;m&#125;</code></strong>：匹配前一个字符恰好 <code>m</code> 次。例如，<code>a&#123;3&#125;</code> 只匹配 <code>&quot;aaa&quot;</code>。</li>
+<li><strong><code>&#123;m, n&#125;</code></strong>：匹配前一个字符至少 <code>m</code> 次，至多 <code>n</code> 次。</li>
+<li><strong><code>[]</code> (字符集)</strong>：匹配方括号中的任意一个字符。例如，<code>[abc]</code> 可以匹配 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code> 或 <code>&quot;c&quot;</code>。<ul>
+<li>在字符集中可以使用 <code>-</code> 表示范围，例如 <code>[a-z]</code> 匹配所有小写字母，<code>[0-9]</code> 匹配所有数字。</li>
+<li>在字符集开头使用 <code>^</code> 表示取反，例如 <code>[^abc]</code> 匹配除了 <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code>、<code>&quot;c&quot;</code> 之外的任意字符。</li>
+</ul>
+</li>
+<li><strong><code>\</code> (反斜杠)</strong>：用于转义特殊字符，使其失去特殊含义，或者引入特殊的预定义字符序列（见下文）。</li>
+</ul>
+<p><strong># 常用的预定义字符序列</strong></p>
+<p>为了方便使用，<code>re</code> 模块提供了一些预定义的字符序列：</p>
+<ul>
+<li><strong><code>\d</code></strong>：匹配任意数字（等价于 <code>[0-9]</code>）。</li>
+<li><strong><code>\D</code></strong>：匹配任意非数字字符（等价于 <code>[^0-9]</code>）。</li>
+<li><strong><code>\s</code></strong>：匹配任意空白字符（包括空格、制表符 <code>\t</code>、换行符 <code>\n</code> 等）。</li>
+<li><strong><code>\S</code></strong>：匹配任意非空白字符。</li>
+<li><strong><code>\w</code></strong>：匹配任意字母、数字或下划线（等价于 <code>[a-zA-Z0-9_]</code>）。</li>
+<li><strong><code>\W</code></strong>：匹配任意非字母、数字或下划线。</li>
+</ul>
+<p><strong># <code>re</code> 模块的常用函数</strong></p>
+<p>学会了匹配模式，我们来看看 <code>re</code> 模块中一些常用的函数：</p>
+<ul>
+<li><strong><code>re.search(pattern, string)</code></strong>：在字符串 <code>string</code> 中搜索第一个匹配 <code>pattern</code> 的位置，如果找到则返回一个匹配对象（Match object），否则返回 <code>None</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;Hello 123 world 456&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;\d+&quot;</span>, text) <span class="comment"># 查找一个或多个数字</span></span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到匹配:&quot;</span>, result.group()) <span class="comment"># 输出匹配到的内容</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.match(pattern, string)</code></strong>：尝试从字符串 <code>string</code> 的<strong>开头</strong>匹配 <code>pattern</code>，如果匹配成功则返回一个匹配对象，否则返回 <code>None</code>。注意：它只从开头匹配！  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;123 Hello&quot;</span></span><br><span class="line">result1 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text1)</span><br><span class="line"><span class="keyword">if</span> result1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result1.group()) <span class="comment"># 输出：开头匹配: 123</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">&quot;Hello 123&quot;</span></span><br><span class="line">result2 = re.<span class="keyword">match</span>(<span class="string">r&quot;\d+&quot;</span>, text2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开头匹配:&quot;</span>, result2) <span class="comment"># 输出：开头匹配: None</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.findall(pattern, string)</code></strong>：在字符串 <code>string</code> 中找到所有匹配 <code>pattern</code> 的子串，并返回一个包含所有匹配项的列表。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;apple banana apple orange&quot;</span></span><br><span class="line">results = re.findall(<span class="string">r&quot;apple&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有匹配:&quot;</span>, results) <span class="comment"># 输出：所有匹配: [&#x27;apple&#x27;, &#x27;apple&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>re.sub(pattern, repl, string)</code></strong>：将字符串 <code>string</code> 中所有匹配 <code>pattern</code> 的子串替换为 <code>repl</code>。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;I have 2 apples and 3 bananas.&quot;</span></span><br><span class="line">new_text = re.sub(<span class="string">r&quot;\d+&quot;</span>, <span class="string">&quot;number&quot;</span>, text)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;替换后:&quot;</span>, new_text) <span class="comment"># 输出：替换后: I have number apples and number bananas.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong># 实用技巧：原始字符串 (raw string)</strong></p>
+<p>在正则表达式中，反斜杠 <code>\</code> 有特殊的含义。为了避免与Python字符串自身的转义冲突，我们通常在正则表达式前面加上 <code>r</code> 前缀，表示这是一个原始字符串。这样，反斜杠就不会被Python解释器进行额外的转义，而是直接传递给 <code>re</code> 模块。强烈建议养成使用原始字符串的习惯！👍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pattern = <span class="string">r&quot;\(?\d&#123;3&#125;\)?[- ]?\d&#123;3&#125;[- ]?\d&#123;4&#125;&quot;</span> <span class="comment"># 匹配电话号码的模式</span></span><br><span class="line">text = <span class="string">&quot;我的电话是 (123)-456-7890&quot;</span></span><br><span class="line">result = re.search(pattern, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;找到电话号码:&quot;</span>, result.group())</span><br></pre></td></tr></table></figure>
+
+<p><strong># 进阶：分组匹配</strong></p>
+<p>正则表达式还支持分组匹配，用小括号 <code>()</code> 包裹起来的部分会被认为是一个分组。我们可以使用匹配对象的 <code>group()</code> 方法来获取不同分组的内容。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;blog:https://blog.zhangwang.com&quot;</span></span><br><span class="line">result = re.search(<span class="string">r&quot;blog:(.*)\/\/([^\/]+)&quot;</span>, text)</span><br><span class="line"><span class="keyword">if</span> result:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;完整匹配:&quot;</span>, result.group(<span class="number">0</span>)) <span class="comment"># 整个匹配到的字符串</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第一个分组 (//后面的内容):&quot;</span>, result.group(<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第二个分组 (域名):&quot;</span>, result.group(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong># 注意事项</strong></p>
+<ul>
+<li>正则表达式的语法比较灵活，需要多练习才能熟练掌握。</li>
+<li>对于复杂的匹配需求，可以逐步构建正则表达式。</li>
+<li>善用在线正则表达式测试工具，可以帮助你验证你的模式是否正确。</li>
+</ul>
+<p><strong># 总结</strong></p>
+<p>正则表达式是处理文本数据的强大工具，掌握它能让你在文本搜索、数据提取、格式验证等方面事半功倍！希望今天的介绍能帮助你迈出学习Python正则表达式的第一步。快去动手尝试一下吧！加油！💪</p>
+<p>#Python #正则表达式 #Regex #编程入门 #文本处理 #干货分享 #Day07 #一起学Python</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1283,164 +1414,6 @@
 <li><strong>系统提示有更新，想一次性升级所有软件？</strong> <code>sudo dnf update -y</code> （加上 <code>-y</code> 可以自动确认，不用每次都按 <code>y</code> 啦！😉）</li>
 </ul>
 <p>好啦，关于 Linux 下的软件安装就先聊到这里！是不是感觉也没那么难嘛？😉 掌握了这些小技巧，你也能轻松管理你的 Linux 系统啦！下次再和兄弟们分享更多好玩的技术干货！💖✨</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://youtubhexo.github.io/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="心灵星图">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心灵星图笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/26/02%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80/05-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">05-权限管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2025-04-26 14:30:52 / Modified: 15:49:02" itemprop="dateCreated datePublished" datetime="2025-04-26T14:30:52+08:00">2025-04-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"><a href="#🌟-Linux-权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！" class="headerlink" title="🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！"></a>🌟 Linux 权限管理新手小白也能看懂！告别文件“锁🔒”烦恼！</h1><p>兄弟们，今天给大家分享一下在 Linux 系统里超级重要的一个知识点——<strong>权限管理</strong>！💻💾 别看它好像很高深的样子，其实掌握了它，就能更好地保护我们的文件和数据哦！💪</p>
-<h2 id="🤔-权限是个啥？"><a href="#🤔-权限是个啥？" class="headerlink" title="🤔 权限是个啥？"></a>🤔 权限是个啥？</h2><p>在 Linux 这个神奇的世界里，每个文件和文件夹都有自己的“主人”和“管家”，还有一些“访客”。权限就像是给他们设置的“通行证”，规定了谁能看👀、谁能动✍️、谁能用▶️！</p>
-<p>简单来说，权限就三种：</p>
-<ul>
-<li><strong>r (Read - 读)</strong>：👀 可以看里面的内容！<ul>
-<li><strong>文件</strong>：就能打开看到文件写了啥。</li>
-<li><strong>目录</strong>：就能看到这个文件夹里都有哪些文件和文件夹的名字。</li>
-</ul>
-</li>
-<li><strong>w (Write - 写)</strong>：✍️ 可以修改里面的内容！<ul>
-<li><strong>文件</strong>：就能编辑、保存文件里的东西。</li>
-<li><strong>目录</strong>：就能在这个文件夹里新建、删除、移动文件和文件夹！⚠️ 小心操作哦！</li>
-</ul>
-</li>
-<li><strong>x (Execute - 执行)</strong>：▶️ 可以运行它！<ul>
-<li><strong>文件</strong>：对于程序或者脚本文件，有了这个权限才能跑起来！</li>
-<li><strong>目录</strong>：有了这个权限才能用 <code>cd</code> 命令进入这个文件夹！🚪</li>
-</ul>
-</li>
-</ul>
-<h2 id="🔍-权限信息在哪里看？"><a href="#🔍-权限信息在哪里看？" class="headerlink" title="🔍 权限信息在哪里看？"></a>🔍 权限信息在哪里看？</h2><p>在终端里输入 <code>ls -l</code> 命令，就能看到文件和文件夹的详细信息啦！就像这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x  2 user group 4096 Apr 26 14:30 my_folder</span><br><span class="line">-rw-r--r--  1 user group  100 Apr 26 14:30 my_file.txt</span><br></pre></td></tr></table></figure>
-
-<p>最前面那一串像 <code>drwxr-xr-x</code> 和 <code>-rw-r--r--</code> 的就是权限信息啦！🤩</p>
-<ul>
-<li><p><strong>第一位</strong>：是文件类型哦！<code>-</code> 代表普通文件，<code>d</code> 代表文件夹，<code>l</code> 代表快捷方式。</p>
-</li>
-<li><p><strong>后面九位</strong>：分成三组，每组三个字母，分别代表 <strong>文件主人 (User)</strong>、<strong>文件所属组 (Group)</strong>、<strong>其他人 (Others)</strong> 的权限！</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(文件主人) (所属组) (其他人)</span><br><span class="line">  rwx     r-x      r-x</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="✍️-怎么修改权限？两种方法安排上！"><a href="#✍️-怎么修改权限？两种方法安排上！" class="headerlink" title="✍️ 怎么修改权限？两种方法安排上！"></a>✍️ 怎么修改权限？两种方法安排上！</h2><h3 id="🅰️-字母大法：简单易懂！"><a href="#🅰️-字母大法：简单易懂！" class="headerlink" title="🅰️ 字母大法：简单易懂！"></a>🅰️ 字母大法：简单易懂！</h3><p>用 <code>chmod</code> 命令就可以修改权限啦！</p>
-<ul>
-<li><code>u</code>：主人</li>
-<li><code>g</code>：所属组</li>
-<li><code>o</code>：其他人</li>
-<li><code>+</code>：添加权限</li>
-<li><code>-</code>：移除权限</li>
-<li><code>=</code>：设置成某个权限</li>
-</ul>
-<p>比如，我想给我写的 <code>linux.txt</code> 文件加上执行权限，让它跑起来！🏃‍♀️</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x linux.txt</span><br></pre></td></tr></table></figure>
-
-<p>如果想给一个文件夹和它里面的所有东西都加上某个权限，记得加上 <code>-R</code> 参数哦！🔄</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R g+w my_project</span><br></pre></td></tr></table></figure>
-
-<h3 id="🔢-数字密码：更快更直接！"><a href="#🔢-数字密码：更快更直接！" class="headerlink" title="🔢 数字密码：更快更直接！"></a>🔢 数字密码：更快更直接！</h3><p>还有一种更酷的方法，用数字来代表权限！😎</p>
-<ul>
-<li><code>r</code> &#x3D; 4</li>
-<li><code>w</code> &#x3D; 2</li>
-<li><code>x</code> &#x3D; 1</li>
-</ul>
-<p>把想要的权限数字加起来就好啦！</p>
-<ul>
-<li><code>7</code> (<code>4+2+1</code>) &#x3D; <code>rwx</code> (读写执行全都有！)</li>
-<li><code>6</code> (<code>4+2</code>) &#x3D; <code>rw-</code> (可以读写，不能执行)</li>
-<li><code>5</code> (<code>4+1</code>) &#x3D; <code>r-x</code> (可以读和执行，不能写)</li>
-<li><code>4</code> &#x3D; <code>r--</code> (只能读)</li>
-</ul>
-<p>比如，我想给 <code>shop</code> 这个文件夹所有权限！安排！👇</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 shop</span><br></pre></td></tr></table></figure>
-
-<p>⚠️ <code>777</code> 权限要谨慎使用哦，因为它给所有人开了大门！🚪</p>
-<h2 id="🤫-默认权限的小秘密-umask"><a href="#🤫-默认权限的小秘密-umask" class="headerlink" title="🤫 默认权限的小秘密 (umask)"></a>🤫 默认权限的小秘密 (<code>umask</code>)</h2><p>每次我们新建文件或者文件夹的时候，系统都会给它们一个默认的权限。这个默认权限是由 <code>umask</code> 这个小家伙决定的！🤫 虽然笔记里没细说，但记住有这么个东西就好啦！</p>
-<h2 id="✨-特殊权限了解一下！"><a href="#✨-特殊权限了解一下！" class="headerlink" title="✨ 特殊权限了解一下！"></a>✨ 特殊权限了解一下！</h2><p>Linux 还有一些特殊的“小彩蛋”权限，虽然不常用，但是了解一下总没错！</p>
-<ul>
-<li><strong>冒险位 (SUID &amp; SGID)</strong>：🚀 让普通用户也能临时拥有文件主人或者文件所属组的“超能力”！<ul>
-<li><code>S</code>：表示设置了冒险位，但主人&#x2F;组没有执行权限（不常见）。</li>
-<li><code>s</code>：表示设置了冒险位，并且主人&#x2F;组有执行权限（更常见）。</li>
-</ul>
-</li>
-<li><strong>粘滞位 (Sticky Bit)</strong>：📍 给公共文件夹加个“小门卫”，只有文件的主人、文件夹的主人或者 root 大佬才能删除里面的文件，别人想动？没门！🙅‍♀️ 用 <code>T</code> 表示哦！</li>
-</ul>
-<h2 id="🤝-文件和文件夹的“户口本”"><a href="#🤝-文件和文件夹的“户口本”" class="headerlink" title="🤝 文件和文件夹的“户口本”"></a>🤝 文件和文件夹的“户口本”</h2><ul>
-<li><strong>所属用户 (<code>chown</code>)</strong>：可以修改文件和文件夹的“主人”！🏠  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R new_owner my_folder</span><br></pre></td></tr></table></figure></li>
-<li><strong>所属组 (<code>chgrp</code>)</strong>：可以修改文件和文件夹的“家庭”！🏘️  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp -R new_group my_folder</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="🛡️-更高级的权限管理-ACL"><a href="#🛡️-更高级的权限管理-ACL" class="headerlink" title="🛡️ 更高级的权限管理 (ACL)"></a>🛡️ 更高级的权限管理 (<code>ACL</code>)</h2><p>如果觉得基本权限不够用，还有更厉害的 <strong>ACL (Access Control List)</strong>！它可以针对** конкретный 用户** 设置更细致的权限！📝 就像给 VIP 用户开通专属通道！下次有机会再给大家细讲！</p>
-<h2 id="🧑‍🤝‍🧑-用户和用户组小课堂"><a href="#🧑‍🤝‍🧑-用户和用户组小课堂" class="headerlink" title="🧑‍🤝‍🧑 用户和用户组小课堂"></a>🧑‍🤝‍🧑 用户和用户组小课堂</h2><ul>
-<li><code>groupadd 用户组名称</code>：新建一个“家庭”！</li>
-<li><code>groupmod 用户组名称</code>：修改“家庭”信息。</li>
-<li><code>groupdel 用户组名称</code>：解散“家庭”。</li>
-<li><code>/etc/group</code>：这里记录了所有“家庭”的信息哦！</li>
-<li><code>useradd 用户名称</code>：新添一个“家庭成员”！</li>
-<li><code>usermod 用户名称</code>：修改“家庭成员”信息。</li>
-<li><code>userdel 用户名称</code>：移除“家庭成员”。</li>
-</ul>
-<hr>
-<p>好啦！今天的 Linux 权限管理小课堂就到这里啦！是不是感觉没那么难了呢？😜 掌握了这些，就能更好地管理你的 Linux 系统，保护好你的数据哦！快去试试看吧！👋</p>
-<p>#Linux #权限管理 #新手教程 #小红书 #干货分享 #技术流</p>
 
       
     </div>
