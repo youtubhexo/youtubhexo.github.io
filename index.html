@@ -172,18 +172,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -472,6 +472,136 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhangwangyan.com/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岩哥说运维">
+      <meta itemprop="description" content="最穷不过要饭,不死终会出头">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 岩哥说运维">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Nginx 模块划分及配置文件参数详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 10:00:00" itemprop="dateCreated datePublished" datetime="2023-10-28T10:00:00+08:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-07-13 16:30:14" itemprop="dateModified" datetime="2025-07-13T16:30:14+08:00">2025-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">后端技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Nginx-模块划分及配置文件参数详解"><a href="#Nginx-模块划分及配置文件参数详解" class="headerlink" title="Nginx 模块划分及配置文件参数详解"></a>Nginx 模块划分及配置文件参数详解</h2><p>Nginx 是一款高性能的 Web 服务器，其配置文件 <code>nginx.conf</code> 决定了服务器的行为。本文将详细解释 Nginx 配置文件的模块划分，并对每个模块中的重要参数进行说明。</p>
+<h3 id="Nginx-配置文件结构"><a href="#Nginx-配置文件结构" class="headerlink" title="Nginx 配置文件结构"></a>Nginx 配置文件结构</h3><p>Nginx 配置文件通常由四个主要的模块组成：<code>main</code>、<code>events</code>、<code>http</code> 和 <code>stream</code>。  这些模块层层嵌套，形成一个清晰的层次结构。</p>
+<h4 id="1-main-模块：全局配置"><a href="#1-main-模块：全局配置" class="headerlink" title="1. main 模块：全局配置"></a>1. <code>main</code> 模块：全局配置</h4><p><code>main</code> 模块包含 Nginx 服务器的全局配置参数，这些参数影响整个服务器的运行。  示例代码片段中，<code>main</code> 模块包含以下参数：</p>
+<ul>
+<li><p><strong><code>worker_processes</code>:</strong> 指定 Nginx 工作进程的数量。这个值决定了服务器能够同时处理的请求数量。  值越高，并发能力越强，但同时也增加了系统资源的消耗。  示例代码中设置为 <code>1</code>，仅用于测试或低负载环境。生产环境中需要根据服务器资源进行调整。</p>
+</li>
+<li><p><strong><code>error_log</code>:</strong> 指定 Nginx 错误日志的路径和级别。  示例中为 <code>logs/error.log</code>，表示错误日志将记录到 <code>logs</code> 目录下的 <code>error.log</code> 文件中。</p>
+</li>
+<li><p><strong><code>pid</code>:</strong> 指定 Nginx 进程 ID (PID) 文件的路径。  这个文件记录了 Nginx 主进程的 PID，方便进程管理。</p>
+</li>
+</ul>
+<h4 id="2-events-模块：事件处理"><a href="#2-events-模块：事件处理" class="headerlink" title="2. events 模块：事件处理"></a>2. <code>events</code> 模块：事件处理</h4><p><code>events</code> 模块配置 Nginx 的事件处理机制，影响服务器的并发处理能力。  示例代码中包含：</p>
+<ul>
+<li><strong><code>worker_connections</code>:</strong>  每个工作进程能够同时处理的最大连接数。  示例中设置为 <code>1024</code>，这是一个相对较小的值，生产环境中需要根据服务器资源和预期负载进行调整。</li>
+</ul>
+<h4 id="3-http-模块：HTTP-服务配置"><a href="#3-http-模块：HTTP-服务配置" class="headerlink" title="3. http 模块：HTTP 服务配置"></a>3. <code>http</code> 模块：HTTP 服务配置</h4><p><code>http</code> 模块是 Nginx 配置文件中最重要的部分，它包含了所有与 HTTP 服务相关的配置。  它包含多个 <code>server</code> 块，每个 <code>server</code> 块定义一个虚拟服务器。  示例中 <code>http</code> 模块包含：</p>
+<ul>
+<li><p><strong><code>include mime.types;</code>:</strong>  包含 MIME 类型配置文件，用于指定不同文件扩展名的 MIME 类型。</p>
+</li>
+<li><p><strong><code>default_type application/octet-stream;</code>:</strong>  设置默认的 MIME 类型，当无法根据文件扩展名确定 MIME 类型时使用。</p>
+</li>
+<li><p><strong><code>sendfile on;</code>:</strong>  启用 <code>sendfile</code> 系统调用，提高文件传输效率。</p>
+</li>
+<li><p><strong><code>keepalive_timeout 65;</code>:</strong>  设置持久连接的超时时间 (单位：秒)。</p>
+</li>
+</ul>
+<h4 id="4-server-块：虚拟服务器配置"><a href="#4-server-块：虚拟服务器配置" class="headerlink" title="4. server 块：虚拟服务器配置"></a>4. <code>server</code> 块：虚拟服务器配置</h4><p><code>server</code> 块位于 <code>http</code> 块内，每个 <code>server</code> 块定义一个虚拟服务器，可以监听不同的端口，并配置不同的域名和路径。  示例代码中包含一个 <code>server</code> 块：</p>
+<ul>
+<li><p><strong><code>listen 80;</code>:</strong>  监听 80 端口 (HTTP 默认端口)。</p>
+</li>
+<li><p><strong><code>server_name localhost;</code>:</strong>  设置服务器名称，此处为 <code>localhost</code>，表示只监听本地请求。</p>
+</li>
+<li><p><strong><code>root /html;</code>:</strong>  设置网站根目录。</p>
+</li>
+<li><p><strong><code>index index.html index.htm;</code>:</strong>  设置默认首页文件。</p>
+</li>
+<li><p><strong><code>error_page 500 502 503 504 /50x.html;</code>:</strong>  配置自定义错误页面。</p>
+</li>
+</ul>
+<h4 id="5-location-块：URI-路径匹配"><a href="#5-location-块：URI-路径匹配" class="headerlink" title="5. location 块：URI 路径匹配"></a>5. <code>location</code> 块：URI 路径匹配</h4><p><code>location</code> 块位于 <code>server</code> 块内，用于匹配特定的 URI 路径，并对匹配的请求进行不同的处理。  示例代码中未显示 <code>location</code> 块，但它在 Nginx 配置中非常重要，用于实现 URL 重写、反向代理等功能。</p>
+<h4 id="6-stream-模块：TCP-UDP-代理"><a href="#6-stream-模块：TCP-UDP-代理" class="headerlink" title="6. stream 模块：TCP&#x2F;UDP 代理"></a>6. <code>stream</code> 模块：TCP&#x2F;UDP 代理</h4><p><code>stream</code> 模块用于配置 TCP&#x2F;UDP 代理，处理非 HTTP 协议的流量。  本示例中未涉及。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文简要介绍了 Nginx 配置文件的模块划分和关键参数。  要深入理解 Nginx 的配置，还需要参考官方文档并进行实践。  希望本文能帮助你更好地理解 Nginx 配置文件。</p>
 
       
     </div>

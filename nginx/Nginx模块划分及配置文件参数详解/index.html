@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7217340681038973"
+     crossorigin="anonymous"></script>
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhangwangyan.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+    <meta name="description" content="Nginx 模块划分及配置文件参数详解Nginx 是一款高性能的 Web 服务器，其配置文件 nginx.conf 决定了服务器的行为。本文将详细解释 Nginx 配置文件的模块划分，并对每个模块中的重要参数进行说明。 Nginx 配置文件结构Nginx 配置文件通常由四个主要的模块组成：main、events、http 和 stream。  这些模块层层嵌套，形成一个清晰的层次结构。 1. ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx 模块划分及配置文件参数详解">
+<meta property="og:url" content="https://zhangwangyan.com/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="岩哥说运维">
+<meta property="og:description" content="Nginx 模块划分及配置文件参数详解Nginx 是一款高性能的 Web 服务器，其配置文件 nginx.conf 决定了服务器的行为。本文将详细解释 Nginx 配置文件的模块划分，并对每个模块中的重要参数进行说明。 Nginx 配置文件结构Nginx 配置文件通常由四个主要的模块组成：main、events、http 和 stream。  这些模块层层嵌套，形成一个清晰的层次结构。 1. ma">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-28T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-13T08:30:14.355Z">
+<meta property="article:author" content="心灵星图">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Web服务器">
+<meta property="article:tag" content="配置文件">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhangwangyan.com/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zhangwangyan.com/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/","path":"nginx/Nginx模块划分及配置文件参数详解/","title":"Nginx 模块划分及配置文件参数详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Nginx 模块划分及配置文件参数详解 | 岩哥说运维</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H39QV4DFH2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-H39QV4DFH2","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?d11d3f97d8349b8ada92b78973c5d083"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">岩哥说运维</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Nginx 模块划分及配置文件参数详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx 配置文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-main-%E6%A8%A1%E5%9D%97%EF%BC%9A%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. main 模块：全局配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-events-%E6%A8%A1%E5%9D%97%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. events 模块：事件处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-http-%E6%A8%A1%E5%9D%97%EF%BC%9AHTTP-%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. http 模块：HTTP 服务配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-server-%E5%9D%97%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. server 块：虚拟服务器配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-location-%E5%9D%97%EF%BC%9AURI-%E8%B7%AF%E5%BE%84%E5%8C%B9%E9%85%8D"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. location 块：URI 路径匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-stream-%E6%A8%A1%E5%9D%97%EF%BC%9ATCP-UDP-%E4%BB%A3%E7%90%86"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. stream 模块：TCP&#x2F;UDP 代理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">心灵星图</p>
+  <div class="site-description" itemprop="description">最穷不过要饭,不死终会出头</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zhangwangyan.com/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="心灵星图">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岩哥说运维">
+      <meta itemprop="description" content="最穷不过要饭,不死终会出头">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Nginx 模块划分及配置文件参数详解 | 岩哥说运维">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx 模块划分及配置文件参数详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 10:00:00" itemprop="dateCreated datePublished" datetime="2023-10-28T10:00:00+08:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-07-13 16:30:14" itemprop="dateModified" datetime="2025-07-13T16:30:14+08:00">2025-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">后端技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Nginx-模块划分及配置文件参数详解"><a href="#Nginx-模块划分及配置文件参数详解" class="headerlink" title="Nginx 模块划分及配置文件参数详解"></a>Nginx 模块划分及配置文件参数详解</h2><p>Nginx 是一款高性能的 Web 服务器，其配置文件 <code>nginx.conf</code> 决定了服务器的行为。本文将详细解释 Nginx 配置文件的模块划分，并对每个模块中的重要参数进行说明。</p>
+<h3 id="Nginx-配置文件结构"><a href="#Nginx-配置文件结构" class="headerlink" title="Nginx 配置文件结构"></a>Nginx 配置文件结构</h3><p>Nginx 配置文件通常由四个主要的模块组成：<code>main</code>、<code>events</code>、<code>http</code> 和 <code>stream</code>。  这些模块层层嵌套，形成一个清晰的层次结构。</p>
+<h4 id="1-main-模块：全局配置"><a href="#1-main-模块：全局配置" class="headerlink" title="1. main 模块：全局配置"></a>1. <code>main</code> 模块：全局配置</h4><p><code>main</code> 模块包含 Nginx 服务器的全局配置参数，这些参数影响整个服务器的运行。  示例代码片段中，<code>main</code> 模块包含以下参数：</p>
+<ul>
+<li><p><strong><code>worker_processes</code>:</strong> 指定 Nginx 工作进程的数量。这个值决定了服务器能够同时处理的请求数量。  值越高，并发能力越强，但同时也增加了系统资源的消耗。  示例代码中设置为 <code>1</code>，仅用于测试或低负载环境。生产环境中需要根据服务器资源进行调整。</p>
+</li>
+<li><p><strong><code>error_log</code>:</strong> 指定 Nginx 错误日志的路径和级别。  示例中为 <code>logs/error.log</code>，表示错误日志将记录到 <code>logs</code> 目录下的 <code>error.log</code> 文件中。</p>
+</li>
+<li><p><strong><code>pid</code>:</strong> 指定 Nginx 进程 ID (PID) 文件的路径。  这个文件记录了 Nginx 主进程的 PID，方便进程管理。</p>
+</li>
+</ul>
+<h4 id="2-events-模块：事件处理"><a href="#2-events-模块：事件处理" class="headerlink" title="2. events 模块：事件处理"></a>2. <code>events</code> 模块：事件处理</h4><p><code>events</code> 模块配置 Nginx 的事件处理机制，影响服务器的并发处理能力。  示例代码中包含：</p>
+<ul>
+<li><strong><code>worker_connections</code>:</strong>  每个工作进程能够同时处理的最大连接数。  示例中设置为 <code>1024</code>，这是一个相对较小的值，生产环境中需要根据服务器资源和预期负载进行调整。</li>
+</ul>
+<h4 id="3-http-模块：HTTP-服务配置"><a href="#3-http-模块：HTTP-服务配置" class="headerlink" title="3. http 模块：HTTP 服务配置"></a>3. <code>http</code> 模块：HTTP 服务配置</h4><p><code>http</code> 模块是 Nginx 配置文件中最重要的部分，它包含了所有与 HTTP 服务相关的配置。  它包含多个 <code>server</code> 块，每个 <code>server</code> 块定义一个虚拟服务器。  示例中 <code>http</code> 模块包含：</p>
+<ul>
+<li><p><strong><code>include mime.types;</code>:</strong>  包含 MIME 类型配置文件，用于指定不同文件扩展名的 MIME 类型。</p>
+</li>
+<li><p><strong><code>default_type application/octet-stream;</code>:</strong>  设置默认的 MIME 类型，当无法根据文件扩展名确定 MIME 类型时使用。</p>
+</li>
+<li><p><strong><code>sendfile on;</code>:</strong>  启用 <code>sendfile</code> 系统调用，提高文件传输效率。</p>
+</li>
+<li><p><strong><code>keepalive_timeout 65;</code>:</strong>  设置持久连接的超时时间 (单位：秒)。</p>
+</li>
+</ul>
+<h4 id="4-server-块：虚拟服务器配置"><a href="#4-server-块：虚拟服务器配置" class="headerlink" title="4. server 块：虚拟服务器配置"></a>4. <code>server</code> 块：虚拟服务器配置</h4><p><code>server</code> 块位于 <code>http</code> 块内，每个 <code>server</code> 块定义一个虚拟服务器，可以监听不同的端口，并配置不同的域名和路径。  示例代码中包含一个 <code>server</code> 块：</p>
+<ul>
+<li><p><strong><code>listen 80;</code>:</strong>  监听 80 端口 (HTTP 默认端口)。</p>
+</li>
+<li><p><strong><code>server_name localhost;</code>:</strong>  设置服务器名称，此处为 <code>localhost</code>，表示只监听本地请求。</p>
+</li>
+<li><p><strong><code>root /html;</code>:</strong>  设置网站根目录。</p>
+</li>
+<li><p><strong><code>index index.html index.htm;</code>:</strong>  设置默认首页文件。</p>
+</li>
+<li><p><strong><code>error_page 500 502 503 504 /50x.html;</code>:</strong>  配置自定义错误页面。</p>
+</li>
+</ul>
+<h4 id="5-location-块：URI-路径匹配"><a href="#5-location-块：URI-路径匹配" class="headerlink" title="5. location 块：URI 路径匹配"></a>5. <code>location</code> 块：URI 路径匹配</h4><p><code>location</code> 块位于 <code>server</code> 块内，用于匹配特定的 URI 路径，并对匹配的请求进行不同的处理。  示例代码中未显示 <code>location</code> 块，但它在 Nginx 配置中非常重要，用于实现 URL 重写、反向代理等功能。</p>
+<h4 id="6-stream-模块：TCP-UDP-代理"><a href="#6-stream-模块：TCP-UDP-代理" class="headerlink" title="6. stream 模块：TCP&#x2F;UDP 代理"></a>6. <code>stream</code> 模块：TCP&#x2F;UDP 代理</h4><p><code>stream</code> 模块用于配置 TCP&#x2F;UDP 代理，处理非 HTTP 协议的流量。  本示例中未涉及。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文简要介绍了 Nginx 配置文件的模块划分和关键参数。  要深入理解 Nginx 的配置，还需要参考官方文档并进行实践。  希望本文能帮助你更好地理解 Nginx 配置文件。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># Web服务器</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag"># 配置文件</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">心灵星图</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

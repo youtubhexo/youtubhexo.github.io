@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Nginx 简述</title>
-    <url>/nginx/Nginx%E7%AE%80%E8%BF%B0/</url>
-    <content><![CDATA[<h3 id="简述什么是-Nginx"><a href="#简述什么是-Nginx" class="headerlink" title="简述什么是 Nginx"></a>简述什么是 Nginx</h3><p>Nginx (engine x) 是一款轻量级、高性能的 HTTP 和反向代理服务器，同时也提供 IMAP&#x2F;POP3&#x2F;SMTP 服务。它以其高并发处理能力、快速响应速度和低资源消耗而闻名。</p>
-<h3 id="Nginx-的主要特点"><a href="#Nginx-的主要特点" class="headerlink" title="Nginx 的主要特点"></a>Nginx 的主要特点</h3><ul>
-<li><p><strong>高并发:</strong>  Nginx 基于异步非阻塞的事件驱动模型 (epoll)，能够同时处理数万甚至数十万个并发连接，有效提高服务器的吞吐量。</p>
-</li>
-<li><p><strong>响应快:</strong>  尤其在处理静态文件方面，Nginx 的响应速度非常快，这得益于其高效的 sendfile 系统调用。</p>
-</li>
-<li><p><strong>热部署:</strong> Nginx 支持热部署，主要体现在两个方面：</p>
-<ul>
-<li><strong>平滑升级:</strong>  可以不中断服务的情况下升级 Nginx 版本。</li>
-<li><strong>快速重载配置:</strong>  修改配置文件后，无需重启 Nginx 即可生效。</li>
-</ul>
-</li>
-<li><p><strong>高可靠:</strong>  Nginx 使用 master-worker 架构，master 进程负责管理 worker 进程，worker 进程负责处理实际请求。即使某个 worker 进程崩溃，也不会影响整个服务器的运行。</p>
-</li>
-<li><p><strong>分布式支持:</strong>  Nginx 作为反向代理服务器，可以实现七层负载均衡，将请求分发到不同的后端服务器，提高系统的可用性和可扩展性。新版本也支持四层负载均衡。</p>
-</li>
-<li><p><strong>低消耗:</strong>  Nginx 资源占用少，即使处理数万个并发请求，其内存占用也相对较低 (例如，处理 1 万个请求，内存占用可能仅为 2~3 MB)。</p>
-</li>
-</ul>
-<h3 id="Nginx-的应用场景"><a href="#Nginx-的应用场景" class="headerlink" title="Nginx 的应用场景"></a>Nginx 的应用场景</h3><ol>
-<li><p><strong>Web 服务器软件:</strong>  Nginx 可以作为独立的 Web 服务器，与 Apache、IIS、lighttpd 等同类软件竞争。</p>
-</li>
-<li><p><strong>邮件代理服务器:</strong>  Nginx 提供了 IMAP&#x2F;POP3&#x2F;SMTP 服务，可以作为邮件服务器使用。</p>
-</li>
-<li><p><strong>反向代理服务器:</strong>  Nginx 作为反向代理服务器，可以实现负载均衡 (Load Balance)，将客户端请求分发到多个后端服务器，提高系统的性能和可靠性。</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/youtubhexo/obsition-images-zhangwangyan/main/20250713082626.png" alt="Nginx 反向代理示意图"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h2 id="Nginx-是一款功能强大且高效的服务器软件，广泛应用于各种-Web-应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。"><a href="#Nginx-是一款功能强大且高效的服务器软件，广泛应用于各种-Web-应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。" class="headerlink" title="Nginx 是一款功能强大且高效的服务器软件，广泛应用于各种 Web 应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。"></a>Nginx 是一款功能强大且高效的服务器软件，广泛应用于各种 Web 应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。</h2>]]></content>
-      <tags>
-        <tag>Nginx</tag>
-        <tag>Web服务器</tag>
-        <tag>反向代理</tag>
-        <tag>负载均衡</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -56,6 +17,63 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Nginx 模块划分及配置文件参数详解</title>
+    <url>/nginx/Nginx%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="Nginx-模块划分及配置文件参数详解"><a href="#Nginx-模块划分及配置文件参数详解" class="headerlink" title="Nginx 模块划分及配置文件参数详解"></a>Nginx 模块划分及配置文件参数详解</h2><p>Nginx 是一款高性能的 Web 服务器，其配置文件 <code>nginx.conf</code> 决定了服务器的行为。本文将详细解释 Nginx 配置文件的模块划分，并对每个模块中的重要参数进行说明。</p>
+<h3 id="Nginx-配置文件结构"><a href="#Nginx-配置文件结构" class="headerlink" title="Nginx 配置文件结构"></a>Nginx 配置文件结构</h3><p>Nginx 配置文件通常由四个主要的模块组成：<code>main</code>、<code>events</code>、<code>http</code> 和 <code>stream</code>。  这些模块层层嵌套，形成一个清晰的层次结构。</p>
+<h4 id="1-main-模块：全局配置"><a href="#1-main-模块：全局配置" class="headerlink" title="1. main 模块：全局配置"></a>1. <code>main</code> 模块：全局配置</h4><p><code>main</code> 模块包含 Nginx 服务器的全局配置参数，这些参数影响整个服务器的运行。  示例代码片段中，<code>main</code> 模块包含以下参数：</p>
+<ul>
+<li><p><strong><code>worker_processes</code>:</strong> 指定 Nginx 工作进程的数量。这个值决定了服务器能够同时处理的请求数量。  值越高，并发能力越强，但同时也增加了系统资源的消耗。  示例代码中设置为 <code>1</code>，仅用于测试或低负载环境。生产环境中需要根据服务器资源进行调整。</p>
+</li>
+<li><p><strong><code>error_log</code>:</strong> 指定 Nginx 错误日志的路径和级别。  示例中为 <code>logs/error.log</code>，表示错误日志将记录到 <code>logs</code> 目录下的 <code>error.log</code> 文件中。</p>
+</li>
+<li><p><strong><code>pid</code>:</strong> 指定 Nginx 进程 ID (PID) 文件的路径。  这个文件记录了 Nginx 主进程的 PID，方便进程管理。</p>
+</li>
+</ul>
+<h4 id="2-events-模块：事件处理"><a href="#2-events-模块：事件处理" class="headerlink" title="2. events 模块：事件处理"></a>2. <code>events</code> 模块：事件处理</h4><p><code>events</code> 模块配置 Nginx 的事件处理机制，影响服务器的并发处理能力。  示例代码中包含：</p>
+<ul>
+<li><strong><code>worker_connections</code>:</strong>  每个工作进程能够同时处理的最大连接数。  示例中设置为 <code>1024</code>，这是一个相对较小的值，生产环境中需要根据服务器资源和预期负载进行调整。</li>
+</ul>
+<h4 id="3-http-模块：HTTP-服务配置"><a href="#3-http-模块：HTTP-服务配置" class="headerlink" title="3. http 模块：HTTP 服务配置"></a>3. <code>http</code> 模块：HTTP 服务配置</h4><p><code>http</code> 模块是 Nginx 配置文件中最重要的部分，它包含了所有与 HTTP 服务相关的配置。  它包含多个 <code>server</code> 块，每个 <code>server</code> 块定义一个虚拟服务器。  示例中 <code>http</code> 模块包含：</p>
+<ul>
+<li><p><strong><code>include mime.types;</code>:</strong>  包含 MIME 类型配置文件，用于指定不同文件扩展名的 MIME 类型。</p>
+</li>
+<li><p><strong><code>default_type application/octet-stream;</code>:</strong>  设置默认的 MIME 类型，当无法根据文件扩展名确定 MIME 类型时使用。</p>
+</li>
+<li><p><strong><code>sendfile on;</code>:</strong>  启用 <code>sendfile</code> 系统调用，提高文件传输效率。</p>
+</li>
+<li><p><strong><code>keepalive_timeout 65;</code>:</strong>  设置持久连接的超时时间 (单位：秒)。</p>
+</li>
+</ul>
+<h4 id="4-server-块：虚拟服务器配置"><a href="#4-server-块：虚拟服务器配置" class="headerlink" title="4. server 块：虚拟服务器配置"></a>4. <code>server</code> 块：虚拟服务器配置</h4><p><code>server</code> 块位于 <code>http</code> 块内，每个 <code>server</code> 块定义一个虚拟服务器，可以监听不同的端口，并配置不同的域名和路径。  示例代码中包含一个 <code>server</code> 块：</p>
+<ul>
+<li><p><strong><code>listen 80;</code>:</strong>  监听 80 端口 (HTTP 默认端口)。</p>
+</li>
+<li><p><strong><code>server_name localhost;</code>:</strong>  设置服务器名称，此处为 <code>localhost</code>，表示只监听本地请求。</p>
+</li>
+<li><p><strong><code>root /html;</code>:</strong>  设置网站根目录。</p>
+</li>
+<li><p><strong><code>index index.html index.htm;</code>:</strong>  设置默认首页文件。</p>
+</li>
+<li><p><strong><code>error_page 500 502 503 504 /50x.html;</code>:</strong>  配置自定义错误页面。</p>
+</li>
+</ul>
+<h4 id="5-location-块：URI-路径匹配"><a href="#5-location-块：URI-路径匹配" class="headerlink" title="5. location 块：URI 路径匹配"></a>5. <code>location</code> 块：URI 路径匹配</h4><p><code>location</code> 块位于 <code>server</code> 块内，用于匹配特定的 URI 路径，并对匹配的请求进行不同的处理。  示例代码中未显示 <code>location</code> 块，但它在 Nginx 配置中非常重要，用于实现 URL 重写、反向代理等功能。</p>
+<h4 id="6-stream-模块：TCP-UDP-代理"><a href="#6-stream-模块：TCP-UDP-代理" class="headerlink" title="6. stream 模块：TCP&#x2F;UDP 代理"></a>6. <code>stream</code> 模块：TCP&#x2F;UDP 代理</h4><p><code>stream</code> 模块用于配置 TCP&#x2F;UDP 代理，处理非 HTTP 协议的流量。  本示例中未涉及。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文简要介绍了 Nginx 配置文件的模块划分和关键参数。  要深入理解 Nginx 的配置，还需要参考官方文档并进行实践。  希望本文能帮助你更好地理解 Nginx 配置文件。</p>
+]]></content>
+      <categories>
+        <category>Web开发</category>
+        <category>后端技术</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>Web服务器</tag>
+        <tag>配置文件</tag>
+        <tag>教程</tag>
+      </tags>
   </entry>
   <entry>
     <title>Nginx状态码详解：运维和开发的责任边界</title>
@@ -96,6 +114,45 @@
         <tag>HTTP状态码</tag>
         <tag>运维</tag>
         <tag>开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx 简述</title>
+    <url>/nginx/Nginx%E7%AE%80%E8%BF%B0/</url>
+    <content><![CDATA[<h3 id="简述什么是-Nginx"><a href="#简述什么是-Nginx" class="headerlink" title="简述什么是 Nginx"></a>简述什么是 Nginx</h3><p>Nginx (engine x) 是一款轻量级、高性能的 HTTP 和反向代理服务器，同时也提供 IMAP&#x2F;POP3&#x2F;SMTP 服务。它以其高并发处理能力、快速响应速度和低资源消耗而闻名。</p>
+<h3 id="Nginx-的主要特点"><a href="#Nginx-的主要特点" class="headerlink" title="Nginx 的主要特点"></a>Nginx 的主要特点</h3><ul>
+<li><p><strong>高并发:</strong>  Nginx 基于异步非阻塞的事件驱动模型 (epoll)，能够同时处理数万甚至数十万个并发连接，有效提高服务器的吞吐量。</p>
+</li>
+<li><p><strong>响应快:</strong>  尤其在处理静态文件方面，Nginx 的响应速度非常快，这得益于其高效的 sendfile 系统调用。</p>
+</li>
+<li><p><strong>热部署:</strong> Nginx 支持热部署，主要体现在两个方面：</p>
+<ul>
+<li><strong>平滑升级:</strong>  可以不中断服务的情况下升级 Nginx 版本。</li>
+<li><strong>快速重载配置:</strong>  修改配置文件后，无需重启 Nginx 即可生效。</li>
+</ul>
+</li>
+<li><p><strong>高可靠:</strong>  Nginx 使用 master-worker 架构，master 进程负责管理 worker 进程，worker 进程负责处理实际请求。即使某个 worker 进程崩溃，也不会影响整个服务器的运行。</p>
+</li>
+<li><p><strong>分布式支持:</strong>  Nginx 作为反向代理服务器，可以实现七层负载均衡，将请求分发到不同的后端服务器，提高系统的可用性和可扩展性。新版本也支持四层负载均衡。</p>
+</li>
+<li><p><strong>低消耗:</strong>  Nginx 资源占用少，即使处理数万个并发请求，其内存占用也相对较低 (例如，处理 1 万个请求，内存占用可能仅为 2~3 MB)。</p>
+</li>
+</ul>
+<h3 id="Nginx-的应用场景"><a href="#Nginx-的应用场景" class="headerlink" title="Nginx 的应用场景"></a>Nginx 的应用场景</h3><ol>
+<li><p><strong>Web 服务器软件:</strong>  Nginx 可以作为独立的 Web 服务器，与 Apache、IIS、lighttpd 等同类软件竞争。</p>
+</li>
+<li><p><strong>邮件代理服务器:</strong>  Nginx 提供了 IMAP&#x2F;POP3&#x2F;SMTP 服务，可以作为邮件服务器使用。</p>
+</li>
+<li><p><strong>反向代理服务器:</strong>  Nginx 作为反向代理服务器，可以实现负载均衡 (Load Balance)，将客户端请求分发到多个后端服务器，提高系统的性能和可靠性。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/youtubhexo/obsition-images-zhangwangyan/main/20250713082626.png" alt="Nginx 反向代理示意图"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h2 id="Nginx-是一款功能强大且高效的服务器软件，广泛应用于各种-Web-应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。"><a href="#Nginx-是一款功能强大且高效的服务器软件，广泛应用于各种-Web-应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。" class="headerlink" title="Nginx 是一款功能强大且高效的服务器软件，广泛应用于各种 Web 应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。"></a>Nginx 是一款功能强大且高效的服务器软件，广泛应用于各种 Web 应用场景，其高性能、高可靠性和易用性使其成为许多大型网站和应用的首选服务器软件。</h2>]]></content>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>Web服务器</tag>
+        <tag>反向代理</tag>
+        <tag>负载均衡</tag>
       </tags>
   </entry>
 </search>
