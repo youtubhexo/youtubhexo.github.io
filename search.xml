@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Nginx 简述</title>
     <url>/nginx/Nginx%E7%AE%80%E8%BF%B0/</url>
     <content><![CDATA[<h3 id="简述什么是-Nginx"><a href="#简述什么是-Nginx" class="headerlink" title="简述什么是 Nginx"></a>简述什么是 Nginx</h3><p>Nginx (engine x) 是一款轻量级、高性能的 HTTP 和反向代理服务器，同时也提供 IMAP&#x2F;POP3&#x2F;SMTP 服务。它以其高并发处理能力、快速响应速度和低资源消耗而闻名。</p>
@@ -55,6 +37,65 @@
         <tag>Web服务器</tag>
         <tag>反向代理</tag>
         <tag>负载均衡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Nginx状态码详解：运维和开发的责任边界</title>
+    <url>/nginx/Nginx%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3-%E8%BF%90%E7%BB%B4%E5%92%8C%E5%BC%80%E5%8F%91%E7%9A%84%E8%B4%A3%E4%BB%BB%E8%BE%B9%E7%95%8C/</url>
+    <content><![CDATA[<h2 id="Nginx状态码详解：运维和开发的责任边界"><a href="#Nginx状态码详解：运维和开发的责任边界" class="headerlink" title="Nginx状态码详解：运维和开发的责任边界"></a>Nginx状态码详解：运维和开发的责任边界</h2><p>Nginx作为一款高性能的Web服务器和反向代理服务器，在处理客户端请求的过程中会返回各种HTTP状态码，这些状态码对于快速定位问题，区分运维和开发的责任至关重要。本文将对常见的Nginx状态码进行详细解释，并明确指出哪些问题归属于运维，哪些问题归属于开发。</p>
+<h3 id="1xx-信息性状态码"><a href="#1xx-信息性状态码" class="headerlink" title="1xx 信息性状态码"></a>1xx 信息性状态码</h3><p>这类状态码表示请求已被接收，继续处理。在实际应用中，1xx状态码很少见，通常不会直接返回给客户端。</p>
+<h3 id="2xx-成功状态码"><a href="#2xx-成功状态码" class="headerlink" title="2xx 成功状态码"></a>2xx 成功状态码</h3><p>这类状态码表示请求已成功被服务器接收、理解和处理。</p>
+<ul>
+<li><strong>200 OK:</strong>  请求成功，这是最常见的成功响应。</li>
+</ul>
+<h3 id="3xx-重定向状态码"><a href="#3xx-重定向状态码" class="headerlink" title="3xx 重定向状态码"></a>3xx 重定向状态码</h3><p>这类状态码表示客户端浏览器需要采取进一步的操作才能完成请求。</p>
+<ul>
+<li><strong>301 Moved Permanently:</strong>  永久重定向，通常用于URL重写，表示资源已永久移动到新的URL。</li>
+<li><strong>302 Found:</strong>  临时重定向，也常用于重写规则，但表示资源只是临时移动到新的URL。</li>
+<li><strong>304 Not Modified:</strong>  请求的资源内容没有改变，服务器返回304状态码，浏览器会使用缓存中的资源。这对于提高性能和减少服务器负载非常有效。</li>
+</ul>
+<h3 id="4xx-客户端错误状态码-运维的锅"><a href="#4xx-客户端错误状态码-运维的锅" class="headerlink" title="4xx 客户端错误状态码 (运维的锅)"></a>4xx 客户端错误状态码 (运维的锅)</h3><p>这类状态码表示客户端发出的请求有错误。  这些问题通常由客户端或Nginx的配置引起，因此责任通常在运维团队。</p>
+<ul>
+<li><strong>400 Bad Request:</strong>  错误请求，表示服务器无法理解客户端的请求。这可能是由于客户端发送了格式错误的请求，例如请求参数不完整或格式错误。  <strong>通常是运维需要检查Nginx配置或客户端请求是否正确。</strong></li>
+<li><strong>401 Unauthorized:</strong>  未授权，表示客户端没有权限访问请求的资源。这通常是因为客户端没有提供有效的身份验证信息，例如缺少或无效的API Key或会话令牌。 <strong>运维需要检查Nginx身份验证配置是否正确。</strong></li>
+<li><strong>403 Forbidden:</strong>  禁止访问，表示服务器理解客户端的请求，但拒绝执行它。这可能是由于服务器配置、权限设置或其他限制导致的。 <strong>运维需要检查Nginx的访问控制配置是否正确。</strong></li>
+<li><strong>404 Not Found:</strong>  未找到，表示服务器找不到客户端请求的资源。这可能是由于URL错误、文件不存在或资源被删除。 <strong>运维需要检查文件路径、Nginx配置以及服务器文件系统。</strong></li>
+</ul>
+<h3 id="5xx-服务器错误状态码-开发的锅"><a href="#5xx-服务器错误状态码-开发的锅" class="headerlink" title="5xx 服务器错误状态码 (开发的锅)"></a>5xx 服务器错误状态码 (开发的锅)</h3><p>这类状态码表示服务器在处理请求时发生了错误。  这些问题通常由服务器端代码或后端服务引起的，因此责任通常在开发团队。</p>
+<ul>
+<li><strong>500 Internal Server Error:</strong>  服务器内部错误，表示服务器遇到意外情况，无法完成请求。这通常是由于服务器端代码出现异常、数据库错误或其他内部问题导致的。  <strong>开发需要检查服务器端代码，排查异常和错误。</strong></li>
+<li><strong>502 Bad Gateway:</strong>  错误网关，通常出现在反向代理场景中，表示Nginx无法从后端服务器获取有效的响应。这可能是由于后端服务器宕机、超时或返回错误响应导致的。  <strong>开发需要检查后端服务器的运行状态和响应。运维也需要检查Nginx和后端服务器之间的连接配置。</strong></li>
+<li><strong>503 Service Unavailable:</strong>  服务不可用，表示服务器暂时无法处理请求，通常由于服务器维护、过载或其他原因导致。  <strong>开发需要检查服务器资源是否充足，并优化代码以提高性能。运维也需要监控服务器资源并采取相应的措施。</strong></li>
+</ul>
+<p><strong>总结:</strong></p>
+<p>通过分析HTTP状态码，我们可以快速判断问题所在，并明确运维和开发团队的责任。  记住，这只是一个通用的指导，实际情况可能需要更深入的调查和分析。  良好的监控和日志记录对于快速定位和解决问题至关重要。</p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>HTTP状态码</tag>
+        <tag>运维</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
 </search>
