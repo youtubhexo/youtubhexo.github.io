@@ -155,4 +155,30 @@
         <tag>负载均衡</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Awk 脚本编写：灵活的语句组织方式</title>
+    <url>/awk/hello/</url>
+    <content><![CDATA[<h2 id="Awk-脚本编写：灵活的语句组织方式"><a href="#Awk-脚本编写：灵活的语句组织方式" class="headerlink" title="Awk 脚本编写：灵活的语句组织方式"></a>Awk 脚本编写：灵活的语句组织方式</h2><p>Awk 是一种强大的文本处理工具，其简洁的语法和灵活的语句组织方式使得它能够高效地处理各种文本数据。本文将重点介绍 Awk 脚本中语句的组织方式，并通过示例说明其灵活性和便捷性。</p>
+<p>Awk 脚本的核心在于其模式-动作语句结构。模式定义了匹配条件，动作则指定了匹配成功后执行的操作。一个关键的特性是，Awk 允许灵活地组织这些动作语句，这使得脚本编写更加简洁或易于阅读。</p>
+<h3 id="语句组织方式："><a href="#语句组织方式：" class="headerlink" title="语句组织方式："></a>语句组织方式：</h3><p>Awk 脚本中的动作语句可以采用以下两种方式组织：</p>
+<ol>
+<li><p><strong>每行一条语句 (常规写法):</strong> 这是最常见也是最易读的方式。每条语句占据一行，清晰地展现了程序的逻辑流程。</p>
+<pre><code class="language-awk">&#123;
+    print $1  # 打印第一列
+    print $NF # 打印最后一列
+&#125;
+</code></pre>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Programming</category>
+        <category>Awk</category>
+      </categories>
+      <tags>
+        <tag>awk</tag>
+        <tag>scripting</tag>
+        <tag>text processing</tag>
+      </tags>
+  </entry>
 </search>
