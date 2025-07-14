@@ -209,7 +209,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhangwangyan.com/awk/hello/">
+    <link itemprop="mainEntityOfPage" href="https://zhangwangyan.com/awk/Awk-%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99-%E7%81%B5%E6%B4%BB%E7%9A%84%E8%AF%AD%E5%8F%A5%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/awk/hello/" class="post-title-link" itemprop="url">Awk 脚本编写：灵活的语句组织方式</a>
+          <a href="/awk/Awk-%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99-%E7%81%B5%E6%B4%BB%E7%9A%84%E8%AF%AD%E5%8F%A5%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Awk 脚本编写：灵活的语句组织方式</a>
         </h2>
 
         <div class="post-meta-container">
@@ -239,7 +239,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-07-14 14:20:00 / Modified: 14:20:42" itemprop="dateCreated datePublished" datetime="2025-07-14T14:20:00+08:00">2025-07-14</time>
+      <time title="Created: 2025-07-14 14:20:00 / Modified: 14:24:24" itemprop="dateCreated datePublished" datetime="2025-07-14T14:20:00+08:00">2025-07-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,18 +265,41 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Awk-脚本编写：灵活的语句组织方式"><a href="#Awk-脚本编写：灵活的语句组织方式" class="headerlink" title="Awk 脚本编写：灵活的语句组织方式"></a>Awk 脚本编写：灵活的语句组织方式</h2><p>Awk 是一种强大的文本处理工具，其简洁的语法和灵活的语句组织方式使得它能够高效地处理各种文本数据。本文将重点介绍 Awk 脚本中语句的组织方式，并通过示例说明其灵活性和便捷性。</p>
-<p>Awk 脚本的核心在于其模式-动作语句结构。模式定义了匹配条件，动作则指定了匹配成功后执行的操作。一个关键的特性是，Awk 允许灵活地组织这些动作语句，这使得脚本编写更加简洁或易于阅读。</p>
-<h3 id="语句组织方式："><a href="#语句组织方式：" class="headerlink" title="语句组织方式："></a>语句组织方式：</h3><p>Awk 脚本中的动作语句可以采用以下两种方式组织：</p>
+          <h3 id="Awk-脚本编写：灵活的语句组织方式"><a href="#Awk-脚本编写：灵活的语句组织方式" class="headerlink" title="Awk 脚本编写：灵活的语句组织方式"></a>Awk 脚本编写：灵活的语句组织方式</h3><p>Awk 是一种强大的文本处理工具，其简洁的语法和灵活的语句组织方式使得它能够高效地处理各种文本数据。本文将重点介绍 Awk 脚本中语句的组织方式，并通过示例说明其灵活性和便捷性。</p>
+<p>Awk 脚本的核心在于其模式-动作语句结构。模式定义了匹配条件，动作则指定了匹配成功后执行的操作。  一个关键的特性是，Awk 允许灵活地组织这些动作语句，这使得脚本编写更加简洁或易于阅读。</p>
+<p><strong>语句组织方式：</strong></p>
+<p>Awk 脚本中的动作语句可以采用以下两种方式组织：</p>
 <ol>
 <li><p><strong>每行一条语句 (常规写法):</strong> 这是最常见也是最易读的方式。每条语句占据一行，清晰地展现了程序的逻辑流程。</p>
-<pre><code class="language-awk">&#123;
-    print $1  # 打印第一列
-    print $NF # 打印最后一列
-&#125;
-</code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    print <span class="variable">$1</span>  <span class="comment"># 打印第一列</span></span><br><span class="line">    print <span class="variable">$NF</span> <span class="comment"># 打印最后一列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>一行多条语句 (使用分号):</strong>  为了提高代码的紧凑性，可以将多条语句写在同一行，用分号 <code>;</code> 分隔。这在处理简单的操作时尤其方便。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; print <span class="variable">$1</span>; print <span class="variable">$NF</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码与第一种方式的效果完全相同，只是将两条语句写在了同一行。</p>
 </li>
 </ol>
+<p><strong>分号的灵活使用：</strong></p>
+<p>在语句的末尾添加多余的分号不会导致错误。Awk 会忽略这些多余的分号。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; print <span class="variable">$1</span>; print <span class="variable">$NF</span>;; &#125;  <span class="comment"># 最后一个分号被忽略</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例：处理国家数据</strong></p>
+<p>假设我们有一个名为 <code>countries</code> 的文件，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">France 211 55 Europe</span><br><span class="line">Japan 144 120 Asia</span><br><span class="line">Germany 96 61 Europe</span><br><span class="line">England 94 56 Europe</span><br></pre></td></tr></table></figure>
+
+<p>我们想打印每个国家的名称和所属的大洲。可以使用以下两种 Awk 脚本：</p>
+<p><strong>方法一 (每行一条语句):</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    print <span class="variable">$1</span></span><br><span class="line">    print <span class="variable">$4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二 (一行多条语句):</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; print <span class="variable">$1</span>; print <span class="variable">$4</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>两种方法的输出结果都相同：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">France</span><br><span class="line">Europe</span><br><span class="line">Japan</span><br><span class="line">Asia</span><br><span class="line">Germany</span><br><span class="line">Europe</span><br><span class="line">England</span><br><span class="line">Europe</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>总结：</strong></p>
+<p>Awk 提供了灵活的语句组织方式，既支持每行一条语句的清晰风格，也支持一行多条语句的紧凑风格。  使用分号分隔多条语句可以使代码更简洁，而多余的分号不会影响程序的执行。选择哪种方式取决于程序的复杂性和个人偏好，关键在于保持代码的可读性和可维护性。  合理运用这些特性，可以编写出更有效率和易于理解的 Awk 脚本。</p>
 
       
     </div>
